@@ -1,7 +1,8 @@
 import { NextRequest } from "next/server";
-import { handle, requireSession } from "@/lib/api";
+import { ApiError, handle, requireSession } from "@/lib/api";
 import { prisma } from "@/lib/prisma";
 import { isSyncing, startSync } from "@/lib/sync";
+import { isDemoAccount } from "@/lib/demo";
 
 export const dynamic = "force-dynamic";
 
@@ -28,6 +29,13 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   return handle(async () => {
     const session = await requireSession();
+
+    if (await isDemoAccount(session.accountId)) {
+      throw new ApiError(
+        "デモモードでは Gmail と同期できません。README の手順で Google 連携を設定してください。"
+      );
+    }
+
     const full = request.nextUrl.searchParams.get("full") === "1";
 
     const started = startSync(session.accountId, { full });

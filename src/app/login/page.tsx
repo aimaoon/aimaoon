@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { getSession } from "@/lib/session";
 import { checkConfig } from "@/lib/env";
+import { isDemoModeEnabled } from "@/lib/demo";
 
 export default async function LoginPage({
   searchParams,
@@ -12,6 +13,7 @@ export default async function LoginPage({
 
   const { error } = await searchParams;
   const config = checkConfig();
+  const demoAvailable = isDemoModeEnabled() && config.sessionReady;
 
   return (
     <main className="min-h-screen flex items-center justify-center p-6">
@@ -65,6 +67,28 @@ export default async function LoginPage({
               </p>
               <p className="mt-2">
                 README.md の「セットアップ手順」に従って <code className="font-mono text-xs">.env</code> を作成してください。
+              </p>
+            </div>
+          )}
+
+          {demoAvailable && (
+            <div className="mt-4 border-t border-[var(--border)] pt-4">
+              <a
+                href="/api/auth/demo"
+                className="flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-[var(--border)] px-4 py-2.5 text-sm transition hover:bg-[var(--surface-2)]"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+                  <path
+                    d="M8 5.5v13l10-6.5-10-6.5Z"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                サンプルデータで試す
+              </a>
+              <p className="mt-2 text-center text-[11px] leading-relaxed text-[var(--text-muted)]">
+                Google の設定なしで画面を触れます。Gmail には接続しません。
               </p>
             </div>
           )}

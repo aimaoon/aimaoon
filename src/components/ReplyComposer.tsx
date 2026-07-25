@@ -12,11 +12,14 @@ export function ReplyComposer({
   contactEmail,
   agents,
   defaultAgentId,
+  demo = false,
 }: {
   ticketId: number;
   contactEmail: string;
   agents: AgentOption[];
   defaultAgentId: string | null;
+  /** デモモード（実際には送信されない）かどうか */
+  demo?: boolean;
 }) {
   const router = useRouter();
   const [mode, setMode] = useState<Mode>("reply");
@@ -94,7 +97,11 @@ export function ReplyComposer({
         </button>
 
         <span className="ml-auto text-[11px] text-[var(--text-muted)]">
-          {isNote ? "顧客には送信されません" : `宛先: ${contactEmail}`}
+          {isNote
+            ? "顧客には送信されません"
+            : demo
+              ? `宛先: ${contactEmail}（デモのため実際には送信されません）`
+              : `宛先: ${contactEmail}`}
         </span>
       </div>
 
@@ -161,6 +168,7 @@ export function ReplyComposer({
       {!isNote && (
         <p className="mt-1.5 text-[11px] leading-snug text-[var(--text-muted)]">
           ここから送信すると、送信者が「{author?.name ?? "未選択"}」として確実に記録されます。
+          {demo && " デモモードのため、メールは実際には送られず記録だけが残ります。"}
         </p>
       )}
     </div>

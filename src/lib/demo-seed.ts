@@ -1,47 +1,55 @@
+import { prisma } from "./prisma";
+
 /**
- * 動作確認用のデモデータを投入します。Gmail に接続しなくても画面を試せます。
+ * デモ用のサンプル会話を作ります。Gmail には接続しません。
  *
- *   node scripts/seed-demo.mjs
- *
- * 実際の Gmail と同期する前に、画面の見え方を確認する用途を想定しています。
- * デモデータだけを消したいときは:  node scripts/seed-demo.mjs --reset
+ * 「共有アドレスを複数人で使うと誰が返信したか分からなくなる」問題が
+ * そのまま再現されるように作ってあります:
+ *   - 自分がこのアプリから送った返信      → 送信者が確実に記録されている
+ *   - 齊藤さんが Gmail の委任送信で返信   → Sender ヘッダーから自動判別できる
+ *   - 誰かが Gmail から直接返信           → 手がかりが無く「送信者不明」になる
  */
-import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
 const DEMO_PREFIX = "demo-";
+const SUPPORT = "support@example.com";
 
-async function reset() {
+export async function resetDemoData(): Promise<number> {
   const tickets = await prisma.ticket.findMany({
     where: { gmailThreadId: { startsWith: DEMO_PREFIX } },
     select: { id: true },
   });
   const ids = tickets.map((t) => t.id);
-  await prisma.ticket.deleteMany({ where: { id: { in: ids } } });
-  await prisma.contact.deleteMany({ where: { email: { endsWith: "@example.co.jp" } } });
-  console.log(`デモチケット ${ids.length} 件を削除しました。`);
+  if (ids.length > 0) {
+    await prisma.ticket.deleteMany({ where: { id: { in: ids } } });
+  }
+  await prisma.contact.deleteMany({
+    where: { email: { endsWith: "@example.co.jp" }, tickets: { none: {} } },
+  });
+  return ids.length;
 }
 
-async function main() {
-  if (process.argv.includes("--reset")) {
-    await reset();
-    return;
-  }
-
-  await reset();
-
-  // ── 担当者 ───────────────────────────────────────────────────
-  const me = await prisma.agentIdentity.upsert({
-    where: { email: "me@example.com" },
-    create: { name: "自分", email: "me@example.com", isMe: true, color: "#2a56c4" },
-    update: { isMe: true },
+export async function hasDemoData(): Promise<boolean> {
+  const count = await prisma.ticket.count({
+    where: { gmailThreadId: { startsWith: DEMO_PREFIX } },
   });
+  return count > 0;
+}
 
-  const saito = await prisma.agentIdentity.upsert({
-    where: { email: "saito@example.com" },
-    create: { name: "齊藤", email: "saito@example.com", color: "#0f8a6a" },
-    update: {},
-  });
+export async function seedDemoData(): Promise<{ tickets: number }> {
+  await resetDemoData();
+
+  // ── 担当者 ─────────────────────────────────────────────────
+  const me =
+    (await prisma.agentIdentity.findFirst({ where: { isMe: true } })) ??
+    (await prisma.agentIdentity.create({
+      data: { name: "自分", email: "me@example.com", isMe: true, color: "#2a56c4" },
+    }));
+
+  const saito =
+    (await prisma.agentIdentity.findUnique({ where: { email: "saito@example.com" } })) ??
+    (await prisma.agentIdentity.create({
+      data: { name: "齊藤", email: "saito@example.com", color: "#0f8a6a" },
+    }));
 
   await prisma.attributionRule.upsert({
     where: { kind_pattern: { kind: "DELEGATE_EMAIL", pattern: "saito@example.com" } },
@@ -55,10 +63,14 @@ async function main() {
     update: {},
   });
 
-  // ── 顧客 ─────────────────────────────────────────────────────
+  // ── 顧客 ───────────────────────────────────────────────────
   const tanaka = await prisma.contact.upsert({
     where: { email: "tanaka@example.co.jp" },
-    create: { email: "tanaka@example.co.jp", name: "田中 花子", company: "株式会社サンプル" },
+    create: {
+      email: "tanaka@example.co.jp",
+      name: "田中 花子",
+      company: "株式会社サンプル",
+    },
     update: {},
   });
 
@@ -70,12 +82,10 @@ async function main() {
 
   const day = 24 * 60 * 60 * 1000;
   const now = Date.now();
-  const at = (daysAgo, hours = 10) =>
-    new Date(now - daysAgo * day + hours * 60 * 60 * 1000 - 10 * 60 * 60 * 1000);
+  const at = (daysAgo: number, hours = 10) =>
+    new Date(now - daysAgo * day + (hours - 10) * 60 * 60 * 1000);
 
-  const support = "support@example.com";
-
-  /* ── チケット 1: 複数人が対応した会話（本題のケース）──────────── */
+  /* ── チケット 1: 3人が入り混じった会話（このアプリの本題）──── */
   const ticket1 = await prisma.ticket.create({
     data: {
       gmailThreadId: `${DEMO_PREFIX}thread-1`,
@@ -93,7 +103,7 @@ async function main() {
     },
   });
 
-  const messages = [
+  const thread1 = [
     {
       direction: "INBOUND",
       fromEmail: tanaka.email,
@@ -104,10 +114,16 @@ async function main() {
       bodyText:
         "お世話になっております。株式会社サンプルの田中です。\n先月分の請求書を紛失してしまいました。再発行していただくことは可能でしょうか。",
       snippet: "お世話になっております。株式会社サンプルの田中です。先月分の請求書を紛失してしまい…",
+      senderEmail: null,
+      authorAgentId: null,
+      attributionMethod: "UNKNOWN",
+      attributionLocked: false,
+      sentViaApp: false,
     },
     {
+      // このアプリから送信 → 送信者が確実に残る
       direction: "OUTBOUND",
-      fromEmail: support,
+      fromEmail: SUPPORT,
       fromName: "サポート窓口",
       senderEmail: me.email,
       sentAt: at(6, 14),
@@ -117,7 +133,8 @@ async function main() {
       sentViaApp: true,
       bodyHtml:
         '<div style="white-space:pre-wrap">田中様\n\nお問い合わせありがとうございます。\n請求書の再発行を承りました。3営業日ほどでお送りいたします。</div><div style="color:#667085;margin-top:16px">--<br>自分</div>',
-      bodyText: "田中様\nお問い合わせありがとうございます。請求書の再発行を承りました。\n\n--\n自分",
+      bodyText:
+        "田中様\nお問い合わせありがとうございます。請求書の再発行を承りました。\n\n--\n自分",
       snippet: "田中様 お問い合わせありがとうございます。請求書の再発行を承りました。",
     },
     {
@@ -127,32 +144,43 @@ async function main() {
       sentAt: at(3),
       bodyHtml:
         '<div style="white-space:pre-wrap">ご連絡ありがとうございます。\n\n恐れ入りますが、宛名を「株式会社サンプル 経理部」に変更していただけますでしょうか。</div>',
-      bodyText: "ご連絡ありがとうございます。恐れ入りますが、宛名を「株式会社サンプル 経理部」に変更していただけますでしょうか。",
+      bodyText:
+        "ご連絡ありがとうございます。恐れ入りますが、宛名を「株式会社サンプル 経理部」に変更していただけますでしょうか。",
       snippet: "ご連絡ありがとうございます。恐れ入りますが、宛名を変更していただけますでしょうか。",
+      senderEmail: null,
+      authorAgentId: null,
+      attributionMethod: "UNKNOWN",
+      attributionLocked: false,
+      sentViaApp: false,
     },
     {
-      // Gmail の委任送信 → Sender ヘッダーから齊藤さんと判別できる
+      // Gmail の委任送信 → Sender ヘッダーから齊藤さんと判別
       direction: "OUTBOUND",
-      fromEmail: support,
+      fromEmail: SUPPORT,
       fromName: "サポート窓口",
       senderEmail: saito.email,
       sentAt: at(2, 11),
       authorAgentId: saito.id,
       attributionMethod: "DELEGATE_HEADER",
+      attributionLocked: false,
+      sentViaApp: false,
       bodyHtml:
         '<div style="white-space:pre-wrap">田中様\n\n本日担当しております齊藤です。\n宛名の変更承りました。修正版をお送りいたします。</div>',
-      bodyText: "田中様\n本日担当しております齊藤です。宛名の変更承りました。修正版をお送りいたします。\n\n齊藤\nサンプル株式会社 サポート部",
+      bodyText:
+        "田中様\n本日担当しております齊藤です。宛名の変更承りました。修正版をお送りいたします。\n\n齊藤\nサンプル株式会社 サポート部",
       snippet: "田中様 本日担当しております齊藤です。宛名の変更承りました。",
     },
     {
       // Gmail から直接送信され、手がかりが無い → 「送信者不明」
       direction: "OUTBOUND",
-      fromEmail: support,
+      fromEmail: SUPPORT,
       fromName: "サポート窓口",
       senderEmail: null,
       sentAt: at(1, 15),
       authorAgentId: null,
       attributionMethod: "UNKNOWN",
+      attributionLocked: false,
+      sentViaApp: false,
       bodyHtml:
         '<div style="white-space:pre-wrap">田中様\n\n請求書をお送りいたしました。ご確認ください。\n\n引き続きよろしくお願いいたします。</div>',
       bodyText:
@@ -161,7 +189,7 @@ async function main() {
     },
   ];
 
-  for (const [i, m] of messages.entries()) {
+  for (const [i, m] of thread1.entries()) {
     await prisma.message.create({
       data: {
         gmailMessageId: `${DEMO_PREFIX}msg-1-${i}`,
@@ -170,7 +198,7 @@ async function main() {
         headerMessageId: `<${DEMO_PREFIX}1-${i}@example.com>`,
         subject: ticket1.subject,
         toJson: JSON.stringify([
-          { name: null, email: m.direction === "INBOUND" ? support : tanaka.email },
+          { name: null, email: m.direction === "INBOUND" ? SUPPORT : tanaka.email },
         ]),
         labelsJson: JSON.stringify(m.direction === "INBOUND" ? ["INBOX"] : ["SENT"]),
         ...m,
@@ -181,7 +209,7 @@ async function main() {
       data: {
         ticketId: ticket1.id,
         type: m.direction === "INBOUND" ? "MESSAGE_RECEIVED" : "MESSAGE_SENT",
-        actorId: m.authorAgentId ?? null,
+        actorId: m.authorAgentId,
         actorLabel:
           m.direction === "INBOUND"
             ? "田中 花子"
@@ -203,7 +231,7 @@ async function main() {
     },
   });
 
-  /* ── チケット 2: 未返信の新規問い合わせ ─────────────────────── */
+  /* ── チケット 2: 未返信の新規問い合わせ ─────────────────── */
   const ticket2 = await prisma.ticket.create({
     data: {
       gmailThreadId: `${DEMO_PREFIX}thread-2`,
@@ -228,16 +256,27 @@ async function main() {
       fromName: "鈴木 一郎",
       subject: ticket2.subject,
       sentAt: at(0, 9),
-      toJson: JSON.stringify([{ name: null, email: support }]),
+      toJson: JSON.stringify([{ name: null, email: SUPPORT }]),
       labelsJson: JSON.stringify(["INBOX", "UNREAD"]),
       bodyHtml:
         '<div style="white-space:pre-wrap">パスワードリセットのメールが届きません。\n迷惑メールフォルダも確認しましたが見当たりませんでした。</div>',
-      bodyText: "パスワードリセットのメールが届きません。迷惑メールフォルダも確認しましたが見当たりませんでした。",
+      bodyText:
+        "パスワードリセットのメールが届きません。迷惑メールフォルダも確認しましたが見当たりませんでした。",
       snippet: "パスワードリセットのメールが届きません。迷惑メールフォルダも確認しましたが…",
     },
   });
 
-  /* ── チケット 3: 解決済み ───────────────────────────────────── */
+  await prisma.activityLog.create({
+    data: {
+      ticketId: ticket2.id,
+      type: "MESSAGE_RECEIVED",
+      actorLabel: "鈴木 一郎",
+      detailJson: JSON.stringify({ subject: ticket2.subject }),
+      createdAt: at(0, 9),
+    },
+  });
+
+  /* ── チケット 3: 解決済み ───────────────────────────────── */
   const ticket3 = await prisma.ticket.create({
     data: {
       gmailThreadId: `${DEMO_PREFIX}thread-3`,
@@ -262,7 +301,8 @@ async function main() {
         fromName: "田中 花子",
         subject: ticket3.subject,
         sentAt: at(20),
-        bodyHtml: '<div style="white-space:pre-wrap">配送先の住所を変更したいのですが、どこから手続きできますか。</div>',
+        bodyHtml:
+          '<div style="white-space:pre-wrap">配送先の住所を変更したいのですが、どこから手続きできますか。</div>',
         bodyText: "配送先の住所を変更したいのですが、どこから手続きできますか。",
         snippet: "配送先の住所を変更したいのですが、どこから手続きできますか。",
       },
@@ -271,28 +311,20 @@ async function main() {
         gmailThreadId: ticket3.gmailThreadId,
         ticketId: ticket3.id,
         direction: "OUTBOUND",
-        fromEmail: support,
+        fromEmail: SUPPORT,
         fromName: "サポート窓口",
         senderEmail: saito.email,
         subject: `Re: ${ticket3.subject}`,
         sentAt: at(19),
         authorAgentId: saito.id,
         attributionMethod: "DELEGATE_HEADER",
-        bodyHtml: '<div style="white-space:pre-wrap">マイページの「お届け先設定」から変更いただけます。</div>',
+        bodyHtml:
+          '<div style="white-space:pre-wrap">マイページの「お届け先設定」から変更いただけます。</div>',
         bodyText: "マイページの「お届け先設定」から変更いただけます。\n\n齊藤",
         snippet: "マイページの「お届け先設定」から変更いただけます。",
       },
     ],
   });
 
-  console.log("デモデータを投入しました:");
-  console.log("  チケット 3 件 / 担当者 2 名");
-  console.log("  #%d は齊藤さんの返信 1 通と『送信者不明』の返信 1 通を含みます", ticket1.id);
+  return { tickets: 3 };
 }
-
-main()
-  .catch((e) => {
-    console.error(e);
-    process.exitCode = 1;
-  })
-  .finally(() => prisma.$disconnect());

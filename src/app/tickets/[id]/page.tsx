@@ -7,6 +7,7 @@ import { ReplyComposer } from "@/components/ReplyComposer";
 import { TicketControls } from "@/components/TicketControls";
 import { MessageAuthorPicker } from "@/components/MessageAuthorPicker";
 import { suggestSignaturePatterns } from "@/lib/attribution";
+import { isDemoAccount } from "@/lib/demo";
 import {
   ACTIVITY_LABELS,
   formatBytes,
@@ -65,6 +66,8 @@ export default async function TicketDetailPage({
   if (ticket.unread) {
     await prisma.ticket.update({ where: { id: ticket.id }, data: { unread: false } });
   }
+
+  const demo = await isDemoAccount(session.accountId);
 
   const agents = await prisma.agentIdentity.findMany({
     where: { active: true },
@@ -332,6 +335,7 @@ export default async function TicketDetailPage({
           contactEmail={ticket.contact.email}
           agents={agentOptions}
           defaultAgentId={meId}
+          demo={demo}
         />
       </div>
 

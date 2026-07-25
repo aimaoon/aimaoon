@@ -79,10 +79,13 @@ export function Sidebar({
   counts,
   agents,
   accountEmail,
+  demo = false,
 }: {
   counts: SidebarCounts;
   agents: SidebarAgent[];
   accountEmail: string;
+  /** デモモード中は Gmail 同期ボタンを出さない */
+  demo?: boolean;
 }) {
   const params = useSearchParams();
   const pathname = usePathname();
@@ -179,7 +182,13 @@ export function Sidebar({
       </nav>
 
       <div className="border-t border-[var(--border)] p-2">
-        <SyncButton />
+        {demo ? (
+          <p className="px-3 py-2 text-[11px] leading-snug text-[var(--text-muted)]">
+            デモモードのため Gmail 同期は行いません。
+          </p>
+        ) : (
+          <SyncButton />
+        )}
         <Link
           href="/settings"
           className={`mt-1 flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition hover:bg-[var(--surface-2)] ${

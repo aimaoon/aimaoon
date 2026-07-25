@@ -1,14 +1,18 @@
 /**
  * API の結合テスト。
  *
- *   npm run dev          # 別のターミナルで起動しておく
- *   npm run seed:demo    # デモデータを入れる
+ *   npm run dev      # 別のターミナルで起動しておく
  *   npm run test:api
  *
- * Gmail への送信だけは実際のアカウントが必要なため、ここでは検証していません。
+ * サンプルデータは毎回入れ直すので、事前準備は不要です。
+ * Gmail への実送信だけは本物のアカウントが必要なため検証対象外です。
  */
+import { execSync } from "node:child_process";
 import { PrismaClient } from "@prisma/client";
 import { createTestSession } from "./session.mjs";
+
+// テストが前回の実行結果に影響されないよう、毎回まっさらなサンプルデータから始める
+execSync("npm run seed:demo", { stdio: "pipe" });
 
 const prisma = new PrismaClient();
 const { cookie } = await createTestSession(prisma);

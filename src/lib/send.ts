@@ -1,9 +1,10 @@
 import { prisma } from "./prisma";
-import { getGmail, getOwnAddresses } from "./google";
+import { getGmail } from "./google";
 import { withRetry } from "./concurrency";
 import { textToHtml } from "./mime";
 import { recomputeTicket } from "./sync";
 import { ATTRIBUTION_METHODS } from "./attribution";
+import { isDemoAccount } from "./demo";
 
 /** 非 ASCII を含むヘッダー値を RFC 2047 でエンコードする（日本語の件名・氏名用） */
 function encodeHeaderValue(value: string): string {
@@ -92,7 +93,11 @@ export type SendReplyParams = {
   cc?: string[];
 };
 
-export async function sendReply(params: SendReplyParams): Promise<{ messageId: string }> {
+export async function sendReply(
+  params: SendReplyParams
+): Promise<{ messageId: string; demo: boolean }> {
+  const demo = await isDemoAccount(params.accountId);
+
   const ticket = await prisma.ticket.findUnique({
     where: { id: params.ticketId },
     include: { contact: true },
@@ -147,25 +152,34 @@ export async function sendReply(params: SendReplyParams): Promise<{ messageId: s
     references: references || null,
   });
 
-  const gmail = await getGmail(params.accountId);
-  const res = await withRetry(
-    () =>
-      gmail.users.messages.send({
-        userId: "me",
-        requestBody: {
-          raw: toBase64Url(raw),
-          threadId: ticket.gmailThreadId,
-        },
-      }),
-    { label: "メール送信" }
-  );
+  let sentId: string;
 
-  const sentId = res.data.id;
-  if (!sentId) throw new Error("送信は完了しましたが、メール ID を取得できませんでした。");
+  if (demo) {
+    // デモモードでは Gmail を一切呼ばない。
+    // 「アプリから送ると送信者が確実に記録される」動きだけを再現する。
+    sentId = `demo-sent-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+  } else {
+    const gmail = await getGmail(params.accountId);
+    const res = await withRetry(
+      () =>
+        gmail.users.messages.send({
+          userId: "me",
+          requestBody: {
+            raw: toBase64Url(raw),
+            threadId: ticket.gmailThreadId,
+          },
+        }),
+      { label: "メール送信" }
+    );
+
+    if (!res.data.id) {
+      throw new Error("送信は完了しましたが、メール ID を取得できませんでした。");
+    }
+    sentId = res.data.id;
+  }
 
   // 送信直後に自分でレコードを作る。
   // ここで authorAgentId を確実に記録するので、後の同期で「送信者不明」にならない。
-  const ownAddresses = await getOwnAddresses(params.accountId);
   const existing = await prisma.message.findUnique({
     where: { gmailMessageId: sentId },
   });
@@ -204,7 +218,7 @@ export async function sendReply(params: SendReplyParams): Promise<{ messageId: s
       detailJson: JSON.stringify({
         subject,
         to: recipient,
-        via: "app",
+        via: demo ? "demo（実送信なし）" : "app",
         gmailMessageId: sentId,
       }),
     },
@@ -219,7 +233,6 @@ export async function sendReply(params: SendReplyParams): Promise<{ messageId: s
   }
 
   await recomputeTicket(ticket.gmailThreadId);
-  void ownAddresses; // 将来のエイリアス送信対応のために取得している
 
-  return { messageId: sentId };
+  return { messageId: sentId, demo };
 }

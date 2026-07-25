@@ -41,13 +41,22 @@ export const env = {
 };
 
 /** 設定が一通り揃っているか（設定漏れ画面の出し分けに使う） */
-export function checkConfig(): { ok: boolean; missing: string[] } {
+export function checkConfig(): {
+  ok: boolean;
+  missing: string[];
+  /** デモモードに必要な最低限（SESSION_SECRET だけ）が揃っているか */
+  sessionReady: boolean;
+} {
   const missing: string[] = [];
   for (const key of ["GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "SESSION_SECRET"]) {
     if (!process.env[key]) missing.push(key);
   }
-  if (process.env.SESSION_SECRET && process.env.SESSION_SECRET.length < 32) {
+
+  const secret = process.env.SESSION_SECRET;
+  const secretOk = Boolean(secret && secret.length >= 32);
+  if (secret && secret.length < 32) {
     missing.push("SESSION_SECRET（32文字以上にしてください）");
   }
-  return { ok: missing.length === 0, missing };
+
+  return { ok: missing.length === 0, missing, sessionReady: secretOk };
 }
