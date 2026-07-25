@@ -1,0 +1,232 @@
+// メール管理アプリのデータモデル（SQLite）
+//
+// 設計の要点:
+//  - Gmail のスレッド 1 本 = チケット 1 件（Ticket.gmailThreadId）
+//  - 「誰が返信したか」は Message.authorAgent + attributionMethod で必ず追跡できる
+//  - 判別ロジックは AttributionRule に蓄積され、手動で直すたびに賢くなる
+//  - 操作の履歴はすべて ActivityLog に残る
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/// Google でログインしたアカウント（＝共有サポート用 Gmail）
+model Account {
+  id           String    @id @default(cuid())
+  googleId     String    @unique
+  email        String    @unique
+  name         String?
+  picture      String?
+  accessToken  String
+  refreshToken String?
+  expiresAt    DateTime?
+  scope        String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  syncState SyncState?
+}
+
+/// Gmail 同期の進捗。historyId で差分同期する
+model SyncState {
+  id            String    @id @default(cuid())
+  accountId     String    @unique
+  account       Account   @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  lastHistoryId String?
+  lastSyncedAt  DateTime?
+  initialDone   Boolean   @default(false)
+  running       Boolean   @default(false)
+  lastError     String?
+  importedCount Int       @default(0)
+  startedAt     DateTime?
+  progressNote  String?
+}
+
+/// 問い合わせ元の顧客
+model Contact {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  company   String?
+  note      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tickets Ticket[]
+}
+
+/// 社内の担当者。共有アドレスから返信しうる人を登録しておく
+model AgentIdentity {
+  id        String   @id @default(cuid())
+  name      String
+  /// 個人のメールアドレス（Gmail の委任送信の Sender ヘッダーと突き合わせる）
+  email     String?  @unique
+  /// UI 上の識別色（#rrggbb）
+  color     String   @default("#3b6fe0")
+  /// ログイン中の本人かどうか
+  isMe      Boolean  @default(false)
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  rules            AttributionRule[]
+  authoredMessages Message[]         @relation("MessageAuthor")
+  assignedTickets  Ticket[]          @relation("TicketAssignee")
+  notes            Note[]
+  activities       ActivityLog[]
+}
+
+/// 送信者を自動判別するためのルール。手動で直すと LEARNED として自動追加される
+model AttributionRule {
+  id        String        @id @default(cuid())
+  agentId   String
+  agent     AgentIdentity @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  /// DELEGATE_EMAIL | SIGNATURE_CONTAINS | FROM_NAME
+  kind      String
+  /// 照合する文字列（小文字化して比較）
+  pattern   String
+  /// 小さいほど優先
+  priority  Int           @default(100)
+  /// MANUAL | LEARNED
+  source    String        @default("MANUAL")
+  hitCount  Int           @default(0)
+  createdAt DateTime      @default(now())
+
+  @@unique([kind, pattern])
+  @@index([kind])
+}
+
+/// 1 スレッド = 1 チケット
+model Ticket {
+  /// そのままチケット番号として使う
+  id            Int     @id @default(autoincrement())
+  gmailThreadId String  @unique
+  subject       String
+  contactId     String
+  contact       Contact @relation(fields: [contactId], references: [id])
+
+  /// OPEN | PENDING | SOLVED | CLOSED
+  status     String         @default("OPEN")
+  /// LOW | NORMAL | HIGH | URGENT
+  priority   String         @default("NORMAL")
+  assigneeId String?
+  assignee   AgentIdentity? @relation("TicketAssignee", fields: [assigneeId], references: [id], onDelete: SetNull)
+
+  /// JSON 配列の文字列
+  tagsJson String @default("[]")
+
+  firstMessageAt DateTime
+  lastMessageAt  DateTime
+  lastInboundAt  DateTime?
+  lastOutboundAt DateTime?
+  messageCount   Int       @default(0)
+  /// 顧客からの新着があり、まだ開いていない
+  unread         Boolean   @default(true)
+  /// 顧客の最新メールに未返信
+  awaitingReply  Boolean   @default(false)
+  /// この会話に複数の社内メンバーが関与している
+  multiAgent     Boolean   @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  messages   Message[]
+  notes      Note[]
+  activities ActivityLog[]
+
+  @@index([status, lastMessageAt])
+  @@index([lastMessageAt])
+  @@index([contactId])
+}
+
+/// 1 通のメール
+model Message {
+  id             String @id @default(cuid())
+  gmailMessageId String @unique
+  gmailThreadId  String
+  ticketId       Int
+  ticket         Ticket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+
+  /// INBOUND（顧客→自社） | OUTBOUND（自社→顧客）
+  direction String
+
+  headerMessageId String?
+  inReplyTo       String?
+  referencesRaw   String?
+
+  fromEmail   String
+  fromName    String?
+  /// Sender ヘッダー。Gmail の代理送信（委任）ではここに実際の送信者が入る
+  senderEmail String?
+  replyTo     String?
+  toJson      String  @default("[]")
+  ccJson      String  @default("[]")
+  bccJson     String  @default("[]")
+
+  subject    String?
+  snippet    String?
+  /// サニタイズ済み HTML（本文の主要部分）
+  bodyHtml   String?
+  /// 返信で自動的に付く引用部分（折りたたんで表示）
+  quotedHtml String?
+  bodyText   String?
+
+  sentAt DateTime
+
+  /// 社内の誰が送ったか（OUTBOUND のみ）
+  authorAgentId     String?
+  authorAgent       AgentIdentity? @relation("MessageAuthor", fields: [authorAgentId], references: [id], onDelete: SetNull)
+  /// APP | DELEGATE_HEADER | SIGNATURE_RULE | FROM_NAME | MANUAL | UNKNOWN
+  attributionMethod String         @default("UNKNOWN")
+  /// 手動で直された場合 true（以後の自動判別で上書きしない）
+  attributionLocked Boolean        @default(false)
+
+  /// このアプリから送信したか
+  sentViaApp Boolean @default(false)
+
+  hasAttachments  Boolean @default(false)
+  attachmentsJson String  @default("[]")
+  labelsJson      String  @default("[]")
+
+  createdAt DateTime @default(now())
+
+  @@index([ticketId, sentAt])
+  @@index([gmailThreadId])
+  @@index([direction, authorAgentId])
+}
+
+/// 顧客には見えない社内メモ
+model Note {
+  id        String         @id @default(cuid())
+  ticketId  Int
+  ticket    Ticket         @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  authorId  String?
+  author    AgentIdentity? @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  body      String
+  createdAt DateTime       @default(now())
+
+  @@index([ticketId, createdAt])
+}
+
+/// 誰が・いつ・何をしたかの履歴
+model ActivityLog {
+  id         String         @id @default(cuid())
+  ticketId   Int
+  ticket     Ticket         @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  /// TICKET_CREATED | MESSAGE_RECEIVED | MESSAGE_SENT | STATUS_CHANGED |
+  /// ASSIGNED | PRIORITY_CHANGED | NOTE_ADDED | AUTHOR_SET | TAGS_CHANGED
+  type       String
+  actorId    String?
+  actor      AgentIdentity? @relation(fields: [actorId], references: [id], onDelete: SetNull)
+  /// 担当者レコードが無い場合の表示名（例: 顧客名、"Gmail から直接"）
+  actorLabel String?
+  /// 変更内容の JSON
+  detailJson String         @default("{}")
+  createdAt  DateTime       @default(now())
+
+  @@index([ticketId, createdAt])
+}

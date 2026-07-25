@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif;
+
+  --color-ink-50: #f6f7f9;
+  --color-ink-100: #eceef2;
+  --color-ink-200: #d8dce4;
+  --color-ink-300: #b4bbc8;
+  --color-ink-400: #8892a3;
+  --color-ink-500: #667085;
+  --color-ink-600: #4d5566;
+  --color-ink-700: #3a4152;
+  --color-ink-800: #252b38;
+  --color-ink-900: #161b24;
+  --color-ink-950: #0d1017;
+
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #dbe7ff;
+  --color-brand-200: #bed3ff;
+  --color-brand-500: #3b6fe0;
+  --color-brand-600: #2a56c4;
+  --color-brand-700: #22459c;
+}
+
+:root {
+  color-scheme: light;
+  --bg: var(--color-ink-50);
+  --surface: #ffffff;
+  --surface-2: var(--color-ink-50);
+  --border: var(--color-ink-200);
+  --text: var(--color-ink-900);
+  --text-muted: var(--color-ink-500);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: var(--color-ink-950);
+    --surface: var(--color-ink-900);
+    --surface-2: var(--color-ink-800);
+    --border: var(--color-ink-800);
+    --text: var(--color-ink-100);
+    --text-muted: var(--color-ink-400);
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 受信メール本文（サニタイズ済みHTML）の既定スタイル */
+.email-body {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+.email-body a {
+  color: var(--color-brand-600);
+  text-decoration: underline;
+}
+.email-body img {
+  max-width: 100%;
+  height: auto;
+}
+.email-body table {
+  max-width: 100%;
+  border-collapse: collapse;
+}
+.email-body blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: 0.875rem;
+  margin: 0.75rem 0;
+  color: var(--text-muted);
+}
+.email-body pre {
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+/* 引用の折りたたみ（返信で自動的に付く履歴部分） */
+.email-quote {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-300);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-ink-700);
+    background-clip: content-box;
+  }
+}

@@ -1,0 +1,20 @@
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# ローカルの機密情報・データベース（絶対にコミットしない）
+.env
+.env.local
+*.db
+*.db-journal
+prisma/*.db
+prisma/*.db-journal
+
+.DS_Store
+*.log
+
+# テストのビルド出力
+.test-build/
