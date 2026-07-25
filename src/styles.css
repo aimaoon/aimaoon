@@ -1,0 +1,605 @@
+:root {
+  --bg: #f5f6f8;
+  --panel: #ffffff;
+  --border: #e2e5ea;
+  --text: #1c2024;
+  --muted: #6b7280;
+  --accent: #2f6feb;
+  --accent-soft: #e8f0fe;
+
+  --answered: #17803d;
+  --answered-bg: #e6f6ec;
+  --fresh: #b45309;
+  --fresh-bg: #fdf3e3;
+  --warning: #c2410c;
+  --warning-bg: #fdeee4;
+  --overdue: #b91c1c;
+  --overdue-bg: #fdebeb;
+
+  --radius: 10px;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14161a;
+    --panel: #1c1f24;
+    --border: #2c313a;
+    --text: #e6e8eb;
+    --muted: #9aa1ac;
+    --accent: #6ea0ff;
+    --accent-soft: #23304a;
+
+    --answered: #4ade80;
+    --answered-bg: #17301f;
+    --fresh: #fbbf24;
+    --fresh-bg: #33280f;
+    --warning: #fb923c;
+    --warning-bg: #3a2312;
+    --overdue: #f87171;
+    --overdue-bg: #3b1a1a;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    system-ui,
+    -apple-system,
+    'Hiragino Kaku Gothic ProN',
+    'Noto Sans JP',
+    Meiryo,
+    sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+.app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* ---- ヘッダー ---------------------------------------------------------- */
+.app__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app__title {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+}
+
+.app__subtitle {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.stats {
+  display: flex;
+  gap: 8px;
+}
+
+.stat {
+  min-width: 92px;
+  padding: 10px 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat__value {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stat__label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.stat--waiting .stat__value {
+  color: var(--overdue);
+}
+
+.stat--answered .stat__value {
+  color: var(--answered);
+}
+
+/* ---- 自社ドメイン設定 -------------------------------------------------- */
+.settings {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settings__title {
+  margin: 0;
+  font-size: 14px;
+}
+
+.settings__hint {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px 4px 10px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.chip__remove {
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  padding: 0 2px;
+  opacity: 0.7;
+}
+
+.chip__remove:hover {
+  opacity: 1;
+}
+
+.chips__empty {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.settings__form {
+  display: flex;
+  gap: 8px;
+}
+
+.settings__form input {
+  flex: 0 1 280px;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+}
+
+.settings__form button,
+.toolbar button {
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  cursor: pointer;
+}
+
+.settings__form button:hover:enabled,
+.toolbar button:hover:enabled {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.toolbar button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.settings__error {
+  margin: 0;
+  color: var(--overdue);
+  font-size: 12px;
+}
+
+.warning {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  background: var(--overdue-bg);
+  color: var(--overdue);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ---- ツールバー -------------------------------------------------------- */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.toolbar__search {
+  flex: 1 1 260px;
+  max-width: 420px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.toolbar__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toolbar__spacer {
+  flex: 1 1 auto;
+}
+
+/* ---- レイアウト -------------------------------------------------------- */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(360px, 5fr) minmax(320px, 4fr);
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+/* ツリーが長くなっても詳細が見えるよう追従させる */
+.panel--detail {
+  position: sticky;
+  top: 16px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+}
+
+@media (max-width: 900px) {
+  .panel--detail {
+    position: static;
+    max-height: none;
+  }
+}
+
+.panel__head {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ---- ツリー ------------------------------------------------------------ */
+.tree,
+.tree__children {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tree__children {
+  border-left: 1px solid var(--border);
+  margin-left: 22px;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  cursor: pointer;
+}
+
+.row:hover {
+  background: var(--accent-soft);
+}
+
+.row--selected {
+  background: var(--accent-soft);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.row__main {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.row__title {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.row--domain .row__title {
+  font-size: 15px;
+}
+
+.row--thread .row__title {
+  font-weight: 500;
+}
+
+.row__meta {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.row--thread {
+  padding-left: 22px;
+}
+
+.caret {
+  flex: none;
+  width: 0;
+  height: 0;
+  border-left: 6px solid var(--muted);
+  border-top: 4.5px solid transparent;
+  border-bottom: 4.5px solid transparent;
+  transition: transform 0.12s ease;
+}
+
+.caret--open {
+  transform: rotate(90deg);
+}
+
+.empty {
+  padding: 24px 14px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ---- 状態バッジ -------------------------------------------------------- */
+.badge {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  background: var(--answered-bg);
+  color: var(--answered);
+}
+
+.badge__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.badge__note {
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.badge--waiting.badge--urgency-fresh,
+.badge--waiting.badge--urgency-none {
+  background: var(--fresh-bg);
+  color: var(--fresh);
+}
+
+.badge--waiting.badge--urgency-warning {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+.badge--waiting.badge--urgency-overdue {
+  background: var(--overdue-bg);
+  color: var(--overdue);
+}
+
+.badge--unknown {
+  background: var(--bg);
+  color: var(--muted);
+}
+
+/* ---- スレッド詳細 ------------------------------------------------------ */
+.detail {
+  padding: 16px;
+}
+
+.detail--empty {
+  color: var(--muted);
+  text-align: center;
+  padding: 48px 16px;
+}
+
+.detail__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.detail__subject {
+  margin: 0;
+  font-size: 16px;
+}
+
+.detail__facts {
+  margin: 14px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.detail__facts > div {
+  display: flex;
+  gap: 10px;
+}
+
+.detail__facts dt {
+  flex: none;
+  width: 128px;
+  color: var(--muted);
+}
+
+.detail__facts dd {
+  margin: 0;
+  min-width: 0;
+  word-break: break-all;
+}
+
+.detail__alert {
+  color: var(--overdue);
+  font-weight: 700;
+}
+
+.detail__callout {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.detail__callout--waiting {
+  background: var(--overdue-bg);
+  color: var(--overdue);
+}
+
+.detail__callout--answered {
+  background: var(--answered-bg);
+  color: var(--answered);
+}
+
+.messages {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  border-left-width: 4px;
+}
+
+.message--internal {
+  border-left-color: var(--answered);
+  background: color-mix(in srgb, var(--answered-bg) 45%, transparent);
+}
+
+.message--external {
+  border-left-color: var(--muted);
+}
+
+.message__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.message__side {
+  flex: none;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--muted);
+}
+
+.message--internal .message__side {
+  background: var(--answered-bg);
+  color: var(--answered);
+}
+
+.message__from {
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.message__time {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.message__addresses {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  word-break: break-all;
+}
+
+.message__addresses-label {
+  flex: none;
+  width: 24px;
+}
+
+.message__body {
+  margin: 8px 0 0;
+  white-space: pre-wrap;
+}
