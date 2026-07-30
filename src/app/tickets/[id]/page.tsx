@@ -333,6 +333,7 @@ export default async function TicketDetailPage({
         <ReplyComposer
           ticketId={ticket.id}
           contactEmail={ticket.contact.email}
+          contactName={ticket.contact.name || ticket.contact.email}
           agents={agentOptions}
           defaultAgentId={meId}
           demo={demo}
