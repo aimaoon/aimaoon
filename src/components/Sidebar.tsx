@@ -190,6 +190,23 @@ export function Sidebar({
           <SyncButton />
         )}
         <Link
+          href="/contacts"
+          className={`mt-1 flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition hover:bg-[var(--surface-2)] ${
+            pathname.startsWith("/contacts") ? "bg-[var(--surface-2)] font-medium" : ""
+          }`}
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <path
+              d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+            />
+            <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="1.8" />
+          </svg>
+          顧客一覧
+        </Link>
+        <Link
           href="/settings"
           className={`mt-1 flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition hover:bg-[var(--surface-2)] ${
             pathname === "/settings" ? "bg-[var(--surface-2)] font-medium" : ""

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { getSession } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
@@ -68,6 +69,11 @@ export default async function TicketDetailPage({
   }
 
   const demo = await isDemoAccount(session.accountId);
+
+  // 同じ顧客との他の案件があるかどうか（右カラムの導線に使う）
+  const contactTicketCount = await prisma.ticket.count({
+    where: { contactId: ticket.contactId },
+  });
 
   const agents = await prisma.agentIdentity.findMany({
     where: { active: true },
@@ -355,6 +361,28 @@ export default async function TicketDetailPage({
               初回の問い合わせ: {formatDateTime(ticket.firstMessageAt)}
             </p>
           </div>
+
+          {contactTicketCount > 1 && (
+            <p className="mt-2 text-xs text-[var(--text-muted)]">
+              この顧客とは他に {contactTicketCount - 1} 件の案件があります。
+            </p>
+          )}
+
+          <Link
+            href={`/contacts/${ticket.contactId}`}
+            className="mt-2.5 flex items-center justify-center gap-1.5 rounded-lg border border-[var(--border)] px-3 py-2 text-xs font-medium transition hover:bg-[var(--surface-2)]"
+          >
+            この顧客との全やり取りを時系列で見る
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path
+                d="m9 6 6 6-6 6"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Link>
         </section>
 
         <section className="mt-6">
