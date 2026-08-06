@@ -321,6 +321,21 @@ console.log("\n── 未返信の緊急度 ──");
   );
 }
 
+// 土日も交代で対応しているため、経過時間は実時間で数える（営業時間で割り引かない）。
+// この方針が意図せず変わらないよう、週末をまたぐケースを固定しておく。
+{
+  const friday = new Date("2026-08-07T09:00:00Z"); // 金曜 18:00 (JST)
+  const monday = new Date("2026-08-10T00:00:00Z"); // 月曜 09:00 (JST)
+  const ticket = { status: "OPEN", awaitingReply: true, lastInboundAt: friday };
+
+  eq("金曜夕方の未返信は月曜朝に重大な遅れ", urgencyOf(ticket, monday).level, "CRITICAL");
+  eq("週末の時間も経過時間に含める（63時間）", urgencyOf(ticket, monday).elapsed, "2日15時間");
+  ok(
+    "土曜日の時点でも段階が上がる",
+    urgencyOf(ticket, new Date("2026-08-08T09:00:00Z")).level === "LATE"
+  );
+}
+
 console.log("\n── 経過時間の表示 ──");
 eq("1時間未満は分", formatElapsed(0.5), "30分");
 eq("1分未満でも0にしない", formatElapsed(0.001), "1分");

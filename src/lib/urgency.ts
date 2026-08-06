@@ -9,6 +9,10 @@
  *
  * 判定の起点は「顧客からの最後のメール（lastInboundAt）」。
  * こちらが返信すれば awaitingReply が false になり、緊急度は消える。
+ *
+ * 経過時間は実時間で数える。土日も交代で対応する運用のため、週末や
+ * 営業時間外を差し引くことはしない（金曜夕方の未返信は月曜朝には
+ * 「重大な遅れ」になる）。この方針は tests/unit.mts で固定してある。
  */
 
 export const URGENCY_LEVELS = ["NONE", "WATCH", "LATE", "CRITICAL"] as const;
