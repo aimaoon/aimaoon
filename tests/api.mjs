@@ -36,8 +36,13 @@ const noAuth = await fetch(`${BASE}/api/tickets`);
 check("未ログインでは 401", noAuth.status === 401, `status=${noAuth.status}`);
 
 // ── 一覧・絞り込み ─────────────────────────────────────────────
+const openInDb = await prisma.ticket.count({ where: { status: "OPEN" } });
 const list = await call("/api/tickets?status=OPEN");
-check("一覧が返る", list.json?.ok && list.json.data.items.length === 2, `${list.json?.data?.items?.length} 件`);
+check(
+  "一覧が DB と同じ件数を返す",
+  list.json?.ok && list.json.data.items.length === openInDb,
+  `画面 ${list.json?.data?.items?.length} 件 / DB ${openInDb} 件`
+);
 
 const multi = await call("/api/tickets?status=ALL&view=multiAgent");
 check("複数人対応で絞り込める", multi.json?.data?.items?.length === 1);
@@ -53,6 +58,40 @@ check("該当なしは 0 件", searchMiss.json?.data?.items?.length === 0);
 
 const t1 = list.json.data.items.find((t) => t.subject.includes("請求書"));
 check("返信者の内訳が付く", t1?.responders?.length === 3, JSON.stringify(t1?.responders?.map((r) => r.name)));
+
+// ── 未返信の緊急度 ─────────────────────────────────────────────
+const urgent = await call("/api/tickets?status=ALL&view=urgentCritical&sort=waiting");
+const criticalInDb = await prisma.ticket.count({
+  where: {
+    awaitingReply: true,
+    status: { in: ["OPEN", "PENDING"] },
+    lastInboundAt: { lt: new Date(Date.now() - 48 * 3600000) },
+  },
+});
+check(
+  "重大な遅れの絞り込みが DB と一致",
+  urgent.json?.data?.items?.length === criticalInDb,
+  `画面 ${urgent.json?.data?.items?.length} 件 / DB ${criticalInDb} 件`
+);
+check(
+  "緊急度と経過時間が API に含まれる",
+  urgent.json?.data?.items?.every((t) => t.urgency === "CRITICAL" && t.waitingFor),
+  JSON.stringify(urgent.json?.data?.items?.map((t) => `${t.urgency}/${t.waitingFor}`))
+);
+
+const waiting = await call("/api/tickets?status=ALL&sort=waiting");
+const awaitingItems = waiting.json?.data?.items?.filter((t) => t.awaitingReply) ?? [];
+check(
+  "待たせている順は未返信が先頭に来る",
+  awaitingItems.length > 0 && waiting.json.data.items[0].awaitingReply === true
+);
+
+const recent = await call("/api/tickets?status=ALL");
+check(
+  "既定は新着順（並びが待たせている順と異なる）",
+  JSON.stringify(recent.json?.data?.items?.map((t) => t.id)) !==
+    JSON.stringify(waiting.json?.data?.items?.map((t) => t.id))
+);
 
 // ── ステータス変更 ─────────────────────────────────────────────
 const patch = await call(`/api/tickets/${t1.id}`, {

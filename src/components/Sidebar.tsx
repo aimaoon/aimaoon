@@ -14,6 +14,10 @@ export type SidebarCounts = {
   multiAgent: number;
   unknownSender: number;
   all: number;
+  /** 未返信の経過時間による段階別の件数 */
+  urgentWatch: number;
+  urgentLate: number;
+  urgentCritical: number;
 };
 
 function buildHref(
@@ -79,11 +83,14 @@ export function Sidebar({
   counts,
   agents,
   accountEmail,
+  thresholds,
   demo = false,
 }: {
   counts: SidebarCounts;
   agents: SidebarAgent[];
   accountEmail: string;
+  /** 段階の閾値（時間）。ラベルに出して累計であることを分かるようにする */
+  thresholds: { watch: number; late: number; critical: number };
   /** デモモード中は Gmail 同期ボタンを出さない */
   demo?: boolean;
 }) {
@@ -136,13 +143,56 @@ export function Sidebar({
           accent="#94a3b8"
         />
 
+        <p
+          className="mt-4 px-3 pb-1.5 text-[11px] font-semibold uppercase tracking-wide text-[var(--text-muted)]"
+          title="顧客の最後のメールからの経過時間です。件数は「その時間以上」の累計なので、重大な遅れは遅延にも含まれます。"
+        >
+          未返信の経過時間
+        </p>
+        <NavItem
+          href={buildHref(params, {
+            view: "urgentCritical",
+            status: "ALL",
+            assignee: null,
+            sort: "waiting",
+          })}
+          active={view === "urgentCritical"}
+          label={`重大な遅れ（${thresholds.critical}時間〜）`}
+          count={counts.urgentCritical}
+          accent="#b91c1c"
+        />
+        <NavItem
+          href={buildHref(params, {
+            view: "urgentLate",
+            status: "ALL",
+            assignee: null,
+            sort: "waiting",
+          })}
+          active={view === "urgentLate"}
+          label={`遅延（${thresholds.late}時間〜）`}
+          count={counts.urgentLate}
+          accent="#c2410c"
+        />
+        <NavItem
+          href={buildHref(params, {
+            view: "urgentWatch",
+            status: "ALL",
+            assignee: null,
+            sort: "waiting",
+          })}
+          active={view === "urgentWatch"}
+          label={`要対応（${thresholds.watch}時間〜）`}
+          count={counts.urgentWatch}
+          accent="#a16207"
+        />
+
         <p className="mt-4 px-3 pb-1.5 text-[11px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
           絞り込み
         </p>
         <NavItem
           href={buildHref(params, { view: "awaiting", status: "ALL", assignee: null })}
           active={view === "awaiting"}
-          label="未返信"
+          label="未返信すべて"
           count={counts.awaiting}
           accent="#dc2626"
         />

@@ -6,6 +6,7 @@ import { Sidebar } from "@/components/Sidebar";
 import { TicketList } from "@/components/TicketList";
 import { DemoBanner } from "@/components/DemoBanner";
 import { isDemoAccount } from "@/lib/demo";
+import { cutoffFor, urgencyThresholds } from "@/lib/urgency";
 
 export const dynamic = "force-dynamic";
 
@@ -19,8 +20,25 @@ export default async function TicketsLayout({
 
   const demo = await isDemoAccount(session.accountId);
 
-  const [statusGroups, awaiting, multiAgent, unknownSender, all, agents] =
-    await Promise.all([
+  // 未返信の経過時間ごとの件数。閾値より古い「顧客からの最後のメール」を数える
+  const now = new Date();
+  const urgentWhere = (level: "WATCH" | "LATE" | "CRITICAL") => ({
+    awaitingReply: true,
+    status: { in: ["OPEN", "PENDING"] },
+    lastInboundAt: { lt: cutoffFor(level, now)! },
+  });
+
+  const [
+    statusGroups,
+    awaiting,
+    multiAgent,
+    unknownSender,
+    all,
+    agents,
+    urgentWatch,
+    urgentLate,
+    urgentCritical,
+  ] = await Promise.all([
       prisma.ticket.groupBy({ by: ["status"], _count: { _all: true } }),
       prisma.ticket.count({ where: { awaitingReply: true } }),
       prisma.ticket.count({ where: { multiAgent: true } }),
@@ -33,6 +51,9 @@ export default async function TicketsLayout({
         select: { id: true, name: true, color: true, isMe: true },
         orderBy: [{ isMe: "desc" }, { name: "asc" }],
       }),
+      prisma.ticket.count({ where: urgentWhere("WATCH") }),
+      prisma.ticket.count({ where: urgentWhere("LATE") }),
+      prisma.ticket.count({ where: urgentWhere("CRITICAL") }),
     ]);
 
   const byStatus: Record<string, number> = {};
@@ -47,9 +68,19 @@ export default async function TicketsLayout({
       <div className="flex min-h-0 flex-1">
         <Suspense fallback={<div className="w-56 border-r border-[var(--border)]" />}>
           <Sidebar
-            counts={{ byStatus, awaiting, multiAgent, unknownSender, all }}
+            counts={{
+              byStatus,
+              awaiting,
+              multiAgent,
+              unknownSender,
+              all,
+              urgentWatch,
+              urgentLate,
+              urgentCritical,
+            }}
             agents={agents}
             accountEmail={session.email}
+            thresholds={urgencyThresholds()}
             demo={demo}
           />
         </Suspense>

@@ -9,11 +9,13 @@ import { TicketControls } from "@/components/TicketControls";
 import { MessageAuthorPicker } from "@/components/MessageAuthorPicker";
 import { suggestSignaturePatterns } from "@/lib/attribution";
 import { isDemoAccount } from "@/lib/demo";
+import { URGENCY_STYLE, urgencyOf } from "@/lib/urgency";
 import {
   ACTIVITY_LABELS,
   formatBytes,
   formatDateTime,
   formatRelative,
+  PRIORITY_LABELS,
   STATUS_COLORS,
   STATUS_LABELS,
 } from "@/lib/format";
@@ -69,6 +71,7 @@ export default async function TicketDetailPage({
   }
 
   const demo = await isDemoAccount(session.accountId);
+  const urgency = urgencyOf(ticket);
 
   // 同じ顧客との他の案件があるかどうか（右カラムの導線に使う）
   const contactTicketCount = await prisma.ticket.count({
@@ -133,9 +136,22 @@ export default async function TicketDetailPage({
                 >
                   {STATUS_LABELS[ticket.status]}
                 </span>
-                {ticket.awaitingReply && (
-                  <span className="rounded bg-red-100 px-1.5 py-0.5 text-[10px] font-medium text-red-700 dark:bg-red-950 dark:text-red-300">
-                    未返信
+                {ticket.awaitingReply &&
+                  (urgency.level === "NONE" ? (
+                    <span className="rounded bg-[var(--surface-2)] px-1.5 py-0.5 text-[10px] font-medium text-[var(--text-muted)]">
+                      未返信{urgency.elapsed && ` ${urgency.elapsed}`}
+                    </span>
+                  ) : (
+                    <span
+                      className={`urgency urgency-${urgency.level}`}
+                      title={URGENCY_STYLE[urgency.level].describe}
+                    >
+                      {URGENCY_STYLE[urgency.level].label} · 未返信 {urgency.elapsed}
+                    </span>
+                  ))}
+                {ticket.priority !== "NORMAL" && (
+                  <span className="rounded border border-[var(--border)] px-1.5 py-0.5 text-[10px] text-[var(--text-muted)]">
+                    手動の優先度: {PRIORITY_LABELS[ticket.priority]}
                   </span>
                 )}
               </div>

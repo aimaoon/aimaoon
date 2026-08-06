@@ -110,3 +110,22 @@ body {
     background-clip: content-box;
   }
 }
+
+/* 未返信の経過時間による段階表示。
+   インラインスタイルだとダークモードに追随できないのでクラスで持つ。 */
+.urgency {
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.urgency-WATCH { background: #fef9c3; color: #854d0e; }
+.urgency-LATE { background: #ffedd5; color: #9a3412; }
+.urgency-CRITICAL { background: #fee2e2; color: #991b1b; }
+
+@media (prefers-color-scheme: dark) {
+  .urgency-WATCH { background: #3b2f0a; color: #fde047; }
+  .urgency-LATE { background: #3f2210; color: #fdba74; }
+  .urgency-CRITICAL { background: #401515; color: #fca5a5; }
+}

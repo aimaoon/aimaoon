@@ -2,6 +2,7 @@ import { NextRequest } from "next/server";
 import type { Prisma } from "@prisma/client";
 import { handle, requireSession } from "@/lib/api";
 import { prisma } from "@/lib/prisma";
+import { cutoffFor, urgencyOf, type UrgencyLevel } from "@/lib/urgency";
 
 export const dynamic = "force-dynamic";
 
@@ -23,6 +24,10 @@ export type TicketListItem = {
   snippet: string | null;
   /** この会話で返信した社内メンバー（不明分を含む） */
   responders: { id: string | null; name: string; color: string }[];
+  /** 未返信の経過時間から自動算出した緊急度 */
+  urgency: UrgencyLevel;
+  /** 「3時間」「2日」など。未返信でなければ null */
+  waitingFor: string | null;
 };
 
 export async function GET(request: NextRequest) {
@@ -34,6 +39,7 @@ export async function GET(request: NextRequest) {
     const assignee = params.get("assignee") ?? "";
     const view = params.get("view") ?? "";
     const q = (params.get("q") ?? "").trim();
+    const sort = params.get("sort") ?? "recent";
     const page = Math.max(1, Number(params.get("page") ?? 1) || 1);
 
     const where: Prisma.TicketWhereInput = {};
@@ -48,6 +54,16 @@ export async function GET(request: NextRequest) {
     }
     if (view === "awaiting") where.awaitingReply = true;
     if (view === "multiAgent") where.multiAgent = true;
+
+    // 緊急度での絞り込み。閾値より古い「顧客からの最後のメール」を持つものを探す
+    if (view === "urgentWatch" || view === "urgentLate" || view === "urgentCritical") {
+      const level: UrgencyLevel =
+        view === "urgentCritical" ? "CRITICAL" : view === "urgentLate" ? "LATE" : "WATCH";
+      where.awaitingReply = true;
+      where.status = { in: ["OPEN", "PENDING"] };
+      where.lastInboundAt = { lt: cutoffFor(level)! };
+    }
+
     if (view === "unknownSender") {
       where.messages = {
         some: { direction: "OUTBOUND", authorAgentId: null },
@@ -75,7 +91,11 @@ export async function GET(request: NextRequest) {
             select: { snippet: true, bodyText: true },
           },
         },
-        orderBy: { lastMessageAt: "desc" },
+        // waiting: 顧客を待たせている時間が長い順（未返信でないものは後ろ）
+        orderBy:
+          sort === "waiting"
+            ? [{ awaitingReply: "desc" }, { lastInboundAt: "asc" }]
+            : { lastMessageAt: "desc" },
         skip: (page - 1) * PAGE_SIZE,
         take: PAGE_SIZE,
       }),
@@ -114,7 +134,11 @@ export async function GET(request: NextRequest) {
       respondersByTicket.set(row.ticketId, list);
     }
 
-    const items: TicketListItem[] = tickets.map((t) => ({
+    const now = new Date();
+
+    const items: TicketListItem[] = tickets.map((t) => {
+      const urgency = urgencyOf(t, now);
+      return {
       id: t.id,
       subject: t.subject,
       status: t.status,
@@ -129,7 +153,10 @@ export async function GET(request: NextRequest) {
       multiAgent: t.multiAgent,
       snippet: t.messages[0]?.snippet ?? t.messages[0]?.bodyText?.slice(0, 160) ?? null,
       responders: respondersByTicket.get(t.id) ?? [],
-    }));
+      urgency: urgency.level,
+      waitingFor: urgency.elapsed,
+      };
+    });
 
     return { items, total, page, pageSize: PAGE_SIZE };
   });

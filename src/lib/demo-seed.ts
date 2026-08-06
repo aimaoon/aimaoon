@@ -1,4 +1,5 @@
 import { prisma } from "./prisma";
+import { recomputeTicket } from "./ticket-aggregate";
 
 /**
  * デモ用のサンプル会話を作ります。Gmail には接続しません。
@@ -81,9 +82,12 @@ export async function seedDemoData(): Promise<{ tickets: number }> {
   });
 
   const day = 24 * 60 * 60 * 1000;
+  const hour = 60 * 60 * 1000;
   const now = Date.now();
   const at = (daysAgo: number, hours = 10) =>
-    new Date(now - daysAgo * day + (hours - 10) * 60 * 60 * 1000);
+    new Date(now - daysAgo * day + (hours - 10) * hour);
+  /** 未返信の緊急度を確実に再現するため、時間単位でも指定できるようにする */
+  const hoursAgo = (h: number) => new Date(now - h * hour);
 
   /* ── チケット 1: 3人が入り混じった会話（このアプリの本題）──── */
   const ticket1 = await prisma.ticket.create({
@@ -96,10 +100,7 @@ export async function seedDemoData(): Promise<{ tickets: number }> {
       assigneeId: me.id,
       firstMessageAt: at(6),
       lastMessageAt: at(1, 15),
-      messageCount: 5,
       unread: true,
-      awaitingReply: true,
-      multiAgent: true,
     },
   });
 
@@ -238,11 +239,9 @@ export async function seedDemoData(): Promise<{ tickets: number }> {
       subject: "パスワードがリセットできません",
       contactId: suzuki.id,
       status: "OPEN",
-      firstMessageAt: at(0, 9),
-      lastMessageAt: at(0, 9),
-      messageCount: 1,
+      firstMessageAt: hoursAgo(10),
+      lastMessageAt: hoursAgo(10),
       unread: true,
-      awaitingReply: true,
     },
   });
 
@@ -255,7 +254,7 @@ export async function seedDemoData(): Promise<{ tickets: number }> {
       fromEmail: suzuki.email,
       fromName: "鈴木 一郎",
       subject: ticket2.subject,
-      sentAt: at(0, 9),
+      sentAt: hoursAgo(10),
       toJson: JSON.stringify([{ name: null, email: SUPPORT }]),
       labelsJson: JSON.stringify(["INBOX", "UNREAD"]),
       bodyHtml:
@@ -272,7 +271,7 @@ export async function seedDemoData(): Promise<{ tickets: number }> {
       type: "MESSAGE_RECEIVED",
       actorLabel: "鈴木 一郎",
       detailJson: JSON.stringify({ subject: ticket2.subject }),
-      createdAt: at(0, 9),
+      createdAt: hoursAgo(10),
     },
   });
 
@@ -285,7 +284,6 @@ export async function seedDemoData(): Promise<{ tickets: number }> {
       status: "SOLVED",
       firstMessageAt: at(20),
       lastMessageAt: at(19),
-      messageCount: 2,
       unread: false,
     },
   });
@@ -326,5 +324,118 @@ export async function seedDemoData(): Promise<{ tickets: number }> {
     ],
   });
 
-  return { tickets: 3 };
+  /* ── チケット 4: 届いたばかり（まだ段階なし）───────────── */
+  const kato = await prisma.contact.upsert({
+    where: { email: "kato@example.co.jp" },
+    create: { email: "kato@example.co.jp", name: "加藤 美咲" },
+    update: {},
+  });
+
+  const ticket4 = await prisma.ticket.create({
+    data: {
+      gmailThreadId: `${DEMO_PREFIX}thread-4`,
+      subject: "領収書の宛名を変更したいです",
+      contactId: kato.id,
+      status: "OPEN",
+      firstMessageAt: hoursAgo(1),
+      lastMessageAt: hoursAgo(1),
+      unread: true,
+    },
+  });
+
+  await prisma.message.create({
+    data: {
+      gmailMessageId: `${DEMO_PREFIX}msg-4-0`,
+      gmailThreadId: ticket4.gmailThreadId,
+      ticketId: ticket4.id,
+      direction: "INBOUND",
+      fromEmail: kato.email,
+      fromName: "加藤 美咲",
+      subject: ticket4.subject,
+      sentAt: hoursAgo(1),
+      toJson: JSON.stringify([{ name: null, email: SUPPORT }]),
+      labelsJson: JSON.stringify(["INBOX", "UNREAD"]),
+      bodyHtml:
+        '<div style="white-space:pre-wrap">先ほど購入した分の領収書について、宛名を法人名に変更していただけますか。</div>',
+      bodyText: "先ほど購入した分の領収書について、宛名を法人名に変更していただけますか。",
+      snippet: "先ほど購入した分の領収書について、宛名を法人名に変更していただけますか。",
+    },
+  });
+
+  /* ── チケット 5: 3日以上放置（重大な遅れ）──────────────── */
+  const watanabe = await prisma.contact.upsert({
+    where: { email: "watanabe@example.co.jp" },
+    create: { email: "watanabe@example.co.jp", name: "渡辺 健" },
+    update: {},
+  });
+
+  const ticket5 = await prisma.ticket.create({
+    data: {
+      gmailThreadId: `${DEMO_PREFIX}thread-5`,
+      subject: "解約手続きについて教えてください",
+      contactId: watanabe.id,
+      status: "OPEN",
+      firstMessageAt: hoursAgo(80),
+      lastMessageAt: hoursAgo(80),
+      unread: true,
+    },
+  });
+
+  await prisma.message.create({
+    data: {
+      gmailMessageId: `${DEMO_PREFIX}msg-5-0`,
+      gmailThreadId: ticket5.gmailThreadId,
+      ticketId: ticket5.id,
+      direction: "INBOUND",
+      fromEmail: watanabe.email,
+      fromName: "渡辺 健",
+      subject: ticket5.subject,
+      sentAt: hoursAgo(80),
+      toJson: JSON.stringify([{ name: null, email: SUPPORT }]),
+      labelsJson: JSON.stringify(["INBOX", "UNREAD"]),
+      bodyHtml:
+        '<div style="white-space:pre-wrap">解約の手続き方法を教えてください。\n期限が近いため急ぎ確認したいです。</div>',
+      bodyText: "解約の手続き方法を教えてください。期限が近いため急ぎ確認したいです。",
+      snippet: "解約の手続き方法を教えてください。期限が近いため急ぎ確認したいです。",
+    },
+  });
+
+  /* ── チケット 6: 30時間未返信（遅延）──────────────────── */
+  const ticket6 = await prisma.ticket.create({
+    data: {
+      gmailThreadId: `${DEMO_PREFIX}thread-6`,
+      subject: "納品書のPDFが開けません",
+      contactId: suzuki.id,
+      status: "OPEN",
+      firstMessageAt: hoursAgo(30),
+      lastMessageAt: hoursAgo(30),
+      unread: true,
+    },
+  });
+
+  await prisma.message.create({
+    data: {
+      gmailMessageId: `${DEMO_PREFIX}msg-6-0`,
+      gmailThreadId: ticket6.gmailThreadId,
+      ticketId: ticket6.id,
+      direction: "INBOUND",
+      fromEmail: suzuki.email,
+      fromName: "鈴木 一郎",
+      subject: ticket6.subject,
+      sentAt: hoursAgo(30),
+      toJson: JSON.stringify([{ name: null, email: SUPPORT }]),
+      labelsJson: JSON.stringify(["INBOX", "UNREAD"]),
+      bodyHtml:
+        '<div style="white-space:pre-wrap">送っていただいた納品書のPDFが破損しているようで開けません。\n再送していただけますか。</div>',
+      bodyText: "送っていただいた納品書のPDFが破損しているようで開けません。再送していただけますか。",
+      snippet: "送っていただいた納品書のPDFが破損しているようで開けません。再送していただけますか。",
+    },
+  });
+
+  // 集計値は手書きせず、実際の同期と同じロジックで確定させる
+  for (const t of [ticket1, ticket2, ticket3, ticket4, ticket5, ticket6]) {
+    await recomputeTicket(t.gmailThreadId);
+  }
+
+  return { tickets: 6 };
 }

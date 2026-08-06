@@ -15,6 +15,7 @@ import {
 } from "../src/lib/mime.ts";
 import { normalizeSubject } from "../src/lib/sync.ts";
 import { suggestSignaturePatterns, attributeOutbound } from "../src/lib/attribution.ts";
+import { urgencyOf, formatElapsed, cutoffFor } from "../src/lib/urgency.ts";
 
 let pass = 0;
 let fail = 0;
@@ -263,6 +264,85 @@ console.log("\n── 送信者の判別 ──");
     ).method,
     "SIGNATURE_RULE"
   );
+}
+
+console.log("\n── 未返信の緊急度 ──");
+{
+  const now = new Date("2026-08-10T12:00:00Z");
+  const hoursAgo = (h: number) => new Date(now.getTime() - h * 3_600_000);
+
+  const open = (h: number) => ({
+    status: "OPEN",
+    awaitingReply: true,
+    lastInboundAt: hoursAgo(h),
+  });
+
+  // 既定の閾値: 要対応 4h / 遅延 24h / 重大 48h
+  eq("2時間なら段階なし", urgencyOf(open(2), now).level, "NONE");
+  eq("ちょうど4時間で要対応", urgencyOf(open(4), now).level, "WATCH");
+  eq("10時間で要対応", urgencyOf(open(10), now).level, "WATCH");
+  eq("ちょうど24時間で遅延", urgencyOf(open(24), now).level, "LATE");
+  eq("47時間はまだ遅延", urgencyOf(open(47), now).level, "LATE");
+  eq("ちょうど48時間で重大", urgencyOf(open(48), now).level, "CRITICAL");
+  eq("10日でも重大", urgencyOf(open(240), now).level, "CRITICAL");
+
+  eq(
+    "返信済みなら段階なし",
+    urgencyOf({ status: "OPEN", awaitingReply: false, lastInboundAt: hoursAgo(100) }, now).level,
+    "NONE"
+  );
+  eq(
+    "解決済みは放置扱いしない",
+    urgencyOf({ status: "SOLVED", awaitingReply: true, lastInboundAt: hoursAgo(100) }, now).level,
+    "NONE"
+  );
+  eq(
+    "クローズも放置扱いしない",
+    urgencyOf({ status: "CLOSED", awaitingReply: true, lastInboundAt: hoursAgo(100) }, now).level,
+    "NONE"
+  );
+  eq(
+    "受信日時が無ければ段階なし",
+    urgencyOf({ status: "OPEN", awaitingReply: true, lastInboundAt: null }, now).level,
+    "NONE"
+  );
+  eq(
+    "未来の日時でも壊れない",
+    urgencyOf({ status: "OPEN", awaitingReply: true, lastInboundAt: hoursAgo(-5) }, now).level,
+    "NONE"
+  );
+
+  eq("経過時間も返る", urgencyOf(open(26), now).elapsed, "1日2時間");
+
+  ok(
+    "保留中も経過時間を数える",
+    urgencyOf({ status: "PENDING", awaitingReply: true, lastInboundAt: hoursAgo(50) }, now).level ===
+      "CRITICAL"
+  );
+}
+
+console.log("\n── 経過時間の表示 ──");
+eq("1時間未満は分", formatElapsed(0.5), "30分");
+eq("1分未満でも0にしない", formatElapsed(0.001), "1分");
+eq("時間単位", formatElapsed(5.9), "5時間");
+eq("1日超えは日+時間", formatElapsed(26), "1日2時間");
+eq("ちょうど2日", formatElapsed(48), "2日");
+eq("3日以上は日のみ", formatElapsed(80), "3日");
+
+console.log("\n── 絞り込み用の基準時刻 ──");
+{
+  const now = new Date("2026-08-10T12:00:00Z");
+  eq(
+    "遅延の基準は24時間前",
+    cutoffFor("LATE", now)?.toISOString(),
+    new Date("2026-08-09T12:00:00Z").toISOString()
+  );
+  eq(
+    "重大の基準は48時間前",
+    cutoffFor("CRITICAL", now)?.toISOString(),
+    new Date("2026-08-08T12:00:00Z").toISOString()
+  );
+  eq("段階なしには基準がない", cutoffFor("NONE", now), null);
 }
 
 console.log(`\n${pass} 件成功 / ${fail} 件失敗`);
