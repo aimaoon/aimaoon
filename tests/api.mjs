@@ -201,6 +201,121 @@ check(
 const lockedStill = await prisma.message.findUnique({ where: { id: unknownMsg.id } });
 check("手動設定は再判定で上書きされない", lockedStill.attributionMethod === "MANUAL");
 
+// ── 署名 ───────────────────────────────────────────────────────
+// 実運用の署名で問題になりやすい形を再現する:
+//   全角の区切り線 / 複数の URL / 署名中に氏名がある
+const SAMPLE_SIGNATURE = `＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+サンプル株式会社
+試験 太郎　Taro Shiken
+
+〒100-0001
+東京都千代田区千代田1-1
+
+Email：taro@example.com
+  URL：https://example.com/
+【定休日】：土日祝は休業です。
+https://example.com/reviews
+【公式LINE】https://example.com/line
+＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊`;
+
+const sigAgent = await prisma.agentIdentity.create({
+  data: { name: "試験 太郎", color: "#0d7490" },
+});
+
+const sigSave = await call(`/api/agents/${sigAgent.id}`, {
+  method: "PATCH",
+  body: JSON.stringify({ signature: SAMPLE_SIGNATURE }),
+});
+check("署名を保存できる", sigSave.json?.ok);
+
+const sigSaved = await prisma.agentIdentity.findUnique({ where: { id: sigAgent.id } });
+check("署名が原文どおり保存される", sigSaved.signature === SAMPLE_SIGNATURE);
+check(
+  "全角の区切りと URL が壊れない",
+  sigSaved.signature.startsWith("＊＊＊") &&
+    (sigSaved.signature.match(/https?:\/\//g) ?? []).length === 3
+);
+
+const sigRule = await prisma.attributionRule.findFirst({
+  where: { kind: "SIGNATURE_CONTAINS", agentId: sigAgent.id },
+});
+check("署名の氏名から判別ルールが学習される", !!sigRule, sigRule?.pattern);
+
+// 送信時に署名が本文の後ろに付くか
+const sigTicket = await prisma.ticket.findFirst({ where: { gmailThreadId: "demo-thread-2" } });
+const sigSend = await call(`/api/tickets/${sigTicket.id}/reply`, {
+  method: "POST",
+  body: JSON.stringify({
+    body: "ご連絡ありがとうございます。",
+    authorAgentId: sigAgent.id,
+    includeSignature: true,
+  }),
+});
+check("署名つきで送信できる", sigSend.json?.ok);
+
+const sigSent = await prisma.message.findFirst({
+  where: { ticketId: sigTicket.id },
+  orderBy: { sentAt: "desc" },
+});
+check("本文の後ろに署名が付く", sigSent.bodyText.includes("サンプル株式会社"));
+check(
+  "本文が先で署名が後ろ",
+  sigSent.bodyText.indexOf("ご連絡") < sigSent.bodyText.indexOf("＊＊＊")
+);
+check(
+  "独自の区切りがあるとき「--」を足さない",
+  !sigSent.bodyText.includes("--\n試験"),
+  JSON.stringify(sigSent.bodyText.slice(0, 40))
+);
+
+// 署名を外した場合
+const sigOff = await call(`/api/tickets/${sigTicket.id}/reply`, {
+  method: "POST",
+  body: JSON.stringify({
+    body: "署名なし",
+    authorAgentId: sigAgent.id,
+    includeSignature: false,
+  }),
+});
+check("署名を外せる", sigOff.json?.ok);
+const sigSentOff = await prisma.message.findFirst({
+  where: { ticketId: sigTicket.id },
+  orderBy: { sentAt: "desc" },
+});
+check("外すと署名が付かない", !sigSentOff.bodyText.includes("サンプル株式会社"));
+
+// 署名未登録なら簡易署名
+const plainSend = await call(`/api/tickets/${sigTicket.id}/reply`, {
+  method: "POST",
+  body: JSON.stringify({ body: "簡易署名の確認", includeSignature: true }),
+});
+check("署名未登録でも送信できる", plainSend.json?.ok);
+const plainSent = await prisma.message.findFirst({
+  where: { ticketId: sigTicket.id },
+  orderBy: { sentAt: "desc" },
+});
+check("署名未登録なら「-- 氏名」が付く", /\n--\n.+$/.test(plainSent.bodyText));
+
+// 削除と上限
+const sigClear = await call(`/api/agents/${sigAgent.id}`, {
+  method: "PATCH",
+  body: JSON.stringify({ signature: "" }),
+});
+check("空文字で署名を削除できる", sigClear.json?.ok);
+check(
+  "削除が反映される",
+  (await prisma.agentIdentity.findUnique({ where: { id: sigAgent.id } })).signature === null
+);
+
+const sigTooLong = await call(`/api/agents/${sigAgent.id}`, {
+  method: "PATCH",
+  body: JSON.stringify({ signature: "あ".repeat(4001) }),
+});
+check("長すぎる署名は弾く", sigTooLong.status === 400);
+
+await prisma.attributionRule.deleteMany({ where: { agentId: sigAgent.id } });
+await prisma.agentIdentity.delete({ where: { id: sigAgent.id } });
+
 // ── 担当者 API ─────────────────────────────────────────────────
 const dupe = await call("/api/agents", {
   method: "POST",

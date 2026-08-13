@@ -49,6 +49,7 @@ export default async function SettingsPage() {
           color: a.color,
           isMe: a.isMe,
           messageCount: a._count.authoredMessages,
+          signature: a.signature,
         }))}
         rules={rules.map((r) => ({
           id: r.id,

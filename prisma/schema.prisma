@@ -68,6 +68,8 @@ model AgentIdentity {
   email     String?  @unique
   /// UI 上の識別色（#rrggbb）
   color     String   @default("#3b6fe0")
+  /// 返信の末尾に付ける署名。空なら「-- 氏名」だけが付く
+  signature String?
   /// ログイン中の本人かどうか
   isMe      Boolean  @default(false)
   active    Boolean  @default(true)

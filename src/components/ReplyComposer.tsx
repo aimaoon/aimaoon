@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { Avatar } from "./Avatar";
 import type { AgentOption } from "./MessageAuthorPicker";
 
+type AgentWithSignature = AgentOption & { signature?: string | null };
+
 type Action = "reply" | "note";
 
 /**
@@ -27,7 +29,7 @@ export function ReplyComposer({
   ticketId: number;
   contactEmail: string;
   contactName: string;
-  agents: AgentOption[];
+  agents: AgentWithSignature[];
   defaultAgentId: string | null;
   /** デモモード（実際には送信されない）かどうか */
   demo?: boolean;
@@ -138,8 +140,24 @@ export function ReplyComposer({
             onChange={(e) => setIncludeSignature(e.target.checked)}
             className="accent-brand-600"
           />
-          返信の署名に名前を入れる
+          署名を付ける
         </label>
+
+        {includeSignature && (
+          <details className="text-xs text-[var(--text-muted)]">
+            <summary className="cursor-pointer">
+              {author?.signature ? "付く署名を確認" : "署名は氏名のみ"}
+            </summary>
+            <pre className="mt-1.5 max-h-48 overflow-auto whitespace-pre-wrap rounded-lg border border-[var(--border)] bg-[var(--surface-2)] p-2.5 font-sans text-[12px] leading-relaxed">
+              {author?.signature?.trim() || `--\n${author?.name ?? ""}`}
+            </pre>
+            {!author?.signature && (
+              <p className="mt-1 text-[11px]">
+                「担当者・判別ルール」画面で署名を登録できます。
+              </p>
+            )}
+          </details>
+        )}
 
         <div className="ml-auto flex flex-wrap items-center gap-2">
           {/* 社内に残す — 外に出ない操作なので控えめに */}

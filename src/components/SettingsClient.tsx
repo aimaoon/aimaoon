@@ -11,6 +11,7 @@ type Agent = {
   color: string;
   isMe: boolean;
   messageCount: number;
+  signature: string | null;
 };
 
 type Rule = {
@@ -50,6 +51,10 @@ export function SettingsClient({
 
   const [newAgentName, setNewAgentName] = useState("");
   const [newAgentEmail, setNewAgentEmail] = useState("");
+
+  /** 署名を編集中の担当者 ID と、その下書き */
+  const [editingSignature, setEditingSignature] = useState<string | null>(null);
+  const [signatureDraft, setSignatureDraft] = useState("");
 
   const [ruleKind, setRuleKind] = useState("SIGNATURE_CONTAINS");
   const [rulePattern, setRulePattern] = useState("");
@@ -103,6 +108,35 @@ export function SettingsClient({
       setNotice(`${agent.name} を削除しました。`);
     });
   };
+
+  const openSignature = (agent: Agent) => {
+    setEditingSignature(agent.id);
+    setSignatureDraft(agent.signature ?? "");
+    setNotice(null);
+    setError(null);
+  };
+
+  const saveSignature = (agent: Agent) =>
+    call(
+      `/api/agents/${agent.id}`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ signature: signatureDraft }),
+      },
+      (data) => {
+        const learned = (data as { learned?: string[] }).learned ?? [];
+        setNotice(
+          signatureDraft.trim()
+            ? `${agent.name} の署名を保存しました。` +
+              (learned.length > 0
+                ? `署名に含まれる「${learned[0]}」を判別ルールに登録したので、Gmail から直接返信した分も自動で ${agent.name} と判別されます。`
+                : "")
+            : `${agent.name} の署名を削除しました。以後は氏名だけが付きます。`
+        );
+        setEditingSignature(null);
+      }
+    );
 
   const addRule = () =>
     call(
@@ -168,30 +202,109 @@ export function SettingsClient({
 
         <ul className="mb-3 divide-y divide-[var(--border)] rounded-xl border border-[var(--border)] bg-[var(--surface)]">
           {agents.map((agent) => (
-            <li key={agent.id} className="flex items-center gap-3 px-4 py-3">
-              <Avatar name={agent.name} color={agent.color} size={30} />
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-medium">
-                  {agent.name}
-                  {agent.isMe && (
-                    <span className="ml-2 rounded bg-brand-100 px-1.5 py-0.5 text-[10px] font-medium text-brand-700 dark:bg-ink-700 dark:text-brand-200">
-                      ログイン中
-                    </span>
-                  )}
-                </p>
-                <p className="truncate text-xs text-[var(--text-muted)]">
-                  {agent.email ?? "個人アドレス未登録"} · 返信 {agent.messageCount} 通
-                </p>
-              </div>
-              {!agent.isMe && (
+            <li key={agent.id} className="px-4 py-3">
+              <div className="flex items-center gap-3">
+                <Avatar name={agent.name} color={agent.color} size={30} />
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-medium">
+                    {agent.name}
+                    {agent.isMe && (
+                      <span className="ml-2 rounded bg-brand-100 px-1.5 py-0.5 text-[10px] font-medium text-brand-700 dark:bg-ink-700 dark:text-brand-200">
+                        ログイン中
+                      </span>
+                    )}
+                  </p>
+                  <p className="truncate text-xs text-[var(--text-muted)]">
+                    {agent.email ?? "個人アドレス未登録"} · 返信 {agent.messageCount} 通
+                    {agent.signature ? " · 署名あり" : " · 署名未設定"}
+                  </p>
+                </div>
+
                 <button
                   type="button"
-                  onClick={() => void removeAgent(agent)}
-                  disabled={busy}
-                  className="rounded-lg px-2.5 py-1 text-xs text-red-600 transition hover:bg-red-50 disabled:opacity-50 dark:text-red-400 dark:hover:bg-red-950"
+                  onClick={() =>
+                    editingSignature === agent.id
+                      ? setEditingSignature(null)
+                      : openSignature(agent)
+                  }
+                  className="rounded-lg border border-[var(--border)] px-2.5 py-1 text-xs transition hover:bg-[var(--surface-2)]"
                 >
-                  削除
+                  {editingSignature === agent.id ? "閉じる" : "署名を編集"}
                 </button>
+
+                {!agent.isMe && (
+                  <button
+                    type="button"
+                    onClick={() => void removeAgent(agent)}
+                    disabled={busy}
+                    className="rounded-lg px-2.5 py-1 text-xs text-red-600 transition hover:bg-red-50 disabled:opacity-50 dark:text-red-400 dark:hover:bg-red-950"
+                  >
+                    削除
+                  </button>
+                )}
+              </div>
+
+              {/* 署名の編集 */}
+              {editingSignature === agent.id && (
+                <div className="mt-3 rounded-lg border border-[var(--border)] bg-[var(--surface-2)] p-3">
+                  <label
+                    htmlFor={`sig-${agent.id}`}
+                    className="text-xs font-medium"
+                  >
+                    {agent.name} の署名
+                  </label>
+                  <p className="mt-1 mb-2 text-[11px] leading-relaxed text-[var(--text-muted)]">
+                    このアプリから返信するとき、本文の末尾にそのまま付きます。
+                    区切り線は署名に含めてください（こちらでは足しません）。
+                    URL は自動でリンクになります。
+                  </p>
+                  <textarea
+                    id={`sig-${agent.id}`}
+                    value={signatureDraft}
+                    onChange={(e) => setSignatureDraft(e.target.value)}
+                    rows={12}
+                    spellCheck={false}
+                    placeholder={"＊＊＊＊＊＊＊＊＊＊＊＊\n会社名\n氏名\n\nEmail：\nURL：\n＊＊＊＊＊＊＊＊＊＊＊＊"}
+                    className="w-full resize-y rounded-lg border border-[var(--border)] bg-[var(--surface)] p-3 font-mono text-[13px] leading-relaxed outline-none transition focus:border-brand-500"
+                  />
+
+                  <div className="mt-2 flex flex-wrap items-center gap-2">
+                    <p className="text-[11px] text-[var(--text-muted)]">
+                      {signatureDraft.length} 文字
+                      {signatureDraft.includes(agent.name.split(/[\s\u3000]+/)[0]) &&
+                        " · 氏名が含まれているので、Gmail から直接送った返信も自動判別できます"}
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => setEditingSignature(null)}
+                      className="ml-auto rounded-lg px-3 py-1.5 text-xs hover:bg-[var(--surface)]"
+                    >
+                      キャンセル
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => void saveSignature(agent)}
+                      disabled={busy}
+                      className="rounded-lg bg-brand-600 px-3.5 py-1.5 text-xs font-medium text-white transition hover:bg-brand-700 disabled:opacity-50"
+                    >
+                      保存
+                    </button>
+                  </div>
+
+                  {signatureDraft.trim() && (
+                    <details className="mt-2">
+                      <summary className="cursor-pointer text-[11px] text-[var(--text-muted)]">
+                        送信されるプレビューを見る
+                      </summary>
+                      <div className="mt-2 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-3 text-sm">
+                        <p className="text-[var(--text-muted)]">（返信の本文）</p>
+                        <p className="mt-3 whitespace-pre-wrap leading-relaxed">
+                          {signatureDraft}
+                        </p>
+                      </div>
+                    </details>
+                  )}
+                </div>
               )}
             </li>
           ))}

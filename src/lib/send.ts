@@ -129,16 +129,28 @@ export async function sendReply(
     ? ticket.subject
     : `Re: ${ticket.subject}`;
 
-  const signature = params.includeSignature ? `\n\n--\n${author.name}` : "";
-  const textBody = `${params.bodyText}${signature}`;
+  // 署名。担当者に登録があればそれを使い、無ければ氏名だけの簡易署名にする。
+  // 登録済みの署名は「＊＊＊」など独自の区切りを持つことが多いので、
+  // こちらで "--" を足すと二重になる。足すのは簡易署名のときだけ。
+  const customSignature = params.includeSignature ? author.signature?.trim() : "";
+  const signatureText = params.includeSignature
+    ? customSignature
+      ? `\n\n${customSignature}`
+      : `\n\n--\n${author.name}`
+    : "";
+
+  const textBody = `${params.bodyText}${signatureText}`;
+
+  const signatureHtml = !params.includeSignature
+    ? ""
+    : customSignature
+      // URL をリンクにし、改行を保つ
+      ? `<div style="margin-top:16px">${textToHtml(customSignature)}</div>`
+      : `<div style="color:#667085;margin-top:16px">--<br>${escapeHtml(author.name)}</div>`;
 
   const htmlBody = `<!DOCTYPE html><html><body>${textToHtml(
     params.bodyText
-  )}${
-    params.includeSignature
-      ? `<div style="color:#667085;margin-top:16px">--<br>${escapeHtml(author.name)}</div>`
-      : ""
-  }</body></html>`;
+  )}${signatureHtml}</body></html>`;
 
   const raw = buildRawMessage({
     fromEmail: account.email,

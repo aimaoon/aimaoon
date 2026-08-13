@@ -80,10 +80,17 @@ export default async function TicketDetailPage({
 
   const agents = await prisma.agentIdentity.findMany({
     where: { active: true },
-    select: { id: true, name: true, color: true, isMe: true },
+    select: { id: true, name: true, color: true, isMe: true, signature: true },
     orderBy: [{ isMe: "desc" }, { name: "asc" }],
   });
   const agentOptions = agents.map(({ id, name, color }) => ({ id, name, color }));
+  // 返信欄では、その担当者に登録された署名も見せる
+  const agentsWithSignature = agents.map(({ id, name, color, signature }) => ({
+    id,
+    name,
+    color,
+    signature,
+  }));
   const meId = agents.find((a) => a.isMe)?.id ?? agents[0]?.id ?? null;
 
   // メールと社内メモを時系列に混ぜる
@@ -356,7 +363,7 @@ export default async function TicketDetailPage({
           ticketId={ticket.id}
           contactEmail={ticket.contact.email}
           contactName={ticket.contact.name || ticket.contact.email}
-          agents={agentOptions}
+          agents={agentsWithSignature}
           defaultAgentId={meId}
           demo={demo}
         />
