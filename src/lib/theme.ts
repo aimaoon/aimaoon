@@ -18,7 +18,7 @@ export const THEME_OPTIONS: ThemePreference[] = ['system', 'dark', 'light']
 /** ステータスバーの色（PWA のとき端末の上下の色になる）。CSS の --ground と揃えている。 */
 export const THEME_COLORS: Record<ResolvedTheme, string> = {
   dark: '#0b0a0d',
-  light: '#f2efe7',
+  light: '#f0eff3',
 }
 
 /** 設定と端末の設定から、実際に使う配色を決める。 */

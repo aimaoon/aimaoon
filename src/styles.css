@@ -59,26 +59,26 @@
    * インクは紙より濃くないと沈むので、マゼンタとシアンは暗めの版を使う。
    */
   :root:not([data-theme='dark']) {
-    --ground: #f2efe7;
+    --ground: #f0eff3;
     --surface: #ffffff;
-    --surface-2: #ebe7dd;
-    --line: #d8d2c4;
-    --line-soft: #e6e1d5;
-    --line-strong: #c7c0ae;
-    --track: #ded8ca;
-    --bar: rgba(242, 239, 231, 0.9);
-    --bar-solid: rgba(242, 239, 231, 0.94);
+    --surface-2: #e8e7ec;
+    --line: #d6d4dd;
+    --line-soft: #e5e3ea;
+    --line-strong: #b8b6c2;
+    --track: #d8d6df;
+    --bar: rgba(240, 239, 243, 0.9);
+    --bar-solid: rgba(240, 239, 243, 0.94);
   
     --ink: #16151a;
-    --muted: #6b675d;
-    --faint: #97917f;
+    --muted: #625f6b;
+    --faint: #8f8c99;
   
     --magenta: #d1005f;
     --magenta-dim: #ffdfec;
     --cyan: #0d818c;
     --cyan-dim: #d2f0f2;
-    --amber: #96660a;
-    --amber-dim: #f8ead0;
+    --amber: #8a6410;
+    --amber-dim: #f4e8cd;
     --red: #cc2318;
     --red-dim: #fadfdc;
   
@@ -90,26 +90,26 @@
 }
 
 :root[data-theme='light'] {
-  --ground: #f2efe7;
+  --ground: #f0eff3;
   --surface: #ffffff;
-  --surface-2: #ebe7dd;
-  --line: #d8d2c4;
-  --line-soft: #e6e1d5;
-  --line-strong: #c7c0ae;
-  --track: #ded8ca;
-  --bar: rgba(242, 239, 231, 0.9);
-  --bar-solid: rgba(242, 239, 231, 0.94);
+  --surface-2: #e8e7ec;
+  --line: #d6d4dd;
+  --line-soft: #e5e3ea;
+  --line-strong: #b8b6c2;
+  --track: #d8d6df;
+  --bar: rgba(240, 239, 243, 0.9);
+  --bar-solid: rgba(240, 239, 243, 0.94);
 
   --ink: #16151a;
-  --muted: #6b675d;
-  --faint: #97917f;
+  --muted: #625f6b;
+  --faint: #8f8c99;
 
   --magenta: #d1005f;
   --magenta-dim: #ffdfec;
   --cyan: #0d818c;
   --cyan-dim: #d2f0f2;
-  --amber: #96660a;
-  --amber-dim: #f8ead0;
+  --amber: #8a6410;
+  --amber-dim: #f4e8cd;
   --red: #cc2318;
   --red-dim: #fadfdc;
 
