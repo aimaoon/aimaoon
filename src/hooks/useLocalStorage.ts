@@ -1,13 +1,14 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 /** localStorage に読み書きする useState。値は JSON で保存する。 */
-export function useLocalStorage<T>(key: string, initialValue: T) {
+export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
   const [value, setValue] = useState<T>(() => {
+    const fallback = () => (typeof initialValue === 'function' ? (initialValue as () => T)() : initialValue)
     try {
       const stored = window.localStorage.getItem(key)
-      return stored === null ? initialValue : (JSON.parse(stored) as T)
+      return stored === null ? fallback() : (JSON.parse(stored) as T)
     } catch {
-      return initialValue
+      return fallback()
     }
   })
 
@@ -15,11 +16,9 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
     try {
       window.localStorage.setItem(key, JSON.stringify(value))
     } catch {
-      // 保存できなくても操作は続行できるので握りつぶす
+      // 保存できなくても操作は続けられるので握りつぶす
     }
   }, [key, value])
 
-  const reset = useCallback(() => setValue(initialValue), [initialValue])
-
-  return [value, setValue, reset] as const
+  return [value, setValue] as const
 }
