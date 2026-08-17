@@ -3,9 +3,14 @@ import type { Contest } from '../types'
 import {
   activeDate,
   contestPhase,
+  filterContests,
   finalVenue,
+  hasFinalRight,
+  hasJudge,
   hasReview,
   hasUpcomingFinal,
+  isFilterActive,
+  judgeIndex,
   isMusicSettled,
   isPaymentSettled,
   pendingReviews,
@@ -198,6 +203,74 @@ describe('ファイナル', () => {
     const c = withFinal({ date: '2026-08-10', judges: [] }, '2026-09-20')
     const judge = preparationOf(c, NOW).tasks.find((task) => task.kind === 'judge')
     expect(judge?.urgency).toBe('none')
+  })
+})
+
+describe('ジャッジでの絞り込み', () => {
+  const items = [
+    contest({ id: 'a', name: 'A', judges: [{ id: '1', name: 'KENTO' }, { id: '2', name: 'MIKA' }] }),
+    contest({ id: 'b', name: 'B', judges: [{ id: '3', name: 'kento ' }] }),
+    contest({ id: 'c', name: 'C', judges: [{ id: '4', name: 'RYU' }] }),
+    contest({ id: 'd', name: 'D', judges: [] }),
+  ]
+
+  it('大文字小文字と前後の空白を無視して一致させる', () => {
+    expect(hasJudge(items[1], 'KENTO')).toBe(true)
+    expect(hasJudge(items[0], 'ryu')).toBe(false)
+  })
+
+  it('担当した大会が多い順に一覧を作る', () => {
+    expect(judgeIndex(items)).toEqual([
+      { name: 'KENTO', count: 2 },
+      { name: 'MIKA', count: 1 },
+      { name: 'RYU', count: 1 },
+    ])
+  })
+
+  it('同じ大会に同名のジャッジが重複していても 1 回だけ数える', () => {
+    const dup = [contest({ judges: [{ id: '1', name: 'KENTO' }, { id: '2', name: 'KENTO' }] })]
+    expect(judgeIndex(dup)).toEqual([{ name: 'KENTO', count: 1 }])
+  })
+
+  it('名前が空のジャッジは一覧に出さない', () => {
+    expect(judgeIndex([contest({ judges: [{ id: '1', name: '  ' }] })])).toEqual([])
+  })
+
+  it('選んだジャッジのうち誰かがいる大会を返す', () => {
+    expect(filterContests(items, { judges: ['KENTO'] }).map((c) => c.id)).toEqual(['a', 'b'])
+    expect(filterContests(items, { judges: ['MIKA', 'RYU'] }).map((c) => c.id)).toEqual(['a', 'c'])
+  })
+
+  it('検索とジャッジは重ねてかかる', () => {
+    expect(filterContests(items, { query: 'A', judges: ['KENTO'] }).map((c) => c.id)).toEqual(['a'])
+  })
+
+  it('ジャッジ名でも検索できる', () => {
+    expect(searchContests(items, 'mika').map((c) => c.id)).toEqual(['a'])
+  })
+})
+
+describe('ファイナル権での絞り込み', () => {
+  const items = [
+    contest({ id: 'got', final: { status: 'advanced', reminders: [] } }),
+    contest({ id: 'waiting', final: { date: '2026-10-01', status: 'undecided', reminders: [] } }),
+    contest({ id: 'lost', final: { date: '2026-10-01', status: 'eliminated', reminders: [] } }),
+    contest({ id: 'none' }),
+  ]
+
+  it('進出決定だけを権獲得とみなす', () => {
+    expect(items.filter(hasFinalRight).map((c) => c.id)).toEqual(['got'])
+  })
+
+  it('日程が未定でも権獲得として絞り込める', () => {
+    expect(filterContests(items, { finalRightOnly: true }).map((c) => c.id)).toEqual(['got'])
+  })
+
+  it('条件を外せば全部返る', () => {
+    expect(filterContests(items, {})).toHaveLength(4)
+    expect(isFilterActive({})).toBe(false)
+    expect(isFilterActive({ finalRightOnly: true })).toBe(true)
+    expect(isFilterActive({ query: '  ' })).toBe(false)
   })
 })
 

@@ -5,6 +5,7 @@ import {
   PAYMENT_LABELS,
   activeDate,
   contestPhase,
+  hasFinalRight,
   hasUpcomingFinal,
   isMusicSettled,
   isPaymentSettled,
@@ -47,8 +48,9 @@ export function ContestCard({ contest, now, onOpen }: { contest: Contest; now: D
             🎵 {MUSIC_LABELS[contest.music.status]}
           </Chip>
           {prep.alerts.length > 0 && <Chip tone="danger">⚠︎ 要対応 {prep.alerts.length}</Chip>}
-          {!showsFinal && hasUpcomingFinal(contest, now) && (
-            <Chip tone="accent">🔥 ファイナル {formatDateJa(contest.final!.date).split('(')[0]}</Chip>
+          {hasFinalRight(contest) && <Chip tone="accent">🔥 ファイナル権獲得</Chip>}
+          {!showsFinal && !hasFinalRight(contest) && hasUpcomingFinal(contest, now) && (
+            <Chip tone="accent">🔥 ファイナル {formatDateJa(contest.final!.date!).split('(')[0]}</Chip>
           )}
         </div>
 

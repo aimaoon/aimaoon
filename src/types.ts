@@ -86,7 +86,12 @@ export interface Reminder {
   enabled: boolean
 }
 
-/** ファイナルへの進出状況。 */
+/**
+ * ファイナルへの進出状況。
+ * - undecided: まだ結果待ち（日程だけ押さえている状態）
+ * - advanced:  ファイナル権を獲得した
+ * - eliminated: 予選で敗退した
+ */
 export type FinalStatus = 'undecided' | 'advanced' | 'eliminated'
 
 /**
@@ -94,8 +99,8 @@ export type FinalStatus = 'undecided' | 'advanced' | 'eliminated'
  * 予選とは別日・別会場で行われることが多いので、1 つのコンテストの中に別枠で持つ。
  */
 export interface FinalRound {
-  /** 開催日 YYYY-MM-DD */
-  date: string
+  /** 開催日 YYYY-MM-DD。権利だけ先に獲得して日程が未発表のこともあるので任意。 */
+  date?: string
   /** 集合時刻 HH:mm */
   startTime?: string
   /** 終了予定 HH:mm */

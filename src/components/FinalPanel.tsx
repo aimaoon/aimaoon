@@ -37,10 +37,21 @@ export function FinalPanel({
   if (!final) {
     return (
       <Card title="ファイナル" icon="🔥">
-        <p className="hint">予選を勝ち抜いた先の決勝がある大会は、ここに日程を入れておけます。</p>
-        <button type="button" className="btn btn--ghost" onClick={() => onChange(createFinal(contest.date))}>
-          ファイナルの予定を追加
-        </button>
+        <p className="hint">
+          予選を勝ち抜いた先の決勝がある大会は、ここで管理できます。日程が未発表でも権利だけ先に記録できます。
+        </p>
+        <div className="btn-row">
+          <button
+            type="button"
+            className="btn btn--primary"
+            onClick={() => onChange(createFinal(undefined, 'advanced'))}
+          >
+            🔥 ファイナル権を獲得した
+          </button>
+          <button type="button" className="btn btn--ghost" onClick={() => onChange(createFinal(contest.date))}>
+            日程を登録する
+          </button>
+        </div>
       </Card>
     )
   }
@@ -49,7 +60,6 @@ export function FinalPanel({
   const setReminders = (reminders: Reminder[]) => patch({ reminders })
   const venue = finalVenue(contest)
   const sharesVenue = !final.venue?.name && !final.venue?.address
-  const left = daysUntil(final.date, now)
 
   return (
     <Card
@@ -69,10 +79,12 @@ export function FinalPanel({
       }
     >
       <div className="final__head">
-        <p className="final__date">{formatDateLongJa(final.date)}</p>
+        <p className="final__date">{final.date ? formatDateLongJa(final.date) : '日程未定'}</p>
         <div className="final__chips">
           <Chip tone={STATUS_TONE[final.status]}>{FINAL_LABELS[final.status]}</Chip>
-          {final.status !== 'eliminated' && <Chip tone="neutral">{formatDayOffset(left)}</Chip>}
+          {final.date && final.status !== 'eliminated' && (
+            <Chip tone="neutral">{formatDayOffset(daysUntil(final.date, now))}</Chip>
+          )}
         </div>
       </div>
 
@@ -93,14 +105,20 @@ export function FinalPanel({
         <p className="hint">敗退にすると、ファイナルの通知とカレンダー書き出しから外れます。</p>
       )}
 
-      <Field label="開催日">
+      <Field label="開催日" hint={final.date ? undefined : '未発表なら空のままで構いません'}>
         <input
           className="input"
           type="date"
-          value={final.date}
-          onChange={(event) => event.target.value && patch({ date: event.target.value })}
+          value={final.date ?? ''}
+          onChange={(event) => patch({ date: event.target.value || undefined })}
         />
       </Field>
+
+      {!final.date && (
+        <p className="hint">
+          日程を入れると、リマインダーとカレンダー（.ics）の書き出し対象になります。
+        </p>
+      )}
 
       <div className="field-row">
         <Field label="集合・開始">
@@ -172,7 +190,9 @@ export function FinalPanel({
               <span className="reminder__label">{reminderLabel(reminder)}</span>
             </label>
             <span className="reminder__at">
-              {formatDateJa(toDateKey(finalReminderDateTime(final, reminder)))} {reminder.time}
+              {final.date
+                ? `${formatDateJa(toDateKey(finalReminderDateTime(final.date, reminder)))} ${reminder.time}`
+                : `日程未定 ${reminder.time}`}
             </span>
             <button
               type="button"

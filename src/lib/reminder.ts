@@ -1,4 +1,4 @@
-import type { Contest, FinalRound, Reminder, ReminderOccurrence } from '../types'
+import type { Contest, Reminder, ReminderOccurrence } from '../types'
 import { addDays, atTime, formatDateJa } from './date'
 import { finalVenue, isMusicSettled, isPaymentSettled } from './contest'
 
@@ -27,8 +27,8 @@ export function reminderDateTime(contest: Contest, reminder: Reminder): Date {
 }
 
 /** ファイナル用。基準日が予選ではなくファイナルの開催日になる。 */
-export function finalReminderDateTime(final: FinalRound, reminder: Reminder): Date {
-  return atTime(addDays(final.date, -reminder.daysBefore), reminder.time)
+export function finalReminderDateTime(finalDate: string, reminder: Reminder): Date {
+  return atTime(addDays(finalDate, -reminder.daysBefore), reminder.time)
 }
 
 function bodyOf(dateKey: string, startTime: string | undefined, venueName: string | undefined): string {
@@ -62,15 +62,15 @@ export function occurrencesOf(contest: Contest): ReminderOccurrence[] {
     })
   }
 
-  // ファイナルは敗退が決まっていなければ通知する（進出待ちの段階でも予定は押さえておきたい）。
+  // ファイナルは日程が決まっていて敗退していなければ通知する（結果待ちの段階でも予定は押さえておきたい）。
   const final = contest.final
-  if (final && final.status !== 'eliminated') {
+  if (final?.date && final.status !== 'eliminated') {
     for (const reminder of final.reminders) {
       if (!reminder.enabled) continue
       list.push({
         contestId: contest.id,
         contestName: contest.name,
-        at: finalReminderDateTime(final, reminder).toISOString(),
+        at: finalReminderDateTime(final.date, reminder).toISOString(),
         title: `${contest.name} ファイナル（${reminderLabel(reminder)}）`,
         body: bodyOf(final.date, final.startTime, finalVenue(contest).name),
         kind: 'final',

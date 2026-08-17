@@ -120,7 +120,8 @@ function eventLines(contest: Contest, now: Date): string[] {
 /** ファイナルは別の予定として書き出す。敗退が決まっていれば出さない。 */
 function finalLines(contest: Contest, now: Date): string[] {
   const final = contest.final
-  if (!final || final.status === 'eliminated') return []
+  // 日程未定のファイナルはカレンダーに置けないので書き出さない。
+  if (!final?.date || final.status === 'eliminated') return []
 
   const venue = finalVenue(contest)
   const lines: string[] = [
@@ -136,7 +137,10 @@ function finalLines(contest: Contest, now: Date): string[] {
   for (const reminder of final.reminders) {
     if (!reminder.enabled) continue
     lines.push(
-      ...alarmLines(`${contest.name} ファイナル（${reminderLabel(reminder)}）`, finalReminderDateTime(final, reminder)),
+      ...alarmLines(
+        `${contest.name} ファイナル（${reminderLabel(reminder)}）`,
+        finalReminderDateTime(final.date, reminder),
+      ),
     )
   }
 

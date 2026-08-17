@@ -1,4 +1,4 @@
-import type { Contest, FinalRound, Judge } from '../types'
+import type { Contest, FinalRound, FinalStatus, Judge } from '../types'
 import { addDays, toDateKey } from './date'
 import { defaultReminders } from './reminder'
 
@@ -33,13 +33,16 @@ export function createJudge(name = ''): Judge {
   return { id: createId('judge'), name }
 }
 
-/** ファイナルの初期値。日付は仮に予選の 1 か月後を置いておく。 */
-export function createFinal(baseDate: string): FinalRound {
+/**
+ * ファイナルの初期値。
+ * baseDate を渡すと仮に予選の 1 か月後を置く。日程がまだ発表されていないときは省略する。
+ */
+export function createFinal(baseDate?: string, status: FinalStatus = 'undecided'): FinalRound {
   return {
-    date: addDays(baseDate, 30),
+    date: baseDate ? addDays(baseDate, 30) : undefined,
     startTime: '',
     endTime: '',
-    status: 'undecided',
+    status,
     reminders: defaultReminders(),
     note: '',
   }
@@ -58,7 +61,7 @@ export function normalizeContest(input: Partial<Contest>): Contest {
     reminders: input.reminders?.length ? input.reminders : base.reminders,
     final: input.final
       ? {
-          ...createFinal(input.final.date),
+          ...createFinal(),
           ...input.final,
           reminders: input.final.reminders?.length ? input.final.reminders : defaultReminders(),
         }

@@ -86,7 +86,10 @@ export function ContestDetail({
               準備 {prep.doneCount}/{prep.totalCount}
             </Chip>
             {contest.final && contest.final.status !== 'eliminated' && (
-              <Chip tone="accent">🔥 ファイナル {formatDateJa(contest.final.date)}</Chip>
+              <Chip tone="accent">
+                🔥 {contest.final.status === 'advanced' ? 'ファイナル権獲得' : 'ファイナル'}
+                {contest.final.date ? ` ${formatDateJa(contest.final.date)}` : '（日程未定）'}
+              </Chip>
             )}
           </div>
           <ProgressBar ratio={prep.ratio} tone={prep.alerts.length > 0 ? 'warn' : 'ok'} />

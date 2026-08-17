@@ -132,14 +132,12 @@ export function ContestForm({
         <Card title="ファイナル" icon="🔥">
           {draft.final ? (
             <>
-              <Field label="開催日" hint="予選とは別日の決勝">
+              <Field label="開催日" hint="未発表なら空のままで構いません">
                 <input
                   className="input"
                   type="date"
-                  value={draft.final.date}
-                  onChange={(event) =>
-                    event.target.value && patch({ final: { ...draft.final!, date: event.target.value } })
-                  }
+                  value={draft.final.date ?? ''}
+                  onChange={(event) => patch({ final: { ...draft.final!, date: event.target.value || undefined } })}
                 />
               </Field>
               <Field label="集合・開始">

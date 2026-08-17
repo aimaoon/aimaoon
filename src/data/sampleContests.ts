@@ -101,6 +101,38 @@ export function buildSampleContests(now: Date = new Date()): Contest[] {
       updatedAt: stamp,
     },
     {
+      id: 'sample-japan-delight',
+      name: 'JAPAN DANCE DELIGHT 東京予選',
+      category: 'チーム / 2分',
+      date: at(-12),
+      startTime: '13:00',
+      venue: { name: 'Zepp DiverCity', address: '東京都江東区青海1-1-10' },
+      entry: { fee: 4000, status: 'paid', paidOn: at(-30) },
+      music: { status: 'submitted', title: 'MIX 音源', submittedOn: at(-18) },
+      judges: [
+        { id: 'j-8', name: 'KENTO', genre: 'HIPHOP', note: 'ミュージカリティ重視。曲の取り方を見てくる。' },
+        { id: 'j-9', name: 'MASA', genre: 'POP', note: 'チームの揃い方より、個の色を見るタイプ。' },
+      ],
+      reminders: defaultReminders(),
+      final: {
+        // 権利だけ先に決まって、日程は後日発表されるパターン。
+        status: 'advanced',
+        reminders: defaultReminders(),
+        note: 'ファイナル進出決定。日程と会場は主催の発表待ち（例年 3 月／大阪）。',
+      },
+      memo: '',
+      review: {
+        rating: 5,
+        result: '優勝（ファイナル進出）',
+        good: '構成の見せ場が刺さった。3 人の同期も揃っていた。',
+        improve: 'ラストの尺が押した。時間管理は要練習。',
+        next: 'ファイナルまでに 2 分の構成を組み直す。',
+        updatedAt: at(-11),
+      },
+      createdAt: stamp,
+      updatedAt: stamp,
+    },
+    {
       id: 'sample-guest-show',
       name: 'ゲストショー @ Club Harlem',
       category: 'ゲスト出演',

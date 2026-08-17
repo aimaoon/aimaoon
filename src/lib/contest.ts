@@ -5,8 +5,8 @@ import { daysUntil, toDateKey } from './date'
 export const SOON_DAYS = 3
 
 export const FINAL_LABELS: Record<FinalStatus, string> = {
-  undecided: '進出待ち',
-  advanced: '進出決定',
+  undecided: '結果待ち',
+  advanced: 'ファイナル権獲得',
   eliminated: '敗退',
 }
 
@@ -40,10 +40,15 @@ export function hasVenueLocation(contest: Contest): boolean {
   return Boolean((address && address.trim()) || (typeof lat === 'number' && typeof lng === 'number'))
 }
 
-/** ファイナルがまだ先にあるか（敗退していれば数えない）。 */
+/** ファイナル権を獲得しているか。 */
+export function hasFinalRight(contest: Contest): boolean {
+  return contest.final?.status === 'advanced'
+}
+
+/** ファイナルがまだ先にあるか（日程未定・敗退は数えない）。 */
 export function hasUpcomingFinal(contest: Contest, now: Date): boolean {
   const final = contest.final
-  if (!final || final.status === 'eliminated') return false
+  if (!final || final.status === 'eliminated' || !final.date) return false
   return daysUntil(final.date, now) >= 0
 }
 
@@ -52,7 +57,7 @@ export function hasUpcomingFinal(contest: Contest, now: Date): boolean {
  * 予選が終わっていてもファイナルが残っていれば、一覧・並び順はファイナルの日で考える。
  */
 export function activeDate(contest: Contest, now: Date): string {
-  return hasUpcomingFinal(contest, now) && contest.date < toDateKey(now) ? contest.final!.date : contest.date
+  return hasUpcomingFinal(contest, now) && contest.date < toDateKey(now) ? contest.final!.date! : contest.date
 }
 
 /** ファイナルの会場。個別に設定していなければ予選と同じ会場を使う。 */
@@ -146,15 +151,81 @@ export function sortContests(contests: Contest[], now: Date): Contest[] {
   })
 }
 
-/** 名前・部門・会場名でのあいまい検索。 */
+/** 検索の対象になる文字列をすべて集める。 */
+function searchableText(contest: Contest): string {
+  return [
+    contest.name,
+    contest.category,
+    contest.venue.name,
+    contest.venue.address,
+    contest.final?.venue?.name,
+    contest.final?.venue?.address,
+    contest.memo,
+    contest.music.title,
+    ...contest.judges.flatMap((judge) => [judge.name, judge.genre]),
+  ]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase()
+}
+
+/** 大会名・部門・会場・ジャッジ・曲名・メモを対象にしたあいまい検索。 */
 export function searchContests(contests: Contest[], query: string): Contest[] {
   const q = query.trim().toLowerCase()
   if (!q) return contests
-  return contests.filter((contest) =>
-    [contest.name, contest.category, contest.venue.name, contest.venue.address]
-      .filter(Boolean)
-      .some((value) => String(value).toLowerCase().includes(q)),
-  )
+  return contests.filter((contest) => searchableText(contest).includes(q))
+}
+
+/** そのジャッジが入っているか（表記ゆれを避けるため大文字小文字と前後の空白は無視）。 */
+export function hasJudge(contest: Contest, name: string): boolean {
+  const target = name.trim().toLowerCase()
+  return contest.judges.some((judge) => judge.name.trim().toLowerCase() === target)
+}
+
+/** 登録されているジャッジを、担当した大会が多い順に並べて返す。 */
+export function judgeIndex(contests: Contest[]): { name: string; count: number }[] {
+  const counts = new Map<string, { name: string; count: number }>()
+  for (const contest of contests) {
+    // 同じ大会に同名のジャッジが 2 回入っていても 1 大会として数える。
+    const seen = new Set<string>()
+    for (const judge of contest.judges) {
+      const name = judge.name.trim()
+      const key = name.toLowerCase()
+      if (!name || seen.has(key)) continue
+      seen.add(key)
+      const found = counts.get(key)
+      if (found) found.count += 1
+      else counts.set(key, { name, count: 1 })
+    }
+  }
+  return [...counts.values()].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'ja'))
+}
+
+/** 一覧の絞り込み条件。 */
+export interface ContestFilter {
+  /** フリーワード */
+  query?: string
+  /** 選んだジャッジのうち誰か 1 人でも入っている大会に絞る */
+  judges?: string[]
+  /** ファイナル権を獲得した大会だけに絞る */
+  finalRightOnly?: boolean
+}
+
+/** 検索とジャッジ・ファイナル権の絞り込みをまとめて適用する。 */
+export function filterContests(contests: Contest[], filter: ContestFilter): Contest[] {
+  let result = searchContests(contests, filter.query ?? '')
+  if (filter.judges?.length) {
+    result = result.filter((contest) => filter.judges!.some((name) => hasJudge(contest, name)))
+  }
+  if (filter.finalRightOnly) {
+    result = result.filter(hasFinalRight)
+  }
+  return result
+}
+
+/** 絞り込みが 1 つでもかかっているか。 */
+export function isFilterActive(filter: ContestFilter): boolean {
+  return Boolean(filter.query?.trim() || filter.judges?.length || filter.finalRightOnly)
 }
 
 /** 振り返りが書かれているか。 */
