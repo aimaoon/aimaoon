@@ -2,7 +2,7 @@ import { useState } from 'react'
 import type { Contest, FinalRound, FinalStatus, Reminder } from '../types'
 import { FINAL_LABELS, finalVenue } from '../lib/contest'
 import { daysUntil, formatDateJa, formatDateLongJa, formatDayOffset, toDateKey } from '../lib/date'
-import { appleMapsUrl, canOpenMap, directionsUrl, googleMapsUrl } from '../lib/map'
+import { canOpenMap, directionsUrl, googleMapsUrl } from '../lib/map'
 import { createFinal, createId } from '../lib/factory'
 import { finalReminderDateTime, reminderLabel } from '../lib/reminder'
 import { Card, Chip, Field } from './ui'
@@ -161,13 +161,10 @@ export function FinalPanel({
       {canOpenMap(venue) && (
         <div className="map-links">
           <a className="btn btn--primary" href={googleMapsUrl(venue)} target="_blank" rel="noreferrer">
-            🗺 地図を開く
+            🗺 Google マップで開く
           </a>
           <a className="btn btn--ghost" href={directionsUrl(venue)} target="_blank" rel="noreferrer">
             🚃 経路
-          </a>
-          <a className="btn btn--ghost" href={appleMapsUrl(venue)} target="_blank" rel="noreferrer">
-            Apple マップ
           </a>
         </div>
       )}

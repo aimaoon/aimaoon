@@ -2,7 +2,8 @@ import type { Venue } from '../types'
 
 /**
  * 会場の地図リンク。
- * 埋め込み地図は API キーが要るので、スマホの地図アプリをそのまま開く URL を作る。
+ * 埋め込み地図は API キーが要るので、Google マップをそのまま開く URL を作る
+ * （アプリが入っていればアプリ側で開く）。
  * 座標があれば座標を、なければ住所（無ければ会場名）を検索語にする。
  */
 
@@ -22,13 +23,6 @@ export function canOpenMap(venue: Venue): boolean {
 /** Google マップ（アプリが入っていればアプリで開く）。 */
 export function googleMapsUrl(venue: Venue): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery(venue))}`
-}
-
-/** Apple マップ。iPhone のブラウザからだと標準マップが開く。 */
-export function appleMapsUrl(venue: Venue): string {
-  const query = mapQuery(venue)
-  const key = /^-?\d+(\.\d+)?,-?\d+(\.\d+)?$/.test(query) ? 'll' : 'q'
-  return `https://maps.apple.com/?${key}=${encodeURIComponent(query)}`
 }
 
 /** 現在地からの経路検索。 */

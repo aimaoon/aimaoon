@@ -1,6 +1,6 @@
 import type { Contest } from '../types'
 import { atTime, addDays } from './date'
-import { FINAL_LABELS, MUSIC_LABELS, PAYMENT_LABELS, finalVenue, isMusicSettled, isPaymentSettled } from './contest'
+import { FINAL_LABELS, PAYMENT_LABELS, finalVenue, isMusicSettled, isPaymentSettled, musicSummary } from './contest'
 import { finalReminderDateTime, reminderDateTime, reminderLabel } from './reminder'
 
 /**
@@ -63,7 +63,7 @@ function description(contest: Contest): string {
   const lines = [
     `部門: ${contest.category || '-'}`,
     `入金: ${PAYMENT_LABELS[contest.entry.status]}${contest.entry.fee ? `（${contest.entry.fee.toLocaleString('ja-JP')}円）` : ''}`,
-    `音源: ${MUSIC_LABELS[contest.music.status]}${contest.music.title ? `／${contest.music.title}` : ''}`,
+    `音源: ${musicSummary(contest)}${contest.music.title ? `／${contest.music.title}` : ''}`,
   ]
   if (contest.judges.length > 0) {
     lines.push(`ジャッジ: ${contest.judges.map((judge) => judge.name).join('、')}`)

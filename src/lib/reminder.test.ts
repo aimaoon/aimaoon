@@ -54,8 +54,8 @@ describe('通知予定の組み立て', () => {
     expect(occurrencesOf(c).filter((o) => o.kind === 'payment')).toHaveLength(0)
   })
 
-  it('当日持参の音源は提出期限の通知を出さない', () => {
-    const c = contest({ reminders: [], music: { status: 'onsite', dueDate: '2026-08-25' } })
+  it('当日持参にチェックがあれば提出期限の通知を出さない', () => {
+    const c = contest({ reminders: [], music: { status: 'ready', bringOnDay: true, dueDate: '2026-08-25' } })
     expect(occurrencesOf(c).filter((o) => o.kind === 'music')).toHaveLength(0)
   })
 

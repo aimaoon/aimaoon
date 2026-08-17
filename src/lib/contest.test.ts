@@ -13,6 +13,7 @@ import {
   judgeIndex,
   isMusicSettled,
   isPaymentSettled,
+  musicSummary,
   pendingReviews,
   preparationOf,
   searchContests,
@@ -69,9 +70,13 @@ describe('入金の判定', () => {
 })
 
 describe('音源の判定', () => {
-  it('提出済みと当日持参は完了扱い', () => {
+  it('提出済みなら完了扱い', () => {
     expect(isMusicSettled(contest({ music: { status: 'submitted' } }))).toBe(true)
-    expect(isMusicSettled(contest({ music: { status: 'onsite' } }))).toBe(true)
+  })
+
+  it('当日持参にチェックが入っていれば、未提出でも完了扱い', () => {
+    expect(isMusicSettled(contest({ music: { status: 'none', bringOnDay: true } }))).toBe(true)
+    expect(isMusicSettled(contest({ music: { status: 'ready', bringOnDay: true } }))).toBe(true)
   })
 
   it('用意しただけ・未準備は未完了', () => {
@@ -79,8 +84,18 @@ describe('音源の判定', () => {
     expect(isMusicSettled(contest({ music: { status: 'none' } }))).toBe(false)
   })
 
-  it('当日持参ならラベルがそう表示される', () => {
-    expect(taskOf(contest({ music: { status: 'onsite' } }), 'music').label).toBe('音源は当日持参')
+  it('当日持参だけならラベルがそう表示される', () => {
+    expect(taskOf(contest({ music: { status: 'ready', bringOnDay: true } }), 'music').label).toBe('音源は当日持参')
+  })
+
+  it('提出済みなら当日持参でもラベルは「音源の提出」のまま', () => {
+    expect(taskOf(contest({ music: { status: 'submitted', bringOnDay: true } }), 'music').label).toBe('音源の提出')
+  })
+
+  it('一言表記は提出状況と当日持参を併記する', () => {
+    expect(musicSummary(contest({ music: { status: 'ready' } }))).toBe('用意済み')
+    expect(musicSummary(contest({ music: { status: 'none', bringOnDay: true } }))).toBe('当日持参')
+    expect(musicSummary(contest({ music: { status: 'submitted', bringOnDay: true } }))).toBe('提出済み・当日持参')
   })
 
   it('提出期限がなければ開催日を期限とみなす', () => {

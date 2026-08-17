@@ -490,6 +490,46 @@ button {
   color: #fff;
 }
 
+/* 提出状況の横に置く「当日持参」のような、状態とは別軸のチェック */
+.music-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* 提出状況の 3 つが 1 行に収まらない幅では、チェックを下の行へ送る。 */
+.music-status .segmented {
+  flex: 1 1 280px;
+}
+
+.check-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.check-toggle input {
+  width: 19px;
+  height: 19px;
+  accent-color: var(--purple);
+}
+
+.check-toggle.is-on {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
 .hint {
   margin: 0;
   font-size: 12.5px;

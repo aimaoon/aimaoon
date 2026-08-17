@@ -19,9 +19,15 @@ export const PAYMENT_LABELS: Record<Contest['entry']['status'], string> = {
 
 export const MUSIC_LABELS: Record<Contest['music']['status'], string> = {
   none: '未準備',
-  ready: '用意済み・未提出',
+  ready: '用意済み',
   submitted: '提出済み',
-  onsite: '当日持参',
+}
+
+/** 当日持参まで含めた音源の状態の一言表記。 */
+export function musicSummary(contest: Contest): string {
+  const base = MUSIC_LABELS[contest.music.status]
+  if (!contest.music.bringOnDay) return base
+  return contest.music.status === 'none' ? '当日持参' : `${base}・当日持参`
 }
 
 /** 入金が完了扱いか。 */
@@ -29,9 +35,9 @@ export function isPaymentSettled(contest: Contest): boolean {
   return contest.entry.status === 'paid' || contest.entry.status === 'free'
 }
 
-/** 音源の対応が済んでいるか。当日持参も「対応済み」として扱う。 */
+/** 音源の対応が済んでいるか。提出済みか、当日持参にチェックが入っていれば済み扱い。 */
 export function isMusicSettled(contest: Contest): boolean {
-  return contest.music.status === 'submitted' || contest.music.status === 'onsite'
+  return contest.music.status === 'submitted' || Boolean(contest.music.bringOnDay)
 }
 
 /** 会場の場所が分かっているか（地図を開けるか）。 */
@@ -101,7 +107,7 @@ export function preparationOf(contest: Contest, now: Date): Preparation {
     },
     {
       kind: 'music',
-      label: contest.music.status === 'onsite' ? '音源は当日持参' : '音源の提出',
+      label: contest.music.bringOnDay && contest.music.status !== 'submitted' ? '音源は当日持参' : '音源の提出',
       done: music,
       dueDate: contest.music.dueDate,
       urgency: urgencyOf(music, contest.music.dueDate ?? reference, now),

@@ -32,7 +32,7 @@ describe('予定の組み立て', () => {
     const entries = entriesOf(
       contest({
         entry: { fee: 5000, status: 'paid', dueDate: '2026-08-25' },
-        music: { status: 'onsite', dueDate: '2026-08-27' },
+        music: { status: 'ready', bringOnDay: true, dueDate: '2026-08-27' },
       }),
     )
     expect(entries).toHaveLength(1)

@@ -2,13 +2,14 @@
 export type PaymentStatus = 'unpaid' | 'partial' | 'paid' | 'free'
 
 /**
- * 音源の状態。
+ * 音源の準備状況。
  * - none:      まだ曲が決まっていない／用意していない
  * - ready:     曲は用意できたが主催者へは未提出
  * - submitted: 主催者へ提出済み
- * - onsite:    当日持参で対応する（提出不要）
+ *
+ * 「当日持参」は提出状況とは別軸なので Music.bringOnDay で持つ。
  */
-export type MusicStatus = 'none' | 'ready' | 'submitted' | 'onsite'
+export type MusicStatus = 'none' | 'ready' | 'submitted'
 
 /** 開催場所。住所か緯度経度のどちらかがあれば地図を開ける。 */
 export interface Venue {
@@ -38,6 +39,12 @@ export interface Entry {
 /** 音源の提出管理。 */
 export interface Music {
   status: MusicStatus
+  /**
+   * 当日会場に持ち込んで対応する。
+   * 事前提出が要らない大会だけでなく、提出済みでもバックアップを持つ場合に立てる。
+   * これが立っていれば事前提出が済んでいなくても「対応済み」として扱う。
+   */
+  bringOnDay?: boolean
   /** 曲名／アーティスト */
   title?: string
   /** 音源提出期限 YYYY-MM-DD */

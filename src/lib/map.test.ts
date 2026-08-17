@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { appleMapsUrl, canOpenMap, directionsUrl, googleMapsUrl, mapQuery, venueOneLine } from './map'
+import { canOpenMap, directionsUrl, googleMapsUrl, mapQuery, venueOneLine } from './map'
 
 describe('地図リンク', () => {
   it('座標があれば座標を優先する', () => {
@@ -25,15 +25,16 @@ describe('地図リンク', () => {
     expect(canOpenMap({ name: '  ' })).toBe(false)
   })
 
-  it('URL エンコードして各地図サービスのリンクを作る', () => {
+  it('URL エンコードして Google マップのリンクを作る', () => {
     const venue = { name: '渋谷 WOMB', address: '東京都渋谷区円山町2-16' }
+    expect(googleMapsUrl(venue)).toContain('google.com/maps')
     expect(googleMapsUrl(venue)).toContain(encodeURIComponent('東京都渋谷区円山町2-16'))
-    expect(directionsUrl(venue)).toContain('destination=')
-    expect(appleMapsUrl(venue)).toContain('?q=')
   })
 
-  it('Apple マップは座標なら ll パラメータになる', () => {
-    expect(appleMapsUrl({ name: '会場', lat: 35.6567, lng: 139.6952 })).toContain('?ll=')
+  it('経路検索は目的地つきの Google マップのリンクになる', () => {
+    const venue = { name: '渋谷 WOMB', address: '東京都渋谷区円山町2-16' }
+    expect(directionsUrl(venue)).toContain('google.com/maps/dir')
+    expect(directionsUrl(venue)).toContain('destination=')
   })
 
   it('会場名と住所を 1 行にまとめる', () => {

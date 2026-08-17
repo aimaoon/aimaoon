@@ -1,15 +1,8 @@
 import { useState } from 'react'
 import type { Contest, Entry, Music, Reminder } from '../types'
-import {
-  MUSIC_LABELS,
-  PAYMENT_LABELS,
-  contestPhase,
-  isMusicSettled,
-  isPaymentSettled,
-  preparationOf,
-} from '../lib/contest'
+import { MUSIC_LABELS, PAYMENT_LABELS, contestPhase, isPaymentSettled, preparationOf } from '../lib/contest'
 import { daysUntil, formatDateJa, formatDateLongJa, formatDayOffset, toDateKey } from '../lib/date'
-import { appleMapsUrl, canOpenMap, directionsUrl, googleMapsUrl } from '../lib/map'
+import { canOpenMap, directionsUrl, googleMapsUrl } from '../lib/map'
 import { downloadIcs } from '../lib/ics'
 import { createId } from '../lib/factory'
 import { reminderDateTime, reminderLabel } from '../lib/reminder'
@@ -19,7 +12,7 @@ import { ReviewPanel } from './ReviewPanel'
 import { Blank, Card, Chip, ProgressBar } from './ui'
 
 const PAYMENT_OPTIONS: Entry['status'][] = ['unpaid', 'partial', 'paid', 'free']
-const MUSIC_OPTIONS: Music['status'][] = ['none', 'ready', 'submitted', 'onsite']
+const MUSIC_OPTIONS: Music['status'][] = ['none', 'ready', 'submitted']
 
 function yen(value: number): string {
   return `${value.toLocaleString('ja-JP')}円`
@@ -181,27 +174,42 @@ export function ContestDetail({
         </Card>
 
         <Card title="音源" icon="🎵">
-          <div className="segmented segmented--wrap">
-            {MUSIC_OPTIONS.map((option) => (
-              <button
-                key={option}
-                type="button"
-                className={`segmented__item ${contest.music.status === option ? 'is-active' : ''}`}
-                onClick={() =>
-                  patchMusic({
-                    status: option,
-                    submittedOn:
-                      option === 'submitted' && !contest.music.submittedOn ? toDateKey(now) : contest.music.submittedOn,
-                  })
-                }
-              >
-                {MUSIC_LABELS[option]}
-              </button>
-            ))}
+          <div className="music-status">
+            <div className="segmented segmented--wrap">
+              {MUSIC_OPTIONS.map((option) => (
+                <button
+                  key={option}
+                  type="button"
+                  className={`segmented__item ${contest.music.status === option ? 'is-active' : ''}`}
+                  onClick={() =>
+                    patchMusic({
+                      status: option,
+                      submittedOn:
+                        option === 'submitted' && !contest.music.submittedOn
+                          ? toDateKey(now)
+                          : contest.music.submittedOn,
+                    })
+                  }
+                >
+                  {MUSIC_LABELS[option]}
+                </button>
+              ))}
+            </div>
+
+            <label className={`check-toggle ${contest.music.bringOnDay ? 'is-on' : ''}`}>
+              <input
+                type="checkbox"
+                checked={Boolean(contest.music.bringOnDay)}
+                onChange={(event) => patchMusic({ bringOnDay: event.target.checked })}
+              />
+              <span>当日持参</span>
+            </label>
           </div>
 
-          {contest.music.status === 'onsite' && (
-            <p className="hint hint--accent">当日持参で対応する設定です。提出期限の通知は出しません。</p>
+          {contest.music.bringOnDay && (
+            <p className="hint hint--accent">
+              当日会場に持ち込む設定です。事前提出が未了でも準備は済み扱いになり、提出期限の通知は出しません。
+            </p>
           )}
 
           <dl className="kv">
@@ -259,19 +267,14 @@ export function ContestDetail({
             onChange={(event) => patchMusic({ note: event.target.value })}
           />
 
-          {!isMusicSettled(contest) && (
-            <div className="btn-row">
-              <button
-                type="button"
-                className="btn btn--primary"
-                onClick={() => patchMusic({ status: 'submitted', submittedOn: toDateKey(now) })}
-              >
-                提出済みにする
-              </button>
-              <button type="button" className="btn btn--ghost" onClick={() => patchMusic({ status: 'onsite' })}>
-                当日持参にする
-              </button>
-            </div>
+          {contest.music.status !== 'submitted' && (
+            <button
+              type="button"
+              className="btn btn--primary"
+              onClick={() => patchMusic({ status: 'submitted', submittedOn: toDateKey(now) })}
+            >
+              提出済みにする
+            </button>
           )}
         </Card>
 
@@ -288,13 +291,10 @@ export function ContestDetail({
           {canOpenMap(contest.venue) ? (
             <div className="map-links">
               <a className="btn btn--primary" href={googleMapsUrl(contest.venue)} target="_blank" rel="noreferrer">
-                🗺 地図を開く
+                🗺 Google マップで開く
               </a>
               <a className="btn btn--ghost" href={directionsUrl(contest.venue)} target="_blank" rel="noreferrer">
                 🚃 経路
-              </a>
-              <a className="btn btn--ghost" href={appleMapsUrl(contest.venue)} target="_blank" rel="noreferrer">
-                Apple マップ
               </a>
             </div>
           ) : (

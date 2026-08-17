@@ -1,7 +1,6 @@
 import type { Contest } from '../types'
 import { daysUntil, formatDateJa, formatDayOffset } from '../lib/date'
 import {
-  MUSIC_LABELS,
   PAYMENT_LABELS,
   activeDate,
   contestPhase,
@@ -9,6 +8,7 @@ import {
   hasUpcomingFinal,
   isMusicSettled,
   isPaymentSettled,
+  musicSummary,
   preparationOf,
 } from '../lib/contest'
 import { Chip, ProgressBar } from './ui'
@@ -44,9 +44,7 @@ export function ContestCard({ contest, now, onOpen }: { contest: Contest; now: D
           <Chip tone={paid ? 'ok' : contest.entry.status === 'partial' ? 'warn' : 'danger'}>
             💰 {PAYMENT_LABELS[contest.entry.status]}
           </Chip>
-          <Chip tone={music ? (contest.music.status === 'onsite' ? 'accent' : 'ok') : 'danger'}>
-            🎵 {MUSIC_LABELS[contest.music.status]}
-          </Chip>
+          <Chip tone={music ? 'ok' : 'danger'}>🎵 {musicSummary(contest)}</Chip>
           {prep.alerts.length > 0 && <Chip tone="danger">⚠︎ 要対応 {prep.alerts.length}</Chip>}
           {hasFinalRight(contest) && <Chip tone="accent">🔥 ファイナル権獲得</Chip>}
           {!showsFinal && !hasFinalRight(contest) && hasUpcomingFinal(contest, now) && (

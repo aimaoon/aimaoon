@@ -28,7 +28,8 @@ export function buildSampleContests(now: Date = new Date()): Contest[] {
       },
       entry: { fee: 3500, status: 'paid', paidOn: at(-9), method: 'PayPay 送金' },
       music: {
-        status: 'onsite',
+        status: 'ready',
+        bringOnDay: true,
         title: 'Pete Rock - The Basement',
         method: 'USB（バックアップで iPhone も持参）',
         note: '1分30秒に編集済み。頭出しの確認を忘れずに。',
@@ -56,9 +57,10 @@ export function buildSampleContests(now: Date = new Date()): Contest[] {
       entry: { fee: 5000, status: 'unpaid', dueDate: at(3), method: '三菱UFJ 銀行振込（振込名義はチーム名）' },
       music: {
         status: 'submitted',
+        bringOnDay: true,
         title: 'DJ に一任（バトル形式）',
         submittedOn: at(-2),
-        method: 'エントリーフォームで提出済み',
+        method: 'エントリーフォームで提出済み（当日 USB も持参）',
       },
       judges: [
         { id: 'j-3', name: 'RYU', genre: 'HIPHOP' },
@@ -140,7 +142,7 @@ export function buildSampleContests(now: Date = new Date()): Contest[] {
       startTime: '22:00',
       venue: { name: 'Club Harlem', address: '東京都渋谷区宇田川町2-4' },
       entry: { fee: 0, status: 'free', method: 'ギャラ 15,000 円（当日手渡し）' },
-      music: { status: 'onsite', title: 'いつものショー音源', method: '当日 USB' },
+      music: { status: 'ready', bringOnDay: true, title: 'いつものショー音源', method: '当日 USB' },
       judges: [],
       reminders: defaultReminders(),
       memo: '',

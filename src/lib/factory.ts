@@ -1,4 +1,4 @@
-import type { Contest, FinalRound, FinalStatus, Judge } from '../types'
+import type { Contest, FinalRound, FinalStatus, Judge, Music } from '../types'
 import { addDays, toDateKey } from './date'
 import { defaultReminders } from './reminder'
 
@@ -48,6 +48,18 @@ export function createFinal(baseDate?: string, status: FinalStatus = 'undecided'
   }
 }
 
+/**
+ * 「当日持参」は以前は提出状況の 1 つ（status: 'onsite'）だった。
+ * 提出状況とは別軸のチェックに変えたので、古い保存データをその形に直す。
+ */
+function migrateMusic(input: Partial<Music> | undefined, base: Music): Music {
+  const music = { ...base, ...(input ?? {}) }
+  if ((music.status as string) === 'onsite') {
+    return { ...music, status: 'ready', bringOnDay: true }
+  }
+  return music
+}
+
 /** 保存されたデータを現在の型に合わせて補正する（古い保存データや手編集への保険）。 */
 export function normalizeContest(input: Partial<Contest>): Contest {
   const base = createContest()
@@ -56,7 +68,7 @@ export function normalizeContest(input: Partial<Contest>): Contest {
     ...input,
     venue: { ...base.venue, ...(input.venue ?? {}) },
     entry: { ...base.entry, ...(input.entry ?? {}) },
-    music: { ...base.music, ...(input.music ?? {}) },
+    music: migrateMusic(input.music, base.music),
     judges: (input.judges ?? []).map((judge) => ({ ...createJudge(), ...judge })),
     reminders: input.reminders?.length ? input.reminders : base.reminders,
     final: input.final
