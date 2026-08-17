@@ -1,17 +1,23 @@
 import type { Contest } from '../types'
 import { contestPhase, isMusicSettled, isPaymentSettled } from '../lib/contest'
 import { downloadIcs } from '../lib/ics'
+import type { ThemePreference } from '../lib/theme'
+import { THEME_LABELS, THEME_OPTIONS } from '../lib/theme'
 import { Card } from './ui'
 
 /** 集計・データ管理。 */
 export function SettingsView({
   contests,
   now,
+  theme,
+  onThemeChange,
   onLoadSample,
   onClear,
 }: {
   contests: Contest[]
   now: Date
+  theme: ThemePreference
+  onThemeChange: (theme: ThemePreference) => void
   onLoadSample: () => void
   onClear: () => void
 }) {
@@ -59,6 +65,24 @@ export function SettingsView({
             <span className="stat__label">支払い済み合計（円）</span>
           </div>
         </div>
+      </Card>
+
+      <Card title="表示" label="APPEARANCE">
+        <div className="segmented segmented--wrap">
+          {THEME_OPTIONS.map((option) => (
+            <button
+              key={option}
+              type="button"
+              className={`segmented__item ${theme === option ? 'is-active' : ''}`}
+              onClick={() => onThemeChange(option)}
+            >
+              {THEME_LABELS[option]}
+            </button>
+          ))}
+        </div>
+        <p className="hint">
+          夜の会場ならダーク、昼の稽古場や屋外ならライトが見やすいです。端末に合わせるを選ぶと OS の設定に追従します。
+        </p>
       </Card>
 
       <Card title="カレンダー連携" label="CALENDAR">

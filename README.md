@@ -90,9 +90,14 @@
 
 ## 見た目について
 
-クラブのフライヤーの文法を借りています。黒地に 2 色刷り（**マゼンタ**が主役、**シアン**は
+クラブのフライヤーの文法を借りています。2 色刷り（**マゼンタ**が主役、**シアン**は
 「ファイナル」専用の第 2 インク）、圧縮した太い見出し、細い罫線。琥珀と赤は締切の状態にだけ使い、
 色が意味を持つようにしています。
+
+**ダークとライトの 2 種類**があります。ライトは黒地の単純な反転ではなく、
+「白い紙に同じ 2 色を刷った状態」として組み直しています（インクが紙に沈まないよう、
+マゼンタとシアンは暗めの版を使う）。設定タブで `端末に合わせる / ダーク / ライト` を選べて、
+選んだ内容は次回も残ります。夜の会場ならダーク、昼の稽古場や屋外ならライトが見やすいはずです。
 
 見出しと数字は **Anton**。欧文のみ・約 19KB なのでビルド時に data URI として埋め込んでいて、
 外部へのフォントリクエストは発生しません（会場で電波が悪くても見出しが崩れない）。
@@ -106,7 +111,7 @@
 ```bash
 npm install
 npm run dev      # 開発サーバー（http://localhost:5173）
-npm run test     # ロジックのテスト（102 件）
+npm run test     # ロジックのテスト（105 件）
 npm run build    # 型チェック + 本番ビルド
 ```
 
@@ -127,11 +132,13 @@ src/
 │   ├── ics.ts                   iCalendar の書き出し（VALARM つき）
 │   ├── map.ts                   Google マップのリンク生成
 │   ├── factory.ts               新規データの初期値と保存データの補正
+│   ├── theme.ts                 配色（ダーク / ライト / 端末に合わせる）の決定
 │   └── *.test.ts                上記のテスト
 ├── data/sampleContests.ts       デモ用データ（起動時刻を基準にした相対日付）
 ├── hooks/
 │   ├── useLocalStorage.ts       localStorage への保存
-│   └── useNotifications.ts      通知の許可とスケジュール
+│   ├── useNotifications.ts      通知の許可とスケジュール
+│   └── useTheme.ts              配色の保存と <html data-theme> への反映
 ├── components/
 │   ├── HomeView / CalendarView / ReminderView / SettingsView   4 つのタブ
 │   ├── ContestDetail / ContestForm / ContestCard               コンテストの詳細・編集・一覧

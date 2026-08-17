@@ -4,6 +4,7 @@ import { buildSampleContests } from './data/sampleContests'
 import { contestPhase, preparationOf } from './lib/contest'
 import { createContest, normalizeContest } from './lib/factory'
 import { useLocalStorage } from './hooks/useLocalStorage'
+import { useTheme } from './hooks/useTheme'
 import { BottomNav, type Tab } from './components/BottomNav'
 import { CalendarView } from './components/CalendarView'
 import { ContestDetail } from './components/ContestDetail'
@@ -28,6 +29,7 @@ export default function App() {
   const [stored, setStored] = useLocalStorage<Contest[]>(STORAGE_KEY, () => buildSampleContests())
   const contests = useMemo(() => stored.map(normalizeContest), [stored])
 
+  const { preference: theme, setPreference: setTheme } = useTheme()
   const [tab, setTab] = useState<Tab>('home')
   const [screen, setScreen] = useState<Screen>({ kind: 'list' })
 
@@ -114,6 +116,8 @@ export default function App() {
           <SettingsView
             contests={contests}
             now={now}
+            theme={theme}
+            onThemeChange={setTheme}
             onLoadSample={() => setStored(buildSampleContests())}
             onClear={() => setStored([])}
           />

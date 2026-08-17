@@ -23,8 +23,13 @@
   --surface-2: #1b1a22;
   --line: #2a2833;
   --line-soft: #201f28;
+  --line-strong: #3c3a47;
+  --track: #2f2d3a;
+  --bar: rgba(11, 10, 13, 0.9);
+  --bar-solid: rgba(11, 10, 13, 0.94);
+  --on-accent: #12030a;
 
-  --paper: #f4f2ed;
+  --ink: #f4f2ed;
   --muted: #8a8796;
   --faint: #5f5c6b;
 
@@ -48,6 +53,71 @@
   color-scheme: dark;
 }
 
+@media (prefers-color-scheme: light) {
+  /*
+   * 明るい版。黒地の反転ではなく、白い紙に同じ 2 色を刷った状態として組んでいる。
+   * インクは紙より濃くないと沈むので、マゼンタとシアンは暗めの版を使う。
+   */
+  :root:not([data-theme='dark']) {
+    --ground: #f2efe7;
+    --surface: #ffffff;
+    --surface-2: #ebe7dd;
+    --line: #d8d2c4;
+    --line-soft: #e6e1d5;
+    --line-strong: #c7c0ae;
+    --track: #ded8ca;
+    --bar: rgba(242, 239, 231, 0.9);
+    --bar-solid: rgba(242, 239, 231, 0.94);
+  
+    --ink: #16151a;
+    --muted: #6b675d;
+    --faint: #97917f;
+  
+    --magenta: #d1005f;
+    --magenta-dim: #ffdfec;
+    --cyan: #0d818c;
+    --cyan-dim: #d2f0f2;
+    --amber: #96660a;
+    --amber-dim: #f8ead0;
+    --red: #cc2318;
+    --red-dim: #fadfdc;
+  
+    --on-accent: #ffffff;
+  
+    color-scheme: light;
+  }
+  
+}
+
+:root[data-theme='light'] {
+  --ground: #f2efe7;
+  --surface: #ffffff;
+  --surface-2: #ebe7dd;
+  --line: #d8d2c4;
+  --line-soft: #e6e1d5;
+  --line-strong: #c7c0ae;
+  --track: #ded8ca;
+  --bar: rgba(242, 239, 231, 0.9);
+  --bar-solid: rgba(242, 239, 231, 0.94);
+
+  --ink: #16151a;
+  --muted: #6b675d;
+  --faint: #97917f;
+
+  --magenta: #d1005f;
+  --magenta-dim: #ffdfec;
+  --cyan: #0d818c;
+  --cyan-dim: #d2f0f2;
+  --amber: #96660a;
+  --amber-dim: #f8ead0;
+  --red: #cc2318;
+  --red-dim: #fadfdc;
+
+  --on-accent: #ffffff;
+
+  color-scheme: light;
+}
+
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
@@ -61,7 +131,7 @@ body {
 
 body {
   background: var(--ground);
-  color: var(--paper);
+  color: var(--ink);
   font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.65;
@@ -130,7 +200,7 @@ button {
   align-items: center;
   gap: 10px;
   padding: calc(env(safe-area-inset-top) + 12px) 16px 11px;
-  background: rgba(11, 10, 13, 0.9);
+  background: var(--bar);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
@@ -192,7 +262,7 @@ button {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding-bottom: env(safe-area-inset-bottom);
-  background: rgba(11, 10, 13, 0.94);
+  background: var(--bar-solid);
   backdrop-filter: blur(12px);
   border-top: 1px solid var(--line);
 }
@@ -214,7 +284,7 @@ button {
 
 .tabbar__item.is-active {
   border-top-color: var(--magenta);
-  color: var(--paper);
+  color: var(--ink);
 }
 
 .tabbar__latin {
@@ -238,7 +308,7 @@ button {
   min-width: 16px;
   padding: 0 4px;
   background: var(--magenta);
-  color: #12030a;
+  color: var(--on-accent);
   font-size: 10px;
   font-weight: 700;
   line-height: 16px;
@@ -258,7 +328,7 @@ button {
   border: 0;
   border-radius: 50%;
   background: var(--magenta);
-  color: #12030a;
+  color: var(--on-accent);
   font-size: 26px;
   font-weight: 700;
   line-height: 1;
@@ -325,8 +395,8 @@ button {
   color: var(--muted);
 }
 .chip--ok {
-  color: var(--paper);
-  border-color: #3c3a47;
+  color: var(--ink);
+  border-color: var(--line-strong);
 }
 .chip--warn {
   color: var(--amber);
@@ -358,11 +428,11 @@ button {
 .segments__bar {
   flex: 1;
   height: 3px;
-  background: #2f2d3a;
+  background: var(--track);
 }
 
 .segments__bar.is-done {
-  background: var(--paper);
+  background: var(--ink);
 }
 
 .segments__bar.is-soon {
@@ -400,13 +470,13 @@ button {
 
 .btn--primary {
   background: var(--magenta);
-  color: #12030a;
+  color: var(--on-accent);
 }
 
 .btn--ghost {
   background: transparent;
-  border-color: #3c3a47;
-  color: var(--paper);
+  border-color: var(--line-strong);
+  color: var(--ink);
 }
 
 .btn--danger {
@@ -458,7 +528,7 @@ button {
   border: 1px solid var(--line);
   border-radius: 3px;
   background: var(--surface-2);
-  color: var(--paper);
+  color: var(--ink);
   font: inherit;
   font-size: 16px; /* iOS で自動ズームさせないため 16px 以上 */
   font-variant-numeric: tabular-nums;
@@ -546,7 +616,7 @@ button {
 }
 
 .segmented__item.is-active {
-  background: var(--paper);
+  background: var(--ink);
   color: var(--ground);
 }
 
@@ -561,7 +631,7 @@ button {
   color: var(--magenta);
 }
 .hint--ok {
-  color: var(--paper);
+  color: var(--ink);
 }
 .hint--warn {
   color: var(--amber);
@@ -675,7 +745,7 @@ button {
 .filter-btn.is-active {
   border-color: var(--magenta);
   background: var(--magenta);
-  color: #12030a;
+  color: var(--on-accent);
 }
 
 .filter-btn__count {
@@ -685,6 +755,7 @@ button {
   min-width: 16px;
   height: 16px;
   padding: 0 4px;
+  /* 常にマゼンタのボタンの上に乗るので、明暗どちらでも沈む方向に重ねる。 */
   background: rgba(0, 0, 0, 0.25);
   font-size: 10px;
 }
@@ -714,7 +785,7 @@ button {
   border: 1px solid var(--line);
   border-radius: 2px;
   background: transparent;
-  color: var(--paper);
+  color: var(--ink);
   font-size: 12.5px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -849,7 +920,7 @@ button {
   border: 1px dashed var(--line);
   border-radius: var(--radius);
   background: transparent;
-  color: var(--paper);
+  color: var(--ink);
   font-size: 12.5px;
   text-align: left;
   cursor: pointer;
@@ -1095,15 +1166,15 @@ button {
   justify-content: center;
   width: 18px;
   height: 18px;
-  border: 1px solid #3c3a47;
+  border: 1px solid var(--line-strong);
   color: var(--ground);
   font-size: 11px;
   line-height: 1;
 }
 
 .checklist__mark.is-done {
-  background: var(--paper);
-  border-color: var(--paper);
+  background: var(--ink);
+  border-color: var(--ink);
 }
 
 .checklist__item--soon .checklist__mark {
@@ -1297,7 +1368,7 @@ button {
   border: 1px solid var(--line);
   border-radius: 3px;
   background: var(--surface-2);
-  color: var(--paper);
+  color: var(--ink);
   font: inherit;
   font-size: 12.5px;
   resize: vertical;
@@ -1392,7 +1463,7 @@ button {
   padding: 2px;
   font-size: 22px;
   line-height: 1;
-  color: #33313d;
+  color: var(--track);
   cursor: pointer;
 }
 
@@ -1479,7 +1550,7 @@ button {
 }
 
 .cal__day.is-selected {
-  border-color: var(--paper);
+  border-color: var(--ink);
 }
 
 .cal__dots {
@@ -1505,7 +1576,7 @@ button {
   background: var(--amber);
 }
 .dot--music {
-  background: var(--paper);
+  background: var(--ink);
 }
 
 .cal__legend {
@@ -1585,10 +1656,10 @@ button {
   color: var(--amber);
 }
 .cal__item--music {
-  border-left-color: var(--paper);
+  border-left-color: var(--ink);
 }
 .cal__item--music .cal__item-kind {
-  color: var(--paper);
+  color: var(--ink);
 }
 
 .cal__item-name {
@@ -1606,7 +1677,7 @@ button {
 
 .cal__item-date {
   margin-right: 6px;
-  color: var(--paper);
+  color: var(--ink);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
@@ -1654,7 +1725,7 @@ button {
   font-synthesis: none;
   font-size: 15px;
   letter-spacing: 0.04em;
-  color: var(--paper);
+  color: var(--ink);
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
