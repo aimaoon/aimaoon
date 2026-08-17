@@ -106,6 +106,10 @@
 準備状況は割合のバーではなく **4 本の目盛り**（入金・音源・会場・ジャッジ）で、
 「何が残っているか」がそのまま見えるようにしました。
 
+タブバーのアイコンは出来合いのセットではなく、この画面の線の太さと角の作りに合わせて
+`src/components/icons.tsx` に引いています。設定は歯車ではなくミキサーのフェーダーにして、
+音を扱う道具立てで揃えました。選択中は線を少し太らせています。
+
 ## 使い方
 
 ```bash
@@ -144,7 +148,7 @@ src/
 │   ├── ContestDetail / ContestForm / ContestCard               コンテストの詳細・編集・一覧
 │   ├── FilterBar                                               ジャッジ・ファイナル権での絞り込み
 │   ├── FinalPanel / JudgePanel / ReviewPanel                   詳細内の各セクション
-│   ├── BottomNav / ui.tsx                                      タブバーと共通パーツ
+│   ├── BottomNav / icons.tsx / ui.tsx                          タブバー・アイコン・共通パーツ
 ├── assets/anton-latin.woff2     見出し用フォント（ビルド時に data URI へ埋め込み）
 └── App.tsx                      画面の組み立て
 ```
