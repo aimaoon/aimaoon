@@ -24,9 +24,9 @@ export function JudgePanel({ judges, onChange }: { judges: Judge[]; onChange: (j
   }
 
   return (
-    <Card title="ジャッジ" icon="🧑‍⚖️">
+    <Card title="ジャッジ" label="JUDGES">
       {judges.length === 0 ? (
-        <EmptyState icon="🧑‍⚖️" title="ジャッジ未登録" description="発表されたら追加しておくと対策メモを残せます" />
+        <EmptyState title="ジャッジ未登録" description="発表されたら追加しておくと対策メモを残せます" />
       ) : (
         <ul className="judge-list">
           {judges.map((judge) => (

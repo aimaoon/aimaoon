@@ -1,31 +1,37 @@
 import type { ReactNode } from 'react'
+import type { PreparationTask } from '../types'
 
-export type Tone = 'neutral' | 'ok' | 'warn' | 'danger' | 'accent'
+export type Tone = 'neutral' | 'ok' | 'warn' | 'danger' | 'accent' | 'final'
 
-/** 状態を表す小さなバッジ。 */
+/** 状態を表す小さなバッジ。色の点＋短い語で、埋めすぎないようにしている。 */
 export function Chip({ tone = 'neutral', children }: { tone?: Tone; children: ReactNode }) {
   return <span className={`chip chip--${tone}`}>{children}</span>
 }
 
-/** 詳細画面のセクション。見出しの右に操作を置ける。 */
+/**
+ * 詳細画面のセクション。
+ * 見出しは和文＋欧文のラベルの 2 段構え（フライヤーの版面ラベルのつもり）。
+ */
 export function Card({
   title,
-  icon,
+  label,
   action,
+  variant,
   children,
 }: {
   title?: string
-  icon?: string
+  label?: string
   action?: ReactNode
+  variant?: 'final'
   children: ReactNode
 }) {
   return (
-    <section className="card">
+    <section className={`card ${variant ? `card--${variant}` : ''}`}>
       {title && (
         <header className="card__head">
           <h2 className="card__title">
-            {icon && <span className="card__icon">{icon}</span>}
             {title}
+            {label && <span className="eyebrow">{label}</span>}
           </h2>
           {action}
         </header>
@@ -48,20 +54,27 @@ export function Field({ label, hint, children }: { label: string; hint?: string;
   )
 }
 
-/** 準備の進み具合。 */
-export function ProgressBar({ ratio, tone = 'accent' }: { ratio: number; tone?: Tone }) {
+/**
+ * 準備の進み具合。1 本＝1 項目で、済んだものは白、期限が近い／過ぎたものは色が付く。
+ * 割合のバーより「何が残っているか」が見えるようにしている。
+ */
+export function Segments({ tasks }: { tasks: PreparationTask[] }) {
   return (
-    <div className="progress" role="presentation">
-      <div className={`progress__fill progress__fill--${tone}`} style={{ width: `${Math.round(ratio * 100)}%` }} />
+    <div className="segments" role="presentation">
+      {tasks.map((task) => (
+        <i
+          key={task.kind}
+          className={`segments__bar ${task.done ? 'is-done' : task.urgency !== 'none' ? `is-${task.urgency}` : ''}`}
+        />
+      ))}
     </div>
   )
 }
 
 /** 一覧が空のとき。 */
-export function EmptyState({ icon, title, description }: { icon: string; title: string; description?: string }) {
+export function EmptyState({ title, description }: { title: string; description?: string }) {
   return (
     <div className="empty">
-      <div className="empty__icon">{icon}</div>
       <p className="empty__title">{title}</p>
       {description && <p className="empty__desc">{description}</p>}
     </div>

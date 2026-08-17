@@ -69,7 +69,7 @@ export function HomeView({
     <div className="view">
       {alerts.length > 0 && (
         <div className="alert-strip">
-          <h2 className="alert-strip__title">⚠︎ 締切が近い・過ぎている</h2>
+          <h2 className="alert-strip__title">締切が近い・過ぎている<span className="eyebrow">ATTENTION</span></h2>
           <ul className="alert-strip__list">
             {alerts.slice(0, 4).map(({ contest, task }) => (
               <li key={`${contest.id}-${task.kind}`}>
@@ -88,7 +88,7 @@ export function HomeView({
 
       {unreviewed.length > 0 && (
         <button type="button" className="review-nudge" onClick={() => onOpen(unreviewed[0].id)}>
-          📝 「{unreviewed[0].name}」の振り返りがまだです
+          「{unreviewed[0].name}」の振り返りがまだです
           {unreviewed.length > 1 && <span className="review-nudge__more">ほか {unreviewed.length - 1} 件</span>}
         </button>
       )}
@@ -120,7 +120,6 @@ export function HomeView({
 
       {visible.length === 0 ? (
         <EmptyState
-          icon="💃"
           title={
             isFilterActive(filter)
               ? '該当する大会がありません'

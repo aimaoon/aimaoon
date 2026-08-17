@@ -1,11 +1,13 @@
 import { describe, expect, it } from 'vitest'
 import {
   addDays,
+  dateParts,
   atTime,
   buildMonthGrid,
   daysUntil,
   diffDays,
   formatDateJa,
+  formatDateDotted,
   formatDayOffset,
   parseDateKey,
   shiftMonth,
@@ -87,5 +89,15 @@ describe('カレンダーの升目', () => {
   it('月をまたいで前後に移動できる', () => {
     expect(shiftMonth(2026, 1, -1)).toEqual({ year: 2025, month: 12 })
     expect(shiftMonth(2026, 12, 1)).toEqual({ year: 2027, month: 1 })
+  })
+})
+
+describe('見出し用の日付', () => {
+  it('数字だけで読ませる表記にする', () => {
+    expect(formatDateDotted('2026-08-05')).toBe('2026.08.05(水)')
+  })
+
+  it('日付ブロック用に月・日・曜日へ分解する', () => {
+    expect(dateParts('2026-08-20')).toEqual({ month: 8, day: 20, weekday: '木' })
   })
 })

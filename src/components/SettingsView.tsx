@@ -40,7 +40,7 @@ export function SettingsView({
 
   return (
     <div className="view">
-      <Card title="サマリー" icon="📊">
+      <Card title="サマリー" label="SUMMARY">
         <div className="stats">
           <div className="stat">
             <span className="stat__value">{upcoming.length}</span>
@@ -61,7 +61,7 @@ export function SettingsView({
         </div>
       </Card>
 
-      <Card title="カレンダー連携" icon="📅">
+      <Card title="カレンダー連携" label="CALENDAR">
         <p className="hint">
           .ics を書き出して開くと、iPhone のカレンダーや Google カレンダーに、開催予定・締切・アラームごと取り込めます。
         </p>
@@ -70,7 +70,7 @@ export function SettingsView({
         </button>
       </Card>
 
-      <Card title="データ" icon="💾">
+      <Card title="データ" label="DATA">
         <p className="hint">データはこの端末のブラウザ（localStorage）にだけ保存されます。</p>
         <div className="btn-row">
           <button type="button" className="btn btn--ghost" onClick={exportJson} disabled={contests.length === 0}>
@@ -91,7 +91,7 @@ export function SettingsView({
         </button>
       </Card>
 
-      <Card title="Stage Note について" icon="💃">
+      <Card title="Stage Note について" label="ABOUT">
         <p className="hint">
           ダンスコンテストごとの入金・音源提出・会場・ジャッジ・振り返りを 1 か所にまとめるアプリです。
           ホーム画面に追加すると、アプリのように全画面で使えます。

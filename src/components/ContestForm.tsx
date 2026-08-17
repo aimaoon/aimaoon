@@ -41,7 +41,7 @@ export function ContestForm({
       </header>
 
       <div className="view">
-        <Card title="基本" icon="🏆">
+        <Card title="基本" label="BASICS">
           <Field label="大会名">
             <input
               className="input"
@@ -86,7 +86,7 @@ export function ContestForm({
           </div>
         </Card>
 
-        <Card title="会場" icon="📍">
+        <Card title="会場" label="VENUE">
           <Field label="会場名">
             <input
               className="input"
@@ -129,7 +129,7 @@ export function ContestForm({
           </div>
         </Card>
 
-        <Card title="ファイナル" icon="🔥">
+        <Card title="ファイナル" label="FINAL">
           {draft.final ? (
             <>
               <Field label="開催日" hint="未発表なら空のままで構いません">
@@ -174,7 +174,7 @@ export function ContestForm({
           )}
         </Card>
 
-        <Card title="エントリー費" icon="💰">
+        <Card title="エントリー費" label="FEE">
           <Field label="金額（円）">
             <input
               className="input"
@@ -202,7 +202,7 @@ export function ContestForm({
           </Field>
         </Card>
 
-        <Card title="音源" icon="🎵">
+        <Card title="音源" label="MUSIC">
           <Field label="曲名">
             <input
               className="input"

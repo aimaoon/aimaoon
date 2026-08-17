@@ -26,7 +26,7 @@ export function ReviewPanel({
   const patch = (next: Partial<Review>) => onChange({ ...value, ...next, updatedAt: new Date().toISOString() })
 
   return (
-    <Card title="振り返り" icon="📝">
+    <Card title="振り返り" label="REVIEW">
       {!isPast && <p className="hint">開催後に書き込めます（今のうちに目標を書いておいてもかまいません）。</p>}
 
       <div className="rating" role="group" aria-label="自己評価">

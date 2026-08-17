@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { Contest, Entry, Music, Reminder } from '../types'
 import { MUSIC_LABELS, PAYMENT_LABELS, contestPhase, isPaymentSettled, preparationOf } from '../lib/contest'
-import { daysUntil, formatDateJa, formatDateLongJa, formatDayOffset, toDateKey } from '../lib/date'
+import { daysUntil, formatDateDotted, formatDateJa, formatDayOffset, toDateKey } from '../lib/date'
 import { canOpenMap, directionsUrl, googleMapsUrl } from '../lib/map'
 import { downloadIcs } from '../lib/ics'
 import { createId } from '../lib/factory'
@@ -9,7 +9,7 @@ import { reminderDateTime, reminderLabel } from '../lib/reminder'
 import { FinalPanel } from './FinalPanel'
 import { JudgePanel } from './JudgePanel'
 import { ReviewPanel } from './ReviewPanel'
-import { Blank, Card, Chip, ProgressBar } from './ui'
+import { Blank, Card, Chip, Segments } from './ui'
 
 const PAYMENT_OPTIONS: Entry['status'][] = ['unpaid', 'partial', 'paid', 'free']
 const MUSIC_OPTIONS: Music['status'][] = ['none', 'ready', 'submitted']
@@ -65,7 +65,7 @@ export function ContestDetail({
       <div className="view">
         <section className={`hero hero--${phase}`}>
           <p className="hero__date">
-            {formatDateLongJa(contest.date)}
+            {formatDateDotted(contest.date)}
             {contest.startTime && ` ${contest.startTime}`}
             {contest.endTime && `〜${contest.endTime}`}
           </p>
@@ -79,16 +79,16 @@ export function ContestDetail({
               準備 {prep.doneCount}/{prep.totalCount}
             </Chip>
             {contest.final && contest.final.status !== 'eliminated' && (
-              <Chip tone="accent">
-                🔥 {contest.final.status === 'advanced' ? 'ファイナル権獲得' : 'ファイナル'}
+              <Chip tone="final">
+                {contest.final.status === 'advanced' ? 'ファイナル権獲得' : 'ファイナル'}
                 {contest.final.date ? ` ${formatDateJa(contest.final.date)}` : '（日程未定）'}
               </Chip>
             )}
           </div>
-          <ProgressBar ratio={prep.ratio} tone={prep.alerts.length > 0 ? 'warn' : 'ok'} />
+          <Segments tasks={prep.tasks} />
         </section>
 
-        <Card title="準備チェック" icon="✅">
+        <Card title="準備チェック" label="CHECKLIST">
           <ul className="checklist">
             {prep.tasks.map((task) => (
               <li key={task.kind} className={`checklist__item checklist__item--${task.urgency}`}>
@@ -100,7 +100,7 @@ export function ContestDetail({
           </ul>
         </Card>
 
-        <Card title="入金" icon="💰">
+        <Card title="入金" label="PAYMENT">
           <div className="segmented segmented--wrap">
             {PAYMENT_OPTIONS.map((option) => (
               <button
@@ -173,7 +173,7 @@ export function ContestDetail({
           )}
         </Card>
 
-        <Card title="音源" icon="🎵">
+        <Card title="音源" label="MUSIC">
           <div className="music-status">
             <div className="segmented segmented--wrap">
               {MUSIC_OPTIONS.map((option) => (
@@ -278,7 +278,7 @@ export function ContestDetail({
           )}
         </Card>
 
-        <Card title="会場" icon="📍">
+        <Card title="会場" label="VENUE">
           <p className="venue__name">{contest.venue.name || <Blank>会場未定</Blank>}</p>
           {contest.venue.address ? (
             <p className="venue__address">{contest.venue.address}</p>
@@ -291,10 +291,10 @@ export function ContestDetail({
           {canOpenMap(contest.venue) ? (
             <div className="map-links">
               <a className="btn btn--primary" href={googleMapsUrl(contest.venue)} target="_blank" rel="noreferrer">
-                🗺 Google マップで開く
+                Google マップで開く
               </a>
               <a className="btn btn--ghost" href={directionsUrl(contest.venue)} target="_blank" rel="noreferrer">
-                🚃 経路
+                経路
               </a>
             </div>
           ) : (
@@ -314,7 +314,7 @@ export function ContestDetail({
 
         <JudgePanel judges={contest.judges} onChange={(judges) => patch({ judges })} />
 
-        <Card title="リマインダー" icon="⏰">
+        <Card title="リマインダー" label="REMINDERS">
           <ul className="reminder-list">
             {contest.reminders.map((reminder) => (
               <li key={reminder.id} className="reminder">
@@ -377,14 +377,14 @@ export function ContestDetail({
           </div>
 
           <button type="button" className="btn btn--primary" onClick={() => downloadIcs([contest], `${contest.name || 'contest'}.ics`)}>
-            📅 カレンダーに追加（.ics）
+            カレンダーに追加（.ics）
           </button>
           <p className="hint">
             書き出したファイルをタップすると、スマホの標準カレンダーに予定とアラームごと登録できます。
           </p>
         </Card>
 
-        <Card title="当日メモ" icon="🧳">
+        <Card title="当日メモ" label="NOTES">
           <textarea
             className="textarea"
             rows={4}

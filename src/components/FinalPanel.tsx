@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { Contest, FinalRound, FinalStatus, Reminder } from '../types'
 import { FINAL_LABELS, finalVenue } from '../lib/contest'
-import { daysUntil, formatDateJa, formatDateLongJa, formatDayOffset, toDateKey } from '../lib/date'
+import { daysUntil, formatDateDotted, formatDateJa, formatDayOffset, toDateKey } from '../lib/date'
 import { canOpenMap, directionsUrl, googleMapsUrl } from '../lib/map'
 import { createFinal, createId } from '../lib/factory'
 import { finalReminderDateTime, reminderLabel } from '../lib/reminder'
@@ -9,9 +9,9 @@ import { Card, Chip, Field } from './ui'
 
 const STATUS_OPTIONS: FinalStatus[] = ['undecided', 'advanced', 'eliminated']
 
-const STATUS_TONE: Record<FinalStatus, 'accent' | 'ok' | 'neutral'> = {
-  undecided: 'accent',
-  advanced: 'ok',
+const STATUS_TONE: Record<FinalStatus, 'final' | 'neutral'> = {
+  undecided: 'neutral',
+  advanced: 'final',
   eliminated: 'neutral',
 }
 
@@ -36,7 +36,7 @@ export function FinalPanel({
 
   if (!final) {
     return (
-      <Card title="ファイナル" icon="🔥">
+      <Card title="ファイナル" label="FINAL" variant="final">
         <p className="hint">
           予選を勝ち抜いた先の決勝がある大会は、ここで管理できます。日程が未発表でも権利だけ先に記録できます。
         </p>
@@ -46,7 +46,7 @@ export function FinalPanel({
             className="btn btn--primary"
             onClick={() => onChange(createFinal(undefined, 'advanced'))}
           >
-            🔥 ファイナル権を獲得した
+            ファイナル権を獲得した
           </button>
           <button type="button" className="btn btn--ghost" onClick={() => onChange(createFinal(contest.date))}>
             日程を登録する
@@ -64,7 +64,6 @@ export function FinalPanel({
   return (
     <Card
       title="ファイナル"
-      icon="🔥"
       action={
         <button
           type="button"
@@ -79,7 +78,7 @@ export function FinalPanel({
       }
     >
       <div className="final__head">
-        <p className="final__date">{final.date ? formatDateLongJa(final.date) : '日程未定'}</p>
+        <p className="final__date">{final.date ? formatDateDotted(final.date) : '日程未定'}</p>
         <div className="final__chips">
           <Chip tone={STATUS_TONE[final.status]}>{FINAL_LABELS[final.status]}</Chip>
           {final.date && final.status !== 'eliminated' && (
@@ -161,10 +160,10 @@ export function FinalPanel({
       {canOpenMap(venue) && (
         <div className="map-links">
           <a className="btn btn--primary" href={googleMapsUrl(venue)} target="_blank" rel="noreferrer">
-            🗺 Google マップで開く
+            Google マップで開く
           </a>
           <a className="btn btn--ghost" href={directionsUrl(venue)} target="_blank" rel="noreferrer">
-            🚃 経路
+            経路
           </a>
         </div>
       )}

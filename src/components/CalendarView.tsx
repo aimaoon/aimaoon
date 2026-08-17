@@ -84,7 +84,7 @@ export function CalendarView({
           </div>
 
           {results.length === 0 ? (
-            <EmptyState icon="🔍" title="該当する予定がありません" description="別の言葉で探してみてください" />
+            <EmptyState title="該当する予定がありません" description="別の言葉で探してみてください" />
           ) : (
             <ul className="cal__items">
               {results.map((entry) => (
@@ -189,7 +189,7 @@ export function CalendarView({
           <h3 className="cal__selected">{formatDateJa(selected)}</h3>
 
           {selectedEntries.length === 0 ? (
-            <EmptyState icon="🗓" title="この日は予定なし" />
+            <EmptyState title="この日は予定なし" />
           ) : (
             <ul className="cal__items">
               {selectedEntries.map((entry) => (

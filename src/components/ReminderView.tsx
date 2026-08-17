@@ -15,7 +15,7 @@ const KIND_LABEL: Record<ReminderOccurrence['kind'], string> = {
 
 const KIND_TONE = {
   event: 'accent',
-  final: 'danger',
+  final: 'final',
   payment: 'warn',
   music: 'ok',
 } as const
@@ -44,7 +44,7 @@ export function ReminderView({
 
   return (
     <div className="view">
-      <Card title="通知の設定" icon="🔔">
+      <Card title="通知の設定" label="NOTIFICATIONS">
         {permission === 'granted' ? (
           <>
             <p className="hint hint--ok">
@@ -70,12 +70,12 @@ export function ReminderView({
           アプリを閉じている間も確実に受け取るには、.ics を書き出してスマホのカレンダーに取り込むのが確実です。
         </p>
         <button type="button" className="btn btn--ghost" onClick={() => downloadIcs(contests)} disabled={contests.length === 0}>
-          📅 すべての予定を書き出す（.ics）
+          すべての予定を書き出す（.ics）
         </button>
       </Card>
 
       {grouped.length === 0 ? (
-        <EmptyState icon="🔕" title="予定されている通知はありません" description="コンテストを追加すると自動で並びます" />
+        <EmptyState title="予定されている通知はありません" description="コンテストを追加すると自動で並びます" />
       ) : (
         grouped.map(([day, items]) => (
           <section key={day} className="timeline">

@@ -115,3 +115,17 @@ export function shiftMonth(year: number, month: number, delta: number): { year: 
   const d = new Date(year, month - 1 + delta, 1)
   return { year: d.getFullYear(), month: d.getMonth() + 1 }
 }
+
+/** "2026-08-20" → "2026.08.20(木)"。数字だけで読ませたい見出し用。 */
+export function formatDateDotted(dateKey: string): string {
+  const d = parseDateKey(dateKey)
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  return `${d.getFullYear()}.${m}.${day}(${WEEKDAYS_JA[d.getDay()]})`
+}
+
+/** 日付ブロック用に「月・日・曜日」へ分解する。 */
+export function dateParts(dateKey: string): { month: number; day: number; weekday: string } {
+  const d = parseDateKey(dateKey)
+  return { month: d.getMonth() + 1, day: d.getDate(), weekday: WEEKDAYS_JA[d.getDay()] }
+}

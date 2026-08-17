@@ -37,7 +37,7 @@ export function FilterBar({
           disabled={judges.length === 0}
           onClick={() => setOpen((prev) => !prev)}
         >
-          🧑‍⚖️ ジャッジ
+          ジャッジ
           {selected.length > 0 && <span className="filter-btn__count">{selected.length}</span>}
         </button>
 
@@ -47,7 +47,7 @@ export function FilterBar({
           aria-pressed={Boolean(filter.finalRightOnly)}
           onClick={() => onChange({ ...filter, finalRightOnly: !filter.finalRightOnly })}
         >
-          🔥 ファイナル権獲得
+          ファイナル権獲得
         </button>
 
         {active && (
