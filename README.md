@@ -94,14 +94,39 @@
 ## 配信とホーム画面への追加
 
 このアプリはブラウザで動くので、まず自分の URL に置きます。通知サーバーと同じ
-Cloudflare に置くと管理先が 1 つで済みます。
+Cloudflare に置くと管理先が 1 つで済みます。やり方は 2 通りです。
+
+**A. ブラウザだけで（ターミナル不要）**
+
+GitHub にあるこのリポジトリを Cloudflare につなぐと、以降は push するたびに自動で配信されます。
+
+1. [dash.cloudflare.com](https://dash.cloudflare.com) でサインアップ（無料）
+2. 左メニューの **Workers & Pages** → **Create** → **Pages** → **Connect to Git**
+3. このリポジトリを選び、**production branch** にこのアプリのブランチを指定する
+4. ビルド設定を次のようにして **Save and Deploy**
+
+   | 項目 | 値 |
+   | --- | --- |
+   | Framework preset | None |
+   | Build command | `npm run build` |
+   | Build output directory | `dist` |
+
+5. 数分で `https://<プロジェクト名>.pages.dev` が発行される
+
+Node のバージョンは `.node-version`（22）で固定してあるので、そのままビルドが通ります。
+
+**B. 自分の PC から**
 
 ```bash
-npm run pages:deploy    # ビルドして Cloudflare Pages へ。URL が表示されます
+git clone https://github.com/aimaoon/aimaoon.git
+cd aimaoon
+git checkout claude/dance-event-management-app-ngol30
+npm install
+npx wrangler login      # ブラウザが開くので許可する
+npm run pages:deploy    # ビルドして配信。URL が表示されます
 ```
 
-初回は Pages のプロジェクト作成を聞かれるので、案内に従ってください。
-表示された URL（例 `https://stage-note.pages.dev`）が、このアプリの住所になります。
+どちらでも、表示された URL（例 `https://stage-note.pages.dev`）がこのアプリの住所になります。
 
 **スマホへの入れ方（iPhone）**
 
