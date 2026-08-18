@@ -1,0 +1,23 @@
+name = "stage-note-push"
+main = "src/index.ts"
+compatibility_date = "2026-01-01"
+
+# 5 分ごとに、時刻が来た通知を送る。
+# リマインダーは最大 5 分ほど遅れて届く（前日 20:00 の通知が 20:00〜20:05 に鳴る）。
+[triggers]
+crons = ["*/5 * * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "stage-note"
+database_id = "00000000-0000-0000-0000-000000000000" # wrangler d1 create stage-note で出た ID に置き換える
+
+[vars]
+VAPID_SUBJECT = "mailto:あなたのメールアドレス"
+# アプリを置くオリジン。決まったら入れる（未設定ならどこからでも受ける）。
+# ALLOWED_ORIGIN = "https://stage-note.pages.dev"
+
+# 秘密は wrangler secret put で入れる（このファイルには書かない）:
+#   wrangler secret put VAPID_PRIVATE_KEY
+#   wrangler secret put VAPID_PUBLIC_KEY
+#   wrangler secret put APP_TOKEN        # 任意
