@@ -17,3 +17,11 @@ declare const __APP_VERSION__: string
 interface ImportMeta {
   readonly env: ImportMetaEnv
 }
+
+/** 参照実装。テストで自作の QR と突き合わせるためだけに使う（アプリ本体には含めない）。 */
+declare module 'qrcode' {
+  export function create(
+    data: string | { data: string; mode: string }[],
+    options?: { errorCorrectionLevel?: string },
+  ): { version: number; modules: { size: number; data: Uint8Array } }
+}

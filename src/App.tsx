@@ -3,6 +3,7 @@ import type { Contest } from './types'
 import { buildSampleContests } from './data/sampleContests'
 import { contestPhase, preparationOf } from './lib/contest'
 import { createContest, normalizeContest } from './lib/factory'
+import { contestFromShare, decodeShare, readShareToken, type SharePayload } from './lib/share'
 import { useLocalStorage } from './hooks/useLocalStorage'
 import { useTheme } from './hooks/useTheme'
 import { useUpdateCheck } from './hooks/useUpdateCheck'
@@ -14,12 +15,19 @@ import { HomeView } from './components/HomeView'
 import { PrivacyView } from './components/PrivacyView'
 import { ReminderView } from './components/ReminderView'
 import { SettingsView } from './components/SettingsView'
+import { ShareImport } from './components/ShareImport'
 import { UpdateBar } from './components/UpdateBar'
 import { Welcome } from './components/Welcome'
 
 const STORAGE_KEY = 'stage-note:contests:v1'
 const ONBOARDED_KEY = 'stage-note:onboarded:v1'
 const BACKUP_KEY = 'stage-note:last-backup:v1'
+
+/** 取り込んだあと、同じリンクで開き直しても二重に出ないように住所から落とす。 */
+function clearShareHash(): void {
+  const { pathname, search } = window.location
+  window.history.replaceState(null, '', `${pathname}${search}`)
+}
 
 const TAB_TITLES: Record<Tab, string> = {
   home: 'コンテスト',
@@ -47,6 +55,21 @@ export default function App() {
   const update = useUpdateCheck(__APP_VERSION__)
   const [tab, setTab] = useState<Tab>('home')
   const [screen, setScreen] = useState<Screen>({ kind: 'list' })
+
+  // 共有リンク（#c=...）で開かれたとき。勝手に足さず、確認画面を挟む。
+  const [incoming, setIncoming] = useState<SharePayload | null>(null)
+  useEffect(() => {
+    const token = readShareToken(window.location.hash)
+    if (!token) return
+    let alive = true
+    void decodeShare(token).then((payload) => {
+      if (alive && payload) setIncoming(payload)
+      clearShareHash()
+    })
+    return () => {
+      alive = false
+    }
+  }, [])
 
   // 「あと何日」の表示が日付をまたいでもズレないように、1 分ごとに現在時刻を取り直す。
   const [now, setNow] = useState(() => new Date())
@@ -89,6 +112,22 @@ export default function App() {
   const remove = (id: string) => {
     setStored((prev) => prev.filter((item) => item.id !== id))
     backToList()
+  }
+
+  // 共有された大会は、初回の案内より先に出す（リンクで来た人を案内で止めない）。
+  if (incoming) {
+    return (
+      <ShareImport
+        payload={incoming}
+        onImport={() => {
+          upsert(contestFromShare(incoming, now))
+          setOnboarded(true)
+          setIncoming(null)
+          setTab('home')
+        }}
+        onCancel={() => setIncoming(null)}
+      />
+    )
   }
 
   if (!onboarded) {

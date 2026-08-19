@@ -864,6 +864,26 @@ button {
   accent-color: var(--magenta);
 }
 
+/* 共有の QR。読み取り機のために、画面の配色に関わらず白地に黒で出す。 */
+.qr-plate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.qr {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  border-radius: 4px;
+}
+
 /*
  * 新しい版が配信されているときだけ出る帯。
  * 締切の警告（赤）と間違えないように、こちらは主役のマゼンタで組む。

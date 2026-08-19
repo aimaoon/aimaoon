@@ -10,6 +10,7 @@ import { FinalPanel } from './FinalPanel'
 import { TrophyMark } from './icons'
 import { JudgePanel } from './JudgePanel'
 import { ReviewPanel } from './ReviewPanel'
+import { ShareCard } from './ShareCard'
 import { Blank, Card, Chip, Segments } from './ui'
 
 const PAYMENT_OPTIONS: Entry['status'][] = ['unpaid', 'partial', 'paid', 'free']
@@ -396,6 +397,8 @@ export function ContestDetail({
         </Card>
 
         <ReviewPanel review={contest.review} isPast={phase === 'past'} onChange={(review) => patch({ review })} />
+
+        <ShareCard contest={contest} />
 
         <button type="button" className="btn btn--danger" onClick={onDelete}>
           このコンテストを削除
