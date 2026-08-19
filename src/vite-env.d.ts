@@ -7,7 +7,12 @@ interface ImportMetaEnv {
   readonly VITE_VAPID_PUBLIC_KEY?: string
   /** サーバー側で APP_TOKEN を設定した場合の合言葉 */
   readonly VITE_PUSH_TOKEN?: string
+  /** 設定タブに出す問い合わせ先。未設定なら項目ごと隠す。 */
+  readonly VITE_SUPPORT_EMAIL?: string
 }
+
+/** package.json の version（vite.config.ts の define で埋め込む） */
+declare const __APP_VERSION__: string
 
 interface ImportMeta {
   readonly env: ImportMetaEnv

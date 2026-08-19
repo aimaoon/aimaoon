@@ -10,10 +10,14 @@ import { CalendarView } from './components/CalendarView'
 import { ContestDetail } from './components/ContestDetail'
 import { ContestForm } from './components/ContestForm'
 import { HomeView } from './components/HomeView'
+import { PrivacyView } from './components/PrivacyView'
 import { ReminderView } from './components/ReminderView'
 import { SettingsView } from './components/SettingsView'
+import { Welcome } from './components/Welcome'
 
 const STORAGE_KEY = 'stage-note:contests:v1'
+const ONBOARDED_KEY = 'stage-note:onboarded:v1'
+const BACKUP_KEY = 'stage-note:last-backup:v1'
 
 const TAB_TITLES: Record<Tab, string> = {
   home: 'コンテスト',
@@ -23,11 +27,19 @@ const TAB_TITLES: Record<Tab, string> = {
 }
 
 /** 全画面で開く子画面。 */
-type Screen = { kind: 'list' } | { kind: 'detail'; id: string } | { kind: 'form'; draft: Contest; isNew: boolean }
+type Screen =
+  | { kind: 'list' }
+  | { kind: 'detail'; id: string }
+  | { kind: 'form'; draft: Contest; isNew: boolean }
+  | { kind: 'privacy' }
 
 export default function App() {
-  const [stored, setStored] = useLocalStorage<Contest[]>(STORAGE_KEY, () => buildSampleContests())
+  // 初回は空で始める。サンプルを入れるかどうかは案内画面で選んでもらう。
+  const [stored, setStored] = useLocalStorage<Contest[]>(STORAGE_KEY, [])
   const contests = useMemo(() => stored.map(normalizeContest), [stored])
+
+  const [onboarded, setOnboarded] = useLocalStorage<boolean>(ONBOARDED_KEY, false)
+  const [lastBackupAt, setLastBackupAt] = useLocalStorage<string | null>(BACKUP_KEY, null)
 
   const { preference: theme, setPreference: setTheme } = useTheme()
   const [tab, setTab] = useState<Tab>('home')
@@ -42,7 +54,13 @@ export default function App() {
 
   // 画面を切り替えたら先頭から見せる（前の画面のスクロール位置が残らないように）。
   const screenKey =
-    screen.kind === 'detail' ? `detail:${screen.id}` : screen.kind === 'form' ? `form:${screen.draft.id}` : `list:${tab}`
+    screen.kind === 'detail'
+      ? `detail:${screen.id}`
+      : screen.kind === 'form'
+        ? `form:${screen.draft.id}`
+        : screen.kind === 'privacy'
+          ? 'privacy'
+          : `list:${tab}`
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [screenKey])
@@ -69,6 +87,23 @@ export default function App() {
     setStored((prev) => prev.filter((item) => item.id !== id))
     backToList()
   }
+
+  if (!onboarded) {
+    return (
+      <Welcome
+        onStart={() => {
+          setOnboarded(true)
+          setScreen({ kind: 'form', draft: createContest(now), isNew: true })
+        }}
+        onSample={() => {
+          setStored(buildSampleContests())
+          setOnboarded(true)
+        }}
+      />
+    )
+  }
+
+  if (screen.kind === 'privacy') return <PrivacyView onClose={backToList} />
 
   if (screen.kind === 'form') {
     return (
@@ -117,9 +152,13 @@ export default function App() {
             contests={contests}
             now={now}
             theme={theme}
+            lastBackupAt={lastBackupAt}
             onThemeChange={setTheme}
+            onRestore={setStored}
+            onBackedUp={setLastBackupAt}
             onLoadSample={() => setStored(buildSampleContests())}
             onClear={() => setStored([])}
+            onOpenPrivacy={() => setScreen({ kind: 'privacy' })}
           />
         )}
       </main>
