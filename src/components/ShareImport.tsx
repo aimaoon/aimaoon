@@ -1,5 +1,6 @@
 import type { SharePayload } from '../lib/share'
 import { formatDateJa } from '../lib/date'
+import { inAppBrowserName } from '../lib/browser'
 import { Card } from './ui'
 
 const yen = (value: number) => `${value.toLocaleString('ja-JP')}円`
@@ -18,6 +19,8 @@ export function ShareImport({
   onCancel: () => void
 }) {
   const [finalDate, finalStart, finalVenue] = payload.f ?? []
+  // LINE などの中で開くと、保存先がホーム画面のアプリとは別になる。
+  const inApp = typeof navigator === 'undefined' ? null : inAppBrowserName(navigator.userAgent)
 
   return (
     <div className="detail">
@@ -31,6 +34,19 @@ export function ShareImport({
           <h1 className="hero__name">{payload.n}</h1>
           {payload.c && <p className="hero__category">{payload.c}</p>}
         </section>
+
+        {inApp && (
+          <Card title="先に読んでください" label="NOTICE">
+            <p className="hint hint--warn">
+              いま {inApp} の中のブラウザで開いています。ここで取り込むと、
+              <strong>ホーム画面の Stage Note とは別のところに保存されます。</strong>
+            </p>
+            <p className="hint">
+              画面のすみにある「…」から <strong>Safari で開く</strong>（Android は Chrome）を選んで、
+              そちらで取り込んでください。
+            </p>
+          </Card>
+        )}
 
         <Card title="入っている内容" label="CONTENTS">
           <dl className="kv">
