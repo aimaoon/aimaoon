@@ -11,6 +11,7 @@ import {
   musicSummary,
   preparationOf,
 } from '../lib/contest'
+import { TrophyMark } from './icons'
 import { Chip, Segments } from './ui'
 
 /** 一覧に並ぶカード 1 枚。左の日付ブロックで日付を、右で状態を読ませる。 */
@@ -53,7 +54,11 @@ export function ContestCard({ contest, now, onOpen }: { contest: Contest; now: D
           </Chip>
           <Chip tone={music ? 'ok' : 'danger'}>{musicSummary(contest)}</Chip>
           {prep.alerts.length > 0 && <Chip tone="danger">要対応 {prep.alerts.length}</Chip>}
-          {hasFinalRight(contest) && <Chip tone="final">ファイナル権獲得</Chip>}
+          {hasFinalRight(contest) && (
+            <Chip tone="final" icon={<TrophyMark />}>
+              ファイナル権獲得
+            </Chip>
+          )}
           {!showsFinal && !hasFinalRight(contest) && hasUpcomingFinal(contest, now) && (
             <Chip tone="final">ファイナルあり</Chip>
           )}

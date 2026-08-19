@@ -7,6 +7,7 @@ import { downloadIcs } from '../lib/ics'
 import { createId } from '../lib/factory'
 import { reminderDateTime, reminderLabel } from '../lib/reminder'
 import { FinalPanel } from './FinalPanel'
+import { TrophyMark } from './icons'
 import { JudgePanel } from './JudgePanel'
 import { ReviewPanel } from './ReviewPanel'
 import { Blank, Card, Chip, Segments } from './ui'
@@ -79,7 +80,7 @@ export function ContestDetail({
               準備 {prep.doneCount}/{prep.totalCount}
             </Chip>
             {contest.final && contest.final.status !== 'eliminated' && (
-              <Chip tone="final">
+              <Chip tone="final" icon={contest.final.status === 'advanced' ? <TrophyMark /> : undefined}>
                 {contest.final.status === 'advanced' ? 'ファイナル権獲得' : 'ファイナル'}
                 {contest.final.date ? ` ${formatDateJa(contest.final.date)}` : '（日程未定）'}
               </Chip>

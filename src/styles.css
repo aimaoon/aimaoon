@@ -423,6 +423,18 @@ button {
   background: var(--cyan-dim);
 }
 
+/* 印を持つバッジ（ファイナル権のトロフィー）。頭の点は印に置き換える。 */
+.chip--mark::before {
+  display: none;
+}
+
+.chip__icon {
+  display: block;
+  width: 13px;
+  height: 13px;
+  flex: none;
+}
+
 /* 準備の進み具合。項目ごとに 1 本ずつ。 */
 .segments {
   display: flex;
@@ -602,6 +614,12 @@ button {
 
 .segmented--wrap {
   flex-wrap: wrap;
+}
+
+/* 4 択で語が長いとき。1 行に詰めず 2×2 に組む（端数が中央に浮かないように）。 */
+.segmented--grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .segmented__item {
@@ -1303,6 +1321,11 @@ button {
 .final__chips {
   display: flex;
   gap: 5px;
+}
+
+/* 予選敗退。第 2 インクを引っ込めて、終わったことが分かるようにする。 */
+.final__head--out .final__date {
+  color: var(--muted);
 }
 
 /* ジャッジ */

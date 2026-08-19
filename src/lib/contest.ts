@@ -7,7 +7,7 @@ export const SOON_DAYS = 3
 export const FINAL_LABELS: Record<FinalStatus, string> = {
   undecided: '結果待ち',
   advanced: 'ファイナル権獲得',
-  eliminated: '敗退',
+  eliminated: '予選敗退',
 }
 
 export const PAYMENT_LABELS: Record<Contest['entry']['status'], string> = {

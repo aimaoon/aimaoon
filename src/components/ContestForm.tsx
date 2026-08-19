@@ -166,7 +166,10 @@ export function ContestForm({
             </>
           ) : (
             <>
-              <p className="hint">予選を勝ち抜いた先の決勝がある大会は、ここで日程も押さえておけます。</p>
+              <p className="hint">
+                予選を勝ち抜いた先の決勝がある大会は、ここで日程も押さえておけます。
+                ファイナル権を獲得したかどうかは、保存したあとの詳細画面で選べます。
+              </p>
               <button type="button" className="btn btn--ghost" onClick={() => patch({ final: createFinal(draft.date) })}>
                 ファイナルの予定を追加
               </button>

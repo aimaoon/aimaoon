@@ -75,3 +75,30 @@ export function FadersIcon({ active }: IconProps) {
     </Frame>
   )
 }
+
+/**
+ * ファイナル権獲得の印。
+ * タブのトロフィーと同じ形を、バッジに収まるサイズで使い回す。
+ */
+export function TrophyMark() {
+  return (
+    <svg
+      className="chip__icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M7.2 4.2h9.6v4a4.8 4.8 0 0 1-9.6 0v-4Z" />
+      <path d="M7.2 5.8H4.9a2.4 2.4 0 0 0 2.9 3.1" />
+      <path d="M16.8 5.8h2.3a2.4 2.4 0 0 1-2.9 3.1" />
+      <path d="M12 13.1v2.7" />
+      <path d="M9.9 19.8l.7-4h2.8l.7 4" />
+      <path d="M8.4 19.8h7.2" />
+    </svg>
+  )
+}

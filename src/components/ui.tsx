@@ -4,8 +4,22 @@ import type { PreparationTask } from '../types'
 export type Tone = 'neutral' | 'ok' | 'warn' | 'danger' | 'accent' | 'final'
 
 /** 状態を表す小さなバッジ。色の点＋短い語で、埋めすぎないようにしている。 */
-export function Chip({ tone = 'neutral', children }: { tone?: Tone; children: ReactNode }) {
-  return <span className={`chip chip--${tone}`}>{children}</span>
+export function Chip({
+  tone = 'neutral',
+  icon,
+  children,
+}: {
+  tone?: Tone
+  /** 渡すと、頭の点の代わりにこの印を出す（ファイナル権のトロフィーなど）。 */
+  icon?: ReactNode
+  children: ReactNode
+}) {
+  return (
+    <span className={`chip chip--${tone} ${icon ? 'chip--mark' : ''}`}>
+      {icon}
+      {children}
+    </span>
+  )
 }
 
 /**
