@@ -5,6 +5,7 @@ import { contestPhase, preparationOf } from './lib/contest'
 import { createContest, normalizeContest } from './lib/factory'
 import { useLocalStorage } from './hooks/useLocalStorage'
 import { useTheme } from './hooks/useTheme'
+import { useUpdateCheck } from './hooks/useUpdateCheck'
 import { BottomNav, type Tab } from './components/BottomNav'
 import { CalendarView } from './components/CalendarView'
 import { ContestDetail } from './components/ContestDetail'
@@ -13,6 +14,7 @@ import { HomeView } from './components/HomeView'
 import { PrivacyView } from './components/PrivacyView'
 import { ReminderView } from './components/ReminderView'
 import { SettingsView } from './components/SettingsView'
+import { UpdateBar } from './components/UpdateBar'
 import { Welcome } from './components/Welcome'
 
 const STORAGE_KEY = 'stage-note:contests:v1'
@@ -42,6 +44,7 @@ export default function App() {
   const [lastBackupAt, setLastBackupAt] = useLocalStorage<string | null>(BACKUP_KEY, null)
 
   const { preference: theme, setPreference: setTheme } = useTheme()
+  const update = useUpdateCheck(__APP_VERSION__)
   const [tab, setTab] = useState<Tab>('home')
   const [screen, setScreen] = useState<Screen>({ kind: 'list' })
 
@@ -143,6 +146,8 @@ export default function App() {
         <span className="appbar__brand">Stage Note</span>
       </header>
 
+      <UpdateBar update={update} />
+
       <main className="app__main">
         {tab === 'home' && <HomeView contests={contests} now={now} onOpen={openDetail} />}
         {tab === 'calendar' && <CalendarView contests={contests} now={now} onOpen={openDetail} />}
@@ -158,6 +163,7 @@ export default function App() {
             onBackedUp={setLastBackupAt}
             onLoadSample={() => setStored(buildSampleContests())}
             onClear={() => setStored([])}
+            update={update}
             onOpenPrivacy={() => setScreen({ kind: 'privacy' })}
           />
         )}

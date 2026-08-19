@@ -864,6 +864,41 @@ button {
   accent-color: var(--magenta);
 }
 
+/*
+ * 新しい版が配信されているときだけ出る帯。
+ * 締切の警告（赤）と間違えないように、こちらは主役のマゼンタで組む。
+ */
+.update-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--magenta-dim);
+  border-bottom: 1px solid var(--magenta);
+}
+
+.update-bar__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  flex: 1;
+}
+
+.update-bar__title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.update-bar .eyebrow {
+  color: var(--magenta);
+}
+
+.update-bar .icon-btn {
+  flex: none;
+}
+
 .alert-strip {
   border: 1px solid var(--line);
   border-left: 3px solid var(--red);

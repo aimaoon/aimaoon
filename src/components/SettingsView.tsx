@@ -12,6 +12,7 @@ import {
   serializeBackup,
   shouldRemindBackup,
 } from '../lib/backup'
+import type { UpdateState } from '../hooks/useUpdateCheck'
 import type { ThemePreference } from '../lib/theme'
 import { THEME_LABELS, THEME_OPTIONS } from '../lib/theme'
 import { formatDateJa } from '../lib/date'
@@ -37,6 +38,7 @@ export function SettingsView({
   now,
   theme,
   lastBackupAt,
+  update,
   onThemeChange,
   onRestore,
   onBackedUp,
@@ -48,6 +50,7 @@ export function SettingsView({
   now: Date
   theme: ThemePreference
   lastBackupAt: string | null
+  update: UpdateState
   onThemeChange: (theme: ThemePreference) => void
   onRestore: (contests: Contest[]) => void
   onBackedUp: (at: string) => void
@@ -223,6 +226,27 @@ export function SettingsView({
             <dd>{contests.length} 件</dd>
           </div>
         </dl>
+
+        {update.available ? (
+          <>
+            <p className="hint hint--ok">新しい版（{update.version}）が配信されています。</p>
+            <button type="button" className="btn btn--primary" onClick={() => void update.apply()}>
+              更新する
+            </button>
+          </>
+        ) : (
+          <>
+            {update.upToDate && <p className="hint hint--ok">最新の版を使っています。</p>}
+            <button
+              type="button"
+              className="btn btn--ghost"
+              onClick={() => void update.check(true)}
+              disabled={update.checking}
+            >
+              {update.checking ? '確認しています…' : '更新を確認する'}
+            </button>
+          </>
+        )}
 
         <button type="button" className="btn btn--ghost" onClick={onOpenPrivacy}>
           プライバシーポリシー
