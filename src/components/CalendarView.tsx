@@ -36,15 +36,19 @@ function ScheduleRow({
 export function CalendarView({
   contests,
   now,
+  selected,
+  onSelect,
   onOpen,
 }: {
   contests: Contest[]
   now: Date
+  /** 選んでいる日 YYYY-MM-DD。＋ ボタンがこの日で新規追加するので、画面の外で持つ。 */
+  selected: string
+  onSelect: (day: string) => void
   onOpen: (id: string) => void
 }) {
   const todayKey = toDateKey(now)
   const [cursor, setCursor] = useState(() => ({ year: yearOf(todayKey), month: monthOf(todayKey) }))
-  const [selected, setSelected] = useState<string>(todayKey)
   const [query, setQuery] = useState('')
   const [includePast, setIncludePast] = useState(false)
 
@@ -122,7 +126,7 @@ export function CalendarView({
               className="btn btn--ghost btn--sm"
               onClick={() => {
                 setCursor({ year: yearOf(todayKey), month: monthOf(todayKey) })
-                setSelected(todayKey)
+                onSelect(todayKey)
               }}
             >
               今日
@@ -155,7 +159,7 @@ export function CalendarView({
                       ]
                         .filter(Boolean)
                         .join(' ')}
-                      onClick={() => setSelected(day)}
+                      onClick={() => onSelect(day)}
                     >
                       <span className="cal__num">{Number(day.slice(8))}</span>
                       <span className="cal__dots">

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import type { Contest } from './types'
 import { buildSampleContests } from './data/sampleContests'
 import { contestPhase, preparationOf } from './lib/contest'
+import { formatDateJa, parseDateKey, toDateKey } from './lib/date'
 import { createContest, normalizeContest } from './lib/factory'
 import { contestFromShare, decodeShare, readShareToken, type SharePayload } from './lib/share'
 import { useLocalStorage } from './hooks/useLocalStorage'
@@ -54,6 +55,9 @@ export default function App() {
   const { preference: theme, setPreference: setTheme } = useTheme()
   const update = useUpdateCheck(__APP_VERSION__)
   const [tab, setTab] = useState<Tab>('home')
+  // カレンダーで選んでいる日。＋ ボタンはこの日で新規追加する。
+  // null のあいだは「今日」に追従させたいので、そのつど組み立てる。
+  const [pickedDay, setPickedDay] = useState<string | null>(null)
   const [screen, setScreen] = useState<Screen>({ kind: 'list' })
 
   // 共有リンク（#c=...）で開かれたとき。勝手に足さず、確認画面を挟む。
@@ -98,6 +102,8 @@ export default function App() {
         .reduce((sum, contest) => sum + preparationOf(contest, now).alerts.length, 0),
     [contests, now],
   )
+
+  const selectedDay = pickedDay ?? toDateKey(now)
 
   const openDetail = (id: string) => setScreen({ kind: 'detail', id })
   const backToList = () => setScreen({ kind: 'list' })
@@ -189,7 +195,15 @@ export default function App() {
 
       <main className="app__main">
         {tab === 'home' && <HomeView contests={contests} now={now} onOpen={openDetail} />}
-        {tab === 'calendar' && <CalendarView contests={contests} now={now} onOpen={openDetail} />}
+        {tab === 'calendar' && (
+          <CalendarView
+            contests={contests}
+            now={now}
+            selected={selectedDay}
+            onSelect={setPickedDay}
+            onOpen={openDetail}
+          />
+        )}
         {tab === 'reminder' && <ReminderView contests={contests} now={now} onOpen={openDetail} />}
         {tab === 'settings' && (
           <SettingsView
@@ -212,8 +226,17 @@ export default function App() {
         <button
           type="button"
           className="fab"
-          aria-label="コンテストを追加"
-          onClick={() => setScreen({ kind: 'form', draft: createContest(now), isNew: true })}
+          aria-label={
+            tab === 'calendar' ? `${formatDateJa(selectedDay)} にコンテストを追加` : 'コンテストを追加'
+          }
+          onClick={() =>
+            setScreen({
+              // カレンダーから足すときは、選んでいる日をそのまま初期値にする。
+              draft: createContest(tab === 'calendar' ? parseDateKey(selectedDay) : now),
+              isNew: true,
+              kind: 'form',
+            })
+          }
         >
           ＋
         </button>
