@@ -1,48 +1,39 @@
 import { describe, expect, it } from 'vitest'
-import { formatElapsed, urgencyOf } from './format'
+import { formatDistance, formatMinutes, proximityOf } from './format'
 
-const NOW = Date.parse('2026-01-10T12:00:00Z')
-const hoursBefore = (hours: number) => new Date(NOW - hours * 3600_000).toISOString()
-
-describe('urgencyOf', () => {
-  it('未対応でなければ none', () => {
-    expect(urgencyOf(null, NOW)).toBe('none')
+describe('formatMinutes', () => {
+  it('1 時間未満は分だけ', () => {
+    expect(formatMinutes(45)).toBe('45分')
   })
 
-  it('24 時間未満は fresh', () => {
-    expect(urgencyOf(hoursBefore(1), NOW)).toBe('fresh')
-    expect(urgencyOf(hoursBefore(23), NOW)).toBe('fresh')
+  it('1 時間ちょうどは分を出さない', () => {
+    expect(formatMinutes(60)).toBe('1時間')
   })
 
-  it('24 時間以上 72 時間未満は warning', () => {
-    expect(urgencyOf(hoursBefore(24), NOW)).toBe('warning')
-    expect(urgencyOf(hoursBefore(71), NOW)).toBe('warning')
+  it('時間と分を組み合わせる', () => {
+    expect(formatMinutes(95)).toBe('1時間35分')
   })
 
-  it('72 時間以上は overdue', () => {
-    expect(urgencyOf(hoursBefore(72), NOW)).toBe('overdue')
-    expect(urgencyOf(hoursBefore(240), NOW)).toBe('overdue')
-  })
-
-  it('日時として解釈できなければ none', () => {
-    expect(urgencyOf('not-a-date', NOW)).toBe('none')
+  it('負の値は 0 分扱い', () => {
+    expect(formatMinutes(-5)).toBe('0分')
   })
 })
 
-describe('formatElapsed', () => {
-  it('経過時間を日本語の相対表記にする', () => {
-    expect(formatElapsed(hoursBefore(0), NOW)).toBe('たった今')
-    expect(formatElapsed(hoursBefore(0.5), NOW)).toBe('30分前')
-    expect(formatElapsed(hoursBefore(5), NOW)).toBe('5時間前')
-    expect(formatElapsed(hoursBefore(30), NOW)).toBe('1日前')
-    expect(formatElapsed(hoursBefore(24 * 45), NOW)).toBe('1か月前')
+describe('formatDistance', () => {
+  it('1km 未満は m 表記', () => {
+    expect(formatDistance(0.8)).toBe('800m')
   })
 
-  it('未来の日時は「まもなく」', () => {
-    expect(formatElapsed(hoursBefore(-2), NOW)).toBe('まもなく')
+  it('1km 以上は小数第 1 位まで', () => {
+    expect(formatDistance(12.34)).toBe('12.3km')
   })
+})
 
-  it('日時として解釈できなければ - を返す', () => {
-    expect(formatElapsed('not-a-date', NOW)).toBe('-')
+describe('proximityOf', () => {
+  it('制限時間に対する余裕度で段階が変わる', () => {
+    expect(proximityOf(20, 60)).toBe('close')
+    expect(proximityOf(40, 60)).toBe('moderate')
+    expect(proximityOf(55, 60)).toBe('tight')
+    expect(proximityOf(61, 60)).toBe('over')
   })
 })
