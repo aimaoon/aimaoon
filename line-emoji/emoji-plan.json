@@ -1,0 +1,5390 @@
+{
+  "version": 1,
+  "generated": "2026-08-27",
+  "items": [
+    {
+      "number": 1,
+      "file": "001.png",
+      "group": "basic",
+      "meaning_ja": "こんにちは",
+      "meaning_en": "Hello",
+      "conversation_intent": "会話のはじまり／挨拶を返す",
+      "first_frame_emotion_cues": "開いた手のひらを顔の横に上げ、目は笑いの弧、口は大きめの笑み",
+      "primary_action_test": "手が内側上へ振り切られ、頭が反対へ10度傾き、手の横に振り軌跡の弧が2本出る",
+      "moving_parts": "右腕・右手・頭",
+      "fixed_parts": "両足・腰・胴体・左腕",
+      "motion_family": "片腕",
+      "spatial_path": "横円弧",
+      "tempo_class": "medium",
+      "beat_pattern": "大小2拍",
+      "loop_return_type": "通常復帰",
+      "composition_type": "上半身中心",
+      "body_deformation": "なし",
+      "emotion_intensity": 3,
+      "dominant_visual_element": "開いた手のひらと振り軌跡",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        214,
+        143,
+        143,
+        214,
+        143,
+        143,
+        214,
+        286,
+        214,
+        143,
+        429,
+        357,
+        143,
+        143,
+        214,
+        214,
+        143,
+        143,
+        143,
+        214
+      ],
+      "peak_hold_ms": 786,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 167186,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/001/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/001/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/001/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 10,
+          "file": "poses/001/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 14,
+          "file": "poses/001/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 17,
+          "file": "poses/001/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          69.2,
+          84.4
+        ],
+        "lens_r": [
+          104.5,
+          80.0
+        ],
+        "chin": [
+          90.1,
+          109.0
+        ],
+        "crown": [
+          80.3,
+          28.6
+        ],
+        "flick_tip": [
+          46.2,
+          120.4
+        ],
+        "clip": [
+          104.8,
+          47.8
+        ]
+      },
+      "target_character_bbox": [
+        38,
+        24,
+        135,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 1.4,
+        "hand_R": 36.5,
+        "head_crown": 17.1,
+        "chin": 1.2,
+        "lens_r": 7.4
+      }
+    },
+    {
+      "number": 2,
+      "file": "002.png",
+      "group": "basic",
+      "meaning_ja": "おはよう",
+      "meaning_en": "Good morning",
+      "conversation_intent": "朝の挨拶／起きた報告",
+      "first_frame_emotion_cues": "眠そうな半目、片手で目をこすり、もう片手は半分上がっている",
+      "primary_action_test": "両腕が斜め上へ伸び切り、上体が反り、大あくびの口とあくびの息が2つ出る",
+      "moving_parts": "両腕・上半身・頭・口",
+      "fixed_parts": "両足・接地",
+      "motion_family": "両手",
+      "spatial_path": "斜め上",
+      "tempo_class": "slow",
+      "beat_pattern": "呼吸",
+      "loop_return_type": "戻らず保持",
+      "composition_type": "全身と大きなポーズ",
+      "body_deformation": "上半身の伸び",
+      "emotion_intensity": 2,
+      "dominant_visual_element": "伸びきった両腕とあくびの息",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        242,
+        182,
+        182,
+        182,
+        182,
+        182,
+        182,
+        182,
+        182,
+        182,
+        363,
+        363,
+        182,
+        121,
+        121,
+        182,
+        182,
+        182,
+        182,
+        242
+      ],
+      "peak_hold_ms": 726,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 184456,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/002/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/002/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/002/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 10,
+          "file": "poses/002/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 15,
+          "file": "poses/002/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 18,
+          "file": "poses/002/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          75.0,
+          80.3
+        ],
+        "lens_r": [
+          110.4,
+          84.0
+        ],
+        "chin": [
+          89.9,
+          109.0
+        ],
+        "crown": [
+          98.4,
+          28.4
+        ],
+        "flick_tip": [
+          44.5,
+          110.3
+        ],
+        "clip": [
+          117.9,
+          52.6
+        ]
+      },
+      "target_character_bbox": [
+        38,
+        24,
+        141,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 49.0,
+        "hand_R": 53.8,
+        "head_crown": 31.8,
+        "chin": 17.2,
+        "lens_r": 22.8
+      }
+    },
+    {
+      "number": 3,
+      "file": "003.png",
+      "group": "basic",
+      "meaning_ja": "おやすみ",
+      "meaning_en": "Good night",
+      "conversation_intent": "就寝の挨拶／会話を終える",
+      "first_frame_emotion_cues": "胸の前の枕に頭をあずけ、目を閉じてzzzが小さく出ている",
+      "primary_action_test": "頭が枕へ落ち切って枕がつぶれ、zzzが3つとも大きく斜め上へ抜ける",
+      "moving_parts": "頭・上半身・枕・zzz",
+      "fixed_parts": "両足・腰・手の位置",
+      "motion_family": "頭",
+      "spatial_path": "縦",
+      "tempo_class": "slow",
+      "beat_pattern": "単発",
+      "loop_return_type": "反動",
+      "composition_type": "上半身中心",
+      "body_deformation": "枕のつぶれ",
+      "emotion_intensity": 2,
+      "dominant_visual_element": "つぶれる枕と3連のzzz",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        278,
+        222,
+        167,
+        167,
+        222,
+        167,
+        111,
+        111,
+        111,
+        111,
+        333,
+        278,
+        167,
+        167,
+        222,
+        222,
+        222,
+        222,
+        222,
+        278
+      ],
+      "peak_hold_ms": 445,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 174723,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/003/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 4,
+          "file": "poses/003/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 7,
+          "file": "poses/003/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 11,
+          "file": "poses/003/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 14,
+          "file": "poses/003/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 17,
+          "file": "poses/003/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          87.7,
+          84.0
+        ],
+        "lens_r": [
+          120.0,
+          99.0
+        ],
+        "chin": [
+          92.5,
+          116.0
+        ],
+        "crown": [
+          126.7,
+          42.6
+        ],
+        "flick_tip": [
+          49.2,
+          102.4
+        ],
+        "clip": [
+          137.3,
+          71.8
+        ]
+      },
+      "target_character_bbox": [
+        45,
+        34,
+        156,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 11.0,
+        "hand_R": 15.8,
+        "head_crown": 51.5,
+        "chin": 19.8,
+        "lens_r": 34.4
+      }
+    },
+    {
+      "number": 4,
+      "file": "004.png",
+      "group": "basic",
+      "meaning_ja": "ありがとう",
+      "meaning_en": "Thank you",
+      "conversation_intent": "お礼／感謝を伝える",
+      "first_frame_emotion_cues": "両手を前で合わせ、上体を傾けて頭を下げた会釈の姿勢",
+      "primary_action_test": "上体と頭がさらに深く沈み込み、頭の左右にきらめきが2つ広がる",
+      "moving_parts": "上半身・頭・両腕",
+      "fixed_parts": "両足・接地",
+      "motion_family": "全身",
+      "spatial_path": "縦",
+      "tempo_class": "medium",
+      "beat_pattern": "単発",
+      "loop_return_type": "通常復帰",
+      "composition_type": "全身と大きなポーズ",
+      "body_deformation": "上半身の沈み",
+      "emotion_intensity": 3,
+      "dominant_visual_element": "深い会釈と2つのきらめき",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        239,
+        179,
+        179,
+        179,
+        119,
+        119,
+        119,
+        179,
+        179,
+        419,
+        359,
+        239,
+        179,
+        179,
+        179,
+        179,
+        179,
+        179,
+        179,
+        239
+      ],
+      "peak_hold_ms": 778,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 174483,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/004/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/004/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/004/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 9,
+          "file": "poses/004/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 14,
+          "file": "poses/004/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 17,
+          "file": "poses/004/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          92.1,
+          96.7
+        ],
+        "lens_r": [
+          124.1,
+          112.3
+        ],
+        "chin": [
+          96.3,
+          128.8
+        ],
+        "crown": [
+          131.8,
+          56.0
+        ],
+        "flick_tip": [
+          53.2,
+          114.5
+        ],
+        "clip": [
+          141.9,
+          85.4
+        ]
+      },
+      "target_character_bbox": [
+        49,
+        47,
+        160,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 14.3,
+        "hand_R": 17.8,
+        "head_crown": 74.3,
+        "chin": 32.2,
+        "lens_r": 51.9
+      }
+    },
+    {
+      "number": 5,
+      "file": "005.png",
+      "group": "basic",
+      "meaning_ja": "ごめんね",
+      "meaning_en": "Sorry",
+      "conversation_intent": "謝る／お詫びする",
+      "first_frame_emotion_cues": "右手を顔の前に立て、眉を下げ口は波形、頬に3本線と汗が1粒",
+      "primary_action_test": "頭が深く下がって手が顔の高さに残り、汗が顔の横から下へ落ちる",
+      "moving_parts": "頭・上半身・右手・汗",
+      "fixed_parts": "両足・腰・左腕",
+      "motion_family": "全身",
+      "spatial_path": "縦",
+      "tempo_class": "medium",
+      "beat_pattern": "大小2拍",
+      "loop_return_type": "反動",
+      "composition_type": "上半身中心",
+      "body_deformation": "上半身の沈み",
+      "emotion_intensity": 3,
+      "dominant_visual_element": "顔の前に立てた片手と落ちる汗",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        236,
+        176,
+        176,
+        176,
+        176,
+        118,
+        118,
+        176,
+        176,
+        354,
+        295,
+        176,
+        176,
+        176,
+        176,
+        176,
+        236,
+        236,
+        236,
+        235
+      ],
+      "peak_hold_ms": 649,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 184837,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/005/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/005/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/005/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 9,
+          "file": "poses/005/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 13,
+          "file": "poses/005/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 16,
+          "file": "poses/005/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          82.3,
+          82.9
+        ],
+        "lens_r": [
+          116.3,
+          93.3
+        ],
+        "chin": [
+          91.4,
+          113.9
+        ],
+        "crown": [
+          115.1,
+          36.5
+        ],
+        "flick_tip": [
+          46.6,
+          106.5
+        ],
+        "clip": [
+          129.7,
+          63.9
+        ]
+      },
+      "target_character_bbox": [
+        42,
+        30,
+        150,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 8.4,
+        "hand_R": 12.2,
+        "head_crown": 65.1,
+        "chin": 27.1,
+        "lens_r": 44.7
+      }
+    },
+    {
+      "number": 6,
+      "file": "006.png",
+      "group": "basic",
+      "meaning_ja": "よろしく",
+      "meaning_en": "Nice to meet you",
+      "conversation_intent": "挨拶／依頼のはじめ／握手",
+      "first_frame_emotion_cues": "右手を前へ差し出して開き、握手を求める笑顔",
+      "primary_action_test": "腕が伸び切り、手が手前へ大きく突き出て上体も前へ出る",
+      "moving_parts": "右腕・右手（奥行き）・上半身",
+      "fixed_parts": "両足・腰・左腕・顔中心",
+      "motion_family": "片腕",
+      "spatial_path": "奥行き",
+      "tempo_class": "medium",
+      "beat_pattern": "単発",
+      "loop_return_type": "戻らず保持",
+      "composition_type": "上半身中心",
+      "body_deformation": "手の遠近拡大",
+      "emotion_intensity": 3,
+      "dominant_visual_element": "手前へ突き出した大きな手のひら",
+      "horizontal_anchor": "胴体中心",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        242,
+        182,
+        182,
+        182,
+        182,
+        121,
+        121,
+        121,
+        121,
+        121,
+        182,
+        425,
+        364,
+        182,
+        182,
+        182,
+        182,
+        242,
+        242,
+        242
+      ],
+      "peak_hold_ms": 789,
+      "safe_area_px": 9,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 182518,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/006/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 4,
+          "file": "poses/006/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 7,
+          "file": "poses/006/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 11,
+          "file": "poses/006/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 15,
+          "file": "poses/006/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 18,
+          "file": "poses/006/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          70.9,
+          83.0
+        ],
+        "lens_r": [
+          106.4,
+          81.1
+        ],
+        "chin": [
+          90.1,
+          109.0
+        ],
+        "crown": [
+          85.8,
+          28.1
+        ],
+        "flick_tip": [
+          45.4,
+          117.3
+        ],
+        "clip": [
+          108.9,
+          48.9
+        ]
+      },
+      "target_character_bbox": [
+        38,
+        24,
+        137,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 5.2,
+        "hand_R": 31.1,
+        "head_crown": 5.8,
+        "chin": 5.0,
+        "lens_r": 5.0
+      }
+    },
+    {
+      "number": 7,
+      "file": "007.png",
+      "group": "basic",
+      "meaning_ja": "はーい・了解",
+      "meaning_en": "Yes! / Got it",
+      "conversation_intent": "返事／了解する",
+      "first_frame_emotion_cues": "両手をぱっと挙げて口を開き、元気に返事をしている状態",
+      "primary_action_test": "両手が最高点まで跳ね上がり体が8px浮き、手の外側に衝撃線が3本ずつ出る",
+      "moving_parts": "両腕・両手・全身の上下・肩",
+      "fixed_parts": "接地の左右位置・顔の中心",
+      "motion_family": "両手",
+      "spatial_path": "縦",
+      "tempo_class": "fast",
+      "beat_pattern": "単発",
+      "loop_return_type": "反動",
+      "composition_type": "全身と大きなポーズ",
+      "body_deformation": "つま先立ち",
+      "emotion_intensity": 4,
+      "dominant_visual_element": "左右対称に跳ね上がる両手",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        242,
+        182,
+        182,
+        242,
+        182,
+        121,
+        121,
+        121,
+        121,
+        425,
+        364,
+        242,
+        182,
+        121,
+        182,
+        182,
+        182,
+        182,
+        182,
+        242
+      ],
+      "peak_hold_ms": 789,
+      "safe_area_px": 9,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 182651,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/007/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/007/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/007/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 9,
+          "file": "poses/007/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 13,
+          "file": "poses/007/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 17,
+          "file": "poses/007/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          72.2,
+          78.0
+        ],
+        "lens_r": [
+          107.8,
+          78.0
+        ],
+        "chin": [
+          90.0,
+          105.0
+        ],
+        "crown": [
+          90.0,
+          24.0
+        ],
+        "flick_tip": [
+          45.0,
+          111.0
+        ],
+        "clip": [
+          112.0,
+          46.0
+        ]
+      },
+      "target_character_bbox": [
+        38,
+        20,
+        138,
+        165
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 70.5,
+        "hand_R": 70.5,
+        "head_crown": 18.6,
+        "chin": 18.6,
+        "lens_r": 18.6
+      }
+    },
+    {
+      "number": 8,
+      "file": "008.png",
+      "group": "basic",
+      "meaning_ja": "いいね",
+      "meaning_en": "Nice / Like",
+      "conversation_intent": "賛成／ほめる",
+      "first_frame_emotion_cues": "胸の高さで親指を立て、自信のある笑顔",
+      "primary_action_test": "腕が引かれた位置から突き上がり、親指が大きく手前上へ、勢い線が2本",
+      "moving_parts": "右腕・親指・上半身",
+      "fixed_parts": "両足・腰・左腕",
+      "motion_family": "片腕",
+      "spatial_path": "縦",
+      "tempo_class": "fast",
+      "beat_pattern": "単発",
+      "loop_return_type": "反動",
+      "composition_type": "上半身中心",
+      "body_deformation": "手の遠近拡大",
+      "emotion_intensity": 4,
+      "dominant_visual_element": "突き上がる大きな親指",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        239,
+        179,
+        179,
+        179,
+        119,
+        119,
+        119,
+        119,
+        119,
+        419,
+        359,
+        239,
+        179,
+        179,
+        179,
+        179,
+        179,
+        239,
+        239,
+        239
+      ],
+      "peak_hold_ms": 778,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 175874,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/008/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/008/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/008/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 9,
+          "file": "poses/008/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 13,
+          "file": "poses/008/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 17,
+          "file": "poses/008/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          73.6,
+          81.1
+        ],
+        "lens_r": [
+          109.1,
+          83.0
+        ],
+        "chin": [
+          89.9,
+          109.0
+        ],
+        "crown": [
+          94.2,
+          28.1
+        ],
+        "flick_tip": [
+          44.7,
+          112.6
+        ],
+        "clip": [
+          115.0,
+          51.2
+        ]
+      },
+      "target_character_bbox": [
+        38,
+        24,
+        140,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 8.6,
+        "hand_R": 37.6,
+        "head_crown": 3.6,
+        "chin": 4.5,
+        "lens_r": 4.0
+      }
+    },
+    {
+      "number": 9,
+      "file": "009.png",
+      "group": "basic",
+      "meaning_ja": "うんうん",
+      "meaning_en": "Nodding yes",
+      "conversation_intent": "同意／うんうんと聞く",
+      "first_frame_emotion_cues": "あごを引いて目を細めて笑い、頭上にうなずきの軌跡が2本",
+      "primary_action_test": "頭が最も深く下がり、肩が上がり、軌跡の弧が下へ伸びる",
+      "moving_parts": "頭・肩",
+      "fixed_parts": "両足・腰・胴体・両腕",
+      "motion_family": "頭",
+      "spatial_path": "縦",
+      "tempo_class": "medium",
+      "beat_pattern": "4交互",
+      "loop_return_type": "通常復帰",
+      "composition_type": "顔アップ寄り",
+      "body_deformation": "なし",
+      "emotion_intensity": 2,
+      "dominant_visual_element": "うなずきの軌跡と深い一拍",
+      "horizontal_anchor": "顔中心",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        219,
+        145,
+        145,
+        219,
+        145,
+        145,
+        145,
+        365,
+        292,
+        145,
+        145,
+        218,
+        218,
+        145,
+        145,
+        292,
+        218,
+        218,
+        218,
+        218
+      ],
+      "peak_hold_ms": 437,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 179270,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/009/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/009/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 5,
+          "file": "poses/009/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 8,
+          "file": "poses/009/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 12,
+          "file": "poses/009/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 15,
+          "file": "poses/009/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          77.5,
+          89.1
+        ],
+        "lens_r": [
+          112.4,
+          95.9
+        ],
+        "chin": [
+          89.8,
+          119.0
+        ],
+        "crown": [
+          105.3,
+          39.5
+        ],
+        "flick_tip": [
+          44.5,
+          116.3
+        ],
+        "clip": [
+          122.7,
+          65.3
+        ]
+      },
+      "target_character_bbox": [
+        39,
+        35,
+        144,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 15.8,
+        "hand_R": 15.8,
+        "head_crown": 44.9,
+        "chin": 25.0,
+        "lens_r": 35.5
+      }
+    },
+    {
+      "number": 10,
+      "file": "010.png",
+      "group": "basic",
+      "meaning_ja": "おねがい",
+      "meaning_en": "Please",
+      "conversation_intent": "お願いする／頼む",
+      "first_frame_emotion_cues": "胸の前で両手を合わせ、上目づかいの大きな目と下がり眉",
+      "primary_action_test": "合わせた手があごの高さまで上がり、つま先立ちになって目がきらめき、頭上に星3つ",
+      "moving_parts": "両腕・頭・つま先・目",
+      "fixed_parts": "腰・胴体・接地の左右位置",
+      "motion_family": "両手",
+      "spatial_path": "縦",
+      "tempo_class": "medium",
+      "beat_pattern": "単発",
+      "loop_return_type": "戻らず保持",
+      "composition_type": "上半身中心",
+      "body_deformation": "つま先立ち",
+      "emotion_intensity": 3,
+      "dominant_visual_element": "あごまで上がる合わせ手ときらめく目",
+      "horizontal_anchor": "胴体中心",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        245,
+        185,
+        185,
+        185,
+        185,
+        185,
+        123,
+        123,
+        123,
+        123,
+        430,
+        368,
+        185,
+        185,
+        185,
+        185,
+        185,
+        185,
+        185,
+        245
+      ],
+      "peak_hold_ms": 798,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 173548,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/010/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 4,
+          "file": "poses/010/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 7,
+          "file": "poses/010/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 10,
+          "file": "poses/010/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 14,
+          "file": "poses/010/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 17,
+          "file": "poses/010/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          68.8,
+          82.7
+        ],
+        "lens_r": [
+          104.0,
+          77.8
+        ],
+        "chin": [
+          90.1,
+          107.0
+        ],
+        "crown": [
+          78.9,
+          26.8
+        ],
+        "flick_tip": [
+          46.4,
+          119.2
+        ],
+        "clip": [
+          103.7,
+          45.5
+        ]
+      },
+      "target_character_bbox": [
+        38,
+        22,
+        135,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 46.7,
+        "hand_R": 46.7,
+        "head_crown": 23.1,
+        "chin": 17.4,
+        "lens_r": 21.4
+      }
+    },
+    {
+      "number": 11,
+      "file": "011.png",
+      "group": "basic",
+      "meaning_ja": "いってきます",
+      "meaning_en": "Heading out",
+      "conversation_intent": "外出の報告／出発",
+      "first_frame_emotion_cues": "カバンを提げて片脚を前に踏み出した走り出しの姿勢、動き線つき",
+      "primary_action_test": "歩幅が最大になり体が右へ13px進み、スカートが開いて動き線が伸びる",
+      "moving_parts": "両脚・両腕・胴体・カバン・全身の横移動",
+      "fixed_parts": "内部リグ（顔・耳・線幅）",
+      "motion_family": "足",
+      "spatial_path": "横",
+      "tempo_class": "fast",
+      "beat_pattern": "連続",
+      "loop_return_type": "退出再登場なしの往復",
+      "composition_type": "全身と大きなポーズ",
+      "body_deformation": "スカートのなびき",
+      "emotion_intensity": 4,
+      "dominant_visual_element": "大きな歩幅とカバンの揺れ",
+      "horizontal_anchor": "なし（横移動あり）",
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        214,
+        143,
+        143,
+        143,
+        143,
+        143,
+        143,
+        214,
+        214,
+        214,
+        358,
+        286,
+        143,
+        143,
+        214,
+        214,
+        214,
+        214,
+        214,
+        286
+      ],
+      "peak_hold_ms": 644,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 201757,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/011/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/011/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/011/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 10,
+          "file": "poses/011/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 14,
+          "file": "poses/011/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 17,
+          "file": "poses/011/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          78.9,
+          79.2
+        ],
+        "lens_r": [
+          114.4,
+          81.6
+        ],
+        "chin": [
+          94.8,
+          107.3
+        ],
+        "crown": [
+          100.5,
+          26.5
+        ],
+        "flick_tip": [
+          49.5,
+          110.2
+        ],
+        "clip": [
+          120.9,
+          50.0
+        ]
+      },
+      "target_character_bbox": [
+        43,
+        23,
+        145,
+        164
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 7.9,
+        "hand_R": 41.7,
+        "head_crown": 22.2,
+        "chin": 19.7,
+        "lens_r": 20.2
+      }
+    },
+    {
+      "number": 12,
+      "file": "012.png",
+      "group": "basic",
+      "meaning_ja": "おつかれさま",
+      "meaning_en": "Good work today",
+      "conversation_intent": "ねぎらい／乾杯・ひと息",
+      "first_frame_emotion_cues": "マグを胸の高さに持ち、湯気が上がるやわらかい笑顔",
+      "primary_action_test": "マグを顔の横まで掲げ、頭が反対へ傾き、湯気が2つ大きく立ちのぼる",
+      "moving_parts": "右腕・マグ・湯気・頭",
+      "fixed_parts": "両足・腰・左腕・胴体",
+      "motion_family": "小物",
+      "spatial_path": "縦",
+      "tempo_class": "slow",
+      "beat_pattern": "大小2拍",
+      "loop_return_type": "戻らず保持",
+      "composition_type": "上半身中心",
+      "body_deformation": "なし",
+      "emotion_intensity": 2,
+      "dominant_visual_element": "掲げたマグと立ちのぼる湯気",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        242,
+        182,
+        182,
+        182,
+        182,
+        182,
+        121,
+        121,
+        121,
+        182,
+        182,
+        363,
+        364,
+        182,
+        182,
+        182,
+        182,
+        182,
+        242,
+        242
+      ],
+      "peak_hold_ms": 727,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 181780,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/012/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 4,
+          "file": "poses/012/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 7,
+          "file": "poses/012/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 11,
+          "file": "poses/012/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 15,
+          "file": "poses/012/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 18,
+          "file": "poses/012/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          69.2,
+          84.4
+        ],
+        "lens_r": [
+          104.5,
+          80.0
+        ],
+        "chin": [
+          90.1,
+          109.0
+        ],
+        "crown": [
+          80.3,
+          28.6
+        ],
+        "flick_tip": [
+          46.2,
+          120.4
+        ],
+        "clip": [
+          104.8,
+          47.8
+        ]
+      },
+      "target_character_bbox": [
+        38,
+        24,
+        135,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 2.5,
+        "hand_R": 45.9,
+        "head_crown": 23.9,
+        "chin": 2.5,
+        "lens_r": 11.2
+      }
+    },
+    {
+      "number": 13,
+      "file": "013.png",
+      "group": "bright",
+      "meaning_ja": "やったー",
+      "meaning_en": "Yay!",
+      "conversation_intent": "喜ぶ／成功を伝える",
+      "first_frame_emotion_cues": "空中で両手両脚を開き、口を大きく開けて喜んでいる",
+      "primary_action_test": "跳躍の最高点で体が14px浮き、手脚が最大に開き、頭上左右に星が飛ぶ",
+      "moving_parts": "全身の上下・両腕・両脚・スカート",
+      "fixed_parts": "内部リグ・左右位置",
+      "motion_family": "全身",
+      "spatial_path": "縦",
+      "tempo_class": "fast",
+      "beat_pattern": "単発",
+      "loop_return_type": "反動",
+      "composition_type": "全身と大きなポーズ",
+      "body_deformation": "スカートの開き",
+      "emotion_intensity": 5,
+      "dominant_visual_element": "空中で開いた手脚と着地の砂ぼこり",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        188,
+        188,
+        188,
+        188,
+        125,
+        125,
+        125,
+        125,
+        125,
+        374,
+        311,
+        188,
+        188,
+        188,
+        188,
+        188,
+        249,
+        249,
+        250,
+        250
+      ],
+      "peak_hold_ms": 685,
+      "safe_area_px": 8,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 196927,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/013/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/013/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/013/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 9,
+          "file": "poses/013/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 13,
+          "file": "poses/013/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 16,
+          "file": "poses/013/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          72.2,
+          71.0
+        ],
+        "lens_r": [
+          107.8,
+          71.0
+        ],
+        "chin": [
+          90.0,
+          98.0
+        ],
+        "crown": [
+          90.0,
+          17.0
+        ],
+        "flick_tip": [
+          45.0,
+          104.0
+        ],
+        "clip": [
+          112.0,
+          39.0
+        ]
+      },
+      "target_character_bbox": [
+        38,
+        13,
+        138,
+        157
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 72.8,
+        "hand_R": 80.3,
+        "head_crown": 38.3,
+        "chin": 34.5,
+        "lens_r": 37.6
+      }
+    },
+    {
+      "number": 14,
+      "file": "014.png",
+      "group": "bright",
+      "meaning_ja": "わーい・拍手",
+      "meaning_en": "Applause",
+      "conversation_intent": "ほめる／祝う／拍手",
+      "first_frame_emotion_cues": "両手を打ち合わせた直後の位置で、口を開けて笑っている",
+      "primary_action_test": "左右に開いた手が中央で衝突し、衝撃線8本ときらめき2つが出る",
+      "moving_parts": "両腕・両手の間隔・肩・胴体の縦つぶれ",
+      "fixed_parts": "両足・腰・頭の位置",
+      "motion_family": "両手",
+      "spatial_path": "横",
+      "tempo_class": "fast",
+      "beat_pattern": "3連打",
+      "loop_return_type": "通常復帰",
+      "composition_type": "上半身中心",
+      "body_deformation": "胴体の縦つぶれ",
+      "emotion_intensity": 4,
+      "dominant_visual_element": "開いて閉じる手の間隔と衝突の衝撃線",
+      "horizontal_anchor": "胴体中心",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        193,
+        129,
+        193,
+        193,
+        193,
+        193,
+        194,
+        194,
+        129,
+        386,
+        322,
+        194,
+        129,
+        194,
+        194,
+        194,
+        194,
+        194,
+        194,
+        194
+      ],
+      "peak_hold_ms": 708,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 186724,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/014/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/014/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/014/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 9,
+          "file": "poses/014/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 13,
+          "file": "poses/014/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 16,
+          "file": "poses/014/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          70.4,
+          82.3
+        ],
+        "lens_r": [
+          105.9,
+          79.8
+        ],
+        "chin": [
+          90.1,
+          108.0
+        ],
+        "crown": [
+          84.4,
+          27.2
+        ],
+        "flick_tip": [
+          45.6,
+          117.1
+        ],
+        "clip": [
+          107.9,
+          47.6
+        ]
+      },
+      "target_character_bbox": [
+        38,
+        23,
+        136,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 27.2,
+        "hand_R": 27.2,
+        "head_crown": 15.0,
+        "chin": 4.3,
+        "lens_r": 5.0
+      }
+    },
+    {
+      "number": 15,
+      "file": "015.png",
+      "group": "bright",
+      "meaning_ja": "大好き",
+      "meaning_en": "Love it",
+      "conversation_intent": "好意を伝える／お礼を強めに",
+      "first_frame_emotion_cues": "大きなハートを両手で抱え、猫口とチーク3本の幸せ顔",
+      "primary_action_test": "ハートが最大まで鼓動して腕が押し広げられ、小さなハート3つが別軌道で飛び出す",
+      "moving_parts": "ハート本体の大きさ・両腕・飛び出すハート3つ",
+      "fixed_parts": "両足・腰・胴体",
+      "motion_family": "エフェクト",
+      "spatial_path": "円弧",
+      "tempo_class": "medium",
+      "beat_pattern": "呼吸",
+      "loop_return_type": "戻らず保持",
+      "composition_type": "身体変形またはエフェクトが主役",
+      "body_deformation": "なし",
+      "emotion_intensity": 4,
+      "dominant_visual_element": "抱えたハートの鼓動と飛び出す3つのハート",
+      "horizontal_anchor": "胴体中心",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        242,
+        182,
+        182,
+        182,
+        182,
+        182,
+        121,
+        121,
+        121,
+        363,
+        364,
+        182,
+        182,
+        182,
+        182,
+        182,
+        182,
+        182,
+        242,
+        242
+      ],
+      "peak_hold_ms": 546,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 171072,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/015/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/015/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/015/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 10,
+          "file": "poses/015/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 14,
+          "file": "poses/015/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 17,
+          "file": "poses/015/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          69.6,
+          82.0
+        ],
+        "lens_r": [
+          105.0,
+          78.3
+        ],
+        "chin": [
+          90.1,
+          107.0
+        ],
+        "crown": [
+          81.6,
+          26.4
+        ],
+        "flick_tip": [
+          46.0,
+          117.7
+        ],
+        "clip": [
+          105.8,
+          46.0
+        ]
+      },
+      "target_character_bbox": [
+        38,
+        22,
+        135,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 24.5,
+        "hand_R": 23.6,
+        "head_crown": 18.4,
+        "chin": 6.4,
+        "lens_r": 11.9
+      }
+    },
+    {
+      "number": 16,
+      "file": "016.png",
+      "group": "bright",
+      "meaning_ja": "すごい！",
+      "meaning_en": "Amazing!",
+      "conversation_intent": "感心する／すごいと伝える",
+      "first_frame_emotion_cues": "星を顔の横に掲げ、目がきらめき口が開いた感心の表情",
+      "primary_action_test": "背中へ回した腕が振り上がり、星が頭より高く最大サイズで掲げられ、きらめき3つが散る",
+      "moving_parts": "右腕・肩・上半身・星・きらめき",
+      "fixed_parts": "両足・腰・左腕（前半）",
+      "motion_family": "小物",
+      "spatial_path": "円弧",
+      "tempo_class": "medium",
+      "beat_pattern": "単発",
+      "loop_return_type": "戻らず保持",
+      "composition_type": "全身と大きなポーズ",
+      "body_deformation": "上半身の反り",
+      "emotion_intensity": 4,
+      "dominant_visual_element": "背中から取り出して掲げる星",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        249,
+        187,
+        187,
+        188,
+        188,
+        125,
+        125,
+        125,
+        125,
+        188,
+        437,
+        374,
+        188,
+        125,
+        188,
+        188,
+        188,
+        188,
+        188,
+        249
+      ],
+      "peak_hold_ms": 811,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 193796,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/016/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/016/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/016/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 10,
+          "file": "poses/016/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 14,
+          "file": "poses/016/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 17,
+          "file": "poses/016/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          67.5,
+          84.8
+        ],
+        "lens_r": [
+          102.8,
+          79.8
+        ],
+        "chin": [
+          88.9,
+          109.0
+        ],
+        "crown": [
+          77.6,
+          28.8
+        ],
+        "flick_tip": [
+          45.2,
+          121.2
+        ],
+        "clip": [
+          102.5,
+          47.5
+        ]
+      },
+      "target_character_bbox": [
+        36,
+        25,
+        133,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 23.8,
+        "hand_R": 79.6,
+        "head_crown": 41.6,
+        "chin": 11.1,
+        "lens_r": 24.4
+      }
+    },
+    {
+      "number": 17,
+      "file": "017.png",
+      "group": "bright",
+      "meaning_ja": "笑う",
+      "meaning_en": "Laughing",
+      "conversation_intent": "笑う／面白いと伝える",
+      "first_frame_emotion_cues": "お腹を両手で押さえて前に折れ、目を細めて大口で笑っている",
+      "primary_action_test": "上体が最も深く折れて頭が14px沈み、左右に笑い線が4本飛ぶ",
+      "moving_parts": "上半身の折れ・頭・両手（お腹）・笑い線",
+      "fixed_parts": "両足・接地",
+      "motion_family": "全身",
+      "spatial_path": "縦",
+      "tempo_class": "fast",
+      "beat_pattern": "4交互",
+      "loop_return_type": "通常復帰",
+      "composition_type": "全身と大きなポーズ",
+      "body_deformation": "上半身の折れ",
+      "emotion_intensity": 4,
+      "dominant_visual_element": "お腹を抱えて折れる上体と笑い線",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        223,
+        148,
+        148,
+        223,
+        148,
+        148,
+        297,
+        297,
+        148,
+        148,
+        222,
+        222,
+        148,
+        148,
+        222,
+        222,
+        222,
+        222,
+        222,
+        222
+      ],
+      "peak_hold_ms": 296,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 184406,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/017/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/017/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 5,
+          "file": "poses/017/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 8,
+          "file": "poses/017/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 12,
+          "file": "poses/017/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 16,
+          "file": "poses/017/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          90.8,
+          84.0
+        ],
+        "lens_r": [
+          123.6,
+          97.9
+        ],
+        "chin": [
+          96.6,
+          115.8
+        ],
+        "crown": [
+          128.3,
+          41.2
+        ],
+        "flick_tip": [
+          52.9,
+          103.7
+        ],
+        "clip": [
+          139.9,
+          70.1
+        ]
+      },
+      "target_character_bbox": [
+        48,
+        33,
+        159,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 13.5,
+        "hand_R": 21.5,
+        "head_crown": 78.8,
+        "chin": 30.3,
+        "lens_r": 52.2
+      }
+    },
+    {
+      "number": 18,
+      "file": "018.png",
+      "group": "bright",
+      "meaning_ja": "照れる",
+      "meaning_en": "Bashful",
+      "conversation_intent": "照れる／ほめられた返事",
+      "first_frame_emotion_cues": "両手を頬に当て、波形の口とチーク3本、湯気が出はじめている",
+      "primary_action_test": "頭が17度まで傾いて手が頬を押し、湯気が4つとも大きく立ちのぼる",
+      "moving_parts": "頭の左右傾き・両手（頬）・湯気4つ",
+      "fixed_parts": "両足・腰・胴体の左右位置",
+      "motion_family": "頭",
+      "spatial_path": "円弧",
+      "tempo_class": "medium",
+      "beat_pattern": "2拍交互",
+      "loop_return_type": "通常復帰",
+      "composition_type": "顔アップ寄り",
+      "body_deformation": "頭のわずかな横つぶれ",
+      "emotion_intensity": 3,
+      "dominant_visual_element": "頬に当てた両手と左右に振れる頭",
+      "horizontal_anchor": "胴体中心",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        242,
+        182,
+        182,
+        182,
+        182,
+        182,
+        182,
+        182,
+        182,
+        302,
+        302,
+        182,
+        182,
+        182,
+        242,
+        182,
+        182,
+        182,
+        182,
+        182
+      ],
+      "peak_hold_ms": 484,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 186554,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/018/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/018/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/018/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 10,
+          "file": "poses/018/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 14,
+          "file": "poses/018/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 17,
+          "file": "poses/018/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          66.6,
+          84.9
+        ],
+        "lens_r": [
+          101.5,
+          78.1
+        ],
+        "chin": [
+          89.2,
+          108.0
+        ],
+        "crown": [
+          73.7,
+          28.5
+        ],
+        "flick_tip": [
+          46.2,
+          122.5
+        ],
+        "clip": [
+          99.5,
+          45.9
+        ]
+      },
+      "target_character_bbox": [
+        35,
+        24,
+        132,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 15.5,
+        "hand_R": 15.5,
+        "head_crown": 47.3,
+        "chin": 4.9,
+        "lens_r": 20.7
+      }
+    },
+    {
+      "number": 19,
+      "file": "019.png",
+      "group": "bright",
+      "meaning_ja": "応援・ファイト",
+      "meaning_en": "Cheering you on",
+      "conversation_intent": "応援する／励ます",
+      "first_frame_emotion_cues": "拳を顔の横まで上げ、つり眉と大口で気合いを入れている",
+      "primary_action_test": "拳が肩から突き上がって最高点に達し、遅れて炎3本が最大まで立ちのぼる",
+      "moving_parts": "右腕・拳・肩・炎（遅れて追従）",
+      "fixed_parts": "両足・腰・左腕（前半）",
+      "motion_family": "片腕",
+      "spatial_path": "縦",
+      "tempo_class": "fast",
+      "beat_pattern": "遅延2拍",
+      "loop_return_type": "反動",
+      "composition_type": "上半身中心",
+      "body_deformation": "なし",
+      "emotion_intensity": 5,
+      "dominant_visual_element": "突き上げる拳と遅れて立つ炎",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        245,
+        185,
+        185,
+        185,
+        123,
+        123,
+        123,
+        123,
+        123,
+        430,
+        368,
+        185,
+        185,
+        185,
+        185,
+        185,
+        185,
+        185,
+        246,
+        246
+      ],
+      "peak_hold_ms": 798,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 196426,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/019/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/019/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/019/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 9,
+          "file": "poses/019/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 14,
+          "file": "poses/019/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 17,
+          "file": "poses/019/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          69.6,
+          84.0
+        ],
+        "lens_r": [
+          105.0,
+          80.3
+        ],
+        "chin": [
+          90.1,
+          109.0
+        ],
+        "crown": [
+          81.6,
+          28.4
+        ],
+        "flick_tip": [
+          46.0,
+          119.7
+        ],
+        "clip": [
+          105.8,
+          48.0
+        ]
+      },
+      "target_character_bbox": [
+        38,
+        24,
+        135,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 20.1,
+        "hand_R": 50.6,
+        "head_crown": 22.5,
+        "chin": 7.3,
+        "lens_r": 13.4
+      }
+    },
+    {
+      "number": 20,
+      "file": "020.png",
+      "group": "bright",
+      "meaning_ja": "びっくり",
+      "meaning_en": "Whoa!",
+      "conversation_intent": "驚く／意外な報告への反応",
+      "first_frame_emotion_cues": "上体をのけぞらせ両手を開いて上げ、目を見開いて口を開けている",
+      "primary_action_test": "のけぞりが最大になり、！と？が左右へ離れながら最大化し放射線が出る",
+      "moving_parts": "上半身の反り・両腕・頭・！と？",
+      "fixed_parts": "両足・接地",
+      "motion_family": "全身",
+      "spatial_path": "斜め",
+      "tempo_class": "fast",
+      "beat_pattern": "単発",
+      "loop_return_type": "反動",
+      "composition_type": "全身と大きなポーズ",
+      "body_deformation": "上半身の反り",
+      "emotion_intensity": 5,
+      "dominant_visual_element": "のけぞる上体と左右へ飛ぶ！？",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        194,
+        129,
+        129,
+        129,
+        129,
+        129,
+        129,
+        129,
+        451,
+        386,
+        257,
+        194,
+        194,
+        194,
+        194,
+        194,
+        194,
+        194,
+        194,
+        257
+      ],
+      "peak_hold_ms": 837,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 220932,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/020/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/020/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 5,
+          "file": "poses/020/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 8,
+          "file": "poses/020/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 12,
+          "file": "poses/020/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 16,
+          "file": "poses/020/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          60.1,
+          85.0
+        ],
+        "lens_r": [
+          94.5,
+          75.7
+        ],
+        "chin": [
+          84.3,
+          106.4
+        ],
+        "crown": [
+          63.3,
+          28.2
+        ],
+        "flick_tip": [
+          42.4,
+          123.9
+        ],
+        "clip": [
+          90.3,
+          43.8
+        ]
+      },
+      "target_character_bbox": [
+        27,
+        23,
+        128,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 39.2,
+        "hand_R": 51.0,
+        "head_crown": 66.4,
+        "chin": 18.4,
+        "lens_r": 39.1
+      }
+    },
+    {
+      "number": 21,
+      "file": "021.png",
+      "group": "bright",
+      "meaning_ja": "ひらめき",
+      "meaning_en": "Got an idea",
+      "conversation_intent": "思いついた／提案する",
+      "first_frame_emotion_cues": "人差し指を立て、頭上の電球が灯り、目がきらめいている",
+      "primary_action_test": "指が最高点で止まり電球が点灯して放射線6本が広がる",
+      "moving_parts": "右腕・人差し指・電球の点灯・頭",
+      "fixed_parts": "両足・腰・左腕・胴体",
+      "motion_family": "小物",
+      "spatial_path": "縦",
+      "tempo_class": "medium",
+      "beat_pattern": "単発",
+      "loop_return_type": "戻らず保持",
+      "composition_type": "上半身中心",
+      "body_deformation": "なし",
+      "emotion_intensity": 3,
+      "dominant_visual_element": "立てた指と点灯する電球",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        245,
+        185,
+        185,
+        185,
+        246,
+        185,
+        123,
+        123,
+        123,
+        123,
+        430,
+        368,
+        185,
+        123,
+        185,
+        185,
+        185,
+        185,
+        185,
+        246
+      ],
+      "peak_hold_ms": 798,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 191310,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/021/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 4,
+          "file": "poses/021/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 7,
+          "file": "poses/021/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 10,
+          "file": "poses/021/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 14,
+          "file": "poses/021/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 17,
+          "file": "poses/021/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          68.8,
+          84.7
+        ],
+        "lens_r": [
+          104.0,
+          79.8
+        ],
+        "chin": [
+          90.1,
+          109.0
+        ],
+        "crown": [
+          78.9,
+          28.8
+        ],
+        "flick_tip": [
+          46.4,
+          121.2
+        ],
+        "clip": [
+          103.7,
+          47.5
+        ]
+      },
+      "target_character_bbox": [
+        38,
+        24,
+        135,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 3.2,
+        "hand_R": 46.1,
+        "head_crown": 39.4,
+        "chin": 11.9,
+        "lens_r": 24.0
+      }
+    },
+    {
+      "number": 22,
+      "file": "022.png",
+      "group": "bright",
+      "meaning_ja": "うれしい",
+      "meaning_en": "So happy",
+      "conversation_intent": "うれしい気持ち／軽く浮かれる",
+      "first_frame_emotion_cues": "片脚を上げてスカートを翻し、両手を開いた回りはじめの姿勢",
+      "primary_action_test": "上げた脚が最大まで持ち上がりスカートが1.30倍に開き、回転軌跡の弧が3本回る",
+      "moving_parts": "片脚の持ち上げ・両腕・スカートの開き・頭",
+      "fixed_parts": "軸足の接地",
+      "motion_family": "足",
+      "spatial_path": "円",
+      "tempo_class": "medium",
+      "beat_pattern": "大小2拍",
+      "loop_return_type": "通常復帰",
+      "composition_type": "座り・寝姿・斜め向き",
+      "body_deformation": "スカートの大きな開き",
+      "emotion_intensity": 4,
+      "dominant_visual_element": "翻るスカートと持ち上げた片脚",
+      "horizontal_anchor": "軸足",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        245,
+        185,
+        185,
+        185,
+        185,
+        185,
+        185,
+        123,
+        123,
+        123,
+        185,
+        368,
+        307,
+        185,
+        185,
+        185,
+        185,
+        185,
+        245,
+        246
+      ],
+      "peak_hold_ms": 675,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 208190,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/022/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 4,
+          "file": "poses/022/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 7,
+          "file": "poses/022/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 11,
+          "file": "poses/022/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 15,
+          "file": "poses/022/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 18,
+          "file": "poses/022/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          63.8,
+          86.8
+        ],
+        "lens_r": [
+          98.4,
+          78.8
+        ],
+        "chin": [
+          87.2,
+          109.1
+        ],
+        "crown": [
+          69.0,
+          30.2
+        ],
+        "flick_tip": [
+          44.7,
+          125.1
+        ],
+        "clip": [
+          95.3,
+          46.7
+        ]
+      },
+      "target_character_bbox": [
+        31,
+        25,
+        133,
+        168
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 30.4,
+        "hand_R": 53.2,
+        "head_crown": 39.6,
+        "chin": 10.0,
+        "lens_r": 22.8
+      }
+    },
+    {
+      "number": 23,
+      "file": "023.png",
+      "group": "bright",
+      "meaning_ja": "キラキラ・決まった",
+      "meaning_en": "Looking sharp",
+      "conversation_intent": "ドヤ顔／決まった／かっこいい",
+      "first_frame_emotion_cues": "指をメガネのブリッジに添え、レンズが光ってきらめきが1つ出ている",
+      "primary_action_test": "メガネが押し上げられてレンズに白い閃光が走り、きらめき3つが外へ広がる",
+      "moving_parts": "右手（メガネのブリッジ）・メガネの上下・きらめき3つ",
+      "fixed_parts": "両足・腰・胴体・左腕",
+      "motion_family": "小物",
+      "spatial_path": "斜め",
+      "tempo_class": "medium",
+      "beat_pattern": "単発",
+      "loop_return_type": "戻らず保持",
+      "composition_type": "顔アップ寄り",
+      "body_deformation": "なし",
+      "emotion_intensity": 3,
+      "dominant_visual_element": "押し上げるメガネとレンズの閃光",
+      "horizontal_anchor": "顔中心",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        242,
+        182,
+        182,
+        182,
+        182,
+        182,
+        182,
+        121,
+        121,
+        121,
+        182,
+        423,
+        364,
+        182,
+        182,
+        182,
+        182,
+        182,
+        182,
+        242
+      ],
+      "peak_hold_ms": 787,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 182913,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/023/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 4,
+          "file": "poses/023/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 7,
+          "file": "poses/023/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 11,
+          "file": "poses/023/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 15,
+          "file": "poses/023/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 18,
+          "file": "poses/023/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          69.6,
+          84.0
+        ],
+        "lens_r": [
+          105.0,
+          80.3
+        ],
+        "chin": [
+          90.1,
+          109.0
+        ],
+        "crown": [
+          81.6,
+          28.4
+        ],
+        "flick_tip": [
+          46.0,
+          119.7
+        ],
+        "clip": [
+          105.8,
+          48.0
+        ]
+      },
+      "target_character_bbox": [
+        38,
+        24,
+        135,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 1.9,
+        "hand_R": 43.0,
+        "head_crown": 22.7,
+        "chin": 2.5,
+        "lens_r": 10.8
+      }
+    },
+    {
+      "number": 24,
+      "file": "024.png",
+      "group": "bright",
+      "meaning_ja": "ノリノリ",
+      "meaning_en": "Feeling the beat",
+      "conversation_intent": "気分がいい／楽しくノる",
+      "first_frame_emotion_cues": "頭を左へ振り肩を上げ、音符が飛びはじめている",
+      "primary_action_test": "頭が21度まで振り切れて肩が最も上がり、音符3つが別軌道で斜め上へ抜ける",
+      "moving_parts": "頭の左右振り・肩・両腕・音符3つ",
+      "fixed_parts": "両足・腰・接地",
+      "motion_family": "頭",
+      "spatial_path": "横",
+      "tempo_class": "fast",
+      "beat_pattern": "連続",
+      "loop_return_type": "通常復帰",
+      "composition_type": "上半身中心",
+      "body_deformation": "頭のわずかな横のび",
+      "emotion_intensity": 3,
+      "dominant_visual_element": "リズムで振れる頭と3つの音符",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        191,
+        191,
+        191,
+        191,
+        191,
+        191,
+        191,
+        190,
+        190,
+        318,
+        255,
+        190,
+        190,
+        190,
+        190,
+        190,
+        190,
+        190,
+        190,
+        190
+      ],
+      "peak_hold_ms": 573,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 196506,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/024/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/024/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/024/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 9,
+          "file": "poses/024/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 13,
+          "file": "poses/024/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 16,
+          "file": "poses/024/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          64.8,
+          86.7
+        ],
+        "lens_r": [
+          99.5,
+          78.7
+        ],
+        "chin": [
+          88.2,
+          109.0
+        ],
+        "crown": [
+          70.0,
+          30.1
+        ],
+        "flick_tip": [
+          45.7,
+          124.9
+        ],
+        "clip": [
+          96.4,
+          46.5
+        ]
+      },
+      "target_character_bbox": [
+        32,
+        25,
+        131,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 15.8,
+        "hand_R": 37.7,
+        "head_crown": 58.4,
+        "chin": 7.1,
+        "lens_r": 27.5
+      }
+    },
+    {
+      "number": 25,
+      "file": "025.png",
+      "group": "trouble",
+      "meaning_ja": "泣く",
+      "meaning_en": "Crying",
+      "conversation_intent": "悲しい／泣きたい気持ち",
+      "first_frame_emotion_cues": "両目から涙がこぼれ、片手を目もとに当てて眉が下がっている",
+      "primary_action_test": "のけぞって大口で泣き、両手が目もとに上がり涙が最大量で流れ落ちる",
+      "moving_parts": "涙の量と落下・拭う右手・頭・上半身",
+      "fixed_parts": "両足・腰",
+      "motion_family": "エフェクト",
+      "spatial_path": "縦",
+      "tempo_class": "medium",
+      "beat_pattern": "連続",
+      "loop_return_type": "通常復帰",
+      "composition_type": "顔アップ寄り",
+      "body_deformation": "なし",
+      "emotion_intensity": 4,
+      "dominant_visual_element": "両目から流れ落ちる涙と拭う手",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        245,
+        185,
+        185,
+        185,
+        185,
+        123,
+        123,
+        123,
+        185,
+        368,
+        307,
+        185,
+        185,
+        185,
+        245,
+        185,
+        185,
+        185,
+        185,
+        246
+      ],
+      "peak_hold_ms": 492,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 201810,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/025/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/025/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/025/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 10,
+          "file": "poses/025/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 14,
+          "file": "poses/025/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 17,
+          "file": "poses/025/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          75.1,
+          80.6
+        ],
+        "lens_r": [
+          110.6,
+          83.7
+        ],
+        "chin": [
+          90.5,
+          109.0
+        ],
+        "crown": [
+          97.6,
+          28.3
+        ],
+        "flick_tip": [
+          45.2,
+          111.1
+        ],
+        "clip": [
+          117.6,
+          52.1
+        ]
+      },
+      "target_character_bbox": [
+        39,
+        24,
+        141,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 63.0,
+        "hand_R": 28.8,
+        "head_crown": 44.0,
+        "chin": 7.2,
+        "lens_r": 22.3
+      }
+    },
+    {
+      "number": 26,
+      "file": "026.png",
+      "group": "trouble",
+      "meaning_ja": "落ち込む",
+      "meaning_en": "Feeling down",
+      "conversation_intent": "落ち込む／がっかり",
+      "first_frame_emotion_cues": "ひざを折って沈み込み、頭を垂れて上からどんより線が降りている",
+      "primary_action_test": "腰が10px沈んで頭が最も低くなり、どんより線が最長まで伸びる",
+      "moving_parts": "腰の沈み・上半身・頭・どんより線",
+      "fixed_parts": "両足の接地点",
+      "motion_family": "全身",
+      "spatial_path": "縦",
+      "tempo_class": "slow",
+      "beat_pattern": "単発",
+      "loop_return_type": "戻らず保持",
+      "composition_type": "全身と大きなポーズ",
+      "body_deformation": "膝の沈み込み",
+      "emotion_intensity": 3,
+      "dominant_visual_element": "沈み込む姿勢と頭上のどんより線",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        252,
+        203,
+        152,
+        152,
+        152,
+        152,
+        152,
+        152,
+        152,
+        152,
+        303,
+        303,
+        203,
+        203,
+        203,
+        203,
+        203,
+        203,
+        252,
+        253
+      ],
+      "peak_hold_ms": 506,
+      "safe_area_px": 10,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 180109,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/026/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 4,
+          "file": "poses/026/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 7,
+          "file": "poses/026/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 11,
+          "file": "poses/026/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 15,
+          "file": "poses/026/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 18,
+          "file": "poses/026/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          89.1,
+          91.9
+        ],
+        "lens_r": [
+          122.4,
+          104.7
+        ],
+        "chin": [
+          96.1,
+          123.5
+        ],
+        "crown": [
+          125.1,
+          47.9
+        ],
+        "flick_tip": [
+          51.9,
+          113.0
+        ],
+        "clip": [
+          137.7,
+          76.3
+        ]
+      },
+      "target_character_bbox": [
+        47,
+        41,
+        157,
+        168
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 19.0,
+        "hand_R": 19.8,
+        "head_crown": 37.4,
+        "chin": 19.7,
+        "lens_r": 28.4
+      }
+    },
+    {
+      "number": 27,
+      "file": "027.png",
+      "group": "trouble",
+      "meaning_ja": "怒る",
+      "meaning_en": "Angry",
+      "conversation_intent": "怒る／抗議する",
+      "first_frame_emotion_cues": "両拳を握って構え、つり眉とへの字口、頭の横に怒りマークが2つ",
+      "primary_action_test": "両拳が振り下ろされて体が沈み、怒りマークが最大化し足元に衝撃線が出る",
+      "moving_parts": "両拳の上下・肩・胴体の縦つぶれ・怒りマーク",
+      "fixed_parts": "接地の左右位置・顔の中心",
+      "motion_family": "両手",
+      "spatial_path": "縦",
+      "tempo_class": "fast",
+      "beat_pattern": "大小2拍",
+      "loop_return_type": "反動",
+      "composition_type": "上半身中心",
+      "body_deformation": "胴体の縦つぶれ",
+      "emotion_intensity": 5,
+      "dominant_visual_element": "振り下ろす両拳と2つの怒りマーク",
+      "horizontal_anchor": "胴体中心",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        245,
+        185,
+        185,
+        185,
+        123,
+        123,
+        123,
+        123,
+        123,
+        430,
+        368,
+        246,
+        185,
+        185,
+        185,
+        185,
+        185,
+        185,
+        185,
+        246
+      ],
+      "peak_hold_ms": 798,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 177142,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/027/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/027/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/027/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 9,
+          "file": "poses/027/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 13,
+          "file": "poses/027/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 16,
+          "file": "poses/027/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          72.2,
+          83.2
+        ],
+        "lens_r": [
+          107.8,
+          83.2
+        ],
+        "chin": [
+          90.0,
+          109.8
+        ],
+        "crown": [
+          90.0,
+          30.0
+        ],
+        "flick_tip": [
+          45.0,
+          115.7
+        ],
+        "clip": [
+          112.0,
+          51.7
+        ]
+      },
+      "target_character_bbox": [
+        38,
+        26,
+        138,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 52.8,
+        "hand_R": 52.8,
+        "head_crown": 25.1,
+        "chin": 21.5,
+        "lens_r": 22.7
+      }
+    },
+    {
+      "number": 28,
+      "file": "028.png",
+      "group": "trouble",
+      "meaning_ja": "困った",
+      "meaning_en": "Hmm, tricky",
+      "conversation_intent": "困る／判断に迷う",
+      "first_frame_emotion_cues": "頭を左へかしげて手をほおに当て、波形の口と汗が1粒",
+      "primary_action_test": "頭が反対へ19度かしぎ、汗がふくらんで顔の横を滑り落ちる",
+      "moving_parts": "頭の傾き・右手（ほお）・汗のふくらみと滑落",
+      "fixed_parts": "両足・腰・胴体・左腕",
+      "motion_family": "頭",
+      "spatial_path": "円弧",
+      "tempo_class": "slow",
+      "beat_pattern": "大小2拍",
+      "loop_return_type": "通常復帰",
+      "composition_type": "顔アップ寄り",
+      "body_deformation": "なし",
+      "emotion_intensity": 2,
+      "dominant_visual_element": "左右にかしぐ頭と滑り落ちる汗",
+      "horizontal_anchor": "胴体中心",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        230,
+        229,
+        171,
+        171,
+        171,
+        171,
+        171,
+        171,
+        171,
+        171,
+        171,
+        344,
+        287,
+        171,
+        171,
+        171,
+        171,
+        229,
+        229,
+        229
+      ],
+      "peak_hold_ms": 631,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 166656,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/028/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 4,
+          "file": "poses/028/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 7,
+          "file": "poses/028/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 11,
+          "file": "poses/028/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 15,
+          "file": "poses/028/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 18,
+          "file": "poses/028/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          64.8,
+          86.7
+        ],
+        "lens_r": [
+          99.5,
+          78.7
+        ],
+        "chin": [
+          88.2,
+          109.0
+        ],
+        "crown": [
+          70.0,
+          30.1
+        ],
+        "flick_tip": [
+          45.7,
+          124.9
+        ],
+        "clip": [
+          96.4,
+          46.5
+        ]
+      },
+      "target_character_bbox": [
+        32,
+        25,
+        131,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 2.0,
+        "hand_R": 13.7,
+        "head_crown": 52.8,
+        "chin": 5.8,
+        "lens_r": 22.7
+      }
+    },
+    {
+      "number": 29,
+      "file": "029.png",
+      "group": "trouble",
+      "meaning_ja": "疲れた",
+      "meaning_en": "Worn out",
+      "conversation_intent": "疲労を伝える／もう限界",
+      "first_frame_emotion_cues": "がっくりと前へ脱力し、腕を垂らしてためいきをついている",
+      "primary_action_test": "上体が最も深く脱力して腰が7px沈み、ためいきが最大まで広がる",
+      "moving_parts": "上半身の脱力・頭・肩の落ち・ためいき",
+      "fixed_parts": "両足の接地点・両腕の下垂位置",
+      "motion_family": "全身",
+      "spatial_path": "縦",
+      "tempo_class": "slow",
+      "beat_pattern": "呼吸",
+      "loop_return_type": "戻らず保持",
+      "composition_type": "全身と大きなポーズ",
+      "body_deformation": "上半身の脱力",
+      "emotion_intensity": 3,
+      "dominant_visual_element": "垂れ下がる腕と大きなためいき",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        250,
+        200,
+        200,
+        200,
+        200,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        300,
+        300,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        250
+      ],
+      "peak_hold_ms": 500,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 181225,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/029/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 5,
+          "file": "poses/029/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 8,
+          "file": "poses/029/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 12,
+          "file": "poses/029/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 15,
+          "file": "poses/029/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 18,
+          "file": "poses/029/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          94.0,
+          93.4
+        ],
+        "lens_r": [
+          125.1,
+          110.7
+        ],
+        "chin": [
+          96.5,
+          125.7
+        ],
+        "crown": [
+          135.8,
+          54.8
+        ],
+        "flick_tip": [
+          54.2,
+          109.1
+        ],
+        "clip": [
+          144.3,
+          84.7
+        ]
+      },
+      "target_character_bbox": [
+        50,
+        45,
+        162,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 17.1,
+        "hand_R": 18.1,
+        "head_crown": 30.3,
+        "chin": 15.0,
+        "lens_r": 21.4
+      }
+    },
+    {
+      "number": 30,
+      "file": "030.png",
+      "group": "trouble",
+      "meaning_ja": "体調不良",
+      "meaning_en": "Not feeling well",
+      "conversation_intent": "具合が悪い／休みたい",
+      "first_frame_emotion_cues": "体温計をくわえてふらつき、目がぐるぐるで汗が飛んでいる",
+      "primary_action_test": "上体と頭が右へ最大までふらつき、体温計が追従して傾き汗が外へ飛ぶ",
+      "moving_parts": "上半身の左右ふらつき・頭・体温計（頭に追従）・汗",
+      "fixed_parts": "両足の接地点",
+      "motion_family": "全身",
+      "spatial_path": "横",
+      "tempo_class": "slow",
+      "beat_pattern": "連続",
+      "loop_return_type": "通常復帰",
+      "composition_type": "全身と大きなポーズ",
+      "body_deformation": "上半身のふらつき",
+      "emotion_intensity": 4,
+      "dominant_visual_element": "くわえた体温計とぐるぐる目",
+      "horizontal_anchor": "両足中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        229,
+        229,
+        229,
+        171,
+        171,
+        171,
+        171,
+        171,
+        171,
+        229,
+        287,
+        229,
+        171,
+        171,
+        229,
+        229,
+        171,
+        171,
+        171,
+        229
+      ],
+      "peak_hold_ms": 516,
+      "safe_area_px": 8,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 203403,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/030/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/030/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/030/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 10,
+          "file": "poses/030/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 14,
+          "file": "poses/030/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 17,
+          "file": "poses/030/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          55.2,
+          93.4
+        ],
+        "lens_r": [
+          88.2,
+          80.1
+        ],
+        "chin": [
+          81.8,
+          111.8
+        ],
+        "crown": [
+          51.5,
+          36.7
+        ],
+        "flick_tip": [
+          42.3,
+          134.2
+        ],
+        "clip": [
+          80.1,
+          48.9
+        ]
+      },
+      "target_character_bbox": [
+        20,
+        29,
+        128,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 17.9,
+        "hand_R": 18.4,
+        "head_crown": 110.5,
+        "chin": 25.9,
+        "lens_r": 57.5
+      }
+    },
+    {
+      "number": 31,
+      "file": "031.png",
+      "group": "trouble",
+      "meaning_ja": "わからない",
+      "meaning_en": "No idea",
+      "conversation_intent": "わからない／お手上げ",
+      "first_frame_emotion_cues": "両手のひらを上に向けて左右に開き、肩をすくめて眉が下がっている",
+      "primary_action_test": "両手が最大まで開いて肩が7px上がり、肩の外側に無言線が4本出る",
+      "moving_parts": "両腕の開き・肩のすくめ・頭",
+      "fixed_parts": "両足・腰・接地",
+      "motion_family": "両手",
+      "spatial_path": "横",
+      "tempo_class": "medium",
+      "beat_pattern": "単発",
+      "loop_return_type": "戻らず保持",
+      "composition_type": "上半身中心",
+      "body_deformation": "肩のすくめ",
+      "emotion_intensity": 3,
+      "dominant_visual_element": "てのひらを上に開いた両手と上がる肩",
+      "horizontal_anchor": "胴体中心",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        232,
+        174,
+        174,
+        174,
+        174,
+        174,
+        174,
+        174,
+        174,
+        174,
+        347,
+        289,
+        174,
+        174,
+        174,
+        174,
+        174,
+        232,
+        232,
+        232
+      ],
+      "peak_hold_ms": 636,
+      "safe_area_px": 11,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 180106,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/031/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 3,
+          "file": "poses/031/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 6,
+          "file": "poses/031/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 10,
+          "file": "poses/031/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 14,
+          "file": "poses/031/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 17,
+          "file": "poses/031/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          68.4,
+          85.1
+        ],
+        "lens_r": [
+          103.5,
+          79.5
+        ],
+        "chin": [
+          90.2,
+          109.0
+        ],
+        "crown": [
+          77.5,
+          29.0
+        ],
+        "flick_tip": [
+          46.6,
+          122.0
+        ],
+        "clip": [
+          102.7,
+          47.3
+        ]
+      },
+      "target_character_bbox": [
+        37,
+        25,
+        134,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 48.0,
+        "hand_R": 48.0,
+        "head_crown": 17.2,
+        "chin": 3.4,
+        "lens_r": 6.5
+      }
+    },
+    {
+      "number": 32,
+      "file": "032.png",
+      "group": "trouble",
+      "meaning_ja": "眠い",
+      "meaning_en": "Sleepy",
+      "conversation_intent": "眠い／限界が近い",
+      "first_frame_emotion_cues": "半目でこっくりと頭が落ち、メガネが鼻までずり下がってzzzが出ている",
+      "primary_action_test": "頭が19px落ち切ってメガネが12px下がり、はっと跳ね起きる直前でzzzがふくらむ",
+      "moving_parts": "頭の落下と跳ね起き・メガネのずり落ち・zzz",
+      "fixed_parts": "両足・腰・胴体・両腕",
+      "motion_family": "頭",
+      "spatial_path": "縦",
+      "tempo_class": "slow",
+      "beat_pattern": "大小2拍",
+      "loop_return_type": "反動",
+      "composition_type": "顔アップ寄り",
+      "body_deformation": "なし",
+      "emotion_intensity": 3,
+      "dominant_visual_element": "ずり落ちるメガネとこっくり船を漕ぐ頭",
+      "horizontal_anchor": "胴体中心",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        271,
+        217,
+        216,
+        216,
+        162,
+        162,
+        162,
+        162,
+        162,
+        325,
+        271,
+        162,
+        108,
+        108,
+        216,
+        216,
+        216,
+        216,
+        216,
+        216
+      ],
+      "peak_hold_ms": 270,
+      "safe_area_px": 8,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 195209,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false,
+      "keyframe_storyboard": [
+        {
+          "pose": "P1-first",
+          "frame": 0,
+          "file": "poses/032/P1-first.png"
+        },
+        {
+          "pose": "P2-anticipation",
+          "frame": 4,
+          "file": "poses/032/P2-anticipation.png"
+        },
+        {
+          "pose": "P3-transit",
+          "frame": 7,
+          "file": "poses/032/P3-transit.png"
+        },
+        {
+          "pose": "P4-peak",
+          "frame": 11,
+          "file": "poses/032/P4-peak.png"
+        },
+        {
+          "pose": "P5-recoil",
+          "frame": 14,
+          "file": "poses/032/P5-recoil.png"
+        },
+        {
+          "pose": "P6-return",
+          "frame": 17,
+          "file": "poses/032/P6-return.png"
+        }
+      ],
+      "anchor_points": {
+        "feet": [
+          90,
+          164.0
+        ],
+        "hip": [
+          90.0,
+          143.0
+        ],
+        "neck": [
+          90,
+          116
+        ],
+        "shoulder_L": [
+          69.0,
+          117.0
+        ],
+        "shoulder_R": [
+          111.0,
+          117.0
+        ],
+        "head_pivot": [
+          90.0,
+          108.0
+        ]
+      },
+      "character_identity_landmarks": {
+        "lens_l": [
+          80.5,
+          85.0
+        ],
+        "lens_r": [
+          114.7,
+          94.8
+        ],
+        "chin": [
+          90.2,
+          115.9
+        ],
+        "crown": [
+          112.5,
+          38.0
+        ],
+        "flick_tip": [
+          45.3,
+          109.3
+        ],
+        "clip": [
+          127.6,
+          65.2
+        ]
+      },
+      "target_character_bbox": [
+        40,
+        32,
+        148,
+        169
+      ],
+      "major_part_displacement_px": {
+        "hand_L": 6.9,
+        "hand_R": 10.7,
+        "head_crown": 68.7,
+        "chin": 26.3,
+        "lens_r": 45.9
+      }
+    },
+    {
+      "number": 33,
+      "file": "033.png",
+      "group": "symbol",
+      "meaning_ja": "OK!",
+      "meaning_en": "OK!",
+      "conversation_intent": "了解／返事を短く返す",
+      "first_frame_emotion_cues": "O・K・！が中央に組み上がった完成状態",
+      "primary_action_test": "3部品が別方向の弧を描いて戻り中央で衝突、縦につぶれて衝撃線6本が広がる",
+      "moving_parts": "O・K・！の3部品",
+      "fixed_parts": "なし（記号のみ）",
+      "motion_family": "エフェクト",
+      "spatial_path": "円弧",
+      "tempo_class": "fast",
+      "beat_pattern": "3連打",
+      "loop_return_type": "反動",
+      "composition_type": "記号",
+      "body_deformation": "着地の縦つぶれ",
+      "emotion_intensity": 4,
+      "dominant_visual_element": "3方向から弧を描いて集まる文字",
+      "horizontal_anchor": "中央（組み上がり位置）",
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": true,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        236,
+        177,
+        177,
+        177,
+        177,
+        177,
+        176,
+        176,
+        176,
+        176,
+        176,
+        413,
+        354,
+        176,
+        176,
+        176,
+        176,
+        176,
+        176,
+        176
+      ],
+      "peak_hold_ms": 589,
+      "safe_area_px": 0,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 110096,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": 34,
+      "file": "034.png",
+      "group": "symbol",
+      "meaning_ja": "ハート",
+      "meaning_en": "Heart",
+      "conversation_intent": "好意／お礼／かわいい反応",
+      "first_frame_emotion_cues": "ふたの開いた小箱から3つのハートが飛び出している完成状態",
+      "primary_action_test": "ふたが27px跳ね上がり、3つのハートが左右と正面の別々の放物線へ分かれる",
+      "moving_parts": "箱のふたの跳ね上がり・ハート3つの別軌道",
+      "fixed_parts": "箱の本体",
+      "motion_family": "小物",
+      "spatial_path": "放物線",
+      "tempo_class": "medium",
+      "beat_pattern": "単発",
+      "loop_return_type": "退出再登場",
+      "composition_type": "記号",
+      "body_deformation": "なし",
+      "emotion_intensity": 3,
+      "dominant_visual_element": "ふたが跳ねて飛び出す3つのハート",
+      "horizontal_anchor": "箱の本体",
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": true,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        236,
+        177,
+        177,
+        177,
+        176,
+        176,
+        176,
+        176,
+        176,
+        176,
+        354,
+        295,
+        176,
+        176,
+        176,
+        176,
+        176,
+        176,
+        236,
+        236
+      ],
+      "peak_hold_ms": 649,
+      "safe_area_px": 22,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 64220,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": 35,
+      "file": "035.png",
+      "group": "symbol",
+      "meaning_ja": "汗",
+      "meaning_en": "Sweat",
+      "conversation_intent": "あせる／気まずい／なんとも言えない",
+      "first_frame_emotion_cues": "大きさの違う3粒の汗が、別々の高さで噴き出している完成状態",
+      "primary_action_test": "3粒がそれぞれの放物線の頂点を別のタイミングで通過し、順に下へ落ちる",
+      "moving_parts": "3粒の噴出と落下",
+      "fixed_parts": "なし（記号のみ）",
+      "motion_family": "エフェクト",
+      "spatial_path": "放物線",
+      "tempo_class": "medium",
+      "beat_pattern": "連続",
+      "loop_return_type": "退出再登場",
+      "composition_type": "記号",
+      "body_deformation": "なし",
+      "emotion_intensity": 3,
+      "dominant_visual_element": "別々の始点から出る3本の放物線",
+      "horizontal_anchor": "なし（画面下へ退出）",
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": true,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        182,
+        182,
+        182,
+        182,
+        182,
+        182,
+        242,
+        242,
+        242,
+        182,
+        182,
+        182,
+        242,
+        242,
+        242,
+        182,
+        182,
+        182,
+        182,
+        182
+      ],
+      "peak_hold_ms": 364,
+      "safe_area_px": 27,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 42622,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": 36,
+      "file": "036.png",
+      "group": "symbol",
+      "meaning_ja": "！？",
+      "meaning_en": "What?!",
+      "conversation_intent": "驚き／聞き返す",
+      "first_frame_emotion_cues": "！と？が中央に並んだ完成状態",
+      "primary_action_test": "上から落ちた！と横から飛来した？が中央でぶつかり、放射線5本が出る",
+      "moving_parts": "！の縦の落下・？の横からの飛来・衝突の縦つぶれ",
+      "fixed_parts": "なし（記号のみ）",
+      "motion_family": "エフェクト",
+      "spatial_path": "縦と横の交差",
+      "tempo_class": "fast",
+      "beat_pattern": "2連打",
+      "loop_return_type": "反動",
+      "composition_type": "記号",
+      "body_deformation": "衝突の縦つぶれ",
+      "emotion_intensity": 5,
+      "dominant_visual_element": "縦と横から来てぶつかる！と？",
+      "horizontal_anchor": "中央（衝突位置）",
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": true,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        232,
+        174,
+        174,
+        174,
+        174,
+        174,
+        174,
+        174,
+        174,
+        174,
+        174,
+        463,
+        347,
+        174,
+        174,
+        174,
+        174,
+        174,
+        174,
+        174
+      ],
+      "peak_hold_ms": 637,
+      "safe_area_px": 0,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 87377,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": 37,
+      "file": "037.png",
+      "group": "symbol",
+      "meaning_ja": "？",
+      "meaning_en": "Question mark",
+      "conversation_intent": "疑問／どういうこと？",
+      "first_frame_emotion_cues": "曲線と点がそろって？が完成している状態",
+      "primary_action_test": "曲線が描き上がったあと、点だけが17px大きく跳ねて所定位置に収まる",
+      "moving_parts": "曲線本体の描き足しと巻き戻し・点の横移動と大跳ね",
+      "fixed_parts": "なし（記号のみ）",
+      "motion_family": "エフェクト",
+      "spatial_path": "斜め",
+      "tempo_class": "medium",
+      "beat_pattern": "大小2拍",
+      "loop_return_type": "通常復帰",
+      "composition_type": "記号",
+      "body_deformation": "なし",
+      "emotion_intensity": 3,
+      "dominant_visual_element": "別々に組み上がる曲線と大きく跳ねる点",
+      "horizontal_anchor": "曲線本体の中心",
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        236,
+        177,
+        177,
+        176,
+        176,
+        176,
+        176,
+        176,
+        176,
+        176,
+        176,
+        236,
+        295,
+        295,
+        236,
+        176,
+        176,
+        176,
+        176,
+        236
+      ],
+      "peak_hold_ms": 412,
+      "safe_area_px": 9,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 61659,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": 38,
+      "file": "038.png",
+      "group": "symbol",
+      "meaning_ja": "キラキラ",
+      "meaning_en": "Sparkles",
+      "conversation_intent": "ほめる／かわいい／うれしい強調",
+      "first_frame_emotion_cues": "大きさの違う星3つが三方向に散った完成状態",
+      "primary_action_test": "3つの星が中央で交差して最小になり、そのまま反対方向へ抜けて再び開く",
+      "moving_parts": "星3つの飛来・中央交差・反対側への拡散",
+      "fixed_parts": "なし（記号のみ）",
+      "motion_family": "エフェクト",
+      "spatial_path": "直線交差",
+      "tempo_class": "medium",
+      "beat_pattern": "連続",
+      "loop_return_type": "退出再登場",
+      "composition_type": "記号",
+      "body_deformation": "なし",
+      "emotion_intensity": 3,
+      "dominant_visual_element": "3方向から交差して抜ける3つの星",
+      "horizontal_anchor": "中央（交差点）",
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        182,
+        182,
+        182,
+        182,
+        242,
+        242,
+        242,
+        182,
+        182,
+        182,
+        182,
+        182,
+        242,
+        242,
+        242,
+        182,
+        182,
+        182,
+        182,
+        182
+      ],
+      "peak_hold_ms": 364,
+      "safe_area_px": 26,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 59942,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": 39,
+      "file": "039.png",
+      "group": "symbol",
+      "meaning_ja": "炎・熱い",
+      "meaning_en": "Fired up",
+      "conversation_intent": "気合い／盛り上がり／応援",
+      "first_frame_emotion_cues": "中央の炎が立ち、左右の炎も開いた3本構成の完成状態",
+      "primary_action_test": "火種が跳ねたあと左右の炎が開き、遅れて中央炎が56px立ち上がって最大になる",
+      "moving_parts": "火種の跳ね・左右の炎の開き・中央炎の立ち上がり",
+      "fixed_parts": "なし（記号のみ）",
+      "motion_family": "エフェクト",
+      "spatial_path": "縦（3段）",
+      "tempo_class": "medium",
+      "beat_pattern": "3段階",
+      "loop_return_type": "反動",
+      "composition_type": "記号",
+      "body_deformation": "炎のゆらぎ",
+      "emotion_intensity": 4,
+      "dominant_visual_element": "3段階で立ち上がる3本の炎",
+      "horizontal_anchor": "炎の根元中央",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        232,
+        174,
+        174,
+        174,
+        174,
+        174,
+        174,
+        174,
+        174,
+        232,
+        347,
+        347,
+        232,
+        174,
+        174,
+        174,
+        174,
+        174,
+        174,
+        174
+      ],
+      "peak_hold_ms": 694,
+      "safe_area_px": 24,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 88358,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": 40,
+      "file": "040.png",
+      "group": "symbol",
+      "meaning_ja": "zzz",
+      "meaning_en": "zzz",
+      "conversation_intent": "寝る／おやすみ／退屈",
+      "first_frame_emotion_cues": "大きさの違うzが3つ、斜めのラインに連なった完成状態",
+      "primary_action_test": "先頭のzが最大サイズで右上へ抜け、後続のzが前のzの位置を押し出して引き継ぐ",
+      "moving_parts": "z3つの押し出し・斜め上への移動・拡大",
+      "fixed_parts": "なし（記号のみ）",
+      "motion_family": "エフェクト",
+      "spatial_path": "斜め上（3本）",
+      "tempo_class": "slow",
+      "beat_pattern": "呼吸",
+      "loop_return_type": "退出再登場",
+      "composition_type": "記号",
+      "body_deformation": "なし",
+      "emotion_intensity": 2,
+      "dominant_visual_element": "押し出されながら斜めに連なる3つのz",
+      "horizontal_anchor": "なし（画面外へ退出）",
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": true,
+      "whole_sprite_only_motion": false,
+      "frames": 20,
+      "cycle_ms": 4000,
+      "loop_count": 1,
+      "frame_durations_ms": [
+        239,
+        179,
+        179,
+        179,
+        179,
+        179,
+        179,
+        239,
+        239,
+        239,
+        179,
+        179,
+        179,
+        179,
+        239,
+        239,
+        239,
+        179,
+        179,
+        179
+      ],
+      "peak_hold_ms": 358,
+      "safe_area_px": 21,
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "bytes": 55118,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    }
+  ]
+}

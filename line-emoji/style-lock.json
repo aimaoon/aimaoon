@@ -1,0 +1,102 @@
+{
+  "project_name": "お眼鏡の女子 / Megane-no-Ko",
+  "target_audience": "メガネをかけている10〜30代の女性を中心に、日常のLINE会話で使う人",
+  "use_cases": [
+    "挨拶と返事",
+    "感謝とお願い",
+    "ほめる・喜ぶ",
+    "困った・謝る",
+    "文末に添える記号"
+  ],
+  "character_or_motif": "大きな丸メガネのボブヘアの女の子",
+  "one_sentence_product_concept": "厚手のビニールシールから抜いたような白フチのボディに、顔いっぱいの丸メガネが乗った女の子",
+  "silhouette": "2.6頭身。頭が幅88px・高さ90pxの丸みのある塊で、キャラクター左のジョーの毛先だけが外へ跳ねる非対称シルエット",
+  "proportions": {
+    "head_height_ratio": 0.63,
+    "body_height_ratio": 0.37,
+    "head_width_px": 88,
+    "shoulder_span_px": 42
+  },
+  "face_rules": "顔は幅66px・高さ62pxの楕円。目・鼻・口は下半分に寄せず、レンズ内に目を置いて口はレンズ下7pxに置く",
+  "eye_rules": "レンズ中心に置く。基本は半径3.7pxの点目。dot / big / happy / closed / sleepy / squeeze / sad / sparkle / x / swirl / flat の11種のみ使用",
+  "mouth_rules": "smile / grin / w / o / open / shout / flat / frown / wave / pout の10種のみ使用。線幅1.9〜2.3px",
+  "line_color": "#3E3550",
+  "line_width_rule": "本体輪郭1.7px固定。メガネのフレームのみ3.0pxで最も太い",
+  "base_colors": [
+    "#3E3550 (すみれ墨: 線・髪・フレーム・靴)",
+    "#F7CDBE (アプリコットミルク: 肌・エフェクト塗り)"
+  ],
+  "effect_colors": [
+    "#F7CDBE (ハート・星・炎・記号の塗り)",
+    "#FFF3EC (レンズ・涙・汗の水)"
+  ],
+  "shading_rule": "陰影は使わない。面はベタ塗り1段のみ",
+  "highlight_rule": "髪の左上に白40/255の三日月グロス1つ、レンズ左上に白の閃光線1本のみ",
+  "shadow_rule": "落ち影を描かない（容量とちらつきを避けるため）",
+  "gloss_rule": "プニプニシールの艶は白フチ＋三日月グロスの2要素だけで表現する",
+  "depth_rule": "重なり順のみで奥行きを出す。ぼかしや半透明グローは使わない",
+  "layer_rule": "back_hair → 後ろ腕 → 脚 → 胴 → 頭(顔→前髪→メガネ→顔パーツ) → 前腕 → 小物 → エフェクト",
+  "material_concept": "厚手のビニール製プニプニシール",
+  "texture_rule": "テクスチャを持たない。素材感は白フチの太さと角の丸みで出す",
+  "text_language": "キャラクター32個は文字なし。記号8個のみ OK! / !? / ? / zzz を使う",
+  "forbidden_changes": [
+    "丸メガネを外す・形を変える",
+    "髪型をボブ以外にする",
+    "キャラクター左のジョーの跳ね毛をなくす",
+    "白いヘアピンを外す",
+    "2色＋白以外の色を足す",
+    "輪郭線を太くする・二重にする",
+    "陰影やグラデーションを足す",
+    "白フチ（ダイカット）をなくす"
+  ],
+  "copyright_safety_notes": "既存キャラクター・ロゴ・ブランド・実在人物・特定作家の絵柄を参照していない。すべての形状は本リポジトリの tools/rig.py と tools/fx.py のベクター定義から生成",
+  "visual_hooks": [
+    "顔幅いっぱい（左右のレンズ外径が顔の幅と一致）の丸メガネ",
+    "ダイカットシールの白フチ2.6pxと髪の三日月グロス",
+    "キャラクター左のジョーだけ外へ跳ねた非対称ボブ",
+    "前髪のキャラクター右側に留めた白いスナップピン2本"
+  ],
+  "deformable_parts": [
+    "両腕",
+    "両脚",
+    "上半身の前傾と反り",
+    "腰の沈み",
+    "スカートの開き",
+    "肩の上下",
+    "頭の傾きと上下"
+  ],
+  "signature_effect_style": "すべてのエフェクトと記号は、本体と同じ1.7pxのすみれ墨の線＋アプリコットミルクの塗り＋2.6pxの白フチで描く。水（涙・汗）だけ塗りを#FFF3ECにする",
+  "scale_lock": {
+    "target_character_width_px": 100,
+    "target_character_height_px": 145,
+    "target_center_x_px": 88.0,
+    "target_baseline_y_px": 169,
+    "target_face_width_px": 68.4,
+    "target_outline_width_px": 1.7,
+    "tolerance": {
+      "width_pct": 5,
+      "height_pct": 5,
+      "center_px": 4,
+      "baseline_px": 3,
+      "face_width_pct": 5,
+      "outline_pct": 10
+    },
+    "measurement_note": "本体サイズは腕を除いた頭・胴・脚のコア外接矩形で測る。腕を伸ばした姿勢は外接矩形が広がるがキャラクターの見かけの大きさは変わらないため。お辞儀・跳躍・走行など姿勢が変わる項目は公式ガイドの方針に従い顔幅と線幅を優先判定にする"
+  },
+  "symbol_style_lock": {
+    "line_color": "#3E3550",
+    "line_width_px": 1.7,
+    "glyph_core_width_px": 5.4,
+    "fill": "#F7CDBE",
+    "water_fill": "#FFF3EC",
+    "corner_radius_px": 2.0,
+    "die_cut_border_px": 2.6,
+    "highlight": "白の閃光線のみ",
+    "shadow": "なし",
+    "optical_center": [
+      90,
+      92
+    ],
+    "safe_area_px": 8
+  }
+}
