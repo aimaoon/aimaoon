@@ -28,21 +28,21 @@ GW = 2.0                        # glasses frame
 BORDER_PX = 2.2                 # white rim so the ink reads on dark chats
 
 # ---------------------------------------------------------------- skeleton
-HEAD_C = (90.0, 66.0)
-HEAD_RX, HEAD_RY = 27.0, 30.0   # face oval
-NECK_L = (0.0, 38.0)            # neck point in head-local space
-SHOULDER = ((62.0, 126.0), (118.0, 126.0))
-HIP = (90.0, 150.0)             # chest pivot for leaning
-HIP_PT = ((78.0, 150.0), (102.0, 150.0))
-FOOT_Y = 172.0                  # bottom of the garment
-ARM_L1, ARM_L2, HAND_R, ARM_W = 34.0, 30.0, 8.0, 7.8
+HEAD_C = (90.0, 62.0)
+HEAD_RX, HEAD_RY = 27.5, 30.5   # face oval
+NECK_L = (0.0, 46.0)            # neck point in head-local space
+SHOULDER = ((60.0, 130.0), (120.0, 130.0))
+HIP = (90.0, 158.0)             # chest pivot for leaning
+HIP_PT = ((78.0, 158.0), (102.0, 158.0))
+FOOT_Y = 174.0                  # bottom of the garment
+ARM_L1, ARM_L2, HAND_R, ARM_W = 33.0, 29.0, 7.6, 6.6
 LEG_LEN, LEG_W = 0.0, 0.0       # bust-up: no legs
-WAIST_Y, SKIRT_HEM_Y = 124.0, 172.0
+WAIST_Y, SKIRT_HEM_Y = 130.0, 174.0
 
 FACE_RX, FACE_RY, FACE_CY = HEAD_RX, HEAD_RY, 2.0
-LENS_DX, LENS_CY, LENS_R = 12.0, 2.0, 12.6
-BROW_Y = -15.0
-MOUTH_Y = 17.0
+LENS_DX, LENS_CY, LENS_R = 11.5, 5.0, 9.6
+BROW_Y = -9.0
+MOUTH_Y = 19.0
 
 
 def P(**kw):
@@ -71,16 +71,17 @@ def P(**kw):
 # =========================================================== part geometry
 
 def hair_outer_shape():
-    """A soft round bob: full at the sides, three gentle scallops at the ends."""
+    """A soft full bob.  The silhouette is deliberately a little uneven --
+    perfect arcs are what made the earlier pass look mechanical."""
     return chain(
-        bez((-35.0, 6.0), (-38.0, -20.0), (-25.0, -48.0), (0.0, -48.0)),
-        bez((0.0, -48.0), (25.0, -48.0), (38.0, -20.0), (35.0, 6.0)),
-        bez((35.0, 6.0), (36.6, 20.0), (35.0, 32.0), (30.4, 41.0)),
-        bez((30.4, 41.0), (26.0, 40.0), (23.0, 36.0), (21.6, 30.0)),
-        bez((21.6, 30.0), (18.0, 36.0), (10.0, 39.0), (0.0, 39.4)),
-        bez((0.0, 39.4), (-10.0, 39.0), (-18.0, 36.0), (-21.6, 30.0)),
-        bez((-21.6, 30.0), (-23.0, 36.0), (-26.0, 40.0), (-30.4, 41.0)),
-        bez((-30.4, 41.0), (-35.0, 32.0), (-36.6, 20.0), (-35.0, 6.0)),
+        bez((-43.0, 8.0), (-46.0, -18.0), (-33.0, -46.0), (-6.0, -48.0)),
+        bez((-6.0, -48.0), (21.0, -50.0), (44.5, -27.0), (43.0, 4.0)),
+        bez((43.0, 4.0), (45.0, 20.0), (43.0, 36.0), (38.0, 49.0)),
+        bez((38.0, 49.0), (32.5, 45.0), (29.0, 36.0), (27.0, 25.0)),
+        bez((27.0, 25.0), (25.0, 39.0), (16.0, 48.0), (1.0, 48.5)),
+        bez((1.0, 48.5), (-14.0, 48.0), (-23.0, 39.0), (-25.5, 25.0)),
+        bez((-25.5, 25.0), (-27.5, 36.0), (-31.0, 45.0), (-37.0, 48.0)),
+        bez((-37.0, 48.0), (-41.5, 35.0), (-43.5, 21.0), (-43.0, 8.0)),
     )
 
 
@@ -89,64 +90,62 @@ def face_shape():
 
 
 def jaw_path():
-    """Only the lower half of the face is stroked; the hair covers the rest."""
+    """Only the jaw shows; the hair covers the rest of the face outline."""
     return chain(
-        bez((-21.6, 6.0), (-22.4, 16.0), (-15.0, 28.0), (0.0, 29.8)),
-        bez((0.0, 29.8), (15.0, 28.0), (22.4, 16.0), (21.6, 6.0)),
-    )
-
-
-def fringe_shape():
-    """A rounded fringe with a soft off-centre parting."""
-    return chain(
-        bez((-35.0, 6.0), (-38.0, -20.0), (-25.0, -48.0), (0.0, -48.0)),
-        bez((0.0, -48.0), (25.0, -48.0), (38.0, -20.0), (35.0, 6.0)),
-        bez((35.0, 6.0), (34.4, 1.0), (33.8, -2.0), (33.4, -4.0)),
-        bez((33.4, -4.0), (32.0, -10.0), (29.0, -15.0), (24.4, -18.4)),
-        bez((24.4, -18.4), (19.0, -22.0), (11.0, -22.6), (4.0, -20.0)),
-        bez((4.0, -20.0), (-2.0, -17.6), (-8.0, -19.0), (-13.0, -21.0)),
-        bez((-13.0, -21.0), (-20.0, -23.4), (-27.0, -19.0), (-31.0, -10.0)),
-        bez((-31.0, -10.0), (-32.6, -6.0), (-33.6, -1.0), (-34.0, 3.0)),
-        bez((-34.0, 3.0), (-34.4, 4.0), (-34.8, 5.0), (-35.0, 6.0)),
+        bez((-24.0, 6.0), (-25.0, 18.0), (-16.5, 30.0), (0.0, 31.6)),
+        bez((0.0, 31.6), (16.5, 30.0), (25.0, 18.0), (24.0, 6.0)),
     )
 
 
 def hairline_path():
-    """The one line that separates fringe from forehead."""
+    """A rounded fringe with the parting a little right of centre."""
     return chain(
-        bez((33.4, -4.0), (32.0, -10.0), (29.0, -15.0), (24.4, -18.4)),
-        bez((24.4, -18.4), (19.0, -22.0), (11.0, -22.6), (4.0, -20.0)),
-        bez((4.0, -20.0), (-2.0, -17.6), (-8.0, -19.0), (-13.0, -21.0)),
-        bez((-13.0, -21.0), (-20.0, -23.4), (-27.0, -19.0), (-31.0, -10.0)),
-        bez((-31.0, -10.0), (-32.6, -6.0), (-33.6, -1.0), (-34.0, 3.0)),
+        bez((-38.6, 0.0), (-38.0, -14.0), (-29.0, -22.0), (-17.0, -24.0)),
+        bez((-17.0, -23.5), (-7.0, -25.5), (2.0, -21.0), (7.5, -15.0)),
+        bez((7.5, -15.0), (14.0, -22.0), (24.0, -21.0), (31.0, -15.0)),
+        bez((31.0, -15.0), (35.4, -11.0), (37.8, -6.0), (38.6, -0.5)),
+    )
+
+
+def fringe_shape():
+    """Fill for the fringe; only `hairline_path` is stroked, so the temples
+    have no seam."""
+    return chain(
+        bez((-43.0, 8.0), (-46.0, -18.0), (-33.0, -46.0), (-6.0, -48.0)),
+        bez((-6.0, -48.0), (21.0, -50.0), (44.5, -27.0), (43.0, 4.0)),
+        bez((43.0, 4.0), (41.0, 2.0), (39.6, 0.6), (38.6, -0.5)),
+        bez((38.6, -0.5), (37.5, -6.0), (35.0, -11.0), (31.0, -15.0)),
+        bez((31.0, -15.0), (24.0, -21.0), (14.0, -22.0), (7.5, -15.0)),
+        bez((7.5, -15.0), (2.0, -21.0), (-7.0, -25.5), (-17.0, -23.5)),
+        bez((-17.0, -23.5), (-29.0, -21.0), (-37.0, -13.0), (-38.6, 0.0)),
+        bez((-38.6, 0.0), (-40.0, 1.0), (-41.6, 4.0), (-43.0, 8.0)),
     )
 
 
 def strand_paths():
-    """Two short strokes inside the fringe that read as hair, not as noise."""
+    """A few soft strokes that follow the parting, not radiating spokes."""
     return [
-        chain(bez((-2.0, -44.0), (-13.0, -40.0), (-22.0, -32.0), (-28.0, -20.0))),
-        chain(bez((-1.0, -43.0), (-8.0, -37.0), (-13.0, -30.0), (-15.5, -22.0))),
-        chain(bez((1.0, -44.0), (9.0, -40.0), (16.0, -33.0), (20.0, -24.0))),
-        chain(bez((2.0, -43.0), (14.0, -39.0), (24.0, -31.0), (29.0, -20.0))),
-        chain(bez((-30.0, 2.0), (-31.0, 12.0), (-30.0, 22.0), (-27.0, 31.0))),
-        chain(bez((30.0, 2.0), (31.0, 12.0), (30.0, 22.0), (27.0, 31.0))),
+        chain(bez((6.0, -18.0), (0.0, -28.0), (-10.0, -34.0), (-21.0, -34.0))),
+        chain(bez((5.0, -17.0), (-2.0, -24.0), (-11.0, -27.0), (-20.0, -26.5))),
+        chain(bez((9.0, -18.0), (16.0, -28.0), (25.0, -31.0), (33.0, -27.0))),
+        chain(bez((-36.0, 15.0), (-37.5, 26.0), (-36.5, 36.0), (-34.0, 44.0))),
+        chain(bez((36.0, 13.0), (37.5, 24.0), (36.5, 34.0), (34.0, 43.0))),
     ]
 
 
 def top_shape(flare=1.0):
-    """A soft oversized sweater, cut off inside the frame."""
+    """A soft sweater with sloping shoulders, cut off inside the frame."""
     f = flare
     return chain(
-        bez((-21.0, 113.0), (-32.0 * f, 119.0), (-39.0 * f, 136.0), (-41.0 * f, 173.0)),
-        bez((-41.0 * f, 173.0), (-18.0, 176.0), (18.0, 176.0), (41.0 * f, 173.0)),
-        bez((41.0 * f, 173.0), (39.0 * f, 136.0), (32.0 * f, 119.0), (21.0, 113.0)),
-        bez((21.0, 113.0), (12.0, 109.0), (-12.0, 109.0), (-21.0, 113.0)),
+        bez((-19.0, 112.0), (-31.0 * f, 118.0), (-40.0 * f, 136.0), (-42.0 * f, 175.0)),
+        bez((-42.0 * f, 175.0), (-18.0, 178.0), (18.0, 178.0), (42.0 * f, 175.0)),
+        bez((42.0 * f, 175.0), (40.0 * f, 136.0), (31.0 * f, 118.0), (19.0, 112.0)),
+        bez((19.0, 112.0), (10.0, 107.0), (-10.0, 107.0), (-19.0, 112.0)),
     )
 
 
 def collar_path():
-    return chain(bez((-12.0, 112.0), (-8.0, 122.0), (8.0, 122.0), (12.0, 112.0)))
+    return chain(bez((-11.5, 109.0), (-7.5, 119.0), (7.5, 119.0), (11.5, 109.0)))
 
 
 def skirt_shape(flare=1.0):
@@ -192,39 +191,39 @@ def paint_glasses(c, pose):
 
 def _eye(c, cx, cy, style):
     if style == 'dot':
-        c.dot((cx, cy), 3.1, INK)
+        c.poly(ellipse_pts(cx, cy, 2.5, 3.1, 24), fill=INK)
     elif style == 'big':
-        c.dot((cx, cy), 4.0, INK)
+        c.poly(ellipse_pts(cx, cy, 3.2, 4.0, 26), fill=INK)
     elif style == 'happy':                       # the set's default smile-eye
-        c.line(arc_pts(cx, cy + 2.4, 5.0, 4.4, 196, 344, 18), INK, 2.1)
+        c.line(arc_pts(cx, cy + 1.8, 4.2, 3.6, 198, 342, 18), INK, 2.0)
     elif style == 'closed':
-        c.line(arc_pts(cx, cy - 1.6, 4.8, 3.4, 16, 164, 16), INK, 2.1)
+        c.line(arc_pts(cx, cy - 1.2, 4.0, 2.6, 18, 162, 16), INK, 2.0)
     elif style == 'sleepy':
-        c.line(arc_pts(cx, cy - 0.8, 5.0, 2.2, 12, 168, 16), INK, 2.1)
+        c.line(arc_pts(cx, cy - 0.6, 4.2, 1.7, 14, 166, 16), INK, 2.0)
     elif style == 'squeeze':
-        c.line([(cx - 4.2, cy - 3.4), (cx, cy), (cx - 4.2, cy + 3.4)], INK, 2.0)
-        c.line([(cx + 4.2, cy - 3.4), (cx, cy), (cx + 4.2, cy + 3.4)], INK, 2.0)
+        c.line([(cx - 3.4, cy - 2.8), (cx, cy), (cx - 3.4, cy + 2.8)], INK, 1.9)
+        c.line([(cx + 3.4, cy - 2.8), (cx, cy), (cx + 3.4, cy + 2.8)], INK, 1.9)
     elif style == 'sad':
-        c.dot((cx, cy + 1.2), 3.0, INK)
-        c.line(arc_pts(cx, cy + 0.4, 4.6, 4.2, 202, 338, 14), INK, 1.9)
+        c.poly(ellipse_pts(cx, cy + 1.0, 2.4, 3.0, 22), fill=INK)
+        c.line(arc_pts(cx, cy + 0.2, 3.8, 3.4, 202, 338, 14), INK, 1.8)
     elif style == 'sparkle':
-        c.dot((cx, cy), 4.0, INK)
-        c.dot((cx - 1.2, cy - 1.4), 1.5, PAPER)
+        c.poly(ellipse_pts(cx, cy, 3.2, 4.0, 26), fill=INK)
+        c.dot((cx - 1.0, cy - 1.2), 1.2, PAPER)
     elif style == 'x':
-        c.line([(cx - 3.8, cy - 3.8), (cx + 3.8, cy + 3.8)], INK, 2.0)
-        c.line([(cx + 3.8, cy - 3.8), (cx - 3.8, cy + 3.8)], INK, 2.0)
+        c.line([(cx - 3.0, cy - 3.0), (cx + 3.0, cy + 3.0)], INK, 1.9)
+        c.line([(cx + 3.0, cy - 3.0), (cx - 3.0, cy + 3.0)], INK, 1.9)
     elif style == 'swirl':
         pts = []
-        for i in range(30):
-            t = i / 29.0
-            a = t * math.pi * 3.2
-            r = 0.6 + t * 4.0
-            pts.append((cx + r * math.cos(a), cy + r * math.sin(a)))
-        c.line(pts, INK, 1.7)
+        for i in range(28):
+            t = i / 27.0
+            a = t * math.pi * 3.0
+            rr = 0.5 + t * 3.2
+            pts.append((cx + rr * math.cos(a), cy + rr * math.sin(a)))
+        c.line(pts, INK, 1.6)
     elif style == 'flat':
-        c.line([(cx - 4.0, cy), (cx + 4.0, cy)], INK, 2.1)
+        c.line([(cx - 3.2, cy), (cx + 3.2, cy)], INK, 2.0)
     elif style == 'small':
-        c.dot((cx, cy), 2.2, INK)
+        c.dot((cx, cy), 1.8, INK)
 
 
 def paint_eyes(c, f):
@@ -250,14 +249,14 @@ def paint_mouth(c, f):
     mx, my = f['mouth_off']
     x, y = mx, MOUTH_Y + my
     if st == 'smile':
-        c.line(arc_pts(x, y - 2.6, 4.2, 3.6, 30, 150, 14), INK, 1.9)
+        c.line(arc_pts(x, y - 2.2, 3.6, 3.0, 30, 150, 14), INK, 1.8)
     elif st == 'grin':
-        c.line(arc_pts(x, y - 3.6, 6.0, 5.2, 26, 154, 16), INK, 2.0)
+        c.line(arc_pts(x, y - 3.0, 5.0, 4.4, 26, 154, 16), INK, 1.9)
     elif st == 'w':
         c.line(arc_pts(x - 2.6, y - 1.8, 2.6, 2.3, 25, 155, 10), INK, 1.7)
         c.line(arc_pts(x + 2.6, y - 1.8, 2.6, 2.3, 25, 155, 10), INK, 1.7)
     elif st == 'o':
-        c.poly(ellipse_pts(x, y, 2.8, 3.2, 24), fill=INK)
+        c.poly(ellipse_pts(x, y, 2.3, 2.7, 24), fill=INK)
     elif st == 'open':
         c.poly(chain(bez((-5.0, -1.6), (-3.2, -4.4), (3.2, -4.4), (5.0, -1.6)),
                      bez((5.0, -1.6), (4.0, 5.4), (-4.0, 5.4), (-5.0, -1.6))),
@@ -289,7 +288,8 @@ def paint_cheeks(c, f):
         return
     for s in (-1, 1):
         for k in range(min(n, 3)):
-            c.line(arc_pts(s * (20.0 + k * 3.4), 12.0, 2.0, 3.2, 250, 290, 8), INK, 1.5)
+            c.line([(s * (19.5 + k * 3.6) - 1.2, 15.5), (s * (19.5 + k * 3.6) + 1.2, 11.5)],
+                   INK, 1.5)
 
 
 # ------------------------------------------------------------------- limbs
@@ -394,9 +394,9 @@ def paint_legs(c, pose):
 def paint_torso(c, pose):
     fill = INK if pose['top'] == 'black' else PAPER
     c.poly([(90 + x, y) for x, y in
-            chain(bez((-6.4, 96.0), (-6.8, 104.0), (-8.6, 110.0), (-11.0, 114.0)),
-                  bez((-11.0, 114.0), (-4.0, 116.0), (4.0, 116.0), (11.0, 114.0)),
-                  bez((11.0, 114.0), (8.6, 110.0), (6.8, 104.0), (6.4, 96.0)))],
+            chain(bez((-7.0, 92.0), (-7.4, 100.0), (-9.0, 106.0), (-11.5, 110.0)),
+                  bez((-11.5, 110.0), (-4.0, 112.0), (4.0, 112.0), (11.5, 110.0)),
+                  bez((11.5, 110.0), (9.0, 106.0), (7.4, 100.0), (7.0, 92.0)))],
            fill=PAPER, stroke=INK, w=LW)
     c.poly([(90 + x, y) for x, y in top_shape(pose['dress_flare'])],
            fill=fill, stroke=INK, w=LW)

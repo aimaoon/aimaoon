@@ -7,3 +7,6 @@ dist/
 coverage/
 *.tsbuildinfo
 
+
+# python bytecode from the emoji build tools
+line-emoji/tools/__pycache__/
