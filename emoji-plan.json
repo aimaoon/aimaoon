@@ -1,0 +1,5023 @@
+{
+  "project": "retro-sofubi-daiou",
+  "spec_ref": "reports/spec-snapshot.md",
+  "items": [
+    {
+      "number": "001",
+      "meaning": "ありがとう",
+      "category": "conversation",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "穏やかに細めた三日月",
+        "brows": "わずかに下げた水平",
+        "mouth": "小さく閉じた弧",
+        "cheeks": "淡い赤み",
+        "hands": "両手を胸元へ寄せて重ねる",
+        "posture": "直立からわずかに前傾",
+        "prop": "",
+        "effect": "提灯が静かに灯る"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "腰から折れる上半身と、遅れて垂れる提灯",
+      "moving_parts": [
+        "head",
+        "body",
+        "left_arm",
+        "right_arm",
+        "lure_light"
+      ],
+      "fixed_parts": [
+        "legs_or_feet"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "胸元で両手を重ね、正面を向いた完成した感謝の姿勢",
+        "P2": "背筋をわずかに反らして力を溜め、提灯が上へ揺れる",
+        "P3": "腰を支点に上半身が前へ倒れる途中。頭は膝方向を向く",
+        "P4": "最も深いお辞儀。頭頂が34px下がり、提灯が前方へ垂れる",
+        "P5": "上半身が戻り始め、提灯だけが遅れて前で揺れる",
+        "P6": "直立に近づき、提灯が振り子の余韻で小さく戻る"
+      },
+      "primary_action_test": "F01 と F12 の頭頂Y座標が34px以上異なる",
+      "motion_family": "ceremonial_full_body",
+      "spatial_path": "arc_pitch_forward",
+      "tempo_class": "medium",
+      "beat_pattern": "single",
+      "peak_hold_ms": 600,
+      "loop_return_type": "slow_return",
+      "major_part_displacement_px": 34,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        191,
+        112,
+        95,
+        84,
+        78,
+        434,
+        364,
+        322,
+        280,
+        60,
+        600,
+        60,
+        60,
+        189,
+        240,
+        231,
+        197,
+        169,
+        145,
+        89
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "002",
+      "meaning": "お願い",
+      "category": "conversation",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "上目づかいの大きな丸",
+        "brows": "八の字に上げる",
+        "mouth": "すぼめた小さな楕円",
+        "cheeks": "淡い赤み",
+        "hands": "顔の前で合掌",
+        "posture": "やや前かがみ",
+        "prop": "",
+        "effect": "提灯が控えめに明滅"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "顔の前で合わせた両手",
+      "moving_parts": [
+        "left_arm",
+        "right_arm",
+        "head",
+        "face_parts"
+      ],
+      "fixed_parts": [
+        "legs_or_feet",
+        "body",
+        "tail_fin"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "顔の前で両手を合わせ、上目づかいで正面を見る完成ポーズ",
+        "P2": "合掌したまま手をわずかに引き、肘を絞って溜める",
+        "P3": "肘が伸び始め、合掌が顔の前から離れて前方へ出る",
+        "P4": "合掌が最も手前へ30px押し出され、指先が拡大して見える",
+        "P5": "肘が緩んで手が戻り始めるが、弾性を付けずに減速する",
+        "P6": "顔の前の位置へ静かに収まり、上目づかいが残る"
+      },
+      "primary_action_test": "F01 と F11 の合掌先端の見かけ幅が30px以上拡大する",
+      "motion_family": "depth_hand_push",
+      "spatial_path": "z_axis_forward",
+      "tempo_class": "medium",
+      "beat_pattern": "two_stage_accel",
+      "peak_hold_ms": 420,
+      "loop_return_type": "no_elastic_return",
+      "major_part_displacement_px": 30,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        191,
+        112,
+        95,
+        84,
+        78,
+        434,
+        364,
+        322,
+        280,
+        70,
+        420,
+        70,
+        70,
+        211,
+        268,
+        259,
+        221,
+        190,
+        162,
+        99
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "003",
+      "meaning": "ごめん",
+      "category": "conversation",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "固く閉じる",
+        "brows": "強く下げた八の字",
+        "mouth": "への字に結ぶ",
+        "cheeks": "",
+        "hands": "床の前方へ両手をつく",
+        "posture": "正座から深く頭を下げた完成状態",
+        "prop": "",
+        "effect": "提灯が消えかける"
+      },
+      "target_character_bbox": {
+        "w": 104,
+        "h": 92,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "床に着いた両手と最も低い頭",
+      "moving_parts": [
+        "head",
+        "body",
+        "left_arm",
+        "right_arm",
+        "lure_light"
+      ],
+      "fixed_parts": [
+        "legs_or_feet"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          140
+        ],
+        "shoulder": [
+          90,
+          110
+        ]
+      },
+      "horizontal_anchor": "hip",
+      "anchor_roi": [
+        76,
+        132,
+        28,
+        22
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "正座し、床へ両手をつき、頭を深く下げた完成した謝罪の姿勢",
+        "P2": "背中をわずかに起こして息を吸い、提灯が一度だけ強く灯る",
+        "P3": "肩と頭が前下方へ落ちる途中。肘が曲がり床との距離が縮む",
+        "P4": "40個中最も低い姿勢。頭頂が42px沈み、提灯が床に触れる",
+        "P5": "頭が数px戻るが、肩はまだ落ちたまま余韻を残す",
+        "P6": "背中が起き始め、提灯が弱く灯り直す"
+      },
+      "primary_action_test": "F01 と F12 の頭頂Y座標が42px以上異なる",
+      "motion_family": "low_full_body_sink",
+      "spatial_path": "vertical_descend_deep",
+      "tempo_class": "slow",
+      "beat_pattern": "single_deep",
+      "peak_hold_ms": 620,
+      "loop_return_type": "long_hold_slow_return",
+      "major_part_displacement_px": 42,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        231,
+        136,
+        116,
+        102,
+        95,
+        378,
+        317,
+        281,
+        244,
+        58,
+        620,
+        58,
+        58,
+        195,
+        249,
+        240,
+        204,
+        176,
+        150,
+        92
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "004",
+      "meaning": "了解",
+      "category": "conversation",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "きりっと開いた横長",
+        "brows": "鋭く上げる",
+        "mouth": "真一文字",
+        "cheeks": "",
+        "hands": "右手を額の横へ当てる",
+        "posture": "胸を張った直立",
+        "prop": "",
+        "effect": "提灯が一瞬だけ強く光る"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "額の横で止まった右手",
+      "moving_parts": [
+        "right_arm",
+        "head",
+        "face_parts"
+      ],
+      "fixed_parts": [
+        "legs_or_feet",
+        "body",
+        "left_arm",
+        "tail_fin"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "右手を額の横へ当て、正面を見据えた完成した敬礼",
+        "P2": "手を頬の横まで下げ、肘を体側へ絞って溜める",
+        "P3": "肘が開き、手が斜め上へ弧を描いて上がる途中",
+        "P4": "額の横で急停止。手先が36px移動し、提灯が最大光量になる",
+        "P5": "反動で体だけが小さく沈み、手は額の位置を保つ",
+        "P6": "肩の力が抜け、手がわずかに緩んで敬礼の形へ収まる"
+      },
+      "primary_action_test": "F01 と F11 の右手先端が斜め上へ36px以上移動する",
+      "motion_family": "single_arm_snap",
+      "spatial_path": "diagonal_arc_up",
+      "tempo_class": "fast",
+      "beat_pattern": "single_snap",
+      "peak_hold_ms": 300,
+      "loop_return_type": "snap_stop_short_recoil",
+      "major_part_displacement_px": 36,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        149,
+        88,
+        75,
+        66,
+        62,
+        483,
+        406,
+        359,
+        312,
+        62,
+        300,
+        62,
+        62,
+        227,
+        288,
+        278,
+        237,
+        204,
+        174,
+        106
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "005",
+      "meaning": "はい",
+      "category": "conversation",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "大きく開いた丸",
+        "brows": "上げた水平",
+        "mouth": "開いた小さな楕円",
+        "cheeks": "",
+        "hands": "右手を真上へまっすぐ上げる",
+        "posture": "背筋を伸ばした直立",
+        "prop": "",
+        "effect": "提灯が上向きに灯る"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "真上へ伸ばした右手と頭の上下",
+      "moving_parts": [
+        "head",
+        "lure_light",
+        "right_arm",
+        "face_parts"
+      ],
+      "fixed_parts": [
+        "legs_or_feet",
+        "body",
+        "left_arm"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "右手を真上へ上げ、正面を見た完成した挙手",
+        "P2": "顎をわずかに上げ、首の後ろを伸ばして溜める",
+        "P3": "頭が前下方へ落ちる途中。挙手した腕は位置を保つ",
+        "P4": "1回目の大きなうなずき。頭頂が28px沈む",
+        "P5": "頭が戻り、間を置いて2回目の小さなうなずきへ入る",
+        "P6": "小さくうなずいた余韻から正面へ戻る"
+      },
+      "primary_action_test": "F01 と F11 の頭頂Y座標が28px以上異なり、うなずきの深さが2回で異なる",
+      "motion_family": "head_vertical",
+      "spatial_path": "vertical_oscillate",
+      "tempo_class": "medium",
+      "beat_pattern": "double_uneven",
+      "peak_hold_ms": 380,
+      "loop_return_type": "double_nod_settle",
+      "major_part_displacement_px": 28,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        191,
+        112,
+        95,
+        84,
+        78,
+        434,
+        364,
+        322,
+        280,
+        68,
+        380,
+        68,
+        68,
+        218,
+        277,
+        267,
+        228,
+        195,
+        168,
+        103
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "006",
+      "meaning": "いいね",
+      "category": "conversation",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "細めた笑い目",
+        "brows": "上げた水平",
+        "mouth": "開いた笑いの弧",
+        "cheeks": "赤み",
+        "hands": "右手の親指を立てて手前へ出す",
+        "posture": "やや胸を張る",
+        "prop": "",
+        "effect": "提灯が明るく灯る"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "手前へ突き出した大きな親指",
+      "moving_parts": [
+        "right_arm",
+        "face_parts",
+        "head"
+      ],
+      "fixed_parts": [
+        "legs_or_feet",
+        "body",
+        "left_arm",
+        "tail_fin"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "親指を立てた右手を手前へ出し、笑顔で正面を見た完成ポーズ",
+        "P2": "手を胸の奥へ引き、肘を絞って親指を小さく見せる",
+        "P3": "肘が伸び、親指が奥から手前へ向かって拡大し始める",
+        "P4": "親指が最大サイズで手前へ突き出る。見かけ幅が38px拡大する",
+        "P5": "行き過ぎた分がわずかに戻り、小さくオーバーシュートする",
+        "P6": "収束して安定した親指の位置へ落ち着く"
+      },
+      "primary_action_test": "F01 と F11 の親指の見かけ幅が38px以上拡大する",
+      "motion_family": "forward_pop",
+      "spatial_path": "z_axis_scale_pop",
+      "tempo_class": "fast",
+      "beat_pattern": "single_pop",
+      "peak_hold_ms": 340,
+      "loop_return_type": "overshoot_settle",
+      "major_part_displacement_px": 38,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        149,
+        88,
+        75,
+        66,
+        62,
+        483,
+        406,
+        359,
+        312,
+        66,
+        340,
+        66,
+        66,
+        219,
+        278,
+        268,
+        229,
+        197,
+        168,
+        103
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "007",
+      "meaning": "ダメ",
+      "category": "conversation",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "固く閉じる",
+        "brows": "強く下げる",
+        "mouth": "への字に結ぶ",
+        "cheeks": "",
+        "hands": "両腕を胸前で大きなXに組む",
+        "posture": "正面向きの直立",
+        "prop": "",
+        "effect": "提灯が赤みを帯びて灯る"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "胸の前で組んだ大きなX",
+      "moving_parts": [
+        "head",
+        "lure_light",
+        "face_parts"
+      ],
+      "fixed_parts": [
+        "legs_or_feet",
+        "body",
+        "left_arm",
+        "right_arm"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "両腕を胸前で大きなXに組み、目を閉じた完成した拒否",
+        "P2": "頭を右へわずかに傾けて溜める。腕のXは動かさない",
+        "P3": "頭が左へ振れる途中。提灯が遅れて追従する",
+        "P4": "頭が左端まで26px振れ切る。Xの位置は1pxも動かない",
+        "P5": "頭が右端へ振れ戻り、2往復目に入る",
+        "P6": "中央で明確に止まり、提灯の揺れだけが残る"
+      },
+      "primary_action_test": "F01 と F11 の頭中心X座標が26px以上異なり、腕のXは固定領域として画素一致する",
+      "motion_family": "lateral_refusal",
+      "spatial_path": "horizontal_sweep_head",
+      "tempo_class": "medium",
+      "beat_pattern": "double_round_trip",
+      "peak_hold_ms": 360,
+      "loop_return_type": "center_stop",
+      "major_part_displacement_px": 26,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        191,
+        112,
+        95,
+        84,
+        78,
+        434,
+        364,
+        322,
+        280,
+        72,
+        360,
+        72,
+        72,
+        219,
+        279,
+        269,
+        229,
+        197,
+        168,
+        103
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "008",
+      "meaning": "待って",
+      "category": "conversation",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "真剣に見開いた丸",
+        "brows": "下げて寄せる",
+        "mouth": "小さく開いた楕円",
+        "cheeks": "",
+        "hands": "両手のひらを正面へ開いて出す",
+        "posture": "やや前傾",
+        "prop": "",
+        "effect": "提灯が短く明滅"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "正面へ開いた両手のひら",
+      "moving_parts": [
+        "left_arm",
+        "right_arm",
+        "body",
+        "head"
+      ],
+      "fixed_parts": [
+        "legs_or_feet",
+        "tail_fin"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "両手のひらを正面へ開いて出した完成した制止のポーズ",
+        "P2": "両肘を体側へ引き、手のひらを胸の奥へ引き寄せて溜める",
+        "P3": "両肘が同時に伸び、手のひらが奥から手前へ進む途中",
+        "P4": "両手が32px手前へ突き出て急停止。手のひらが最大に見える",
+        "P5": "手は止まったまま、胴体だけが反動で後ろへ小さく揺れる",
+        "P6": "胴体が戻り、手のひらの位置が安定する"
+      },
+      "primary_action_test": "F01 と F11 の両手のひらの見かけ幅が32px以上拡大し、停止が1フレーム以上保持される",
+      "motion_family": "dual_hand_halt",
+      "spatial_path": "z_axis_forward_dual",
+      "tempo_class": "fast",
+      "beat_pattern": "single_halt",
+      "peak_hold_ms": 320,
+      "loop_return_type": "body_only_recoil",
+      "major_part_displacement_px": 32,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        149,
+        88,
+        75,
+        66,
+        62,
+        483,
+        406,
+        359,
+        312,
+        64,
+        320,
+        64,
+        64,
+        223,
+        283,
+        273,
+        233,
+        200,
+        171,
+        105
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "009",
+      "meaning": "おつかれ",
+      "category": "conversation",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "穏やかに細める",
+        "brows": "力を抜いた水平",
+        "mouth": "小さく閉じる",
+        "cheeks": "淡い赤み",
+        "hands": "両手でマグを胸元に抱える",
+        "posture": "脱力した座り姿",
+        "prop": "ソフビ成型のマグ（抜き穴つき）",
+        "effect": "湯気が3筋"
+      },
+      "target_character_bbox": {
+        "w": 104,
+        "h": 92,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "両手で抱えた湯気の立つマグ",
+      "moving_parts": [
+        "left_arm",
+        "right_arm",
+        "head",
+        "prop",
+        "effect"
+      ],
+      "fixed_parts": [
+        "legs_or_feet",
+        "body"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          140
+        ],
+        "shoulder": [
+          90,
+          110
+        ]
+      },
+      "horizontal_anchor": "hip",
+      "anchor_roi": [
+        76,
+        132,
+        28,
+        22
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "座って両手でマグを抱え、湯気が立つ完成した休息の姿勢",
+        "P2": "肘をわずかに開き、マグを胸元から浮かせて溜める",
+        "P3": "マグが弧を描いて口元へ上がる途中。湯気が斜めに流れる",
+        "P4": "マグが口に触れ30px上がる。一口飲み、湯気が最も濃くなる",
+        "P5": "マグが胸元へ下り、息を吐いて湯気が横へ広がる",
+        "P6": "肩が下がって脱力し、マグの位置が最初より低く収まる"
+      },
+      "primary_action_test": "F01 と F12 のマグ中心Y座標が30px以上異なる",
+      "motion_family": "prop_acting_drink",
+      "spatial_path": "arc_to_mouth",
+      "tempo_class": "slow",
+      "beat_pattern": "three_stage",
+      "peak_hold_ms": 560,
+      "loop_return_type": "asymmetric_three_step",
+      "major_part_displacement_px": 30,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        231,
+        136,
+        116,
+        102,
+        95,
+        378,
+        317,
+        281,
+        244,
+        62,
+        62,
+        560,
+        62,
+        203,
+        257,
+        249,
+        212,
+        182,
+        156,
+        95
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "010",
+      "meaning": "おはよう",
+      "category": "conversation",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "半分閉じた眠気の残る線",
+        "brows": "上げた八の字",
+        "mouth": "開いたあくびの楕円",
+        "cheeks": "",
+        "hands": "両手を頭上へ伸ばす",
+        "posture": "全身を縦へ伸ばす",
+        "prop": "",
+        "effect": "提灯がゆっくり灯り始める"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "真上へ伸び切った全身",
+      "moving_parts": [
+        "body",
+        "head",
+        "left_arm",
+        "right_arm",
+        "lure_light"
+      ],
+      "fixed_parts": [
+        "legs_or_feet"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 12,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "両手を頭上へ伸ばし、全身を縦へ伸ばした完成した伸びの姿勢",
+        "P2": "膝と背中を曲げてしゃがみ込み、全身を縮めて溜める",
+        "P3": "膝が伸び、胴体が上へ持ち上がる途中。腕はまだ曲がっている",
+        "P4": "全身が最も伸び切り、頭頂が40px上がる。目が開き提灯が灯る",
+        "P5": "力が急に抜け、肩と腕が落ちて胴体が縮む",
+        "P6": "自然な立ち姿へ戻り、提灯が灯ったまま残る"
+      },
+      "primary_action_test": "F01 と F11 の全身高さが40px以上変化する",
+      "motion_family": "vertical_stretch",
+      "spatial_path": "vertical_extend",
+      "tempo_class": "medium",
+      "beat_pattern": "single_slow_start",
+      "peak_hold_ms": 440,
+      "loop_return_type": "slow_rise_fast_release",
+      "major_part_displacement_px": 40,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        191,
+        112,
+        95,
+        84,
+        78,
+        434,
+        364,
+        322,
+        280,
+        74,
+        440,
+        74,
+        74,
+        206,
+        262,
+        253,
+        216,
+        185,
+        159,
+        97
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "011",
+      "meaning": "おやすみ",
+      "category": "conversation",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "閉じた弧",
+        "brows": "力を抜いた水平",
+        "mouth": "小さく閉じる",
+        "cheeks": "枕に押されて沈む",
+        "hands": "枕を両腕で抱える",
+        "posture": "横向きに寝る",
+        "prop": "ソフビ成型の枕（抜き穴つき）",
+        "effect": "提灯が最小光量"
+      },
+      "target_character_bbox": {
+        "w": 128,
+        "h": 74,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "抱き込んだ枕と沈んだ頬",
+      "moving_parts": [
+        "left_arm",
+        "right_arm",
+        "head",
+        "tail_fin",
+        "prop"
+      ],
+      "fixed_parts": [
+        "legs_or_feet",
+        "body"
+      ],
+      "anchor_points": {
+        "hip": [
+          96,
+          150
+        ],
+        "shoulder": [
+          80,
+          132
+        ]
+      },
+      "horizontal_anchor": "contact_line",
+      "anchor_roi": [
+        62,
+        138,
+        56,
+        18
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "横向きに寝て枕を抱え、目を閉じた完成した就寝の姿勢",
+        "P2": "両腕を開いて枕から少し離し、体をわずかに反らす",
+        "P3": "腕が枕を胸へ引き寄せる途中。尾ひれが体から離れる",
+        "P4": "枕を最も強く抱き込み、頭と頬が26px沈む。尾ひれが体へ巻き付く",
+        "P5": "腕の力が緩み、枕がわずかに戻るが頭は沈んだまま",
+        "P6": "呼吸ひとつ分だけ胸が上下し、睡眠姿勢のまま保持する"
+      },
+      "primary_action_test": "F01 と F12 の頭中心Y座標が26px以上沈み、尾ひれ先端が別軌道で動く",
+      "motion_family": "embrace_pull_in",
+      "spatial_path": "inward_converge",
+      "tempo_class": "slow",
+      "beat_pattern": "three_stage_slow",
+      "peak_hold_ms": 580,
+      "loop_return_type": "hold_sleep_pose",
+      "major_part_displacement_px": 26,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        231,
+        136,
+        116,
+        102,
+        95,
+        378,
+        317,
+        281,
+        244,
+        64,
+        64,
+        580,
+        64,
+        199,
+        252,
+        244,
+        208,
+        178,
+        153,
+        94
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "012",
+      "meaning": "またね",
+      "category": "conversation",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "片目をウインク",
+        "brows": "上げた水平",
+        "mouth": "開いた笑いの弧",
+        "cheeks": "赤み",
+        "hands": "右手を高く上げる",
+        "posture": "やや斜め向きの直立",
+        "prop": "",
+        "effect": "提灯が明るく灯る"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "高く上げて左右へ振る右手",
+      "moving_parts": [
+        "right_arm",
+        "body",
+        "legs_or_feet",
+        "head",
+        "face_parts"
+      ],
+      "fixed_parts": [
+        "tail_fin"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 10,
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "右手を高く上げ、片目をウインクした完成した別れのポーズ",
+        "P2": "手を右へ寄せて溜め、体重を右足へ移す",
+        "P3": "手が左へ振れる途中。同時に足が半歩分だけ横へ進み始める",
+        "P4": "手が左端まで44px振れ切る。体は半歩横へ移動している",
+        "P5": "手が右へ振れ戻り、2回目の手振りに入る",
+        "P6": "足がゆっくり元の位置へ戻り、手が上げたまま静止する"
+      },
+      "primary_action_test": "F01 と F11 の右手先端X座標が44px以上異なり、足元アンカーが expected_anchor_path に沿う",
+      "motion_family": "wave_and_exit",
+      "spatial_path": "horizontal_travel_wave",
+      "tempo_class": "medium",
+      "beat_pattern": "double_wave",
+      "peak_hold_ms": 400,
+      "loop_return_type": "edge_then_reset",
+      "major_part_displacement_px": 44,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        191,
+        112,
+        95,
+        84,
+        78,
+        434,
+        364,
+        322,
+        280,
+        76,
+        400,
+        76,
+        76,
+        211,
+        269,
+        259,
+        221,
+        190,
+        163,
+        99
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "013",
+      "meaning": "にっこり",
+      "category": "positive",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "三日月に細めた笑い目",
+        "brows": "穏やかに上げる",
+        "mouth": "小さく閉じた笑いの弧",
+        "cheeks": "頬横に淡い赤み",
+        "hands": "両手を頬の横へ開く",
+        "posture": "正面向きの直立",
+        "prop": "",
+        "effect": "提灯が柔らかく灯る"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "左右へ開いた両手と三日月の目",
+      "moving_parts": [
+        "left_arm",
+        "right_arm",
+        "face_parts",
+        "cheeks"
+      ],
+      "fixed_parts": [
+        "legs_or_feet",
+        "body",
+        "tail_fin"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "両手を頬の横へ開き、三日月の目で微笑む完成ポーズ",
+        "P2": "胸の前で両腕を交差させ、肩を内へ絞って溜める",
+        "P3": "両腕が左右へ弧を描いて開き始める。頬の赤みが濃くなる",
+        "P4": "両手先が30px外へ開き切る。笑顔と頬が最も開いた状態",
+        "P5": "腕がわずかに内へ戻るが、笑顔は開いたまま保持する",
+        "P6": "腕が頬の横の定位置へ静かに収まる"
+      },
+      "primary_action_test": "F01 と F12 の両手先端の間隔が30px以上拡大する",
+      "motion_family": "dual_arm_bloom",
+      "spatial_path": "outward_arc_spread",
+      "tempo_class": "slow",
+      "beat_pattern": "single_bloom",
+      "peak_hold_ms": 540,
+      "loop_return_type": "open_hold_long",
+      "major_part_displacement_px": 30,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        231,
+        136,
+        116,
+        102,
+        95,
+        378,
+        317,
+        281,
+        244,
+        66,
+        540,
+        66,
+        66,
+        204,
+        259,
+        250,
+        213,
+        183,
+        157,
+        96
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "014",
+      "meaning": "爆笑",
+      "category": "positive",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "強く閉じた への字",
+        "brows": "強く上げる",
+        "mouth": "大きく開いた笑いの口",
+        "cheeks": "濃い赤み",
+        "hands": "両手で腹を抱える",
+        "posture": "横に広がった前屈",
+        "prop": "",
+        "effect": "提灯が激しく揺れる"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "腹を抱えて折れ曲がった上半身",
+      "moving_parts": [
+        "body",
+        "head",
+        "left_arm",
+        "right_arm",
+        "lure_light"
+      ],
+      "fixed_parts": [
+        "legs_or_feet"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 10,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "両手で腹を抱え、大口で笑う横広の完成ポーズ",
+        "P2": "上半身を後ろへ反らして溜め、提灯が後方へ倒れる",
+        "P3": "上半身が前へ倒れる途中。腕は腹に固定されたまま",
+        "P4": "最も深い前屈。頭頂が36px下がり提灯が前方へ振れる",
+        "P5": "のけぞりへ切り返し、2拍目・3拍目の高さと間隔を変える",
+        "P6": "3拍目の後に減速し、腹を抱えた姿勢へ戻る"
+      },
+      "primary_action_test": "F01 と F11 の頭頂Y座標が36px以上異なり、3拍の振幅が互いに異なる",
+      "motion_family": "fore_aft_rotation",
+      "spatial_path": "pitch_oscillate",
+      "tempo_class": "fast",
+      "beat_pattern": "triple",
+      "peak_hold_ms": 280,
+      "loop_return_type": "varied_three_beat",
+      "major_part_displacement_px": 36,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        149,
+        88,
+        75,
+        66,
+        62,
+        483,
+        406,
+        359,
+        312,
+        68,
+        280,
+        68,
+        68,
+        227,
+        289,
+        278,
+        237,
+        203,
+        175,
+        107
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "015",
+      "meaning": "うれしい",
+      "category": "positive",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "開いた笑い目",
+        "brows": "上げた水平",
+        "mouth": "開いた笑いの弧",
+        "cheeks": "赤み",
+        "hands": "胸の前に小さな両拳",
+        "posture": "立位からの跳躍準備",
+        "prop": "",
+        "effect": "提灯が上へなびく"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "宙に浮いた足と胸前の両拳",
+      "moving_parts": [
+        "body",
+        "head",
+        "legs_or_feet",
+        "left_arm",
+        "right_arm",
+        "tail_fin"
+      ],
+      "fixed_parts": [],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "body_center",
+      "anchor_roi": [
+        78,
+        104,
+        24,
+        18
+      ],
+      "anchor_search_px": 28,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "胸前に両拳を構え、笑顔で立つ完成した喜びの姿勢",
+        "P2": "膝を曲げてしゃがみ、拳を下へ引いて溜める",
+        "P3": "膝が伸びて足が床から離れる途中。尾ひれが下へ流れる",
+        "P4": "2回目の大ジャンプ最高点。胴体が46px上がり足裏が完全に見える",
+        "P5": "膝を曲げて着地し、胴体が潰れて衝撃を受ける",
+        "P6": "潰れから戻り、拳を胸前へ構え直す"
+      },
+      "primary_action_test": "F01 と F11 の胴体中心Y座標が46px以上異なり、1回目と2回目の跳躍高さが異なる",
+      "motion_family": "repeated_hop",
+      "spatial_path": "vertical_double_leap",
+      "tempo_class": "fast",
+      "beat_pattern": "double_leap",
+      "peak_hold_ms": 260,
+      "loop_return_type": "small_then_large_land",
+      "major_part_displacement_px": 46,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        149,
+        88,
+        75,
+        66,
+        62,
+        483,
+        406,
+        359,
+        312,
+        70,
+        260,
+        70,
+        70,
+        229,
+        291,
+        281,
+        239,
+        206,
+        176,
+        108
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "016",
+      "meaning": "やったー",
+      "category": "positive",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "輝く星形に近い大きな目",
+        "brows": "強く上げる",
+        "mouth": "大きく開いた歓喜の口",
+        "cheeks": "濃い赤み",
+        "hands": "両手を真上へ上げる",
+        "posture": "バンザイの直立",
+        "prop": "",
+        "effect": "提灯が最大光量"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "真上へ伸ばした両手と空中姿勢",
+      "moving_parts": [
+        "body",
+        "head",
+        "legs_or_feet",
+        "left_arm",
+        "right_arm",
+        "tail_fin",
+        "lure_light"
+      ],
+      "fixed_parts": [],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "body_center",
+      "anchor_roi": [
+        78,
+        104,
+        24,
+        18
+      ],
+      "anchor_search_px": 32,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "両手を真上へ上げ、輝く目で立つ完成したバンザイ",
+        "P2": "深くしゃがみ込み、両手を下へ振り下ろして溜める",
+        "P3": "足が床から離れ、両手が上へ振り上がる途中",
+        "P4": "最高点で一瞬止まる。胴体が54px上がり手足が最も開く",
+        "P5": "膝を曲げて着地し、胴体が縦に潰れる",
+        "P6": "潰れから戻り、バンザイの形へ立ち上がる"
+      },
+      "primary_action_test": "F01 と F12 の胴体中心Y座標が54px以上異なり、最高点で1フレーム以上静止する",
+      "motion_family": "grand_jump",
+      "spatial_path": "vertical_ballistic",
+      "tempo_class": "medium",
+      "beat_pattern": "single_ballistic",
+      "peak_hold_ms": 460,
+      "loop_return_type": "airborne_pause_squash_land",
+      "major_part_displacement_px": 54,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        191,
+        112,
+        95,
+        84,
+        78,
+        434,
+        364,
+        322,
+        280,
+        72,
+        460,
+        72,
+        72,
+        204,
+        260,
+        251,
+        213,
+        183,
+        157,
+        96
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "017",
+      "meaning": "大好き",
+      "category": "positive",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "幸せに閉じた弧",
+        "brows": "穏やかに上げる",
+        "mouth": "小さく閉じた笑い",
+        "cheeks": "濃い赤み",
+        "hands": "大きなハートを両腕で抱える",
+        "posture": "やや後傾の直立",
+        "prop": "ソフビ成型の大きなハート（抜き穴つき）",
+        "effect": ""
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "体の前で抱えた大きなハート",
+      "moving_parts": [
+        "left_arm",
+        "right_arm",
+        "prop",
+        "head",
+        "face_parts"
+      ],
+      "fixed_parts": [
+        "legs_or_feet",
+        "body",
+        "tail_fin"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "体の前で大きなハートを抱え、幸せそうに目を閉じた完成ポーズ",
+        "P2": "両腕を左右へ大きく開き、ハートが上方へ離れる",
+        "P3": "ハートが上から落下し、開いた両腕がそれを受けに向かう途中",
+        "P4": "両腕がハートを受け止める。腕先が40px移動し接触が生まれる",
+        "P5": "受けた勢いで上半身がわずかに沈み、ハートが胸へ寄る",
+        "P6": "ハートを胸へ強く抱きしめ、その姿勢を保持する"
+      },
+      "primary_action_test": "F01 と F12 の両腕先端が40px以上移動し、ハートと腕の接触状態が変化する",
+      "motion_family": "catch_and_embrace",
+      "spatial_path": "descend_then_inward",
+      "tempo_class": "medium",
+      "beat_pattern": "three_stage_catch",
+      "peak_hold_ms": 480,
+      "loop_return_type": "hold_embrace",
+      "major_part_displacement_px": 40,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        191,
+        112,
+        95,
+        84,
+        78,
+        434,
+        364,
+        322,
+        280,
+        78,
+        78,
+        480,
+        78,
+        198,
+        253,
+        244,
+        207,
+        178,
+        153,
+        93
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "018",
+      "meaning": "照れる",
+      "category": "positive",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "伏し目の弧",
+        "brows": "八の字に上げる",
+        "mouth": "小さくすぼめる",
+        "cheeks": "最も濃い赤み",
+        "hands": "両手を頬へ当てる",
+        "posture": "肩をすぼめた直立",
+        "prop": "",
+        "effect": "提灯が淡いピンクに灯る"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "頬に当てた両手と濃く染まった頬",
+      "moving_parts": [
+        "left_arm",
+        "right_arm",
+        "face_parts",
+        "head"
+      ],
+      "fixed_parts": [
+        "legs_or_feet",
+        "body",
+        "tail_fin"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "両手を頬へ当て、伏し目で頬を濃く染めた完成ポーズ",
+        "P2": "肩をさらにすぼめ、手を頬から顔の中央へ寄せて溜める",
+        "P3": "両手が顔全体を覆いに向かう途中。指の隙間が閉じていく",
+        "P4": "両手で顔を完全に隠す。手先が24px移動し目が見えなくなる",
+        "P5": "右手だけを大きく開き、片目で素早く覗く",
+        "P6": "再び手で顔を隠し、頬の赤みだけが残る"
+      },
+      "primary_action_test": "F01 と F12 の顔の露出面積が24px相当以上減少し、F15 で片目だけが露出する",
+      "motion_family": "conceal_reveal",
+      "spatial_path": "face_occlusion_toggle",
+      "tempo_class": "slow",
+      "beat_pattern": "asymmetric_double",
+      "peak_hold_ms": 520,
+      "loop_return_type": "long_hide_quick_peek",
+      "major_part_displacement_px": 24,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        231,
+        136,
+        116,
+        102,
+        95,
+        378,
+        317,
+        281,
+        244,
+        60,
+        520,
+        60,
+        60,
+        209,
+        267,
+        257,
+        219,
+        188,
+        161,
+        99
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "019",
+      "meaning": "ほっとする",
+      "category": "positive",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "閉じた安堵の弧",
+        "brows": "力を抜いて下げる",
+        "mouth": "小さく開いて息を吐く",
+        "cheeks": "",
+        "hands": "胸の前で両手を軽く重ねる",
+        "posture": "肩を落とした座り姿",
+        "prop": "",
+        "effect": "白い息が横へ1筋"
+      },
+      "target_character_bbox": {
+        "w": 104,
+        "h": 92,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "床へ下ろした両手と吐き出す白い息",
+      "moving_parts": [
+        "left_arm",
+        "right_arm",
+        "head",
+        "body",
+        "effect"
+      ],
+      "fixed_parts": [
+        "legs_or_feet"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          140
+        ],
+        "shoulder": [
+          90,
+          110
+        ]
+      },
+      "horizontal_anchor": "hip",
+      "anchor_roi": [
+        76,
+        132,
+        28,
+        22
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "座って胸前に両手を重ね、肩を落として目を閉じた完成した安堵",
+        "P2": "胸の前で手をわずかに持ち上げ、息を吸い込む",
+        "P3": "両手が左右へ開きながら下がる途中。肩が落ち始める",
+        "P4": "両手先が32px外下へ開き切って床に着き、白い息が横へ流れる",
+        "P5": "頭と肩がさらに深く沈み、息が薄れていく",
+        "P6": "沈んだ姿勢のまま、手だけが体側へ静かに寄る"
+      },
+      "primary_action_test": "F01 と F12 の両手先端が32px以上下外へ移動し、頭と肩が12px以上沈む",
+      "motion_family": "release_and_slump",
+      "spatial_path": "outward_then_descend",
+      "tempo_class": "slow",
+      "beat_pattern": "three_stage_release",
+      "peak_hold_ms": 565,
+      "loop_return_type": "end_in_slumped_pose",
+      "major_part_displacement_px": 32,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        231,
+        136,
+        116,
+        102,
+        95,
+        378,
+        317,
+        281,
+        244,
+        70,
+        70,
+        565,
+        70,
+        198,
+        253,
+        243,
+        207,
+        178,
+        153,
+        93
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "020",
+      "meaning": "わくわく",
+      "category": "positive",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "大きく見開いた丸",
+        "brows": "高く上げる",
+        "mouth": "開いた期待の楕円",
+        "cheeks": "赤み",
+        "hands": "胸の前に両拳を構える",
+        "posture": "前傾姿勢",
+        "prop": "",
+        "effect": "提灯が細かく明滅"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "交互に前へ突き出す両拳",
+      "moving_parts": [
+        "left_arm",
+        "right_arm",
+        "body",
+        "legs_or_feet",
+        "head"
+      ],
+      "fixed_parts": [
+        "tail_fin"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "hip",
+      "anchor_roi": [
+        78,
+        116,
+        24,
+        18
+      ],
+      "anchor_search_px": 10,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "胸前に両拳を構え、大きな丸目で前傾した完成した期待の姿勢",
+        "P2": "上半身をさらに前へ寄せ、左拳を胸の奥へ引いて溜める",
+        "P3": "左拳が前へ出て、同時に左足が踏み替わる途中",
+        "P4": "4拍目で両拳を同時に34px前へ突き出し、そこで突然止まる",
+        "P5": "止まった位置から拳が胸へ戻り、足の踏み替えが収まる",
+        "P6": "前傾を保ったまま両拳を構え直す"
+      },
+      "primary_action_test": "F01 と F11 の拳先端が34px以上前へ移動し、拍ごとに表示時間が短くなる",
+      "motion_family": "lean_and_piston",
+      "spatial_path": "alternating_forward_thrust",
+      "tempo_class": "fast",
+      "beat_pattern": "accelerating_quad",
+      "peak_hold_ms": 290,
+      "loop_return_type": "accelerate_then_sudden_stop",
+      "major_part_displacement_px": 34,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        149,
+        88,
+        75,
+        66,
+        62,
+        483,
+        406,
+        359,
+        312,
+        64,
+        290,
+        64,
+        64,
+        227,
+        289,
+        279,
+        237,
+        204,
+        175,
+        107
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "021",
+      "meaning": "感動",
+      "category": "positive",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "潤んだ大きな目にハイライト2点",
+        "brows": "八の字に上げる",
+        "mouth": "小さく閉じた笑み",
+        "cheeks": "淡い赤み",
+        "hands": "両手を胸に重ねる",
+        "posture": "やや上を向いた直立",
+        "prop": "",
+        "effect": "右目に一粒の涙（抜き穴つき）"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "胸に重ねた両手と一粒の涙",
+      "moving_parts": [
+        "left_arm",
+        "right_arm",
+        "effect",
+        "face_parts"
+      ],
+      "fixed_parts": [
+        "legs_or_feet",
+        "body",
+        "tail_fin"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "胸に両手を重ね、潤んだ目で微笑む完成した感動の姿勢",
+        "P2": "肩をわずかに上げ、胸の手を浮かせて息を止める",
+        "P3": "両手が大きな弧を描いて目元へ上がる途中。涙が膨らむ",
+        "P4": "手が目元に届き36px移動。落ちてきた涙を手で受ける",
+        "P5": "手が涙を持ったまま胸へ戻り始め、笑みが深くなる",
+        "P6": "両手を胸へ重ね直し、その姿勢を保持する"
+      },
+      "primary_action_test": "F01 と F12 の両手先端が36px以上上方へ移動し、涙の位置が別軌道で変化する",
+      "motion_family": "tear_catch_return",
+      "spatial_path": "arc_up_then_return",
+      "tempo_class": "slow",
+      "beat_pattern": "three_stage_tear",
+      "peak_hold_ms": 500,
+      "loop_return_type": "hold_at_chest",
+      "major_part_displacement_px": 36,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        231,
+        136,
+        116,
+        102,
+        95,
+        378,
+        317,
+        281,
+        244,
+        72,
+        72,
+        500,
+        72,
+        207,
+        264,
+        254,
+        216,
+        187,
+        159,
+        97
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "022",
+      "meaning": "すごい",
+      "category": "positive",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "星形の瞳",
+        "brows": "高く上げる",
+        "mouth": "大きく開いた感嘆の口",
+        "cheeks": "",
+        "hands": "右手に大きな星を持ち掲げる",
+        "posture": "上半身をひねった直立",
+        "prop": "ソフビ成型の大きな星（抜き穴つき）",
+        "effect": ""
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "頭上へ掲げた大きな星",
+      "moving_parts": [
+        "right_arm",
+        "left_arm",
+        "body",
+        "head",
+        "prop"
+      ],
+      "fixed_parts": [
+        "legs_or_feet"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 10,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "右手で大きな星を頭上へ掲げ、星形の瞳で見上げた完成ポーズ",
+        "P2": "空の右手を背中の後ろへ回し、上半身を反対へひねって溜める",
+        "P3": "背後から星をつかんだ右手が体側を通って上がる途中",
+        "P4": "腕と上半身を大きく動かし、星を頭上へ52px掲げ切る",
+        "P5": "掲げた勢いで上半身が反対へ振れ、星が遅れて追従する",
+        "P6": "星を前方へ突き出した決めの位置で静止する"
+      },
+      "primary_action_test": "F01 と F12 の星中心が52px以上移動し、右手が背面から頭上へ経路を変える",
+      "motion_family": "retrieve_and_raise",
+      "spatial_path": "behind_to_overhead",
+      "tempo_class": "medium",
+      "beat_pattern": "three_stage_retrieve",
+      "peak_hold_ms": 450,
+      "loop_return_type": "hold_star_forward",
+      "major_part_displacement_px": 52,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        191,
+        112,
+        95,
+        84,
+        78,
+        434,
+        364,
+        322,
+        280,
+        66,
+        66,
+        450,
+        66,
+        208,
+        265,
+        256,
+        218,
+        187,
+        160,
+        98
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "023",
+      "meaning": "拍手",
+      "category": "positive",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "細めた笑い目",
+        "brows": "上げた水平",
+        "mouth": "開いた笑いの弧",
+        "cheeks": "赤み",
+        "hands": "胸の前に開いた両手を置く",
+        "posture": "正面向きの直立",
+        "prop": "",
+        "effect": "打点に小さな衝撃線"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "胸の前で開閉する左右対称の両手",
+      "moving_parts": [
+        "left_arm",
+        "right_arm",
+        "face_parts"
+      ],
+      "fixed_parts": [
+        "legs_or_feet",
+        "body",
+        "head",
+        "tail_fin"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "胸の前に開いた両手を置き、笑顔で正面を向いた完成ポーズ",
+        "P2": "両手を左右へ大きく引き離し、肘を外へ張って溜める",
+        "P3": "両手が中央へ向かって同時に近づく途中",
+        "P4": "両手が中央で合わさる。左右の間隔が28px縮まり衝撃線が出る",
+        "P5": "反動で再び開き、2拍目・3拍目へ入る",
+        "P6": "3拍目の間隔を長く取り、開いた手の位置で静止する"
+      },
+      "primary_action_test": "F01 と F11 の左右の手の間隔が28px以上変化し、3拍の間隔が短・短・長になる",
+      "motion_family": "symmetric_clap",
+      "spatial_path": "lateral_open_close",
+      "tempo_class": "fast",
+      "beat_pattern": "triple_short_short_long",
+      "peak_hold_ms": 270,
+      "loop_return_type": "short_short_long",
+      "major_part_displacement_px": 28,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        149,
+        88,
+        75,
+        66,
+        62,
+        483,
+        406,
+        359,
+        312,
+        72,
+        270,
+        72,
+        72,
+        227,
+        288,
+        278,
+        237,
+        204,
+        174,
+        106
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "024",
+      "meaning": "応援",
+      "category": "positive",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "強く見開いた丸",
+        "brows": "鋭く下げて力む",
+        "mouth": "大きく開いた掛け声の口",
+        "cheeks": "",
+        "hands": "右拳を高く上げる",
+        "posture": "胸を張った直立",
+        "prop": "",
+        "effect": "背後に三層の炎（抜き穴つき）"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "斜め上へ突き上げた拳と背後の炎",
+      "moving_parts": [
+        "right_arm",
+        "body",
+        "effect",
+        "head"
+      ],
+      "fixed_parts": [
+        "legs_or_feet",
+        "left_arm"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 10,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "右拳を高く上げ、背後に炎が立つ完成した応援のポーズ",
+        "P2": "拳を肩の下まで引き下げ、膝と背中をたわめて溜める",
+        "P3": "肩から拳が斜め上へ伸び始め、炎の根元が持ち上がる",
+        "P4": "拳が42px突き上がり、炎が最も高く立つ。行き過ぎて反る",
+        "P5": "拳が行き過ぎた分だけ戻り、炎だけが遅れて揺れ続ける",
+        "P6": "拳が定位置へ収まり、炎が最後に収束する"
+      },
+      "primary_action_test": "F01 と F11 の拳先端が斜め上へ42px以上移動し、炎の収束が拳より遅れる",
+      "motion_family": "upward_thrust",
+      "spatial_path": "diagonal_extend_up",
+      "tempo_class": "fast",
+      "beat_pattern": "single_thrust",
+      "peak_hold_ms": 330,
+      "loop_return_type": "overshoot_flame_lag",
+      "major_part_displacement_px": 42,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        149,
+        88,
+        75,
+        66,
+        62,
+        483,
+        406,
+        359,
+        312,
+        74,
+        330,
+        74,
+        74,
+        217,
+        275,
+        266,
+        227,
+        194,
+        167,
+        102
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "025",
+      "meaning": "悲しい",
+      "category": "trouble",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "下を向いた伏し目",
+        "brows": "強く下げた八の字",
+        "mouth": "小さなへの字",
+        "cheeks": "",
+        "hands": "胸の前で両手を弱く合わせる",
+        "posture": "背中を丸めた直立",
+        "prop": "",
+        "effect": "提灯が消えかける"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "力なく垂れた両手と丸めた背中",
+      "moving_parts": [
+        "left_arm",
+        "right_arm",
+        "head",
+        "body",
+        "lure_light"
+      ],
+      "fixed_parts": [
+        "legs_or_feet"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 10,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "背中を丸め、胸前に力なく手を置いて視線を落とした完成ポーズ",
+        "P2": "肩をわずかに上げ、息を吸って一度だけ持ち上がる",
+        "P3": "両手が胸から下へ落ち始め、肩と頭が同時に下がる途中",
+        "P4": "1段目の沈み込み。頭・肩・胴体が30px沈み、手が体側へ垂れる",
+        "P5": "間を置いて2段目にさらに沈み、最も低い姿勢になる",
+        "P6": "最低位置で長く止まり、ごくわずかに戻り始める"
+      },
+      "primary_action_test": "F01 と F12 の頭頂Y座標が30px以上沈み、涙を使わずに沈み込みだけで悲しみを示す",
+      "motion_family": "hand_drop_body_sink",
+      "spatial_path": "vertical_descend_staged",
+      "tempo_class": "slow",
+      "beat_pattern": "double_sink",
+      "peak_hold_ms": 610,
+      "loop_return_type": "long_low_hold",
+      "major_part_displacement_px": 30,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        231,
+        136,
+        116,
+        102,
+        95,
+        378,
+        317,
+        281,
+        244,
+        62,
+        610,
+        62,
+        62,
+        195,
+        249,
+        239,
+        204,
+        175,
+        150,
+        92
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "026",
+      "meaning": "泣く",
+      "category": "trouble",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "潤んだ目、右目に涙",
+        "brows": "八の字に上げる",
+        "mouth": "への字に歪む",
+        "cheeks": "",
+        "hands": "右手を目元へ添える",
+        "posture": "やや前かがみ",
+        "prop": "",
+        "effect": "一粒の涙（抜き穴つき）"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "右目から落ちる一粒の涙",
+      "moving_parts": [
+        "right_arm",
+        "effect",
+        "face_parts",
+        "head"
+      ],
+      "fixed_parts": [
+        "legs_or_feet",
+        "body",
+        "left_arm",
+        "tail_fin"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "右手を目元へ添え、右目から一粒の涙がこぼれる完成ポーズ",
+        "P2": "手を頬の下へ下げ、涙が目の縁で膨らむ",
+        "P3": "手が斜め上へ動いて目元へ向かう途中。涙が頬を伝い始める",
+        "P4": "手が涙を拭い切る。手先が28px移動し涙が消える",
+        "P5": "手が頬から離れて下がり、目の縁に新しい涙が生まれる",
+        "P6": "新しい涙が一粒だけこぼれ、手が目元へ戻る"
+      },
+      "primary_action_test": "F01 と F11 の右手先端が斜めに28px以上移動し、涙の有無が切り替わる",
+      "motion_family": "wipe_and_drip",
+      "spatial_path": "diagonal_wipe",
+      "tempo_class": "medium",
+      "beat_pattern": "single_continuous",
+      "peak_hold_ms": 430,
+      "loop_return_type": "new_single_tear",
+      "major_part_displacement_px": 28,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        191,
+        112,
+        95,
+        84,
+        78,
+        434,
+        364,
+        322,
+        280,
+        68,
+        430,
+        68,
+        68,
+        210,
+        268,
+        258,
+        220,
+        189,
+        162,
+        99
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "027",
+      "meaning": "怒る",
+      "category": "trouble",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "つり上げた鋭い目",
+        "brows": "強く下げて寄せる",
+        "mouth": "歯を食いしばる",
+        "cheeks": "",
+        "hands": "体側で両拳を強く握る",
+        "posture": "踏ん張った直立",
+        "prop": "",
+        "effect": "頭上に赤い怒り記号（抜き穴つき）"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "体側で握った両拳と赤い怒り記号",
+      "moving_parts": [
+        "left_arm",
+        "right_arm",
+        "legs_or_feet",
+        "effect",
+        "face_parts"
+      ],
+      "fixed_parts": [
+        "body"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "hip",
+      "anchor_roi": [
+        78,
+        116,
+        24,
+        18
+      ],
+      "anchor_search_px": 10,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "体側で両拳を握り、歯を食いしばった完成した怒りのポーズ",
+        "P2": "両拳を後方へ引き、片足を持ち上げて溜める",
+        "P3": "拳が下へ振り下ろされる途中。足はまだ空中にある",
+        "P4": "拳が32px振り下ろされ、怒り記号が破裂して最大になる",
+        "P5": "拳から遅れて片足が床を踏む。記号が飛び散る",
+        "P6": "拳と足が別々に収まり、記号が小さく残る"
+      },
+      "primary_action_test": "F01 と F11 の拳先端が32px以上移動し、拳と足の最大点フレームが一致しない",
+      "motion_family": "percussive_full_body",
+      "spatial_path": "stomp_and_burst",
+      "tempo_class": "fast",
+      "beat_pattern": "double_percussive",
+      "peak_hold_ms": 310,
+      "loop_return_type": "offset_fist_and_foot",
+      "major_part_displacement_px": 32,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        149,
+        88,
+        75,
+        66,
+        62,
+        483,
+        406,
+        359,
+        312,
+        70,
+        310,
+        70,
+        70,
+        221,
+        282,
+        272,
+        231,
+        199,
+        171,
+        104
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "028",
+      "meaning": "イライラ",
+      "category": "trouble",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "細めた横目",
+        "brows": "片方だけ上げる",
+        "mouth": "への字に結ぶ",
+        "cheeks": "",
+        "hands": "胸の前で腕を組む",
+        "posture": "片足を前へ出した直立",
+        "prop": "",
+        "effect": "足元に小さな衝撃線"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "組んだ腕と床を叩く片足",
+      "moving_parts": [
+        "legs_or_feet",
+        "tail_fin"
+      ],
+      "fixed_parts": [
+        "body",
+        "head",
+        "left_arm",
+        "right_arm"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "body_center",
+      "anchor_roi": [
+        78,
+        104,
+        24,
+        18
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "腕を組み、横目で片足を前へ出した完成したいらだちの姿勢",
+        "P2": "前の足のつま先だけを持ち上げて溜める。上半身は動かさない",
+        "P3": "足が下へ振り下ろされる途中。腕組みは画素単位で固定",
+        "P4": "足が床を24px分の振り幅で叩く。衝撃線が出る",
+        "P5": "足が再び上がり、2拍目・3拍目と続く",
+        "P6": "3拍目だけ強く叩き、足が床に着いたまま止まる"
+      },
+      "primary_action_test": "F01 と F11 の足先Y座標が24px以上異なり、上半身が固定領域として画素一致する",
+      "motion_family": "localized_repetition",
+      "spatial_path": "single_limb_tap",
+      "tempo_class": "fast",
+      "beat_pattern": "triple_tap",
+      "peak_hold_ms": 250,
+      "loop_return_type": "third_beat_strong",
+      "major_part_displacement_px": 24,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        149,
+        88,
+        75,
+        66,
+        62,
+        483,
+        406,
+        359,
+        312,
+        66,
+        250,
+        66,
+        66,
+        232,
+        295,
+        285,
+        243,
+        209,
+        179,
+        109
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "029",
+      "meaning": "すねる",
+      "category": "trouble",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "横目で振り返る",
+        "brows": "片方を下げる",
+        "mouth": "頬を膨らませてすぼめる",
+        "cheeks": "大きく膨らむ",
+        "hands": "体の前で腕を組む",
+        "posture": "背を向けかけた斜め向き",
+        "prop": "",
+        "effect": "尾ひれが払われる"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "背を向けた体と肩越しに振り返る顔",
+      "moving_parts": [
+        "body",
+        "head",
+        "tail_fin",
+        "left_arm",
+        "right_arm"
+      ],
+      "fixed_parts": [
+        "legs_or_feet"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "斜めに背を向け、肩越しに横目で振り返って頬を膨らませた完成ポーズ",
+        "P2": "いったん正面を向き直し、頬をさらに膨らませて溜める",
+        "P3": "体が正面から背面へ回転する途中。尾ひれが遠心力で開く",
+        "P4": "完全に背を向ける。体幅が38px変化し尾ひれが払われ切る",
+        "P5": "尾ひれが体側へ戻り、肩がわずかに落ちる",
+        "P6": "頭だけが肩越しに戻り、横目で振り返る"
+      },
+      "primary_action_test": "F01 と F12 の体幅が38px以上変化し、正面・背面・肩越しの3シルエットが区別できる",
+      "motion_family": "body_turn_glance_back",
+      "spatial_path": "yaw_rotation",
+      "tempo_class": "slow",
+      "beat_pattern": "three_stage_turn",
+      "peak_hold_ms": 590,
+      "loop_return_type": "three_silhouette_hold",
+      "major_part_displacement_px": 38,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        231,
+        136,
+        116,
+        102,
+        95,
+        378,
+        317,
+        281,
+        244,
+        68,
+        68,
+        590,
+        68,
+        195,
+        249,
+        240,
+        204,
+        176,
+        150,
+        92
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "030",
+      "meaning": "困る",
+      "category": "trouble",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "困った半開きの目",
+        "brows": "八の字に強く下げる",
+        "mouth": "斜めに歪んだ小さな口",
+        "cheeks": "",
+        "hands": "右手を頭へ、左手を下げる",
+        "posture": "非対称に傾いた直立",
+        "prop": "",
+        "effect": "提灯が力なく揺れる"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "頭をかく右手と八の字の眉",
+      "moving_parts": [
+        "right_arm",
+        "head",
+        "face_parts",
+        "lure_light"
+      ],
+      "fixed_parts": [
+        "legs_or_feet",
+        "body",
+        "left_arm"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 8,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "右手を頭へ当て、左手を下げ、八の字眉で困った完成ポーズ",
+        "P2": "手を頭頂へ寄せ、首をわずかに右へ傾けて溜める",
+        "P3": "手が頭をかき始め、視線が左へ動く途中",
+        "P4": "手が26px動いて最も強く頭をかく。視線が右へ移る",
+        "P5": "視線が上へ移り、手のかく動きが小さくなる",
+        "P6": "同じ角度を戻らず、手が頭に触れたまま静止する"
+      },
+      "primary_action_test": "F01 と F11 の右手先端が26px以上移動し、視線が左→右→上の順で往復しない",
+      "motion_family": "search_gesture",
+      "spatial_path": "triangular_gaze_path",
+      "tempo_class": "medium",
+      "beat_pattern": "three_stage_gaze",
+      "peak_hold_ms": 410,
+      "loop_return_type": "gaze_order_no_retrace",
+      "major_part_displacement_px": 26,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        191,
+        112,
+        95,
+        84,
+        78,
+        434,
+        364,
+        322,
+        280,
+        74,
+        74,
+        410,
+        74,
+        211,
+        268,
+        258,
+        220,
+        190,
+        162,
+        99
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "031",
+      "meaning": "不安",
+      "category": "trouble",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "揺れる小さな瞳",
+        "brows": "八の字に強く上げる",
+        "mouth": "歯を見せた緊張の口",
+        "cheeks": "",
+        "hands": "胸の前で両手を固く組む",
+        "posture": "膝を曲げて縮こまる",
+        "prop": "",
+        "effect": "汗が2粒（抜き穴つき）"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "胸の前で固く組んだ両手",
+      "moving_parts": [
+        "left_arm",
+        "right_arm",
+        "body",
+        "head",
+        "effect",
+        "legs_or_feet"
+      ],
+      "fixed_parts": [],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "feet_center",
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "anchor_search_px": 10,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "膝を曲げて縮こまり、胸前で両手を固く組んだ完成した不安の姿勢",
+        "P2": "両手を体から離れた位置まで開き、膝を伸ばして溜める",
+        "P3": "両手が胸へ向かって引き寄せられる途中。膝が曲がり始める",
+        "P4": "両手が胸で固く組まれる。手先が30px移動し肩と膝が最も縮む",
+        "P5": "縮んだ姿勢のまま汗が2粒、別々の方向へ落ちる",
+        "P6": "震えを補助動作として残しつつ、縮こまった姿勢を保つ"
+      },
+      "primary_action_test": "F01 と F12 の両手先端が30px以上移動し、頭と肩が12px以上沈み、震えは主動作でない",
+      "motion_family": "clutch_and_shrink",
+      "spatial_path": "inward_and_down",
+      "tempo_class": "medium",
+      "beat_pattern": "uneven_triple",
+      "peak_hold_ms": 470,
+      "loop_return_type": "tremor_as_support_only",
+      "major_part_displacement_px": 30,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        191,
+        112,
+        95,
+        84,
+        78,
+        434,
+        364,
+        322,
+        280,
+        62,
+        470,
+        62,
+        62,
+        207,
+        264,
+        254,
+        216,
+        187,
+        159,
+        97
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "032",
+      "meaning": "焦る",
+      "category": "trouble",
+      "has_character": true,
+      "first_frame_emotion_cues": {
+        "eyes": "小さく縮んだ瞳",
+        "brows": "強く上げて寄せる",
+        "mouth": "大きく開いた慌ての口",
+        "cheeks": "",
+        "hands": "両手を高さ違いで上げる",
+        "posture": "前傾して踏み出す",
+        "prop": "",
+        "effect": "汗が4粒、外向きに飛ぶ（抜き穴つき）"
+      },
+      "target_character_bbox": {
+        "w": 96,
+        "h": 118,
+        "cx": 90,
+        "baseline_y": 150
+      },
+      "primary_visual_element": "ばらばらに上げた両手と飛び散る汗",
+      "moving_parts": [
+        "left_arm",
+        "right_arm",
+        "legs_or_feet",
+        "effect",
+        "head"
+      ],
+      "fixed_parts": [
+        "body"
+      ],
+      "anchor_points": {
+        "hip": [
+          90,
+          124
+        ],
+        "shoulder": [
+          90,
+          88
+        ]
+      },
+      "horizontal_anchor": "hip",
+      "anchor_roi": [
+        78,
+        116,
+        24,
+        18
+      ],
+      "anchor_search_px": 10,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {
+        "ear_l": [
+          64,
+          52
+        ],
+        "ear_r": [
+          116,
+          52
+        ],
+        "eye_l": [
+          76,
+          62
+        ],
+        "eye_r": [
+          104,
+          62
+        ],
+        "nose": [
+          90,
+          70
+        ],
+        "mouth": [
+          90,
+          76
+        ],
+        "foot_l": [
+          76,
+          150
+        ],
+        "foot_r": [
+          104,
+          150
+        ],
+        "tail": [
+          120,
+          124
+        ]
+      },
+      "keyframe_storyboard": {
+        "P1": "両手を高さ違いに上げ、前傾して汗を飛ばす完成した焦りのポーズ",
+        "P2": "左手だけを下げて引き、体重を前へ移して溜める",
+        "P3": "左手が振り上がり、続いて右手が動き始める途中",
+        "P4": "左手・右手に続いて両手を同時に36px振り上げ、汗が最も多く飛ぶ",
+        "P5": "手が下がり、汗が外向きの別軌道で落ちていく",
+        "P6": "左右の交互性を残したまま、手が高さ違いの位置へ戻る"
+      },
+      "primary_action_test": "F01 と F11 の両手先端が36px以上移動し、左右の最大点フレームが一致しない",
+      "motion_family": "alternating_panic",
+      "spatial_path": "alternating_lateral_burst",
+      "tempo_class": "fast",
+      "beat_pattern": "triple_max_speed",
+      "peak_hold_ms": 240,
+      "loop_return_type": "alternation_led",
+      "major_part_displacement_px": 36,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        149,
+        88,
+        75,
+        66,
+        62,
+        483,
+        406,
+        359,
+        312,
+        72,
+        240,
+        72,
+        72,
+        231,
+        293,
+        284,
+        242,
+        207,
+        178,
+        109
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "033",
+      "meaning": "OK!",
+      "category": "symbol",
+      "has_character": false,
+      "first_frame_emotion_cues": {
+        "eyes": "",
+        "brows": "",
+        "mouth": "",
+        "cheeks": "",
+        "hands": "",
+        "posture": "",
+        "prop": "ソフビ成型の英字3パーツ（各抜き穴つき）",
+        "effect": "3文字が衝突する瞬間の衝撃線"
+      },
+      "target_character_bbox": {
+        "w": 104,
+        "h": 104,
+        "cx": 90,
+        "baseline_y": 140
+      },
+      "primary_visual_element": "太い丸文字で組み上がった OK!",
+      "moving_parts": [
+        "glyph_o",
+        "glyph_k",
+        "glyph_excl"
+      ],
+      "fixed_parts": [],
+      "anchor_points": {},
+      "horizontal_anchor": "glyph_o_center",
+      "anchor_roi": [
+        42,
+        74,
+        28,
+        28
+      ],
+      "anchor_search_px": 14,
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {},
+      "keyframe_storyboard": {
+        "P1": "O・K・! が中央で完成し、読みやすく並んだ状態",
+        "P2": "3文字が左上・右下・上へ別方向に離れ、画面の外周寄りへ散る",
+        "P3": "3文字が別々の弧を描いて中央へ接近する途中",
+        "P4": "中央で衝突し、3文字が横方向に一度つぶれる。衝撃線が出る",
+        "P5": "つぶれから戻り、文字がわずかに離れて反動する",
+        "P6": "完成形の位置と字形へ収束し、長く静止する"
+      },
+      "primary_action_test": "F01 と F12 の O の中心が58px以上移動し、衝突フレームで字幅が縮む",
+      "motion_family": "glyph_assembly",
+      "spatial_path": "multi_arc_converge",
+      "tempo_class": "fast",
+      "beat_pattern": "three_stage_assembly",
+      "peak_hold_ms": 350,
+      "loop_return_type": "collide_squash_long_hold",
+      "major_part_displacement_px": 58,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        149,
+        88,
+        75,
+        66,
+        62,
+        483,
+        406,
+        359,
+        312,
+        76,
+        76,
+        350,
+        76,
+        213,
+        271,
+        261,
+        222,
+        191,
+        164,
+        100
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "034",
+      "meaning": "ハート",
+      "category": "symbol",
+      "has_character": false,
+      "first_frame_emotion_cues": {
+        "eyes": "",
+        "brows": "",
+        "mouth": "",
+        "cheeks": "",
+        "hands": "",
+        "posture": "",
+        "prop": "ソフビ成型の小箱と3つのハート（各抜き穴つき）",
+        "effect": ""
+      },
+      "target_character_bbox": {
+        "w": 104,
+        "h": 104,
+        "cx": 90,
+        "baseline_y": 140
+      },
+      "primary_visual_element": "斜めに並んだ大中小3つのハート",
+      "moving_parts": [
+        "heart_l",
+        "heart_m",
+        "heart_s",
+        "box_lid"
+      ],
+      "fixed_parts": [
+        "box_body"
+      ],
+      "anchor_points": {},
+      "horizontal_anchor": "box_center",
+      "anchor_roi": [
+        72,
+        124,
+        36,
+        24
+      ],
+      "anchor_search_px": 10,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {},
+      "keyframe_storyboard": {
+        "P1": "大中小3つのハートが斜めに並んだ完成状態。下に小箱がある",
+        "P2": "3つのハートが小箱の中へ収まり、蓋が閉じる",
+        "P3": "蓋が開き、大ハートが先に、中・小が時間差で飛び出す途中",
+        "P4": "3つが別々の弧で最も高く広がる。大が46px上昇し手前に来る",
+        "P5": "中・小が奥へ分かれ、大だけがわずかに手前で止まる",
+        "P6": "3つが斜めの完成配置へ落ち着き、蓋が閉じる"
+      },
+      "primary_action_test": "F01 と F12 の大ハート中心が46px以上移動し、3つの最大点フレームが互いに異なる",
+      "motion_family": "container_release",
+      "spatial_path": "staggered_arc_emit",
+      "tempo_class": "medium",
+      "beat_pattern": "three_stage_emit",
+      "peak_hold_ms": 490,
+      "loop_return_type": "depth_split_stop",
+      "major_part_displacement_px": 46,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        191,
+        112,
+        95,
+        84,
+        78,
+        434,
+        364,
+        322,
+        280,
+        64,
+        64,
+        490,
+        64,
+        203,
+        259,
+        249,
+        212,
+        182,
+        157,
+        96
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "035",
+      "meaning": "汗",
+      "category": "symbol",
+      "has_character": false,
+      "first_frame_emotion_cues": {
+        "eyes": "",
+        "brows": "",
+        "mouth": "",
+        "cheeks": "",
+        "hands": "",
+        "posture": "",
+        "prop": "ソフビ成型の水滴3粒（各抜き穴つき）",
+        "effect": ""
+      },
+      "target_character_bbox": {
+        "w": 104,
+        "h": 104,
+        "cx": 90,
+        "baseline_y": 140
+      },
+      "primary_visual_element": "外向きに並んだ大中小3粒の汗",
+      "moving_parts": [
+        "drop_1",
+        "drop_2",
+        "drop_3"
+      ],
+      "fixed_parts": [],
+      "anchor_points": {},
+      "horizontal_anchor": "drop_1_center",
+      "anchor_roi": [
+        48,
+        62,
+        24,
+        24
+      ],
+      "anchor_search_px": 14,
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {},
+      "keyframe_storyboard": {
+        "P1": "大中小3粒の汗が外向きに並んだ完成状態",
+        "P2": "3粒が中央下の1点へ集まり、噴き出す直前まで縮む",
+        "P3": "1粒目が上へ噴き出し、2粒目・3粒目が左右へ飛ぶ途中",
+        "P4": "3粒が最も広がる。1粒目が50px移動し放物線の頂点に達する",
+        "P5": "3粒がそれぞれ別の放物線で落下し、下端8px手前で消える",
+        "P6": "3粒が外向きの完成配置へ戻る"
+      },
+      "primary_action_test": "F01 と F12 の1粒目中心が50px以上移動し、3粒の着地フレームが互いに異なる",
+      "motion_family": "burst_and_fall",
+      "spatial_path": "parabolic_scatter",
+      "tempo_class": "medium",
+      "beat_pattern": "triple_droplet",
+      "peak_hold_ms": 390,
+      "loop_return_type": "per_drop_landing",
+      "major_part_displacement_px": 50,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        191,
+        112,
+        95,
+        84,
+        78,
+        434,
+        364,
+        322,
+        280,
+        70,
+        390,
+        70,
+        70,
+        215,
+        275,
+        264,
+        225,
+        194,
+        166,
+        101
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "036",
+      "meaning": "!?",
+      "category": "symbol",
+      "has_character": false,
+      "first_frame_emotion_cues": {
+        "eyes": "",
+        "brows": "",
+        "mouth": "",
+        "cheeks": "",
+        "hands": "",
+        "posture": "",
+        "prop": "ソフビ成型の ! と ?（各抜き穴つき）",
+        "effect": "衝突点の衝撃線"
+      },
+      "target_character_bbox": {
+        "w": 104,
+        "h": 104,
+        "cx": 90,
+        "baseline_y": 140
+      },
+      "primary_visual_element": "重なった太い感嘆符と疑問符",
+      "moving_parts": [
+        "mark_excl",
+        "mark_quest"
+      ],
+      "fixed_parts": [],
+      "anchor_points": {},
+      "horizontal_anchor": "mark_excl_center",
+      "anchor_roi": [
+        62,
+        66,
+        24,
+        28
+      ],
+      "anchor_search_px": 16,
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {},
+      "keyframe_storyboard": {
+        "P1": "朱赤の ! とミントの ? が中央で重なった完成状態",
+        "P2": "! が画面上方へ、? が右方向へ大きく離れる",
+        "P3": "! が上から落下し、? が横から飛び込む途中",
+        "P4": "中央で直交して衝突。! が54px移動し両記号がつぶれる",
+        "P5": "衝突後に両記号の位置がずれて別方向へ反動する",
+        "P6": "重なった完成状態へ戻る。震えだけでは終わらせない"
+      },
+      "primary_action_test": "F01 と F11 の ! 中心が54px以上移動し、! と ? の進入方向が直交する",
+      "motion_family": "dual_impact",
+      "spatial_path": "orthogonal_collide",
+      "tempo_class": "fast",
+      "beat_pattern": "double_impact",
+      "peak_hold_ms": 230,
+      "loop_return_type": "offset_recoil_return",
+      "major_part_displacement_px": 54,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        149,
+        88,
+        75,
+        66,
+        62,
+        483,
+        406,
+        359,
+        312,
+        74,
+        230,
+        74,
+        74,
+        232,
+        295,
+        284,
+        242,
+        208,
+        178,
+        109
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "037",
+      "meaning": "？",
+      "category": "symbol",
+      "has_character": false,
+      "first_frame_emotion_cues": {
+        "eyes": "",
+        "brows": "",
+        "mouth": "",
+        "cheeks": "",
+        "hands": "",
+        "posture": "",
+        "prop": "ソフビ成型の曲線本体と点（各抜き穴つき）",
+        "effect": ""
+      },
+      "target_character_bbox": {
+        "w": 104,
+        "h": 104,
+        "cx": 90,
+        "baseline_y": 140
+      },
+      "primary_visual_element": "傾いた大きな疑問符",
+      "moving_parts": [
+        "curve",
+        "dot"
+      ],
+      "fixed_parts": [],
+      "anchor_points": {},
+      "horizontal_anchor": "curve_center",
+      "anchor_roi": [
+        76,
+        78,
+        28,
+        28
+      ],
+      "anchor_search_px": 14,
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {},
+      "keyframe_storyboard": {
+        "P1": "大きな疑問符が傾いて完成した状態",
+        "P2": "曲線本体が下端まで下がり、点が上方へ離れる",
+        "P3": "曲線本体が下から上へ描かれるように現れる途中",
+        "P4": "点が上から落ちて曲線の下へ結合し、曲線が40px上昇し切る",
+        "P5": "結合直後に点だけが一度大きく跳ねる",
+        "P6": "点が落ち着き、傾いた完成形へ収束する"
+      },
+      "primary_action_test": "F01 と F12 の曲線本体中心が40px以上移動し、点が曲線と別軌道で跳ねる",
+      "motion_family": "draw_and_join",
+      "spatial_path": "bottom_up_plus_drop",
+      "tempo_class": "medium",
+      "beat_pattern": "three_stage_join",
+      "peak_hold_ms": 370,
+      "loop_return_type": "dot_bounce_settle",
+      "major_part_displacement_px": 40,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        191,
+        112,
+        95,
+        84,
+        78,
+        434,
+        364,
+        322,
+        280,
+        78,
+        78,
+        370,
+        78,
+        215,
+        273,
+        264,
+        224,
+        193,
+        166,
+        101
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "038",
+      "meaning": "キラキラ",
+      "category": "symbol",
+      "has_character": false,
+      "first_frame_emotion_cues": {
+        "eyes": "",
+        "brows": "",
+        "mouth": "",
+        "cheeks": "",
+        "hands": "",
+        "posture": "",
+        "prop": "ソフビ成型の星3つ（各抜き穴つき）",
+        "effect": ""
+      },
+      "target_character_bbox": {
+        "w": 104,
+        "h": 104,
+        "cx": 90,
+        "baseline_y": 140
+      },
+      "primary_visual_element": "異なる角度で光る大中小3つの星",
+      "moving_parts": [
+        "star_l",
+        "star_m",
+        "star_s"
+      ],
+      "fixed_parts": [],
+      "anchor_points": {},
+      "horizontal_anchor": "star_l_center",
+      "anchor_roi": [
+        58,
+        58,
+        28,
+        28
+      ],
+      "anchor_search_px": 16,
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {},
+      "keyframe_storyboard": {
+        "P1": "大中小3つの星が異なる角度で並んだ完成状態",
+        "P2": "3つの星が左下・右下・上の画面外周寄りへ離れる",
+        "P3": "3つが別々の曲線を描いて中央へ飛来する途中",
+        "P4": "中央で3つの軌道が交差する。大星が60px移動する",
+        "P5": "交差後に3方向へ広がっていく",
+        "P6": "広がり切った位置で3つが同時に発光し、完成配置へ戻る"
+      },
+      "primary_action_test": "F01 と F12 の大星中心が60px以上移動し、3つの軌道が中央で交差する",
+      "motion_family": "arrival_and_cross",
+      "spatial_path": "crossing_curves",
+      "tempo_class": "medium",
+      "beat_pattern": "three_stage_cross",
+      "peak_hold_ms": 455,
+      "loop_return_type": "spread_then_sync_flash",
+      "major_part_displacement_px": 60,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        191,
+        112,
+        95,
+        84,
+        78,
+        434,
+        364,
+        322,
+        280,
+        62,
+        62,
+        455,
+        62,
+        209,
+        266,
+        257,
+        219,
+        188,
+        161,
+        99
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "039",
+      "meaning": "炎",
+      "category": "symbol",
+      "has_character": false,
+      "first_frame_emotion_cues": {
+        "eyes": "",
+        "brows": "",
+        "mouth": "",
+        "cheeks": "",
+        "hands": "",
+        "posture": "",
+        "prop": "ソフビ成型の火種と三層の炎（各抜き穴つき）",
+        "effect": ""
+      },
+      "target_character_bbox": {
+        "w": 104,
+        "h": 104,
+        "cx": 90,
+        "baseline_y": 140
+      },
+      "primary_visual_element": "立ち上がった朱赤・黄・ミントの三層炎",
+      "moving_parts": [
+        "flame_c",
+        "flame_l",
+        "flame_r"
+      ],
+      "fixed_parts": [
+        "ember"
+      ],
+      "anchor_points": {},
+      "horizontal_anchor": "ember_center",
+      "anchor_roi": [
+        78,
+        128,
+        24,
+        20
+      ],
+      "anchor_search_px": 12,
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {},
+      "keyframe_storyboard": {
+        "P1": "朱赤・黄・ミントの三層炎が立った完成状態",
+        "P2": "炎が消え、下端に小さな火種だけが残って縮む",
+        "P3": "火種が跳ね、左右の炎が根元から開き始める途中",
+        "P4": "中央炎が最も高く立ち上がる。先端が48px上昇する",
+        "P5": "先端だけが左右へ分かれて揺れ、根元は動かない",
+        "P6": "三層が揃った完成形へ収束する"
+      },
+      "primary_action_test": "F01 と F11 の中央炎先端が48px以上上昇し、火種の位置が固定領域として画素一致する",
+      "motion_family": "ignite_and_unfold",
+      "spatial_path": "rooted_upward_bloom",
+      "tempo_class": "fast",
+      "beat_pattern": "three_stage_ignite",
+      "peak_hold_ms": 345,
+      "loop_return_type": "root_fixed_tip_diverge",
+      "major_part_displacement_px": 48,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        149,
+        88,
+        75,
+        66,
+        62,
+        483,
+        406,
+        359,
+        312,
+        68,
+        68,
+        345,
+        68,
+        217,
+        277,
+        266,
+        227,
+        195,
+        167,
+        102
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    },
+    {
+      "number": "040",
+      "meaning": "zzz",
+      "category": "symbol",
+      "has_character": false,
+      "first_frame_emotion_cues": {
+        "eyes": "",
+        "brows": "",
+        "mouth": "",
+        "cheeks": "",
+        "hands": "",
+        "posture": "",
+        "prop": "ソフビ成型の小文字 z 3つ（各抜き穴つき）",
+        "effect": ""
+      },
+      "target_character_bbox": {
+        "w": 104,
+        "h": 104,
+        "cx": 90,
+        "baseline_y": 140
+      },
+      "primary_visual_element": "斜め上へ並んだ z・zz・zzz",
+      "moving_parts": [
+        "z1",
+        "z2",
+        "z3"
+      ],
+      "fixed_parts": [],
+      "anchor_points": {},
+      "horizontal_anchor": "z1_center",
+      "anchor_roi": [
+        54,
+        104,
+        24,
+        24
+      ],
+      "anchor_search_px": 14,
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": false,
+      "character_identity_landmarks": {},
+      "keyframe_storyboard": {
+        "P1": "z・zz・zzz が斜め上へ並んだ完成状態",
+        "P2": "3つの z が下端の1点へ重なり、最小サイズまで縮む",
+        "P3": "1つ目の z が次の z を押し出しながら斜め上へ進む途中",
+        "P4": "3つが別軌道へ分かれ切る。1つ目が44px上昇する",
+        "P5": "上の z から順に薄れて消えていく",
+        "P6": "下から新しい z が現れ、斜めの完成配置へ戻る"
+      },
+      "primary_action_test": "F01 と F12 の1つ目の z 中心が44px以上移動し、3文字の軌道が互いに分岐する",
+      "motion_family": "push_and_drift",
+      "spatial_path": "diagonal_ascend_chain",
+      "tempo_class": "slow",
+      "beat_pattern": "three_stage_push",
+      "peak_hold_ms": 530,
+      "loop_return_type": "sequential_fade_from_top",
+      "major_part_displacement_px": 44,
+      "safe_area_px": 8,
+      "whole_sprite_only_motion": false,
+      "frame_durations_ms": [
+        231,
+        136,
+        116,
+        102,
+        95,
+        378,
+        317,
+        281,
+        244,
+        66,
+        66,
+        530,
+        66,
+        205,
+        261,
+        252,
+        215,
+        184,
+        158,
+        97
+      ],
+      "target_bytes": 285000,
+      "hard_limit_bytes": 300000,
+      "fixed_region_byte_identity": true,
+      "full_frame_redraw": false
+    }
+  ]
+}

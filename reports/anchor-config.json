@@ -1,0 +1,1182 @@
+{
+  "defaults": {
+    "anchor_search_px": 8,
+    "max_anchor_range_px": 1.0,
+    "max_mean_fixed_displacement_px": 0.5,
+    "safe_area_px": 8,
+    "alpha_threshold": 8,
+    "jitter_step_ratio": 4.0,
+    "jitter_step_min_px": 2.0,
+    "match_confidence_min": 0.9
+  },
+  "items": {
+    "001": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/001-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "002": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/002-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "003": {
+      "anchor_roi": [
+        76,
+        132,
+        28,
+        22
+      ],
+      "horizontal_anchor": "hip",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/003-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "004": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/004-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "005": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/005-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "006": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/006-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "007": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/007-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "008": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/008-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "009": {
+      "anchor_roi": [
+        76,
+        132,
+        28,
+        22
+      ],
+      "horizontal_anchor": "hip",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/009-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "010": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/010-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 12
+    },
+    "011": {
+      "anchor_roi": [
+        62,
+        138,
+        56,
+        18
+      ],
+      "horizontal_anchor": "contact_line",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/011-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "012": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/012-fixed.png",
+      "expected_anchor_path": [
+        [
+          90.0,
+          150.0
+        ],
+        [
+          90.31,
+          150.0
+        ],
+        [
+          91.0,
+          150.0
+        ],
+        [
+          91.69,
+          150.0
+        ],
+        [
+          92.0,
+          150.0
+        ],
+        [
+          93.56,
+          150.0
+        ],
+        [
+          97.0,
+          150.0
+        ],
+        [
+          100.44,
+          150.0
+        ],
+        [
+          102.0,
+          150.0
+        ],
+        [
+          103.56,
+          150.0
+        ],
+        [
+          107.0,
+          150.0
+        ],
+        [
+          110.44,
+          150.0
+        ],
+        [
+          112.0,
+          150.0
+        ],
+        [
+          110.59,
+          150.0
+        ],
+        [
+          107.5,
+          150.0
+        ],
+        [
+          104.41,
+          150.0
+        ],
+        [
+          103.0,
+          150.0
+        ],
+        [
+          99.89,
+          150.0
+        ],
+        [
+          94.11,
+          150.0
+        ],
+        [
+          91.0,
+          150.0
+        ]
+      ],
+      "safe_area_px": 8,
+      "anchor_search_px": 10
+    },
+    "013": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/013-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "014": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/014-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 10
+    },
+    "015": {
+      "anchor_roi": [
+        78,
+        104,
+        24,
+        18
+      ],
+      "horizontal_anchor": "body_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/015-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 28
+    },
+    "016": {
+      "anchor_roi": [
+        78,
+        104,
+        24,
+        18
+      ],
+      "horizontal_anchor": "body_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/016-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 32
+    },
+    "017": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/017-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "018": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/018-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "019": {
+      "anchor_roi": [
+        76,
+        132,
+        28,
+        22
+      ],
+      "horizontal_anchor": "hip",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/019-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "020": {
+      "anchor_roi": [
+        78,
+        116,
+        24,
+        18
+      ],
+      "horizontal_anchor": "hip",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/020-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 10
+    },
+    "021": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/021-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "022": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/022-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 10
+    },
+    "023": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/023-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "024": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/024-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 10
+    },
+    "025": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/025-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 10
+    },
+    "026": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/026-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "027": {
+      "anchor_roi": [
+        78,
+        116,
+        24,
+        18
+      ],
+      "horizontal_anchor": "hip",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/027-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 10
+    },
+    "028": {
+      "anchor_roi": [
+        78,
+        104,
+        24,
+        18
+      ],
+      "horizontal_anchor": "body_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/028-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "029": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/029-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "030": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/030-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 8
+    },
+    "031": {
+      "anchor_roi": [
+        78,
+        138,
+        24,
+        20
+      ],
+      "horizontal_anchor": "feet_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/031-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 10
+    },
+    "032": {
+      "anchor_roi": [
+        78,
+        116,
+        24,
+        18
+      ],
+      "horizontal_anchor": "hip",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/032-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 10
+    },
+    "033": {
+      "anchor_roi": [
+        42,
+        74,
+        28,
+        28
+      ],
+      "horizontal_anchor": "glyph_o_center",
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/033-fixed.png",
+      "expected_anchor_path": [
+        [
+          56.0,
+          88.0
+        ],
+        [
+          49.26,
+          76.59
+        ],
+        [
+          36.74,
+          55.41
+        ],
+        [
+          30.0,
+          44.0
+        ],
+        [
+          30.94,
+          45.88
+        ],
+        [
+          33.0,
+          50.0
+        ],
+        [
+          35.06,
+          54.12
+        ],
+        [
+          36.0,
+          56.0
+        ],
+        [
+          39.12,
+          61.0
+        ],
+        [
+          46.0,
+          72.0
+        ],
+        [
+          52.88,
+          83.0
+        ],
+        [
+          56.0,
+          88.0
+        ],
+        [
+          54.44,
+          86.7
+        ],
+        [
+          51.56,
+          84.3
+        ],
+        [
+          50.0,
+          83.0
+        ],
+        [
+          50.62,
+          83.52
+        ],
+        [
+          52.11,
+          84.76
+        ],
+        [
+          53.89,
+          86.24
+        ],
+        [
+          55.38,
+          87.48
+        ],
+        [
+          56.0,
+          88.0
+        ]
+      ],
+      "safe_area_px": 8,
+      "anchor_search_px": 14
+    },
+    "034": {
+      "anchor_roi": [
+        72,
+        124,
+        36,
+        24
+      ],
+      "horizontal_anchor": "box_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/034-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 10
+    },
+    "035": {
+      "anchor_roi": [
+        48,
+        62,
+        24,
+        24
+      ],
+      "horizontal_anchor": "drop_1_center",
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/035-fixed.png",
+      "expected_anchor_path": [
+        [
+          60.0,
+          74.0
+        ],
+        [
+          61.56,
+          67.78
+        ],
+        [
+          64.44,
+          56.22
+        ],
+        [
+          66.0,
+          50.0
+        ],
+        [
+          63.5,
+          48.12
+        ],
+        [
+          58.0,
+          44.0
+        ],
+        [
+          52.5,
+          39.88
+        ],
+        [
+          50.0,
+          38.0
+        ],
+        [
+          49.38,
+          45.19
+        ],
+        [
+          48.0,
+          61.0
+        ],
+        [
+          46.62,
+          76.81
+        ],
+        [
+          46.0,
+          84.0
+        ],
+        [
+          45.38,
+          90.25
+        ],
+        [
+          44.0,
+          104.0
+        ],
+        [
+          42.62,
+          117.75
+        ],
+        [
+          42.0,
+          124.0
+        ],
+        [
+          46.0,
+          112.0
+        ],
+        [
+          50.0,
+          100.0
+        ],
+        [
+          54.5,
+          88.0
+        ],
+        [
+          59.0,
+          76.0
+        ]
+      ],
+      "safe_area_px": 8,
+      "anchor_search_px": 14
+    },
+    "036": {
+      "anchor_roi": [
+        62,
+        66,
+        24,
+        28
+      ],
+      "horizontal_anchor": "mark_excl_center",
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/036-fixed.png",
+      "expected_anchor_path": [
+        [
+          74.0,
+          80.0
+        ],
+        [
+          74.0,
+          69.63
+        ],
+        [
+          74.0,
+          50.37
+        ],
+        [
+          74.0,
+          40.0
+        ],
+        [
+          74.0,
+          42.19
+        ],
+        [
+          74.0,
+          47.0
+        ],
+        [
+          74.0,
+          51.81
+        ],
+        [
+          74.0,
+          54.0
+        ],
+        [
+          74.0,
+          60.74
+        ],
+        [
+          74.0,
+          73.26
+        ],
+        [
+          74.0,
+          80.0
+        ],
+        [
+          73.38,
+          80.94
+        ],
+        [
+          72.0,
+          83.0
+        ],
+        [
+          70.62,
+          85.06
+        ],
+        [
+          70.0,
+          86.0
+        ],
+        [
+          70.42,
+          85.38
+        ],
+        [
+          71.41,
+          83.89
+        ],
+        [
+          72.59,
+          82.11
+        ],
+        [
+          73.58,
+          80.62
+        ],
+        [
+          74.0,
+          80.0
+        ]
+      ],
+      "safe_area_px": 8,
+      "anchor_search_px": 16
+    },
+    "037": {
+      "anchor_roi": [
+        76,
+        78,
+        28,
+        28
+      ],
+      "horizontal_anchor": "curve_center",
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/037-fixed.png",
+      "expected_anchor_path": [
+        [
+          88.0,
+          92.0
+        ],
+        [
+          88.0,
+          102.37
+        ],
+        [
+          88.0,
+          121.63
+        ],
+        [
+          88.0,
+          132.0
+        ],
+        [
+          88.0,
+          128.56
+        ],
+        [
+          88.0,
+          121.0
+        ],
+        [
+          88.0,
+          113.44
+        ],
+        [
+          88.0,
+          110.0
+        ],
+        [
+          88.0,
+          107.19
+        ],
+        [
+          88.0,
+          101.0
+        ],
+        [
+          88.0,
+          94.81
+        ],
+        [
+          88.0,
+          92.0
+        ],
+        [
+          88.0,
+          91.06
+        ],
+        [
+          88.0,
+          89.0
+        ],
+        [
+          88.0,
+          86.94
+        ],
+        [
+          88.0,
+          86.0
+        ],
+        [
+          88.0,
+          86.94
+        ],
+        [
+          88.0,
+          89.0
+        ],
+        [
+          88.0,
+          91.06
+        ],
+        [
+          88.0,
+          92.0
+        ]
+      ],
+      "safe_area_px": 8,
+      "anchor_search_px": 14
+    },
+    "038": {
+      "anchor_roi": [
+        58,
+        58,
+        28,
+        28
+      ],
+      "horizontal_anchor": "star_l_center",
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/038-fixed.png",
+      "expected_anchor_path": [
+        [
+          72.0,
+          72.0
+        ],
+        [
+          62.15,
+          87.56
+        ],
+        [
+          43.85,
+          116.44
+        ],
+        [
+          34.0,
+          132.0
+        ],
+        [
+          36.81,
+          127.62
+        ],
+        [
+          43.0,
+          118.0
+        ],
+        [
+          49.19,
+          108.38
+        ],
+        [
+          52.0,
+          104.0
+        ],
+        [
+          57.94,
+          101.5
+        ],
+        [
+          71.0,
+          96.0
+        ],
+        [
+          84.06,
+          90.5
+        ],
+        [
+          90.0,
+          88.0
+        ],
+        [
+          94.06,
+          83.62
+        ],
+        [
+          103.0,
+          74.0
+        ],
+        [
+          111.94,
+          64.38
+        ],
+        [
+          116.0,
+          60.0
+        ],
+        [
+          109.12,
+          61.88
+        ],
+        [
+          94.0,
+          66.0
+        ],
+        [
+          78.88,
+          70.12
+        ],
+        [
+          72.0,
+          72.0
+        ]
+      ],
+      "safe_area_px": 8,
+      "anchor_search_px": 16
+    },
+    "039": {
+      "anchor_roi": [
+        78,
+        128,
+        24,
+        20
+      ],
+      "horizontal_anchor": "ember_center",
+      "allow_horizontal_travel": false,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/039-fixed.png",
+      "expected_anchor_path": null,
+      "safe_area_px": 8,
+      "anchor_search_px": 12
+    },
+    "040": {
+      "anchor_roi": [
+        54,
+        104,
+        24,
+        24
+      ],
+      "horizontal_anchor": "z1_center",
+      "allow_horizontal_travel": true,
+      "allow_stage_exit": false,
+      "fixed_mask": "masks/040-fixed.png",
+      "expected_anchor_path": [
+        [
+          66.0,
+          116.0
+        ],
+        [
+          64.44,
+          121.7
+        ],
+        [
+          61.56,
+          132.3
+        ],
+        [
+          60.0,
+          138.0
+        ],
+        [
+          60.62,
+          135.81
+        ],
+        [
+          62.0,
+          131.0
+        ],
+        [
+          63.38,
+          126.19
+        ],
+        [
+          64.0,
+          124.0
+        ],
+        [
+          65.25,
+          120.88
+        ],
+        [
+          68.0,
+          114.0
+        ],
+        [
+          70.75,
+          107.12
+        ],
+        [
+          72.0,
+          104.0
+        ],
+        [
+          73.56,
+          100.25
+        ],
+        [
+          77.0,
+          92.0
+        ],
+        [
+          80.44,
+          83.75
+        ],
+        [
+          82.0,
+          80.0
+        ],
+        [
+          79.5,
+          85.62
+        ],
+        [
+          74.0,
+          98.0
+        ],
+        [
+          68.5,
+          110.38
+        ],
+        [
+          66.0,
+          116.0
+        ]
+      ],
+      "safe_area_px": 8,
+      "anchor_search_px": 14
+    }
+  },
+  "_note": "expected_anchor_path は計画上の意図経路であり実測ではない（path_source: planned）。原画とAPNGが揃った後、check_apng_jitter.py がこの経路との差を2px以内で検査する。fixed_mask は masks/ 配下に未生成。ファイルが無い間、固定領域検査は NOT_RUN となる。"
+}

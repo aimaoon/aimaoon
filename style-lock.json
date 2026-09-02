@@ -1,0 +1,141 @@
+{
+  "project_name": "retro-sofubi-daiou",
+  "display_name_ja": "レトロソフビの深海生物「ダイオウ」",
+  "display_name_en": "DAIOU - Retro Soft Vinyl Deep-Sea Creature",
+  "status": "PROVISIONAL_PENDING_MASTER_IMAGE",
+  "status_note": "character-master.png が未生成のため、寸法値は目標値であり実測由来ではない。マスター画像の承認後に実測へ置き換える。",
+
+  "target_audience": "レトロ玩具・特撮・ソフビ collectible に親しみのある層。かわいい系一色の絵文字一覧に馴染めない利用者を含む",
+  "use_cases": ["日常のテキスト会話の相槌", "感謝・謝罪・依頼", "喜びと落胆の反応", "文末に付ける記号装飾"],
+  "character_or_motif": "昭和期のソフビ怪獣として成型された、頭頂に発光する誘引突起を持つ深海生物",
+  "one_sentence_product_concept": "昭和の怪獣ソフビが、日常会話のときだけ手のひらサイズになって返事をする。",
+
+  "silhouette": "頭でっかちの三角。頭頂から提灯の突起が 1 本立ち、下端は太く短い二本脚で接地する。背面に 3 枚板の尾ひれ",
+  "proportions": {
+    "head_body_ratio": 2.57,
+    "note": "全高 118px / 頭高 46px。頭が最も重い塊で、胴と脚を合わせて 72px"
+  },
+
+  "face_rules": "目・鼻・口はすべて頭部前面の下寄り 60% に収める。左右は中央パーティングラインから対称に配置する。鼻は描かず、鼻梁の陰影 1 本で示す",
+  "eye_rules": "白目 #F2E4CE のベタ + 黒目 #14171C のベタ + 右上に #FFFFFF の丸ハイライト 1 点。グラデーション禁止。感情で形は変えるが左右間隔と高さは固定",
+  "mouth_rules": "輪郭 #14171C の閉曲線。口内は #F2E4CE。歯を描く場合も同じ 2 色のみ。口の中心は必ずパーティングライン上",
+
+  "line_color": "#14171C",
+  "line_width_rule": "180px 出力時に 3.0px 一定。部位・スケールによらず変えない。許容差は見かけ上 ±10%（2.7〜3.3px）",
+
+  "base_colors": {
+    "line": "#14171C",
+    "body_base": "#1F5E52",
+    "body_light": "#2E8375",
+    "body_shadow": "#123F37",
+    "belly": "#F2E4CE",
+    "joint_gray": "#3D4650",
+    "white": "#FFFFFF"
+  },
+  "effect_colors": {
+    "spray_accent": "#FF6A2B",
+    "effect_mint": "#7FE3D0",
+    "warn_red": "#E2453A"
+  },
+  "palette_size": 10,
+
+  "shading_rule": "1 段のみ。中間調・グラデーション・ディザを使わない。光源は左上 45 度で全 40 個共通",
+  "highlight_rule": "body_light のベタ面 1 段。面積は各パーツの上面 30% 以内",
+  "shadow_rule": "body_shadow のベタ面 1 段。接地影は描かず、体の下面に接する面だけを暗くする",
+  "gloss_rule": "光沢を使わない。マット塩ビとして扱う。鏡面ハイライト・スペキュラ禁止",
+  "depth_rule": "重なり順とパーツ間の 3px 輪郭で奥行きを作る。ぼかし影・被写界深度・大気遠近を使わない",
+  "layer_rule": [
+    "effect", "prop", "lure_light", "head", "face_parts",
+    "left_arm", "right_arm", "body", "tail_fin", "legs_or_feet"
+  ],
+
+  "material_concept": "マットな塩ビ（ソフビ）。成型物であることを、パーティングライン・可動ボール・ガス抜き穴という 3 つの痕跡で示す",
+  "texture_rule": "粒状ノイズ・ディザ・動くグラデーション・広い半透明グロー・ぼかし影を一切使わない。吹き付け塗装は 2 段のベタ帯として形で表現する。提灯の発光は発光コア + 外周リング 1 本のベタ 2 色で表す",
+
+  "text_language": "記号 33-40 は英字と約物のみ（OK! / !? / ? / zzz）。日本語表記・機種依存文字・URL・告知文言を画像へ入れない",
+
+  "forbidden_changes": [
+    "頭身比を変える",
+    "提灯の位置・本数・形を変える",
+    "中央パーティングラインの位置を変える、または省略する",
+    "可動ボールを 4 箇所以外にする、または省略する",
+    "輪郭色 #14171C と 3px の線幅を変える",
+    "10 色パレット外の色を追加する",
+    "目・口の左右間隔と基本高さを変える",
+    "エフェクトからガス抜き穴を省略する",
+    "光沢・グラデーション・粒状テクスチャを追加する",
+    "光源方向を左上以外にする"
+  ],
+
+  "copyright_safety_notes": "実在の商品・キャラクター・ロゴ・ブランド・実在人物・特定作家の絵柄を参照しない。レトロソフビは一般的な様式、深海生物は生物カテゴリであり特定の権利物ではない。頭頂の発光突起は深海魚の生物学的特徴であって既存キャラクターの複製ではない",
+
+  "visual_hooks": [
+    {"id": "lure_light", "name": "頭頂の提灯（発光する誘引突起）", "structural": true,
+     "note": "装飾ではなく頭部造形の一部。角度と光量は変わるが形は不変"},
+    {"id": "parting_line", "name": "体の中心を走る成型のパーティングライン", "structural": true,
+     "note": "頭頂から腹まで。左右対称の基準線を兼ねる"},
+    {"id": "ball_joints", "name": "肩・股の丸い可動ボール 4 箇所", "structural": true,
+     "note": "joint_gray の露出球。リグの支点そのもの"},
+    {"id": "spray_band", "name": "頭から背への蛍光オレンジの吹き付け帯", "structural": true,
+     "note": "2 段のベタ帯。怒り・体調不良では色が変わる"}
+  ],
+  "visual_hooks_gate": "01-32 の各第 1 フレームで、4 つのうち最低 2 つが 32px 表示で確認できること",
+
+  "deformable_parts": ["head", "left_arm", "right_arm", "legs_or_feet", "tail_fin", "lure_light", "face_parts", "mouth", "body"],
+
+  "signature_effect_style": {
+    "concept": "すべてのエフェクトを『別売りのソフビ付属エフェクトパーツ』として描く",
+    "rules": [
+      "本体と同じ #14171C の 3px 輪郭を持つ",
+      "ベタ塗り + 1 段ハイライトのみ",
+      "各エフェクトパーツに小さなガス抜き穴が 1 つある（シリーズの署名）",
+      "グラデーション・ぼかし・半透明グローを使わない"
+    ],
+    "applies_to": ["heart", "tear", "sweat", "anger_mark", "fire", "sparkle", "star", "steam", "question", "exclamation", "zzz"]
+  },
+
+  "size_lock": {
+    "canvas_px": [180, 180],
+    "safe_area_px": 8,
+    "target_character_width_px": 96,
+    "target_character_height_px": 118,
+    "target_center_x_px": 90,
+    "target_baseline_y_px": 150,
+    "target_face_width_px": 54,
+    "target_head_height_px": 46,
+    "target_outline_width_px": 3.0,
+    "tolerances": {
+      "width_pct": 5.0,
+      "height_pct": 5.0,
+      "center_x_px": 4.0,
+      "baseline_y_px": 3.0,
+      "face_width_pct": 5.0,
+      "outline_width_pct": 10.0
+    },
+    "measurement_rule": "小物・文字・汗・涙・炎・星・ハート・提灯の発光リングを本体の外接矩形へ含めない。主役だけのマスク masks/NNN-body.png で測る",
+    "scale_rule": "サイズ補正は第 1 フレームを基準に 1 回だけ決定し、同じ絵文字の第 2 フレーム以降へ同一の拡大率・基準中心・基準足元を適用する。各キーフレームを個別に中央揃えしない",
+    "orientation_exception": "横向き・寝姿・走行姿勢は全身の縦横比が変わるため、顔幅と線幅を優先して同じサイズに見せる。寝姿を縦へ引き伸ばして帳尻を合わせない"
+  },
+
+  "symbol_style_lock": {
+    "applies_to": ["033", "034", "035", "036", "037", "038", "039", "040"],
+    "line_color": "#14171C",
+    "line_width_px": 3.0,
+    "corner_radius_px": 4.0,
+    "material": "本体と同じマット塩ビ。ベタ塗り + 1 段ハイライト + ガス抜き穴 1 つ",
+    "light_source": "左上 45 度（本体と共通）",
+    "shadow_rule": "1 段のみ。接地影なし",
+    "optical_center_px": [90, 88],
+    "optical_area_px2": 4800,
+    "optical_area_tolerance_pct": 12.0,
+    "optical_area_rule": "外接矩形ではなく alpha>8 の実面積で揃える。文字系（OK! / !? / ? / zzz）は cap height 62px を併せて基準にする",
+    "cap_height_px": 62,
+    "max_bbox_px": [120, 120],
+    "safe_area_px": 8,
+    "accent_assignment": {
+      "033": "spray_accent", "034": "warn_red", "035": "effect_mint", "036": "warn_red + effect_mint",
+      "037": "effect_mint", "038": "spray_accent", "039": "warn_red + spray_accent", "040": "effect_mint"
+    },
+    "forbidden": ["8 個を色違いにする", "既存絵文字の形・配色・配置を複製する", "日本語表記を使う", "ガス抜き穴を省略する"]
+  }
+}
