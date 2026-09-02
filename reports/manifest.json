@@ -1,0 +1,193 @@
+{
+  "generated_at": "2026-09-02T04:04:49Z",
+  "note": "§14 の最終成果物の存在確認。present=false は未生成であり、完成扱いにしない。",
+  "required": [
+    {
+      "path": "LINE_READY.zip",
+      "present": false,
+      "bytes": null,
+      "sha256": null
+    },
+    {
+      "path": "previews/first-frames-180.png",
+      "present": false,
+      "bytes": null,
+      "sha256": null
+    },
+    {
+      "path": "previews/first-frames-32.png",
+      "present": false,
+      "bytes": null,
+      "sha256": null
+    },
+    {
+      "path": "previews/animated-contact-sheet.gif",
+      "present": false,
+      "bytes": null,
+      "sha256": null
+    },
+    {
+      "path": "design-brief.md",
+      "present": true,
+      "bytes": 6790,
+      "sha256": "ed2087cb6137ffd032f14e50b92378686b8fd1d95f7c129cc27e5e6bfc31190e"
+    },
+    {
+      "path": "style-lock.json",
+      "present": true,
+      "bytes": 8890,
+      "sha256": "4a788bc4599cd65dbcb4e01f7b76fa5f77b3060c79d32002353b6a9d21bf1cdd"
+    },
+    {
+      "path": "emoji-plan.json",
+      "present": true,
+      "bytes": 124747,
+      "sha256": "63ab971a7bb6e3cb15f1cce0b22a21e6c77261043c1d2f8ea2709711abe915ea"
+    },
+    {
+      "path": "store-listing-text.md",
+      "present": true,
+      "bytes": 4088,
+      "sha256": "c419beb6d9466b76578e3eaa5950f7c90398c98abae7fca4ab79e5847af99934"
+    },
+    {
+      "path": "reports/environment.md",
+      "present": true,
+      "bytes": 844,
+      "sha256": "1ac2b7c261b89310ab4b0776454e01efe01c6bfa479dda139b5226fdd4d4dd43"
+    },
+    {
+      "path": "reports/asset-pipeline.md",
+      "present": true,
+      "bytes": 4126,
+      "sha256": "bbb5e619354158b46dbc41f290df518b7facd2d2f09ebec3780855764a89318c"
+    },
+    {
+      "path": "reports/spec-snapshot.md",
+      "present": true,
+      "bytes": 2850,
+      "sha256": "006d3c5038524183a7827406a19d7d3942e3eb1c5b101dd2bfee584f285e4cb1"
+    },
+    {
+      "path": "reports/scale-audit.csv",
+      "present": false,
+      "bytes": null,
+      "sha256": null
+    },
+    {
+      "path": "reports/design-quality-audit.csv",
+      "present": true,
+      "bytes": 2540,
+      "sha256": "3de6598d8cba85e008794570f91d1b10e89ef8b256d54bb39a2bfc3d3ac69ff8"
+    },
+    {
+      "path": "reports/pose-manifest.csv",
+      "present": true,
+      "bytes": 25146,
+      "sha256": "41abadff45e956b9a60b4efc3904c5935760df69a6aa3de7fa929f07bb8ca9d8"
+    },
+    {
+      "path": "reports/motion-audit.csv",
+      "present": false,
+      "bytes": null,
+      "sha256": null
+    },
+    {
+      "path": "reports/anchor-config.json",
+      "present": true,
+      "bytes": 21917,
+      "sha256": "fc3e953837657b0c4fb53ab40f76c04c0af57043ff44ddcc4be8f93803e4b84c"
+    },
+    {
+      "path": "reports/jitter/jitter-audit.csv",
+      "present": true,
+      "bytes": 275,
+      "sha256": "86b6026a92fbd2f19a8df3670db32bf095dcc7474367ab4eac54af2a4a12b6ad"
+    },
+    {
+      "path": "reports/identity-audit.csv",
+      "present": false,
+      "bytes": null,
+      "sha256": null
+    },
+    {
+      "path": "reports/uniqueness-matrix.csv",
+      "present": true,
+      "bytes": 15255,
+      "sha256": "c52e0cbc3ddaca98df8cd95b51df3014d3552650bca060ada2bbca91f417ccba"
+    },
+    {
+      "path": "reports/collision-report.md",
+      "present": true,
+      "bytes": 8538,
+      "sha256": "84934533dee9c3562b868ad9c90411c4ce51d92369c758277aba0beea9770461"
+    },
+    {
+      "path": "reports/compression-audit.csv",
+      "present": true,
+      "bytes": 5121,
+      "sha256": "501a95b1a28e61e4c1f5c75c3fd8c29044c9aad20a53319306c77ddad3963ac2"
+    },
+    {
+      "path": "reports/apng-audit.json",
+      "present": false,
+      "bytes": null,
+      "sha256": null
+    },
+    {
+      "path": "reports/submission-zip-audit.json",
+      "present": false,
+      "bytes": null,
+      "sha256": null
+    },
+    {
+      "path": "reports/validator-selftest.txt",
+      "present": true,
+      "bytes": 3474,
+      "sha256": "d671b8e88f917fa02aa80cefe2df99d62414c453500f9d5dd7c15c64dcd4f6eb"
+    },
+    {
+      "path": "reports/review-guideline-check.md",
+      "present": true,
+      "bytes": 4195,
+      "sha256": "4735c8e6f6be887191554db97f10eacce09fc8b4fd48d260e82d33fca0f33445"
+    },
+    {
+      "path": "reports/progress.json",
+      "present": true,
+      "bytes": 11888,
+      "sha256": "63bdaef88a08127f4bc3e81c13f00d250b5750ce65e6dbb6582710be32ca803d"
+    },
+    {
+      "path": "reports/manifest.json",
+      "present": true,
+      "bytes": 5197,
+      "sha256": "dc7fe6907f8bca9b12806973ac93fd53531a8acc5999ddf1a5b1e3b94b757ac9"
+    }
+  ],
+  "additional": [
+    {
+      "path": "character-master.png",
+      "present": false,
+      "bytes": null,
+      "sha256": null
+    },
+    {
+      "path": "reports/asset-order.md",
+      "present": true,
+      "bytes": 89293,
+      "sha256": "21295cbdad344ddf21ef900a5e2a3d4664a9596c65708085e8fd87d66a0b73a3"
+    },
+    {
+      "path": "reports/design-implementation-gates.md",
+      "present": true,
+      "bytes": 2147,
+      "sha256": "49923500825e6f24b21a487c83aefe33848f48a0563d0209a1a9b3dc2944949b"
+    }
+  ],
+  "summary": {
+    "required_total": 27,
+    "required_present": 18,
+    "required_missing": 9
+  }
+}

@@ -28,7 +28,7 @@
 ### 2. 正常なAPNG（check_apng_jitter）
 
 ```
-check_apng_jitter: 1 items in /tmp/selftest-k6811yxv/good /   PASS=1 REVIEW=0 FAIL=0 NOT_RUN=0
+check_apng_jitter: 1 items in /tmp/selftest-z1f8z93o/good /   PASS=1 REVIEW=0 FAIL=0 NOT_RUN=0
 ```
 
 ### 3. 19フレームのAPNG（フレーム数）
@@ -58,7 +58,7 @@ num_frames=20 (expect 20), num_plays=2 (expect 1)
 ### 7. アンカーを毎フレーム±2pxずらしたAPNG（横位置レンジ）
 
 ```
-check_apng_jitter: 1 items in /tmp/selftest-k6811yxv/jit /   PASS=0 REVIEW=0 FAIL=1 NOT_RUN=0 /   001: FAIL :: anchor confidence 0.000 < 0.9; horizontal anchor range 4.00px > 1.0; fixed region difference ratio 0.1667 > 0.005; mean fixed displacement 2.105px > 0.5
+check_apng_jitter: 1 items in /tmp/selftest-z1f8z93o/jit /   PASS=0 REVIEW=0 FAIL=1 NOT_RUN=0 /   001: FAIL :: anchor confidence 0.000 < 0.9; horizontal anchor range 4.00px > 1.0; fixed region difference ratio 0.1667 > 0.005; mean fixed displacement 2.105px > 0.5
 ```
 
 ### 8. 1フレームだけ端から3pxまで寄せたAPNG（安全域）
@@ -82,7 +82,7 @@ min edge margin 3px (expect >= 8)
 ### 11. __MACOSX/ を含むZIP（validate_submission_zip）
 
 ```
-validate_submission_zip: /tmp/selftest-k6811yxv/bad.zip mode=emoji_main /   zip checks: PASS=5 REVIEW=0 FAIL=4 NOT_RUN=1 /   items:      PASS=0 REVIEW=0 FAIL=0 NOT_RUN=40 /   flat_layout: FAIL :: dir_entries=[] nested=['__MACOSX/._001.png'] /   no_junk_files: FAIL :: ['__MACOSX/._001.png'] /   file_manifest: FAIL :: expected 41 files; missing=[] extra=['._001.png'] /   file_count: FAIL :: 42 entries (expect 41 = 40 + 1 static)
+validate_submission_zip: /tmp/selftest-z1f8z93o/bad.zip mode=emoji_main /   zip checks: PASS=5 REVIEW=0 FAIL=4 NOT_RUN=1 /   items:      PASS=0 REVIEW=0 FAIL=0 NOT_RUN=40 /   flat_layout: FAIL :: dir_entries=[] nested=['__MACOSX/._001.png'] /   no_junk_files: FAIL :: ['__MACOSX/._001.png'] /   file_manifest: FAIL :: expected 41 files; missing=[] extra=['._001.png'] /   file_count: FAIL :: 42 entries (expect 41 = 40 + 1 static)
 ```
 
 ## 集計
