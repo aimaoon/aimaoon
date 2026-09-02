@@ -1,0 +1,92 @@
+# validator selftest (§11-4)
+
+`python3 scripts/selftest_validators.py` の出力。
+既知の不良データに対して検査が期待どおり FAIL / REVIEW を返すことの確認である。
+
+| # | フィクスチャ | 期待 | 実際 | 判定 |
+|---:|---|---|---|---|
+| 1 | 正常な20フレーム・4000ms・loop1・180px | `PASS` | `PASS` | OK |
+| 2 | 正常なAPNG（check_apng_jitter） | `0` | `0` | OK |
+| 3 | 19フレームのAPNG（フレーム数） | `FAIL` | `FAIL` | OK |
+| 4 | 合計3960msのAPNG（総再生時間） | `FAIL` | `FAIL` | OK |
+| 5 | num_plays=2のAPNG（ループ数） | `FAIL` | `FAIL` | OK |
+| 6 | 全フレーム同一のAPNG（固有フレーム数） | `FAIL` | `FAIL` | OK |
+| 7 | アンカーを毎フレーム±2pxずらしたAPNG（横位置レンジ） | `1` | `1` | OK |
+| 8 | 1フレームだけ端から3pxまで寄せたAPNG（安全域） | `FAIL` | `FAIL` | OK |
+| 9 | 300,000 bytes 超のPNG（容量） | `FAIL` | `FAIL` | OK |
+| 10 | 285,001〜300,000 bytes のPNG（容量） | `REVIEW` | `REVIEW` | OK |
+| 11 | __MACOSX/ を含むZIP（validate_submission_zip） | `1` | `1` | OK |
+
+## 各ケースの詳細
+
+### 1. 正常な20フレーム・4000ms・loop1・180px
+
+```
+{"dimensions": "PASS", "format_rgba_no_interlace": "PASS", "apng_structure": "PASS", "total_duration_ms": "PASS", "frame_decode": "PASS", "frame_count": "PASS", "unique_frames": "PASS", "adjacent_identical": "PASS", "file_size": "PASS", "transparent_rgb_zero": "PASS", "no_metadata": "PASS", "dpi": "PASS", "safe_area": "PASS", "roundtrip": "PASS"}
+```
+
+### 2. 正常なAPNG（check_apng_jitter）
+
+```
+check_apng_jitter: 1 items in /tmp/selftest-k6811yxv/good /   PASS=1 REVIEW=0 FAIL=0 NOT_RUN=0
+```
+
+### 3. 19フレームのAPNG（フレーム数）
+
+```
+num_frames=19 (expect 20), num_plays=1 (expect 1)
+```
+
+### 4. 合計3960msのAPNG（総再生時間）
+
+```
+3960.000ms from 20 fcTL (expect exactly 4000ms)
+```
+
+### 5. num_plays=2のAPNG（ループ数）
+
+```
+num_frames=20 (expect 20), num_plays=2 (expect 1)
+```
+
+### 6. 全フレーム同一のAPNG（固有フレーム数）
+
+```
+1 unique of 20 (expect >= 19)
+```
+
+### 7. アンカーを毎フレーム±2pxずらしたAPNG（横位置レンジ）
+
+```
+check_apng_jitter: 1 items in /tmp/selftest-k6811yxv/jit /   PASS=0 REVIEW=0 FAIL=1 NOT_RUN=0 /   001: FAIL :: anchor confidence 0.000 < 0.9; horizontal anchor range 4.00px > 1.0; fixed region difference ratio 0.1667 > 0.005; mean fixed displacement 2.105px > 0.5
+```
+
+### 8. 1フレームだけ端から3pxまで寄せたAPNG（安全域）
+
+```
+min edge margin 3px (expect >= 8)
+```
+
+### 9. 300,000 bytes 超のPNG（容量）
+
+```
+303893 bytes :: 303893 bytes > 300000
+```
+
+### 10. 285,001〜300,000 bytes のPNG（容量）
+
+```
+292807 bytes :: 292807 bytes in 285001..300000
+```
+
+### 11. __MACOSX/ を含むZIP（validate_submission_zip）
+
+```
+validate_submission_zip: /tmp/selftest-k6811yxv/bad.zip mode=emoji_main /   zip checks: PASS=5 REVIEW=0 FAIL=4 NOT_RUN=1 /   items:      PASS=0 REVIEW=0 FAIL=0 NOT_RUN=40 /   flat_layout: FAIL :: dir_entries=[] nested=['__MACOSX/._001.png'] /   no_junk_files: FAIL :: ['__MACOSX/._001.png'] /   file_manifest: FAIL :: expected 41 files; missing=[] extra=['._001.png'] /   file_count: FAIL :: 42 entries (expect 41 = 40 + 1 static)
+```
+
+## 集計
+
+11/11 ケースが期待どおり。
+
+期待どおり FAIL しないスクリプトは検査に使ってはならない（§11-4）。
