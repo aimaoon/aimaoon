@@ -242,7 +242,7 @@ ITEMS = [
 ]
 
 ITEMS += [
- dict(n="007", meaning="ダメ", cat=C, comp="face_centered", tags=["face_centered","upper_body"],
+ dict(n="007", meaning="ダメ", cat=C, comp="face_centered", tags=["face_centered"],
   mf="lateral_refusal", sp="horizontal_sweep_head", tempo="medium", beat="double_round_trip",
   hold=360, short_c=72, lr="center_stop", disp=26, search=8,
   moving=["head","lure_light","face_parts"], fixed=["legs_or_feet","body","left_arm","right_arm"],
@@ -365,7 +365,7 @@ ITEMS += [
 ]
 
 ITEMS += [
- dict(n="013", meaning="にっこり", cat=P, comp="face_centered", tags=["face_centered","upper_body"],
+ dict(n="013", meaning="にっこり", cat=P, comp="face_centered", tags=["face_centered"],
   mf="dual_arm_bloom", sp="outward_arc_spread", tempo="slow", beat="single_bloom",
   hold=540, short_c=66, lr="open_hold_long", disp=30, search=8,
   moving=["left_arm","right_arm","face_parts","cheeks"], fixed=["legs_or_feet","body","tail_fin"],
