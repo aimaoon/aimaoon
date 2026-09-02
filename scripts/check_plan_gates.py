@@ -24,6 +24,7 @@ SYMBOL_AXES = ["first_frame_silhouette", "spatial_path", "beat_pattern", "tempo_
                "dominant_visual_element", "prop_or_symbol", "dominant_effect",
                "body_deformation", "emotion_intensity"]
 MIN_DIFF_AXES = 3
+SAFE_AREA = 8
 
 
 def rows():
@@ -140,6 +141,21 @@ def main():
     if small:
         findings.append(f"主要部品の移動量が20px未満: {small}")
 
+    # 移動量と安全域の整合（§9-2 の20〜60px と §9-2 の安全域8px は同時に満たす必要がある）。
+    # 使用可能域は 180-8*2=164px。第1フレームの外接矩形が w×h のとき、
+    # ある部位が d px 動いても外接矩形が使用可能域を超えないための十分条件は d <= 164 - max(w,h)。
+    usable = 180 - 2 * SAFE_AREA
+    over = []
+    for i in ITEMS:
+        b = i["bbox"]
+        limit = usable - max(b["w"], b["h"])
+        if i["disp"] > limit:
+            over.append((i["n"], i["disp"], limit, b["w"], b["h"]))
+    if over:
+        findings.append(
+            "移動量が安全域と両立しない（d > 164 - max(w,h)）: "
+            + ", ".join(f"{n}: d={d} > 上限{lim} (bbox {w}x{h})" for n, d, lim, w, h in over))
+
     # 全体移動のみの項目は0個（§3-B / §9-4）。
     # moving_parts が body だけ、または空の項目は全身移動だけで主動作を作っていることになる。
     whole = [i["n"] for i in ITEMS if not (set(i["moving"]) - {"body"})]
@@ -206,7 +222,9 @@ def main():
               f"| 主要部品の移動量20px未満 | {len(small)} 件 | {'PASS' if not small else 'FAIL'} |",
               f"| 主動作が全身移動のみの項目 | {len(whole)} 件 | {'PASS' if not whole else 'FAIL'} |",
               f"| 移動量の実際の範囲 | {min(i['disp'] for i in ITEMS)}〜{max(i['disp'] for i in ITEMS)}px | "
-              f"{'PASS' if all(20 <= i['disp'] <= 60 for i in ITEMS) else 'FAIL'} |", ""]
+              f"{'PASS' if all(20 <= i['disp'] <= 60 for i in ITEMS) else 'FAIL'} |",
+              f"| 移動量と安全域の両立 (d <= 164 - max(w,h)) | 違反 {len(over)} 件 | "
+              f"{'PASS' if not over else 'FAIL'} |", ""]
     lines += ["## §7-A 構図バランス", "", "| 構図タグ | 個数 | 目安 | 判定 |", "|---|---:|---|---|"]
     for t, (lo, hi) in tag_targets.items():
         lines.append(f"| {t} | {tagc[t]} | {lo}〜{hi} | {'PASS' if lo <= tagc[t] <= hi else 'FAIL'} |")

@@ -1,109 +1,125 @@
 {
-  "project_name": "retro-sofubi-daiou",
-  "display_name_ja": "レトロソフビの深海生物「ダイオウ」",
-  "display_name_en": "DAIOU - Retro Soft Vinyl Deep-Sea Creature",
+  "project_name": "felt-otter-stitch",
+  "display_name_ja": "刺繍とフェルトの手芸カワウソ「ステッチ」",
+  "display_name_en": "STITCH - Felt and Embroidery Otter",
   "status": "PROVISIONAL_PENDING_MASTER_IMAGE",
-  "status_note": "character-master.png が未生成のため、寸法値は目標値であり実測由来ではない。マスター画像の承認後に実測へ置き換える。",
+  "status_note": "受領した10ポーズシートは方向性の確認用であり、透過なし・文字焼き込み・粒状テクスチャのため原画には使えない。フラット描画で生成し直した character-master.png の承認をもって確定とする。寸法値は目標値であり実測由来ではない。",
 
-  "target_audience": "レトロ玩具・特撮・ソフビ collectible に親しみのある層。かわいい系一色の絵文字一覧に馴染めない利用者を含む",
+  "target_audience": "手芸・刺繍・ぬいぐるみに親しみのある層。やわらかい語尾で会話する20〜40代",
   "use_cases": ["日常のテキスト会話の相槌", "感謝・謝罪・依頼", "喜びと落胆の反応", "文末に付ける記号装飾"],
-  "character_or_motif": "昭和期のソフビ怪獣として成型された、頭頂に発光する誘引突起を持つ深海生物",
-  "one_sentence_product_concept": "昭和の怪獣ソフビが、日常会話のときだけ手のひらサイズになって返事をする。",
+  "character_or_motif": "フェルトを縫い合わせて作られた手芸のカワウソ。輪郭を1周するブランケットステッチが感情で状態を変える",
+  "one_sentence_product_concept": "縫い目がほどけたり締まったりして、気持ちを表すカワウソ。",
 
-  "silhouette": "頭でっかちの三角。頭頂から提灯の突起が 1 本立ち、下端は太く短い二本脚で接地する。背面に 3 枚板の尾ひれ",
+  "silhouette": "2頭身。頭が体より大きい丸い塊で、左右に小さな丸耳が付く。座り姿を基本とし、太い尻尾の先に玉結びがある",
   "proportions": {
-    "head_body_ratio": 2.57,
-    "note": "全高 118px / 頭高 46px。頭が最も重い塊で、胴と脚を合わせて 72px"
+    "head_body_ratio": 2.08,
+    "note": "全高 108px / 頭高 52px。頭が全体の約半分を占める"
   },
 
-  "face_rules": "目・鼻・口はすべて頭部前面の下寄り 60% に収める。左右は中央パーティングラインから対称に配置する。鼻は描かず、鼻梁の陰影 1 本で示す",
-  "eye_rules": "白目 #F2E4CE のベタ + 黒目 #14171C のベタ + 右上に #FFFFFF の丸ハイライト 1 点。グラデーション禁止。感情で形は変えるが左右間隔と高さは固定",
-  "mouth_rules": "輪郭 #14171C の閉曲線。口内は #F2E4CE。歯を描く場合も同じ 2 色のみ。口の中心は必ずパーティングライン上",
+  "face_rules": "目・鼻・口は頭部前面の下寄り 55% に収める。左右は頭頂から鼻へ走る縫い合わせ線を軸に対称配置する",
+  "eye_rules": "button_navy のベタ円 + white の丸ハイライト1点 + stitch_navy の×の縫い留め。ボタンの直径は固定し、感情では×の角度と眉の刺繍だけを変える。グラデーション禁止",
+  "mouth_rules": "seam_brown の刺繍線1本で描く。口内を見せる場合のみ felt_cream を敷く。口の中心は必ず縫い合わせ線上",
 
-  "line_color": "#14171C",
-  "line_width_rule": "180px 出力時に 3.0px 一定。部位・スケールによらず変えない。許容差は見かけ上 ±10%（2.7〜3.3px）",
+  "line_color": "#152444",
+  "line_width_rule": "輪郭は線ではなくブランケットステッチ。糸の太さは 180px 出力時に 3.0px 一定、縫い目の間隔は 7.0px 一定。許容差は見かけ上 ±10%",
 
   "base_colors": {
-    "line": "#14171C",
-    "body_base": "#1F5E52",
-    "body_light": "#2E8375",
-    "body_shadow": "#123F37",
-    "belly": "#F2E4CE",
-    "joint_gray": "#3D4650",
+    "stitch_navy": "#152444",
+    "button_navy": "#0B1E48",
+    "felt_tan": "#E0B07D",
+    "felt_tan_dark": "#C5905F",
+    "felt_cream": "#F4DFB4",
+    "felt_cream_dark": "#DCC392",
+    "seam_brown": "#692919",
     "white": "#FFFFFF"
   },
   "effect_colors": {
-    "spray_accent": "#FF6A2B",
-    "effect_mint": "#7FE3D0",
-    "warn_red": "#E2453A"
+    "stitch_red": "#C81E10",
+    "accent_orange": "#C1642A"
   },
   "palette_size": 10,
+  "palette_basis": "受領した案Bシートの1体目を180px化し12色へ量子化して抽出した主要色から、テクスチャ由来の近似色を統合して10色に確定した。10色フラットでの実測は 154,017 bytes（上限 300,000）",
 
-  "shading_rule": "1 段のみ。中間調・グラデーション・ディザを使わない。光源は左上 45 度で全 40 個共通",
-  "highlight_rule": "body_light のベタ面 1 段。面積は各パーツの上面 30% 以内",
-  "shadow_rule": "body_shadow のベタ面 1 段。接地影は描かず、体の下面に接する面だけを暗くする",
-  "gloss_rule": "光沢を使わない。マット塩ビとして扱う。鏡面ハイライト・スペキュラ禁止",
-  "depth_rule": "重なり順とパーツ間の 3px 輪郭で奥行きを作る。ぼかし影・被写界深度・大気遠近を使わない",
+  "shading_rule": "1段のみ。felt_tan には felt_tan_dark、felt_cream には felt_cream_dark を面として置く。中間調・グラデーション・ディザを使わない。光源は左上45度で全40個共通",
+  "highlight_rule": "白のハイライトはボタンの目の1点のみ。フェルト面にハイライトを置かない",
+  "shadow_rule": "1段のベタ面。接地影を描かず、パーツが重なる下側だけを暗くする",
+  "gloss_rule": "光沢を使わない。フェルトはマットな面として扱う",
+  "depth_rule": "重なり順とステッチの縁で奥行きを作る。ぼかし影・被写界深度を使わない",
   "layer_rule": [
-    "effect", "prop", "lure_light", "head", "face_parts",
-    "left_arm", "right_arm", "body", "tail_fin", "legs_or_feet"
+    "effect", "prop", "stitch_line", "head", "face_parts",
+    "left_arm", "right_arm", "body", "tail", "legs_or_feet"
   ],
 
-  "material_concept": "マットな塩ビ（ソフビ）。成型物であることを、パーティングライン・可動ボール・ガス抜き穴という 3 つの痕跡で示す",
-  "texture_rule": "粒状ノイズ・ディザ・動くグラデーション・広い半透明グロー・ぼかし影を一切使わない。吹き付け塗装は 2 段のベタ帯として形で表現する。提灯の発光は発光コア + 外周リング 1 本のベタ 2 色で表す",
+  "material_concept": "フェルトと刺繍糸。パーツごとに切り出したフェルトを、ブランケットステッチで縫い合わせた手芸品として描く",
+  "texture_rule": "**フラット描画。紙の粒子・フェルトの繊維・布目・にじみを一切描かない。** 面はすべてベタ塗り。粒状ノイズ・ディザ・動くグラデーション・半透明グロー・ぼかし影を使わない。フェルトらしさは、繊維の質感ではなく『切り口のわずかな不揃い』と『ステッチの形』だけで表す",
+  "texture_rule_basis": "受領したテクスチャつきの絵は 20フレームAPNGで 1,179,874 bytes となり、ハード上限 300,000 の3.9倍だった。16色へ量子化しても 398,332 bytes で不合格。粒子を除いて10色にした条件で 154,017 bytes となり合格圏に入る（reports/art-style-feasibility.md）",
 
   "text_language": "記号 33-40 は英字と約物のみ（OK! / !? / ? / zzz）。日本語表記・機種依存文字・URL・告知文言を画像へ入れない",
 
   "forbidden_changes": [
     "頭身比を変える",
-    "提灯の位置・本数・形を変える",
-    "中央パーティングラインの位置を変える、または省略する",
-    "可動ボールを 4 箇所以外にする、または省略する",
-    "輪郭色 #14171C と 3px の線幅を変える",
-    "10 色パレット外の色を追加する",
+    "ブランケットステッチの輪郭を実線の輪郭へ置き換える",
+    "糸の太さ3.0pxと縫い目の間隔7.0pxを変える",
+    "ボタンの目を通常の目へ変える、または×の縫い留めを省略する",
+    "頭頂から鼻へ走る縫い合わせ線を省略する",
+    "首元のリボンを省略する",
+    "10色パレット外の色を追加する",
     "目・口の左右間隔と基本高さを変える",
-    "エフェクトからガス抜き穴を省略する",
-    "光沢・グラデーション・粒状テクスチャを追加する",
+    "エフェクトからステッチの縁を省略する",
+    "粒状テクスチャ・布目・グラデーション・光沢を追加する",
     "光源方向を左上以外にする"
   ],
 
-  "copyright_safety_notes": "実在の商品・キャラクター・ロゴ・ブランド・実在人物・特定作家の絵柄を参照しない。レトロソフビは一般的な様式、深海生物は生物カテゴリであり特定の権利物ではない。頭頂の発光突起は深海魚の生物学的特徴であって既存キャラクターの複製ではない",
+  "copyright_safety_notes": "実在の商品・キャラクター・ロゴ・ブランド・実在人物・特定作家の絵柄を参照しない。フェルト手芸とブランケットステッチは一般的な技法、カワウソは生物カテゴリであり特定の権利物ではない",
 
   "visual_hooks": [
-    {"id": "lure_light", "name": "頭頂の提灯（発光する誘引突起）", "structural": true,
-     "note": "装飾ではなく頭部造形の一部。角度と光量は変わるが形は不変"},
-    {"id": "parting_line", "name": "体の中心を走る成型のパーティングライン", "structural": true,
-     "note": "頭頂から腹まで。左右対称の基準線を兼ねる"},
-    {"id": "ball_joints", "name": "肩・股の丸い可動ボール 4 箇所", "structural": true,
-     "note": "joint_gray の露出球。リグの支点そのもの"},
-    {"id": "spray_band", "name": "頭から背への蛍光オレンジの吹き付け帯", "structural": true,
-     "note": "2 段のベタ帯。怒り・体調不良では色が変わる"}
+    {"id": "blanket_stitch", "name": "輪郭を1周するブランケットステッチ", "structural": true,
+     "note": "商品の主役かつアニメーションの担い手。感情で色（藍→朱）・間隔・状態（締まる／ゆるむ／ほつれる）が変わる"},
+    {"id": "button_eyes", "name": "×に縫い留めたボタンの目", "structural": true,
+     "note": "32px でも最後まで残る要素。直径は不変で、×の角度だけが変わる"},
+    {"id": "face_seam", "name": "頭頂から鼻へ走る縫い合わせ線", "structural": true,
+     "note": "フェルトを継いだ跡。左右対称の基準線を兼ねる"},
+    {"id": "neck_ribbon", "name": "首元の朱色のリボン結び", "structural": true,
+     "note": "遅れ動作を担う部位。お辞儀や前屈で本体より遅れて振れる"}
   ],
-  "visual_hooks_gate": "01-32 の各第 1 フレームで、4 つのうち最低 2 つが 32px 表示で確認できること",
+  "visual_hooks_gate": "01-32 の各第1フレームで、4つのうち最低2つが 32px 表示で確認できること。32px で確実に残るのは button_eyes とシルエットであり、blanket_stitch は縮小時に潰れる前提で設計する",
 
-  "deformable_parts": ["head", "left_arm", "right_arm", "legs_or_feet", "tail_fin", "lure_light", "face_parts", "mouth", "body"],
+  "deformable_parts": ["head", "left_arm", "right_arm", "legs_or_feet", "tail", "face_parts", "mouth", "body", "stitch_line"],
 
   "signature_effect_style": {
-    "concept": "すべてのエフェクトを『別売りのソフビ付属エフェクトパーツ』として描く",
+    "concept": "すべてのエフェクトを『フェルトを切り抜いて縁をかがった手芸パーツ』として描く",
     "rules": [
-      "本体と同じ #14171C の 3px 輪郭を持つ",
-      "ベタ塗り + 1 段ハイライトのみ",
-      "各エフェクトパーツに小さなガス抜き穴が 1 つある（シリーズの署名）",
+      "パーツの縁を stitch_navy の 3.0px ブランケットステッチでかがる",
+      "ベタ塗りのみ。1段影は付けるがハイライトは付けない",
+      "各エフェクトパーツから糸端が1本だけ飛び出している（シリーズの署名）",
       "グラデーション・ぼかし・半透明グローを使わない"
     ],
     "applies_to": ["heart", "tear", "sweat", "anger_mark", "fire", "sparkle", "star", "steam", "question", "exclamation", "zzz"]
   },
 
+  "emotion_stitch_mechanic": {
+    "note": "感情表現の第一手段はステッチそのものの状態変化である。表情に頼らず、縫い目で気持ちを示す",
+    "states": {
+      "tight": "縫い目の間隔が詰まり、糸がぴんと張る（感謝・了解・自信・喜び）",
+      "loose": "縫い目の間隔が広がり、糸がたわむ（眠い・脱力・悲しい）",
+      "frayed": "縫い目がほどけ、糸端が数本飛び出す（照れ・寂しい・謝罪）",
+      "red": "糸の色が stitch_navy から stitch_red へ変わる（怒り・強い否定）",
+      "wave": "縫い目が波を打って走る（驚き・焦り・わくわく）"
+    }
+  },
+
   "size_lock": {
     "canvas_px": [180, 180],
     "safe_area_px": 8,
+    "usable_px": 164,
     "target_character_width_px": 96,
-    "target_character_height_px": 118,
+    "target_character_height_px": 108,
     "target_center_x_px": 90,
     "target_baseline_y_px": 150,
-    "target_face_width_px": 54,
-    "target_head_height_px": 46,
+    "target_face_width_px": 84,
+    "target_head_height_px": 52,
     "target_outline_width_px": 3.0,
+    "stitch_pitch_px": 7.0,
     "tolerances": {
       "width_pct": 5.0,
       "height_pct": 5.0,
@@ -112,30 +128,34 @@
       "face_width_pct": 5.0,
       "outline_width_pct": 10.0
     },
-    "measurement_rule": "小物・文字・汗・涙・炎・星・ハート・提灯の発光リングを本体の外接矩形へ含めない。主役だけのマスク masks/NNN-body.png で測る",
-    "scale_rule": "サイズ補正は第 1 フレームを基準に 1 回だけ決定し、同じ絵文字の第 2 フレーム以降へ同一の拡大率・基準中心・基準足元を適用する。各キーフレームを個別に中央揃えしない",
-    "orientation_exception": "横向き・寝姿・走行姿勢は全身の縦横比が変わるため、顔幅と線幅を優先して同じサイズに見せる。寝姿を縦へ引き伸ばして帳尻を合わせない"
+    "displacement_rule": "第1フレームの外接矩形が w×h のとき、主要部品の移動量 d は d <= 164 - max(w,h) を満たすこと。立ち姿 96x108 では上限56px。この条件は scripts/check_plan_gates.py が全40件で機械検査する",
+    "displacement_rule_basis": "§9-2 の『主要部品を20〜60px動かす』と『全20フレームで上下左右8pxの安全域』は同時に満たす必要がある。本体を大きくしすぎると大きな動作が安全域に収まらないため、全高を108pxに抑えた",
+    "measurement_rule": "小物・文字・汗・涙・炎・星・ハート・飛び出した糸端を本体の外接矩形へ含めない。主役だけのマスク masks/NNN-body.png で測る",
+    "scale_rule": "サイズ補正は第1フレームを基準に1回だけ決定し、同じ絵文字の第2フレーム以降へ同一の拡大率・基準中心・基準足元を適用する。各キーフレームを個別に中央揃えしない",
+    "orientation_exception": "横向き・寝姿・走行姿勢は全身の縦横比が変わるため、顔幅とステッチの太さを優先して同じサイズに見せる"
   },
 
   "symbol_style_lock": {
     "applies_to": ["033", "034", "035", "036", "037", "038", "039", "040"],
-    "line_color": "#14171C",
+    "line_color": "#152444",
     "line_width_px": 3.0,
+    "stitch_pitch_px": 7.0,
     "corner_radius_px": 4.0,
-    "material": "本体と同じマット塩ビ。ベタ塗り + 1 段ハイライト + ガス抜き穴 1 つ",
-    "light_source": "左上 45 度（本体と共通）",
-    "shadow_rule": "1 段のみ。接地影なし",
+    "material": "本体と同じフェルト切り抜き。ベタ塗り + 1段影 + ブランケットステッチの縁 + 飛び出した糸端1本",
+    "light_source": "左上45度（本体と共通）",
+    "shadow_rule": "1段のみ。接地影なし",
     "optical_center_px": [90, 88],
     "optical_area_px2": 4800,
     "optical_area_tolerance_pct": 12.0,
     "optical_area_rule": "外接矩形ではなく alpha>8 の実面積で揃える。文字系（OK! / !? / ? / zzz）は cap height 62px を併せて基準にする",
     "cap_height_px": 62,
-    "max_bbox_px": [120, 120],
+    "max_bbox_px": [104, 104],
     "safe_area_px": 8,
     "accent_assignment": {
-      "033": "spray_accent", "034": "warn_red", "035": "effect_mint", "036": "warn_red + effect_mint",
-      "037": "effect_mint", "038": "spray_accent", "039": "warn_red + spray_accent", "040": "effect_mint"
+      "033": "accent_orange", "034": "stitch_red", "035": "felt_cream on stitch_navy",
+      "036": "stitch_red + stitch_navy", "037": "stitch_navy", "038": "accent_orange",
+      "039": "stitch_red + accent_orange", "040": "felt_cream_dark"
     },
-    "forbidden": ["8 個を色違いにする", "既存絵文字の形・配色・配置を複製する", "日本語表記を使う", "ガス抜き穴を省略する"]
+    "forbidden": ["8個を色違いにする", "既存絵文字の形・配色・配置を複製する", "日本語表記を使う", "ステッチの縁を省略する", "粒状テクスチャを描く"]
   }
 }

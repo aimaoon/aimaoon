@@ -12,10 +12,10 @@
   "items": {
     "001": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -27,10 +27,10 @@
     },
     "002": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -43,9 +43,9 @@
     "003": {
       "anchor_roi": [
         76,
-        132,
+        128,
         28,
-        22
+        20
       ],
       "horizontal_anchor": "hip",
       "allow_horizontal_travel": false,
@@ -57,10 +57,10 @@
     },
     "004": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -72,10 +72,10 @@
     },
     "005": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -87,10 +87,10 @@
     },
     "006": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -102,10 +102,10 @@
     },
     "007": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -117,10 +117,10 @@
     },
     "008": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -133,9 +133,9 @@
     "009": {
       "anchor_roi": [
         76,
-        132,
+        128,
         28,
-        22
+        20
       ],
       "horizontal_anchor": "hip",
       "allow_horizontal_travel": false,
@@ -147,10 +147,10 @@
     },
     "010": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -162,10 +162,10 @@
     },
     "011": {
       "anchor_roi": [
-        62,
-        138,
-        56,
-        18
+        60,
+        134,
+        60,
+        16
       ],
       "horizontal_anchor": "contact_line",
       "allow_horizontal_travel": false,
@@ -177,10 +177,10 @@
     },
     "012": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": true,
@@ -273,10 +273,10 @@
     },
     "013": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -288,10 +288,10 @@
     },
     "014": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -304,9 +304,9 @@
     "015": {
       "anchor_roi": [
         78,
-        104,
+        106,
         24,
-        18
+        16
       ],
       "horizontal_anchor": "body_center",
       "allow_horizontal_travel": false,
@@ -319,9 +319,9 @@
     "016": {
       "anchor_roi": [
         78,
-        104,
+        106,
         24,
-        18
+        16
       ],
       "horizontal_anchor": "body_center",
       "allow_horizontal_travel": false,
@@ -333,10 +333,10 @@
     },
     "017": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -348,10 +348,10 @@
     },
     "018": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -364,9 +364,9 @@
     "019": {
       "anchor_roi": [
         76,
-        132,
+        128,
         28,
-        22
+        20
       ],
       "horizontal_anchor": "hip",
       "allow_horizontal_travel": false,
@@ -379,9 +379,9 @@
     "020": {
       "anchor_roi": [
         78,
-        116,
+        120,
         24,
-        18
+        16
       ],
       "horizontal_anchor": "hip",
       "allow_horizontal_travel": false,
@@ -393,10 +393,10 @@
     },
     "021": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -408,10 +408,10 @@
     },
     "022": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -423,10 +423,10 @@
     },
     "023": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -438,10 +438,10 @@
     },
     "024": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -453,10 +453,10 @@
     },
     "025": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -468,10 +468,10 @@
     },
     "026": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -484,9 +484,9 @@
     "027": {
       "anchor_roi": [
         78,
-        116,
+        120,
         24,
-        18
+        16
       ],
       "horizontal_anchor": "hip",
       "allow_horizontal_travel": false,
@@ -499,9 +499,9 @@
     "028": {
       "anchor_roi": [
         78,
-        104,
+        106,
         24,
-        18
+        16
       ],
       "horizontal_anchor": "body_center",
       "allow_horizontal_travel": false,
@@ -513,10 +513,10 @@
     },
     "029": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -528,10 +528,10 @@
     },
     "030": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -543,10 +543,10 @@
     },
     "031": {
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "horizontal_anchor": "feet_center",
       "allow_horizontal_travel": false,
@@ -559,9 +559,9 @@
     "032": {
       "anchor_roi": [
         78,
-        116,
+        120,
         24,
-        18
+        16
       ],
       "horizontal_anchor": "hip",
       "allow_horizontal_travel": false,

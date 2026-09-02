@@ -13,31 +13,34 @@
 ### タイトル
 
 ```
-動くソフビ怪獣ダイオウ
+縫い目で話すカワウソ ステッチ
 ```
 
 ### 説明文
 
 ```
-昭和の怪獣ソフビが、日常会話のときだけ手のひらサイズになって返事をします。
-頭の提灯が光る深海生物ダイオウが、あいさつ、感謝、謝罪、喜び、困りごとまで
-40種類の動きで反応します。
+フェルトを縫い合わせて作られたカワウソ「ステッチ」です。
+気持ちが動くと、体のまわりを1周している縫い目のほうが先に変わります。
 
-マットな塩ビの質感と、体の真ん中を走る成型の合わせ目、肩と股の丸い可動ボール。
-おもちゃの成型跡をそのままデザインにしました。
+うれしいと縫い目がきゅっと締まり、眠いとゆるみ、
+照れると少しほどけて糸の先が飛び出します。おこったときは糸が朱色に変わります。
 
-キャラクター32種と、文末にそのまま添えられる記号8種の構成です。
-記号にも本体と同じ太い輪郭とガス抜き穴が入っています。
+あいさつ、お礼、あやまり、よろこび、こまりごとまで、キャラクター32種。
+文末にそのまま置ける記号8種も、同じ藍の糸でかがってあります。
+どのパーツからも、糸の先が1本だけ出ています。
 ```
 
 ### メイン画像候補（4個）
 
 | 候補 | 番号 | 理由 |
 |---|---|---|
-| 第1候補 | 016 やったー | 両手を真上へ上げた空中姿勢で、頭の提灯・可動ボール・吹き付け帯の3フックが同時に見える。一覧サムネイルで最も大きく展開する |
-| 第2候補 | 022 すごい | 頭上へ大きな星を掲げる構図。小物の抜き穴というシリーズの署名が最も分かりやすく写る |
-| 第3候補 | 006 いいね | 親指を手前へ突き出す構図で、マット塩ビの面と1段影が最も読みやすい |
-| 第4候補 | 001 ありがとう | 正面立ちに近く、頭身比とパーティングラインが一目で伝わる。基準姿勢としての説明力が高い |
+| 第1候補 | 027 怒る | 糸が藍から朱へ変わる瞬間で、この商品の仕組みが1枚で伝わる。色の対比も一覧で最も強い |
+| 第2候補 | 016 やったー | 両手を真上へ上げた空中姿勢。縫い目が最も強く張り、シルエットが最も大きく展開する |
+| 第3候補 | 018 照れる | 頬の縫い目がほつれて糸端が出る。「ほどける」側の仕組みを見せられる唯一の候補 |
+| 第4候補 | 001 ありがとう | 正面に近い基準姿勢で、頭身比・ボタンの目・縫い合わせ線・リボンの4フックが同時に写る |
+
+第1候補と第3候補を並べると「締まる」と「ほどける」の対が伝わるため、
+一覧の中で商品の仕組みを最短で説明できる。
 
 ---
 
@@ -46,22 +49,22 @@
 ### Title
 
 ```
-DAIOU the Moving Soft Vinyl Kaiju
+STITCH the Felt Otter
 ```
 
 ### Description
 
 ```
-A retro soft vinyl kaiju that shrinks to palm size just to answer your messages.
-DAIOU is a deep-sea creature with a glowing lure on its head, reacting across
-40 animations: greetings, thanks, apologies, delight and small troubles.
+STITCH is an otter sewn together from felt.
+When its mood changes, the blanket stitch running around its body changes first.
 
-Matte vinyl surfaces, a moulding seam running down the centre of the body,
-and exposed ball joints at the shoulders and hips. The marks left by the mould
-are the design itself.
+Happy, and the stitches pull tight. Sleepy, and they go slack.
+Embarrassed, and a few come loose with thread ends poking out.
+Angry, and the thread turns scarlet.
 
-32 character emoji plus 8 symbols you can drop straight at the end of a sentence.
-The symbols carry the same heavy outline and vent hole as the figure.
+32 character emoji covering greetings, thanks, apologies, delight and small troubles,
+plus 8 symbols you can drop straight at the end of a sentence, hemmed in the same navy thread.
+Every piece has exactly one thread end left hanging.
 ```
 
 ---
@@ -99,3 +102,4 @@ Claude Code（Anthropic の CLI ツール）を用いて行いました。
 | 機種依存文字を含まない | PASS（丸数字・ローマ数字合字・単位合字・(株)等を使用していない） |
 | 誤記 | 目視確認済み |
 | 画像と説明文の整合 | `NOT_RUN`（画像未生成） |
+| 説明文が実装と一致しているか | 縫い目の5状態（tight / loose / frayed / red / wave）は style-lock.json の `emotion_stitch_mechanic` と一致。糸端1本の署名は `signature_effect_style` と一致 |

@@ -31,7 +31,7 @@ variation-key duplicates: NONE
 | 005 | 004 | 7 | composition_type, eyes, mouth, hands, posture, body_deformation, dominant_effect |
 | 006 | 022 | 7 | eyes, mouth, hands, posture, body_deformation, dominant_effect, emotion_intensity |
 | 007 | 008 | 6 | eyes, mouth, hands, posture, body_deformation, dominant_effect |
-| 008 | 002 | 6 | eyes, mouth, hands, posture, body_deformation, emotion_intensity |
+| 008 | 002 | 7 | eyes, mouth, hands, posture, body_deformation, dominant_effect, emotion_intensity |
 | 008 | 007 | 6 | eyes, mouth, hands, posture, body_deformation, dominant_effect |
 | 009 | 019 | 6 | eyes, mouth, hands, posture, body_deformation, dominant_effect |
 | 010 | 005 | 6 | eyes, mouth, hands, posture, body_deformation, dominant_effect |
@@ -94,6 +94,7 @@ variation-key duplicates: NONE
 | 主要部品の移動量20px未満 | 0 件 | PASS |
 | 主動作が全身移動のみの項目 | 0 件 | PASS |
 | 移動量の実際の範囲 | 24〜60px | PASS |
+| 移動量と安全域の両立 (d <= 164 - max(w,h)) | 違反 0 件 | PASS |
 
 ## §7-A 構図バランス
 

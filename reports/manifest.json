@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T04:04:49Z",
+  "generated_at": "2026-09-02T05:32:02Z",
   "note": "§14 の最終成果物の存在確認。present=false は未生成であり、完成扱いにしない。",
   "required": [
     {
@@ -29,26 +29,26 @@
     {
       "path": "design-brief.md",
       "present": true,
-      "bytes": 6790,
-      "sha256": "ed2087cb6137ffd032f14e50b92378686b8fd1d95f7c129cc27e5e6bfc31190e"
+      "bytes": 7608,
+      "sha256": "07911ea69c538f686e91c72091af75437a5e960a6545dc57663aa4aa1dcd723e"
     },
     {
       "path": "style-lock.json",
       "present": true,
-      "bytes": 8890,
-      "sha256": "4a788bc4599cd65dbcb4e01f7b76fa5f77b3060c79d32002353b6a9d21bf1cdd"
+      "bytes": 11492,
+      "sha256": "4af8fa91c290bfcb7fe019a534f0f7ddaf259bb63cf2459dc2984fefb0cf090f"
     },
     {
       "path": "emoji-plan.json",
       "present": true,
-      "bytes": 124747,
-      "sha256": "63ab971a7bb6e3cb15f1cce0b22a21e6c77261043c1d2f8ea2709711abe915ea"
+      "bytes": 125448,
+      "sha256": "567d938b7e8252c17533b7c4179fe7a5e95dd8b6040a0c95bca7a7d739fe5b1f"
     },
     {
       "path": "store-listing-text.md",
       "present": true,
-      "bytes": 4088,
-      "sha256": "c419beb6d9466b76578e3eaa5950f7c90398c98abae7fca4ab79e5847af99934"
+      "bytes": 4410,
+      "sha256": "a7a3a0c168fc65ab88d2cc176346a8388e193a224d49d9914df7f70afba6c4ba"
     },
     {
       "path": "reports/environment.md",
@@ -59,8 +59,8 @@
     {
       "path": "reports/asset-pipeline.md",
       "present": true,
-      "bytes": 4126,
-      "sha256": "bbb5e619354158b46dbc41f290df518b7facd2d2f09ebec3780855764a89318c"
+      "bytes": 5552,
+      "sha256": "2cdc7647306f5c9bea607ae7fdbe8aceda0c68c65f82ad686bd354c6460668ad"
     },
     {
       "path": "reports/spec-snapshot.md",
@@ -77,8 +77,8 @@
     {
       "path": "reports/design-quality-audit.csv",
       "present": true,
-      "bytes": 2540,
-      "sha256": "3de6598d8cba85e008794570f91d1b10e89ef8b256d54bb39a2bfc3d3ac69ff8"
+      "bytes": 2925,
+      "sha256": "1090e266cd50ca1f2da310654f7fb95c5843fa4491fd767eca576c8f9970b18d"
     },
     {
       "path": "reports/pose-manifest.csv",
@@ -96,7 +96,7 @@
       "path": "reports/anchor-config.json",
       "present": true,
       "bytes": 21917,
-      "sha256": "fc3e953837657b0c4fb53ab40f76c04c0af57043ff44ddcc4be8f93803e4b84c"
+      "sha256": "aaf8203f2f4ef34b0739a526f7dcd450e32568d739e44030ea6ad21df49e7a0f"
     },
     {
       "path": "reports/jitter/jitter-audit.csv",
@@ -113,14 +113,14 @@
     {
       "path": "reports/uniqueness-matrix.csv",
       "present": true,
-      "bytes": 15255,
-      "sha256": "c52e0cbc3ddaca98df8cd95b51df3014d3552650bca060ada2bbca91f417ccba"
+      "bytes": 15486,
+      "sha256": "a62785fb33ab673ec82d7bedd7a054bfbe9c9aeca7b615bf01e2ba9de588fe1e"
     },
     {
       "path": "reports/collision-report.md",
       "present": true,
-      "bytes": 8538,
-      "sha256": "84934533dee9c3562b868ad9c90411c4ce51d92369c758277aba0beea9770461"
+      "bytes": 8634,
+      "sha256": "5892dfb7ee4f51600abaddc67c1c182dc38b53e3dc078801089fbbef724588fd"
     },
     {
       "path": "reports/compression-audit.csv",
@@ -143,26 +143,26 @@
     {
       "path": "reports/validator-selftest.txt",
       "present": true,
-      "bytes": 3474,
-      "sha256": "d671b8e88f917fa02aa80cefe2df99d62414c453500f9d5dd7c15c64dcd4f6eb"
+      "bytes": 3423,
+      "sha256": "42764cf84541d42dc901d131875ab587e8c0c653af89256a07dc2ddbfb0a056b"
     },
     {
       "path": "reports/review-guideline-check.md",
       "present": true,
-      "bytes": 4195,
-      "sha256": "4735c8e6f6be887191554db97f10eacce09fc8b4fd48d260e82d33fca0f33445"
+      "bytes": 4672,
+      "sha256": "22054c25877055efec38d868ccc2a0507963517c8c4423c39f1b892ad6db045a"
     },
     {
       "path": "reports/progress.json",
       "present": true,
       "bytes": 11888,
-      "sha256": "63bdaef88a08127f4bc3e81c13f00d250b5750ce65e6dbb6582710be32ca803d"
+      "sha256": "0ddc972f6924ec4640bff64db64bfc309b4ce08d4c123e0fb63b1267c55cf9ca"
     },
     {
       "path": "reports/manifest.json",
       "present": true,
-      "bytes": 5197,
-      "sha256": "dc7fe6907f8bca9b12806973ac93fd53531a8acc5999ddf1a5b1e3b94b757ac9"
+      "bytes": 5198,
+      "sha256": "b5a8de829bb824d5b489276c51a9e8765c4a9eef6cd09795913238619879024c"
     }
   ],
   "additional": [
@@ -175,14 +175,14 @@
     {
       "path": "reports/asset-order.md",
       "present": true,
-      "bytes": 89293,
-      "sha256": "21295cbdad344ddf21ef900a5e2a3d4664a9596c65708085e8fd87d66a0b73a3"
+      "bytes": 93611,
+      "sha256": "a19891ac2eaa6d1962b1de0f3eef9be3609385f5253f8776975654cb4b438089"
     },
     {
       "path": "reports/design-implementation-gates.md",
       "present": true,
-      "bytes": 2147,
-      "sha256": "49923500825e6f24b21a487c83aefe33848f48a0563d0209a1a9b3dc2944949b"
+      "bytes": 2690,
+      "sha256": "89df3e454e7bebdefdc2caadf53f963dee56fae028b8a994a865148a44ed6c81"
     }
   ],
   "summary": {

@@ -15,21 +15,21 @@
         "hands": "両手を胸元へ寄せて重ねる",
         "posture": "直立からわずかに前傾",
         "prop": "",
-        "effect": "提灯が静かに灯る"
+        "effect": "輪郭のステッチが均等に締まる"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
-      "primary_visual_element": "腰から折れる上半身と、遅れて垂れる提灯",
+      "primary_visual_element": "腰から折れる上半身と、遅れて張り直る輪郭のステッチ",
       "moving_parts": [
         "head",
         "body",
         "left_arm",
         "right_arm",
-        "lure_light"
+        "stitch_line"
       ],
       "fixed_parts": [
         "legs_or_feet"
@@ -37,68 +37,68 @@
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
         "P1": "胸元で両手を重ね、正面を向いた完成した感謝の姿勢",
-        "P2": "背筋をわずかに反らして力を溜め、提灯が上へ揺れる",
+        "P2": "背筋をわずかに反らして力を溜め、背中のステッチが伸びる",
         "P3": "腰を支点に上半身が前へ倒れる途中。頭は膝方向を向く",
-        "P4": "最も深いお辞儀。頭頂が34px下がり、提灯が前方へ垂れる",
-        "P5": "上半身が戻り始め、提灯だけが遅れて前で揺れる",
-        "P6": "直立に近づき、提灯が振り子の余韻で小さく戻る"
+        "P4": "最も深いお辞儀。頭頂が34px下がり、首元のリボンが前方へ垂れる",
+        "P5": "上半身が戻り始め、リボンだけが遅れて前で揺れる",
+        "P6": "直立に近づき、リボンが振り子の余韻で小さく戻る"
       },
       "primary_action_test": "F01 と F12 の頭頂Y座標が34px以上異なる",
       "motion_family": "ceremonial_full_body",
@@ -150,11 +150,11 @@
         "hands": "顔の前で合掌",
         "posture": "やや前かがみ",
         "prop": "",
-        "effect": "提灯が控えめに明滅"
+        "effect": "手元のステッチが小刻みに詰まる"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -168,64 +168,64 @@
       "fixed_parts": [
         "legs_or_feet",
         "body",
-        "tail_fin"
+        "tail"
       ],
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -286,11 +286,11 @@
         "hands": "床の前方へ両手をつく",
         "posture": "正座から深く頭を下げた完成状態",
         "prop": "",
-        "effect": "提灯が消えかける"
+        "effect": "輪郭のステッチが力なくほどけかける"
       },
       "target_character_bbox": {
-        "w": 104,
-        "h": 92,
+        "w": 112,
+        "h": 88,
         "cx": 90,
         "baseline_y": 150
       },
@@ -300,7 +300,7 @@
         "body",
         "left_arm",
         "right_arm",
-        "lure_light"
+        "stitch_line"
       ],
       "fixed_parts": [
         "legs_or_feet"
@@ -308,68 +308,68 @@
       "anchor_points": {
         "hip": [
           90,
-          140
+          136
         ],
         "shoulder": [
           90,
-          110
+          116
         ]
       },
       "horizontal_anchor": "hip",
       "anchor_roi": [
         76,
-        132,
+        128,
         28,
-        22
+        20
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
         "P1": "正座し、床へ両手をつき、頭を深く下げた完成した謝罪の姿勢",
-        "P2": "背中をわずかに起こして息を吸い、提灯が一度だけ強く灯る",
+        "P2": "背中をわずかに起こして息を吸い、背中のステッチが一度だけ張る",
         "P3": "肩と頭が前下方へ落ちる途中。肘が曲がり床との距離が縮む",
-        "P4": "40個中最も低い姿勢。頭頂が42px沈み、提灯が床に触れる",
+        "P4": "40個中最も低い姿勢。頭頂が42px沈み、首元のリボンが床に触れる",
         "P5": "頭が数px戻るが、肩はまだ落ちたまま余韻を残す",
-        "P6": "背中が起き始め、提灯が弱く灯り直す"
+        "P6": "背中が起き始め、ほどけたステッチが弱く結び直る"
       },
       "primary_action_test": "F01 と F12 の頭頂Y座標が42px以上異なる",
       "motion_family": "low_full_body_sink",
@@ -421,11 +421,11 @@
         "hands": "右手を額の横へ当てる",
         "posture": "胸を張った直立",
         "prop": "",
-        "effect": "提灯が一瞬だけ強く光る"
+        "effect": "額のステッチが一瞬でぴんと張る"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -439,71 +439,71 @@
         "legs_or_feet",
         "body",
         "left_arm",
-        "tail_fin"
+        "tail"
       ],
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
         "P1": "右手を額の横へ当て、正面を見据えた完成した敬礼",
         "P2": "手を頬の横まで下げ、肘を体側へ絞って溜める",
         "P3": "肘が開き、手が斜め上へ弧を描いて上がる途中",
-        "P4": "額の横で急停止。手先が36px移動し、提灯が最大光量になる",
+        "P4": "額の横で急停止。手先が36px移動し、額のステッチが最も強く張る",
         "P5": "反動で体だけが小さく沈み、手は額の位置を保つ",
         "P6": "肩の力が抜け、手がわずかに緩んで敬礼の形へ収まる"
       },
@@ -557,18 +557,18 @@
         "hands": "右手を真上へまっすぐ上げる",
         "posture": "背筋を伸ばした直立",
         "prop": "",
-        "effect": "提灯が上向きに灯る"
+        "effect": "上げた腕側のステッチが引き締まる"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
       "primary_visual_element": "真上へ伸ばした右手と頭の上下",
       "moving_parts": [
         "head",
-        "lure_light",
+        "stitch_line",
         "right_arm",
         "face_parts"
       ],
@@ -580,59 +580,59 @@
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -693,11 +693,11 @@
         "hands": "右手の親指を立てて手前へ出す",
         "posture": "やや胸を張る",
         "prop": "",
-        "effect": "提灯が明るく灯る"
+        "effect": "親指まわりのステッチが太く締まる"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -711,64 +711,64 @@
         "legs_or_feet",
         "body",
         "left_arm",
-        "tail_fin"
+        "tail"
       ],
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -829,18 +829,18 @@
         "hands": "両腕を胸前で大きなXに組む",
         "posture": "正面向きの直立",
         "prop": "",
-        "effect": "提灯が赤みを帯びて灯る"
+        "effect": "輪郭のステッチが藍から朱色へ変わる"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
       "primary_visual_element": "胸の前で組んだ大きなX",
       "moving_parts": [
         "head",
-        "lure_light",
+        "stitch_line",
         "face_parts"
       ],
       "fixed_parts": [
@@ -852,68 +852,68 @@
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
         "P1": "両腕を胸前で大きなXに組み、目を閉じた完成した拒否",
         "P2": "頭を右へわずかに傾けて溜める。腕のXは動かさない",
-        "P3": "頭が左へ振れる途中。提灯が遅れて追従する",
+        "P3": "頭が左へ振れる途中。頭のステッチが遅れて追従する",
         "P4": "頭が左端まで26px振れ切る。Xの位置は1pxも動かない",
         "P5": "頭が右端へ振れ戻り、2往復目に入る",
-        "P6": "中央で明確に止まり、提灯の揺れだけが残る"
+        "P6": "中央で明確に止まり、ステッチの波だけが残る"
       },
       "primary_action_test": "F01 と F11 の頭中心X座標が26px以上異なり、腕のXは固定領域として画素一致する",
       "motion_family": "lateral_refusal",
@@ -965,11 +965,11 @@
         "hands": "両手のひらを正面へ開いて出す",
         "posture": "やや前傾",
         "prop": "",
-        "effect": "提灯が短く明滅"
+        "effect": "手のひらのステッチが一度に締まる"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -982,64 +982,64 @@
       ],
       "fixed_parts": [
         "legs_or_feet",
-        "tail_fin"
+        "tail"
       ],
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -1099,12 +1099,12 @@
         "cheeks": "淡い赤み",
         "hands": "両手でマグを胸元に抱える",
         "posture": "脱力した座り姿",
-        "prop": "ソフビ成型のマグ（抜き穴つき）",
+        "prop": "フェルト切り抜きのマグ（ステッチの縁つき）",
         "effect": "湯気が3筋"
       },
       "target_character_bbox": {
-        "w": 104,
-        "h": 92,
+        "w": 112,
+        "h": 88,
         "cx": 90,
         "baseline_y": 150
       },
@@ -1123,59 +1123,59 @@
       "anchor_points": {
         "hip": [
           90,
-          140
+          136
         ],
         "shoulder": [
           90,
-          110
+          116
         ]
       },
       "horizontal_anchor": "hip",
       "anchor_roi": [
         76,
-        132,
+        128,
         28,
-        22
+        20
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -1236,11 +1236,11 @@
         "hands": "両手を頭上へ伸ばす",
         "posture": "全身を縦へ伸ばす",
         "prop": "",
-        "effect": "提灯がゆっくり灯り始める"
+        "effect": "全身のステッチがゆっくり伸びて張る"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -1250,7 +1250,7 @@
         "head",
         "left_arm",
         "right_arm",
-        "lure_light"
+        "stitch_line"
       ],
       "fixed_parts": [
         "legs_or_feet"
@@ -1258,68 +1258,68 @@
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 12,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
         "P1": "両手を頭上へ伸ばし、全身を縦へ伸ばした完成した伸びの姿勢",
         "P2": "膝と背中を曲げてしゃがみ込み、全身を縮めて溜める",
         "P3": "膝が伸び、胴体が上へ持ち上がる途中。腕はまだ曲がっている",
-        "P4": "全身が最も伸び切り、頭頂が40px上がる。目が開き提灯が灯る",
+        "P4": "全身が最も伸び切り、頭頂が40px上がる。目が開きステッチが張り切る",
         "P5": "力が急に抜け、肩と腕が落ちて胴体が縮む",
-        "P6": "自然な立ち姿へ戻り、提灯が灯ったまま残る"
+        "P6": "自然な立ち姿へ戻り、張ったステッチがそのまま残る"
       },
       "primary_action_test": "F01 と F11 の全身高さが40px以上変化する",
       "motion_family": "vertical_stretch",
@@ -1370,12 +1370,12 @@
         "cheeks": "枕に押されて沈む",
         "hands": "枕を両腕で抱える",
         "posture": "横向きに寝る",
-        "prop": "ソフビ成型の枕（抜き穴つき）",
-        "effect": "提灯が最小光量"
+        "prop": "フェルト切り抜きの枕（ステッチの縁つき）",
+        "effect": "輪郭のステッチが最もゆるむ"
       },
       "target_character_bbox": {
-        "w": 128,
-        "h": 74,
+        "w": 132,
+        "h": 76,
         "cx": 90,
         "baseline_y": 150
       },
@@ -1384,7 +1384,7 @@
         "left_arm",
         "right_arm",
         "head",
-        "tail_fin",
+        "tail",
         "prop"
       ],
       "fixed_parts": [
@@ -1393,71 +1393,71 @@
       ],
       "anchor_points": {
         "hip": [
-          96,
+          98,
           150
         ],
         "shoulder": [
-          80,
-          132
+          78,
+          128
         ]
       },
       "horizontal_anchor": "contact_line",
       "anchor_roi": [
-        62,
-        138,
-        56,
-        18
+        60,
+        134,
+        60,
+        16
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
         "P1": "横向きに寝て枕を抱え、目を閉じた完成した就寝の姿勢",
         "P2": "両腕を開いて枕から少し離し、体をわずかに反らす",
-        "P3": "腕が枕を胸へ引き寄せる途中。尾ひれが体から離れる",
-        "P4": "枕を最も強く抱き込み、頭と頬が26px沈む。尾ひれが体へ巻き付く",
+        "P3": "腕が枕を胸へ引き寄せる途中。尻尾が体から離れる",
+        "P4": "枕を最も強く抱き込み、頭と頬が26px沈む。尻尾が体へ巻き付く",
         "P5": "腕の力が緩み、枕がわずかに戻るが頭は沈んだまま",
         "P6": "呼吸ひとつ分だけ胸が上下し、睡眠姿勢のまま保持する"
       },
-      "primary_action_test": "F01 と F12 の頭中心Y座標が26px以上沈み、尾ひれ先端が別軌道で動く",
+      "primary_action_test": "F01 と F12 の頭中心Y座標が26px以上沈み、尻尾先端が別軌道で動く",
       "motion_family": "embrace_pull_in",
       "spatial_path": "inward_converge",
       "tempo_class": "slow",
@@ -1507,11 +1507,11 @@
         "hands": "右手を高く上げる",
         "posture": "やや斜め向きの直立",
         "prop": "",
-        "effect": "提灯が明るく灯る"
+        "effect": "振る手のステッチが尾を引く"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -1524,64 +1524,64 @@
         "face_parts"
       ],
       "fixed_parts": [
-        "tail_fin"
+        "tail"
       ],
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 10,
       "allow_horizontal_travel": true,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -1642,11 +1642,11 @@
         "hands": "両手を頬の横へ開く",
         "posture": "正面向きの直立",
         "prop": "",
-        "effect": "提灯が柔らかく灯る"
+        "effect": "ステッチが穏やかに開く"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -1660,64 +1660,64 @@
       "fixed_parts": [
         "legs_or_feet",
         "body",
-        "tail_fin"
+        "tail"
       ],
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -1778,11 +1778,11 @@
         "hands": "両手で腹を抱える",
         "posture": "横に広がった前屈",
         "prop": "",
-        "effect": "提灯が激しく揺れる"
+        "effect": "腹まわりのステッチが大きく波打つ"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -1792,7 +1792,7 @@
         "head",
         "left_arm",
         "right_arm",
-        "lure_light"
+        "stitch_line"
       ],
       "fixed_parts": [
         "legs_or_feet"
@@ -1800,66 +1800,66 @@
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 10,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
         "P1": "両手で腹を抱え、大口で笑う横広の完成ポーズ",
-        "P2": "上半身を後ろへ反らして溜め、提灯が後方へ倒れる",
+        "P2": "上半身を後ろへ反らして溜め、首元のリボンが後方へ倒れる",
         "P3": "上半身が前へ倒れる途中。腕は腹に固定されたまま",
-        "P4": "最も深い前屈。頭頂が36px下がり提灯が前方へ振れる",
+        "P4": "最も深い前屈。頭頂が36px下がりリボンが前方へ振れる",
         "P5": "のけぞりへ切り返し、2拍目・3拍目の高さと間隔を変える",
         "P6": "3拍目の後に減速し、腹を抱えた姿勢へ戻る"
       },
@@ -1913,11 +1913,11 @@
         "hands": "胸の前に小さな両拳",
         "posture": "立位からの跳躍準備",
         "prop": "",
-        "effect": "提灯が上へなびく"
+        "effect": "ステッチが跳ねて浮き上がる"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -1928,71 +1928,71 @@
         "legs_or_feet",
         "left_arm",
         "right_arm",
-        "tail_fin"
+        "tail"
       ],
       "fixed_parts": [],
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "body_center",
       "anchor_roi": [
         78,
-        104,
+        106,
         24,
-        18
+        16
       ],
       "anchor_search_px": 28,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
         "P1": "胸前に両拳を構え、笑顔で立つ完成した喜びの姿勢",
         "P2": "膝を曲げてしゃがみ、拳を下へ引いて溜める",
-        "P3": "膝が伸びて足が床から離れる途中。尾ひれが下へ流れる",
+        "P3": "膝が伸びて足が床から離れる途中。尻尾が下へ流れる",
         "P4": "2回目の大ジャンプ最高点。胴体が46px上がり足裏が完全に見える",
         "P5": "膝を曲げて着地し、胴体が潰れて衝撃を受ける",
         "P6": "潰れから戻り、拳を胸前へ構え直す"
@@ -2047,11 +2047,11 @@
         "hands": "両手を真上へ上げる",
         "posture": "バンザイの直立",
         "prop": "",
-        "effect": "提灯が最大光量"
+        "effect": "全身のステッチが最も強く張る"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -2062,66 +2062,66 @@
         "legs_or_feet",
         "left_arm",
         "right_arm",
-        "tail_fin",
-        "lure_light"
+        "tail",
+        "stitch_line"
       ],
       "fixed_parts": [],
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "body_center",
       "anchor_roi": [
         78,
-        104,
+        106,
         24,
-        18
+        16
       ],
       "anchor_search_px": 32,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -2181,12 +2181,12 @@
         "cheeks": "濃い赤み",
         "hands": "大きなハートを両腕で抱える",
         "posture": "やや後傾の直立",
-        "prop": "ソフビ成型の大きなハート（抜き穴つき）",
+        "prop": "フェルト切り抜きの大きなハート（ステッチの縁つき）",
         "effect": ""
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -2201,64 +2201,64 @@
       "fixed_parts": [
         "legs_or_feet",
         "body",
-        "tail_fin"
+        "tail"
       ],
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -2319,11 +2319,11 @@
         "hands": "両手を頬へ当てる",
         "posture": "肩をすぼめた直立",
         "prop": "",
-        "effect": "提灯が淡いピンクに灯る"
+        "effect": "頬のステッチがほつれて糸端が出る"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -2337,64 +2337,64 @@
       "fixed_parts": [
         "legs_or_feet",
         "body",
-        "tail_fin"
+        "tail"
       ],
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -2458,8 +2458,8 @@
         "effect": "白い息が横へ1筋"
       },
       "target_character_bbox": {
-        "w": 104,
-        "h": 92,
+        "w": 112,
+        "h": 88,
         "cx": 90,
         "baseline_y": 150
       },
@@ -2477,59 +2477,59 @@
       "anchor_points": {
         "hip": [
           90,
-          140
+          136
         ],
         "shoulder": [
           90,
-          110
+          116
         ]
       },
       "horizontal_anchor": "hip",
       "anchor_roi": [
         76,
-        132,
+        128,
         28,
-        22
+        20
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -2590,11 +2590,11 @@
         "hands": "胸の前に両拳を構える",
         "posture": "前傾姿勢",
         "prop": "",
-        "effect": "提灯が細かく明滅"
+        "effect": "ステッチが波を打って走る"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -2607,64 +2607,64 @@
         "head"
       ],
       "fixed_parts": [
-        "tail_fin"
+        "tail"
       ],
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "hip",
       "anchor_roi": [
         78,
-        116,
+        120,
         24,
-        18
+        16
       ],
       "anchor_search_px": 10,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -2725,11 +2725,11 @@
         "hands": "両手を胸に重ねる",
         "posture": "やや上を向いた直立",
         "prop": "",
-        "effect": "右目に一粒の涙（抜き穴つき）"
+        "effect": "右目に一粒の涙（ステッチの縁つき）"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -2743,64 +2743,64 @@
       "fixed_parts": [
         "legs_or_feet",
         "body",
-        "tail_fin"
+        "tail"
       ],
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -2860,12 +2860,12 @@
         "cheeks": "",
         "hands": "右手に大きな星を持ち掲げる",
         "posture": "上半身をひねった直立",
-        "prop": "ソフビ成型の大きな星（抜き穴つき）",
+        "prop": "フェルト切り抜きの大きな星（ステッチの縁つき）",
         "effect": ""
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -2883,59 +2883,59 @@
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 10,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -3000,7 +3000,7 @@
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -3014,64 +3014,64 @@
         "legs_or_feet",
         "body",
         "head",
-        "tail_fin"
+        "tail"
       ],
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -3132,11 +3132,11 @@
         "hands": "右拳を高く上げる",
         "posture": "胸を張った直立",
         "prop": "",
-        "effect": "背後に三層の炎（抜き穴つき）"
+        "effect": "背後に三層の炎（ステッチの縁つき）"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -3154,59 +3154,59 @@
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 10,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -3267,11 +3267,11 @@
         "hands": "胸の前で両手を弱く合わせる",
         "posture": "背中を丸めた直立",
         "prop": "",
-        "effect": "提灯が消えかける"
+        "effect": "輪郭のステッチが全体にゆるむ"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -3281,7 +3281,7 @@
         "right_arm",
         "head",
         "body",
-        "lure_light"
+        "stitch_line"
       ],
       "fixed_parts": [
         "legs_or_feet"
@@ -3289,59 +3289,59 @@
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 10,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -3402,11 +3402,11 @@
         "hands": "右手を目元へ添える",
         "posture": "やや前かがみ",
         "prop": "",
-        "effect": "一粒の涙（抜き穴つき）"
+        "effect": "一粒の涙（ステッチの縁つき）"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -3421,64 +3421,64 @@
         "legs_or_feet",
         "body",
         "left_arm",
-        "tail_fin"
+        "tail"
       ],
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -3539,11 +3539,11 @@
         "hands": "体側で両拳を強く握る",
         "posture": "踏ん張った直立",
         "prop": "",
-        "effect": "頭上に赤い怒り記号（抜き穴つき）"
+        "effect": "頭上に赤い怒り記号（ステッチの縁つき）"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -3561,59 +3561,59 @@
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "hip",
       "anchor_roi": [
         78,
-        116,
+        120,
         24,
-        18
+        16
       ],
       "anchor_search_px": 10,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -3678,14 +3678,14 @@
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
       "primary_visual_element": "組んだ腕と床を叩く片足",
       "moving_parts": [
         "legs_or_feet",
-        "tail_fin"
+        "tail"
       ],
       "fixed_parts": [
         "body",
@@ -3696,59 +3696,59 @@
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "body_center",
       "anchor_roi": [
         78,
-        104,
+        106,
         24,
-        18
+        16
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -3809,11 +3809,11 @@
         "hands": "体の前で腕を組む",
         "posture": "背を向けかけた斜め向き",
         "prop": "",
-        "effect": "尾ひれが払われる"
+        "effect": "尻尾が払われる"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -3821,7 +3821,7 @@
       "moving_parts": [
         "body",
         "head",
-        "tail_fin",
+        "tail",
         "left_arm",
         "right_arm"
       ],
@@ -3831,67 +3831,67 @@
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
         "P1": "斜めに背を向け、肩越しに横目で振り返って頬を膨らませた完成ポーズ",
         "P2": "いったん正面を向き直し、頬をさらに膨らませて溜める",
-        "P3": "体が正面から背面へ回転する途中。尾ひれが遠心力で開く",
-        "P4": "完全に背を向ける。体幅が38px変化し尾ひれが払われ切る",
-        "P5": "尾ひれが体側へ戻り、肩がわずかに落ちる",
+        "P3": "体が正面から背面へ回転する途中。尻尾が遠心力で開く",
+        "P4": "完全に背を向ける。体幅が38px変化し尻尾が払われ切る",
+        "P5": "尻尾が体側へ戻り、肩がわずかに落ちる",
         "P6": "頭だけが肩越しに戻り、横目で振り返る"
       },
       "primary_action_test": "F01 と F12 の体幅が38px以上変化し、正面・背面・肩越しの3シルエットが区別できる",
@@ -3944,11 +3944,11 @@
         "hands": "右手を頭へ、左手を下げる",
         "posture": "非対称に傾いた直立",
         "prop": "",
-        "effect": "提灯が力なく揺れる"
+        "effect": "頭のステッチが片側だけほつれる"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -3957,7 +3957,7 @@
         "right_arm",
         "head",
         "face_parts",
-        "lure_light"
+        "stitch_line"
       ],
       "fixed_parts": [
         "legs_or_feet",
@@ -3967,59 +3967,59 @@
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 8,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -4080,11 +4080,11 @@
         "hands": "胸の前で両手を固く組む",
         "posture": "膝を曲げて縮こまる",
         "prop": "",
-        "effect": "汗が2粒（抜き穴つき）"
+        "effect": "汗が2粒（ステッチの縁つき）"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -4101,59 +4101,59 @@
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "feet_center",
       "anchor_roi": [
-        78,
+        76,
         138,
-        24,
-        20
+        28,
+        16
       ],
       "anchor_search_px": 10,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -4214,11 +4214,11 @@
         "hands": "両手を高さ違いで上げる",
         "posture": "前傾して踏み出す",
         "prop": "",
-        "effect": "汗が4粒、外向きに飛ぶ（抜き穴つき）"
+        "effect": "汗が4粒、外向きに飛ぶ（ステッチの縁つき）"
       },
       "target_character_bbox": {
         "w": 96,
-        "h": 118,
+        "h": 108,
         "cx": 90,
         "baseline_y": 150
       },
@@ -4236,59 +4236,59 @@
       "anchor_points": {
         "hip": [
           90,
-          124
+          128
         ],
         "shoulder": [
           90,
-          88
+          100
         ]
       },
       "horizontal_anchor": "hip",
       "anchor_roi": [
         78,
-        116,
+        120,
         24,
-        18
+        16
       ],
       "anchor_search_px": 10,
       "allow_horizontal_travel": false,
       "allow_stage_exit": false,
       "character_identity_landmarks": {
         "ear_l": [
-          64,
-          52
+          58,
+          54
         ],
         "ear_r": [
-          116,
-          52
+          122,
+          54
         ],
         "eye_l": [
-          76,
-          62
+          72,
+          70
         ],
         "eye_r": [
-          104,
-          62
+          108,
+          70
         ],
         "nose": [
           90,
-          70
+          80
         ],
         "mouth": [
           90,
-          76
+          88
         ],
         "foot_l": [
-          76,
+          74,
           150
         ],
         "foot_r": [
-          104,
+          106,
           150
         ],
         "tail": [
-          120,
-          124
+          126,
+          134
         ]
       },
       "keyframe_storyboard": {
@@ -4348,7 +4348,7 @@
         "cheeks": "",
         "hands": "",
         "posture": "",
-        "prop": "ソフビ成型の英字3パーツ（各抜き穴つき）",
+        "prop": "フェルト切り抜きの英字3パーツ（各ステッチの縁つき）",
         "effect": "3文字が衝突する瞬間の衝撃線"
       },
       "target_character_bbox": {
@@ -4433,7 +4433,7 @@
         "cheeks": "",
         "hands": "",
         "posture": "",
-        "prop": "ソフビ成型の小箱と3つのハート（各抜き穴つき）",
+        "prop": "フェルト切り抜きの小箱と3つのハート（各ステッチの縁つき）",
         "effect": ""
       },
       "target_character_bbox": {
@@ -4521,7 +4521,7 @@
         "cheeks": "",
         "hands": "",
         "posture": "",
-        "prop": "ソフビ成型の水滴3粒（各抜き穴つき）",
+        "prop": "フェルト切り抜きの水滴3粒（各ステッチの縁つき）",
         "effect": ""
       },
       "target_character_bbox": {
@@ -4606,7 +4606,7 @@
         "cheeks": "",
         "hands": "",
         "posture": "",
-        "prop": "ソフビ成型の ! と ?（各抜き穴つき）",
+        "prop": "フェルト切り抜きの ! と ?（各ステッチの縁つき）",
         "effect": "衝突点の衝撃線"
       },
       "target_character_bbox": {
@@ -4690,7 +4690,7 @@
         "cheeks": "",
         "hands": "",
         "posture": "",
-        "prop": "ソフビ成型の曲線本体と点（各抜き穴つき）",
+        "prop": "フェルト切り抜きの曲線本体と点（各ステッチの縁つき）",
         "effect": ""
       },
       "target_character_bbox": {
@@ -4774,7 +4774,7 @@
         "cheeks": "",
         "hands": "",
         "posture": "",
-        "prop": "ソフビ成型の星3つ（各抜き穴つき）",
+        "prop": "フェルト切り抜きの星3つ（各ステッチの縁つき）",
         "effect": ""
       },
       "target_character_bbox": {
@@ -4859,7 +4859,7 @@
         "cheeks": "",
         "hands": "",
         "posture": "",
-        "prop": "ソフビ成型の火種と三層の炎（各抜き穴つき）",
+        "prop": "フェルト切り抜きの火種と三層の炎（各ステッチの縁つき）",
         "effect": ""
       },
       "target_character_bbox": {
@@ -4946,7 +4946,7 @@
         "cheeks": "",
         "hands": "",
         "posture": "",
-        "prop": "ソフビ成型の小文字 z 3つ（各抜き穴つき）",
+        "prop": "フェルト切り抜きの小文字 z 3つ（各ステッチの縁つき）",
         "effect": ""
       },
       "target_character_bbox": {
