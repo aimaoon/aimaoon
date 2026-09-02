@@ -263,7 +263,9 @@ def main():
                          f"{'OK' if c.ok else 'MISMATCH'} |")
         lines += ["", "## 各ケースの詳細", ""]
         for i, c in enumerate(cases, 1):
-            lines += [f"### {i}. {c.name}", "", "```", c.detail[:1500], "```", ""]
+            # 一時ディレクトリ名は実行ごとに変わるため、差分ノイズを避けて正規化する
+            detail = c.detail.replace(tmp, "<tmp>")
+            lines += [f"### {i}. {c.name}", "", "```", detail[:1500], "```", ""]
         npass = sum(1 for c in cases if c.ok)
         lines += ["## 集計", "",
                   f"{npass}/{len(cases)} ケースが期待どおり。",
