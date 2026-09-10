@@ -26,7 +26,7 @@ node marketing/video.mjs   # 動画（別途 ffmpeg が要る）
 | `out/ig-story.png` | Instagram ストーリー（1080×1920）。上下は UI を避けた余白 |
 | `out/flyer-a6.pdf` | 印刷用フライヤー（105×148mm）。`flyer-preview.png` は確認用 |
 | `out/landing.html` | 紹介ページ。そのまま公開できる 1 枚の HTML |
-| `out/app-scroll-9x16.mp4` | 実際に触っているところの動画（1080×1920）。リール / ストーリー用 |
+| `out/app-scroll-9x16.mp4` | 実際に触っているところの動画（1080×1920・約 19 秒）。リール / ストーリー用 |
 | `out/app-scroll-4x5.mp4` | 同じ内容のフィード用（1080×1350） |
 
 ## 中でやっていること
@@ -38,6 +38,8 @@ node marketing/video.mjs   # 動画（別途 ffmpeg が要る）
 3. **QR** — `qrcode`（devDependency）で組み立てます。アプリ本体の QR は `src/lib/qr.ts` の自前実装ですが、
    こちらは素材を作るときだけの道具なので、参照実装をそのまま使っています。
 4. **確認** — 書き出した画像の QR を読み取り機（`jsQR`）にかけ、元の URL に戻ることを確かめます。
-5. **動画** — 実機と同じ画面をブラウザで操作しながら録ります（`video.mjs`）。
-   書き出しは WebM なので、Instagram が受け取れる MP4 に `ffmpeg` で直します。
+5. **動画** — 画面を操作しながら 1 コマずつ撮って、`ffmpeg` でつなぎます（`video.mjs`）。
+   Playwright の録画機能は画面の下のほうを取りこぼす（タブバーが写らない）ので使っていません。
+   撮る窓はアプリの最大幅 520px 以内。ここを超えると左右に余白が出ます。
+   3 倍で撮って書き出しで縮めているので、文字の輪郭が締まります。
    `ffmpeg` は同梱していないので、無ければ `apt-get install ffmpeg` などで入れてください。

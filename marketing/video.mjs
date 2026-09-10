@@ -1,118 +1,131 @@
-import { chromium, devices } from 'playwright'
+import { chromium } from 'playwright'
 import { execFileSync } from 'node:child_process'
-import { mkdirSync, readdirSync, renameSync, rmSync } from 'node:fs'
+import { copyFileSync, mkdirSync, rmSync } from 'node:fs'
 import { CHROMIUM, OUT } from './config.mjs'
 
 /**
  * 「実際に触っている」ところの短い動画。
- * 画面を上から下まで送って、タブを渡り歩くだけの 15 秒ほど。
- * 端末そのままの縦長で撮るので、そのまま Reels / ストーリーに載せられる。
+ *
+ * Playwright の録画（recordVideo）は画面の下のほうを取りこぼすので使わず、
+ * 1 コマずつ撮って ffmpeg でつなぐ。止まっている間は同じコマを複製するだけなので速い。
+ *
+ * 撮る窓はアプリの最大幅（520px）以内にしてある。ここを超えると左右に余白が出る。
  */
-const RAW = `${OUT}/video-raw`
-rmSync(RAW, { recursive: true, force: true })
-mkdirSync(RAW, { recursive: true })
 
-const phone = devices['iPhone 13']
-// 動画の枠は端末の画面と同じ比率にする。ずれると Playwright が上下に黒を足してしまう。
-const frame = {
-  width: Math.round(phone.viewport.width * phone.deviceScaleFactor),
-  height: Math.round(phone.viewport.height * phone.deviceScaleFactor),
+const FPS = 15
+
+/** 投稿する形。撮る窓は同じ比率で、版面が最大幅に収まる大きさにしている。 */
+const FORMATS = [
+  { name: 'app-scroll-9x16', width: 1080, height: 1920, shot: { width: 405, height: 720 }, label: 'リール / ストーリー' },
+  { name: 'app-scroll-4x5', width: 1080, height: 1350, shot: { width: 432, height: 540 }, label: 'フィード' },
+]
+
+const FRAMES = `${OUT}/video-frames`
+
+/** 1 コマずつ撮りながら画面をひと通り触る。 */
+async function record(page) {
+  let index = 0
+  let last = null
+  const name = (n) => `${FRAMES}/f${String(n).padStart(5, '0')}.png`
+
+  const shot = async () => {
+    const path = name(index++)
+    await page.screenshot({ path })
+    last = path
+  }
+  /** 止まっている時間。撮り直さずに同じコマを並べる。 */
+  const hold = (seconds) => {
+    for (let i = 0; i < Math.round(seconds * FPS); i += 1) copyFileSync(last, name(index++))
+  }
+  /** 指でなぞったようにゆっくり送る。一気に飛ばすと「動画」に見えない。 */
+  const glide = async (distance, seconds) => {
+    const steps = Math.round(seconds * FPS)
+    const from = await page.evaluate(() => window.scrollY)
+    const ease = (t) => (t < 0.5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2)
+    for (let i = 1; i <= steps; i += 1) {
+      await page.evaluate((y) => window.scrollTo(0, y), from + distance * ease(i / steps))
+      await shot()
+    }
+  }
+  const tap = async (locator, settle = 0.7) => {
+    await locator.click()
+    await page.waitForTimeout(260)
+    await shot()
+    hold(settle)
+  }
+  const tab = (label) => tap(page.locator('.tabbar button').filter({ hasText: label }), 0.9)
+
+  await shot()
+  hold(0.6)
+  await tap(page.getByRole('button', { name: 'サンプルで中身を見る' }), 1.2)
+
+  // 一覧を眺める
+  await glide(520, 1.1)
+  hold(0.5)
+  await glide(520, 1.1)
+  hold(0.6)
+  await page.evaluate(() => window.scrollTo(0, 0))
+  await shot()
+  hold(0.5)
+
+  // 1 件開いて、準備チェックから音源まで下りる
+  await tap(page.locator('.contest-list li').first(), 0.9)
+  await glide(700, 1.2)
+  hold(0.7)
+  await glide(700, 1.2)
+  hold(0.8)
+  await tap(page.locator('.detail__bar .icon-btn').first(), 0.6)
+
+  // カレンダー
+  await tab('カレンダー')
+  const marked = page.locator('.cal__day:not(.is-outside)').filter({ has: page.locator('.dot') }).first()
+  if (await marked.count()) await tap(marked, 1.1)
+
+  // 通知
+  await tab('通知')
+  await glide(460, 1.0)
+  hold(1.1)
+
+  await tab('イベント')
+  hold(0.9)
+  return index
 }
 
 const browser = await chromium.launch({ executablePath: CHROMIUM })
-const context = await browser.newContext({
-  ...phone,
-  locale: 'ja-JP',
-  timezoneId: 'Asia/Tokyo',
-  colorScheme: 'dark',
-  recordVideo: { dir: RAW, size: frame },
-})
-const page = await context.newPage()
-await page.route('**/version.json*', (r) =>
-  r.fulfill({ status: 200, contentType: 'application/json', body: '{"version":"0.6.0"}' }),
-)
 
-const wait = (ms) => page.waitForTimeout(ms)
+for (const format of FORMATS) {
+  rmSync(FRAMES, { recursive: true, force: true })
+  mkdirSync(FRAMES, { recursive: true })
 
-/** 指をなぞったようにゆっくり送る。一気に飛ばすと「動画」に見えない。 */
-async function glide(distance, ms = 1100) {
-  const steps = Math.max(12, Math.round(ms / 16))
-  await page.evaluate(
-    async ([distance, steps]) => {
-      const from = window.scrollY
-      const ease = (t) => (t < 0.5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2)
-      for (let i = 1; i <= steps; i += 1) {
-        window.scrollTo(0, from + distance * ease(i / steps))
-        await new Promise((r) => requestAnimationFrame(r))
-      }
-    },
-    [distance, steps],
+  const context = await browser.newContext({
+    viewport: format.shot,
+    // 3 倍で撮って書き出しで縮めると、文字の輪郭が締まる
+    deviceScaleFactor: 3,
+    hasTouch: true,
+    locale: 'ja-JP',
+    timezoneId: 'Asia/Tokyo',
+    colorScheme: 'dark',
+  })
+  const page = await context.newPage()
+  await page.route('**/version.json*', (r) =>
+    r.fulfill({ status: 200, contentType: 'application/json', body: '{"version":"0.6.0"}' }),
   )
-}
+  await page.goto(`file://${OUT}/preview.html`, { waitUntil: 'load' })
+  await page.waitForTimeout(900)
 
-const tab = async (label, hold = 900) => {
-  await page.locator('.tabbar button').filter({ hasText: label }).click()
-  await wait(hold)
-}
+  const frames = await record(page)
+  await context.close()
 
-await page.goto(`file://${OUT}/preview.html`, { waitUntil: 'load' })
-await wait(900)
-await page.getByRole('button', { name: 'サンプルで中身を見る' }).click()
-await wait(1400)
-
-// 一覧を眺める
-await glide(700, 1300)
-await wait(600)
-await glide(700, 1300)
-await wait(700)
-await page.evaluate(() => window.scrollTo(0, 0))
-await wait(700)
-
-// 1 件開いて、入金と音源まで下りる
-await page.locator('.contest-list li').first().click()
-await wait(1200)
-await glide(900, 1400)
-await wait(900)
-await glide(900, 1400)
-await wait(900)
-await page.locator('.detail__bar .icon-btn').first().click()
-await wait(900)
-
-// カレンダーと通知
-await tab('カレンダー', 1500)
-const marked = page.locator('.cal__day:not(.is-outside)').filter({ has: page.locator('.dot') }).first()
-if (await marked.count()) {
-  await marked.click()
-  await wait(1200)
-}
-await tab('通知', 1600)
-await glide(600, 1200)
-await wait(1200)
-await tab('イベント', 1400)
-
-await context.close()
-await browser.close()
-
-const file = readdirSync(RAW).find((f) => f.endsWith('.webm'))
-renameSync(`${RAW}/${file}`, `${OUT}/app-scroll.webm`)
-rmSync(RAW, { recursive: true, force: true })
-
-/*
- * Playwright が書き出すのは WebM。Instagram は受け取ってくれないので MP4 に直す。
- * 端末の画面は 9:19.5 と縦長なので、投稿の比率に合わせて左右（または上下）を地の色で埋める。
- */
-const GROUND = '0x0b0a0d'
-const convert = (name, width, height) => {
   execFileSync(
     'ffmpeg',
-    ['-y', '-loglevel', 'error', '-i', `${OUT}/app-scroll.webm`,
-     '-vf', `scale=${width}:${height}:force_original_aspect_ratio=decrease,pad=${width}:${height}:(ow-iw)/2:(oh-ih)/2:${GROUND}`,
-     '-c:v', 'libx264', '-preset', 'slow', '-crf', '20', '-pix_fmt', 'yuv420p',
-     '-r', '30', '-movflags', '+faststart', '-an', `${OUT}/${name}`],
+    ['-y', '-loglevel', 'error', '-framerate', String(FPS), '-i', `${FRAMES}/f%05d.png`,
+     '-vf', `scale=${format.width}:${format.height}:flags=lanczos`,
+     '-c:v', 'libx264', '-preset', 'slow', '-crf', '19', '-pix_fmt', 'yuv420p',
+     '-r', '30', '-movflags', '+faststart', '-an', `${OUT}/${format.name}.mp4`],
     { stdio: 'inherit' },
   )
-  console.log(`${name}  ${width}×${height}`)
+  rmSync(FRAMES, { recursive: true, force: true })
+  console.log(`${format.name}.mp4  ${format.width}×${format.height}  ${(frames / FPS).toFixed(1)} 秒  ${format.label}`)
 }
 
-convert('app-scroll-9x16.mp4', 1080, 1920)
-convert('app-scroll-4x5.mp4', 1080, 1350)
+await browser.close()
