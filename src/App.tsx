@@ -1,161 +1,259 @@
-import { useCallback, useMemo, useState } from 'react'
-import { DomainSettings } from './components/DomainSettings'
-import { ThreadDetail } from './components/ThreadDetail'
-import { TreeView } from './components/TreeView'
-import { DEFAULT_OUR_DOMAINS, OUR_COMPANY_NAME, SAMPLE_MESSAGES } from './data/sampleMessages'
+import { useEffect, useMemo, useState } from 'react'
+import type { Contest } from './types'
+import { buildSampleContests } from './data/sampleContests'
+import { contestPhase, preparationOf } from './lib/contest'
+import { formatDateJa, parseDateKey, toDateKey } from './lib/date'
+import { createContest, normalizeContest } from './lib/factory'
+import { contestFromShare, decodeShare, readShareToken, type SharePayload } from './lib/share'
 import { useLocalStorage } from './hooks/useLocalStorage'
-import { filterTree } from './lib/filter'
-import { buildMailTree, type MailTree, type ThreadNode } from './lib/tree'
+import { useTheme } from './hooks/useTheme'
+import { useUpdateCheck } from './hooks/useUpdateCheck'
+import { BottomNav, type Tab } from './components/BottomNav'
+import { CalendarView } from './components/CalendarView'
+import { ContestDetail } from './components/ContestDetail'
+import { ContestForm } from './components/ContestForm'
+import { HomeView } from './components/HomeView'
+import { PrivacyView } from './components/PrivacyView'
+import { ReminderView } from './components/ReminderView'
+import { SettingsView } from './components/SettingsView'
+import { ShareImport } from './components/ShareImport'
+import { UpdateBar } from './components/UpdateBar'
+import { Welcome } from './components/Welcome'
 
-/** ツリー内のすべての開閉キー。検索中の自動展開に使う。 */
-function allKeysOf(tree: MailTree): Set<string> {
-  const keys = new Set<string>()
-  for (const domain of tree.domains) {
-    keys.add(`domain:${domain.domain}`)
-    for (const contact of domain.contacts) keys.add(`contact:${contact.address}`)
-  }
-  return keys
+const STORAGE_KEY = 'stage-note:contests:v1'
+const ONBOARDED_KEY = 'stage-note:onboarded:v1'
+const BACKUP_KEY = 'stage-note:last-backup:v1'
+
+/** 取り込んだあと、同じリンクで開き直しても二重に出ないように住所から落とす。 */
+function clearShareHash(): void {
+  const { pathname, search } = window.location
+  window.history.replaceState(null, '', `${pathname}${search}`)
 }
 
-/** 初期表示では、要対応を含むドメインとアドレスだけ開いておく。 */
-function waitingKeysOf(tree: MailTree): Set<string> {
-  const keys = new Set<string>()
-  for (const domain of tree.domains) {
-    if (domain.waitingCount === 0) continue
-    keys.add(`domain:${domain.domain}`)
-    for (const contact of domain.contacts) {
-      if (contact.waitingCount > 0) keys.add(`contact:${contact.address}`)
-    }
-  }
-  return keys
+const TAB_TITLES: Record<Tab, string> = {
+  home: 'コンテスト',
+  calendar: 'カレンダー',
+  reminder: 'リマインダー',
+  settings: '設定',
 }
+
+/** 全画面で開く子画面。 */
+type Screen =
+  | { kind: 'list' }
+  | { kind: 'detail'; id: string }
+  | { kind: 'form'; draft: Contest; isNew: boolean }
+  | { kind: 'privacy' }
 
 export default function App() {
-  const [ourDomains, setOurDomains] = useLocalStorage<string[]>(
-    'mail-tree:our-domains',
-    DEFAULT_OUR_DOMAINS,
-  )
-  const [query, setQuery] = useState('')
-  const [onlyWaiting, setOnlyWaiting] = useState(false)
-  const [selectedThreadId, setSelectedThreadId] = useState<string | null>(null)
+  // 初回は空で始める。サンプルを入れるかどうかは案内画面で選んでもらう。
+  const [stored, setStored] = useLocalStorage<Contest[]>(STORAGE_KEY, [])
+  const contests = useMemo(() => stored.map(normalizeContest), [stored])
 
-  const tree = useMemo(() => buildMailTree(SAMPLE_MESSAGES, ourDomains), [ourDomains])
-  const filtered = useMemo(
-    () => filterTree(tree, { query, onlyWaiting }),
-    [tree, query, onlyWaiting],
-  )
+  const [onboarded, setOnboarded] = useLocalStorage<boolean>(ONBOARDED_KEY, false)
+  const [lastBackupAt, setLastBackupAt] = useLocalStorage<string | null>(BACKUP_KEY, null)
 
-  const [manualExpanded, setManualExpanded] = useState<Set<string>>(() => waitingKeysOf(tree))
-  const searching = query.trim() !== '' || onlyWaiting
-  const expandedKeys = useMemo(
-    () => (searching ? allKeysOf(filtered) : manualExpanded),
-    [searching, filtered, manualExpanded],
-  )
+  const { preference: theme, setPreference: setTheme } = useTheme()
+  const update = useUpdateCheck(__APP_VERSION__)
+  const [tab, setTab] = useState<Tab>('home')
+  // カレンダーで選んでいる日。＋ ボタンはこの日で新規追加する。
+  // null のあいだは「今日」に追従させたいので、そのつど組み立てる。
+  const [pickedDay, setPickedDay] = useState<string | null>(null)
+  const [screen, setScreen] = useState<Screen>({ kind: 'list' })
 
-  const toggle = useCallback((key: string) => {
-    setManualExpanded((current) => {
-      const next = new Set(current)
-      if (next.has(key)) next.delete(key)
-      else next.add(key)
-      return next
+  // 共有リンク（#c=...）で開かれたとき。勝手に足さず、確認画面を挟む。
+  const [incoming, setIncoming] = useState<SharePayload | null>(null)
+  useEffect(() => {
+    const token = readShareToken(window.location.hash)
+    if (!token) return
+    let alive = true
+    void decodeShare(token).then((payload) => {
+      if (alive && payload) setIncoming(payload)
+      clearShareHash()
     })
+    return () => {
+      alive = false
+    }
   }, [])
 
-  const selectedThread: ThreadNode | null = useMemo(() => {
-    if (!selectedThreadId) return null
-    for (const domain of tree.domains) {
-      for (const contact of domain.contacts) {
-        const found = contact.threads.find((thread) => thread.threadId === selectedThreadId)
-        if (found) return found
-      }
-    }
-    return null
-  }, [tree, selectedThreadId])
+  // 「あと何日」の表示が日付をまたいでもズレないように、1 分ごとに現在時刻を取り直す。
+  const [now, setNow] = useState(() => new Date())
+  useEffect(() => {
+    const timer = window.setInterval(() => setNow(new Date()), 60_000)
+    return () => window.clearInterval(timer)
+  }, [])
 
-  const { waitingCount, answeredCount, threadCount } = tree.summary
-  const answeredRate = threadCount === 0 ? 0 : Math.round((answeredCount / threadCount) * 100)
+  // 画面を切り替えたら先頭から見せる（前の画面のスクロール位置が残らないように）。
+  const screenKey =
+    screen.kind === 'detail'
+      ? `detail:${screen.id}`
+      : screen.kind === 'form'
+        ? `form:${screen.draft.id}`
+        : screen.kind === 'privacy'
+          ? 'privacy'
+          : `list:${tab}`
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [screenKey])
+
+  const alertCount = useMemo(
+    () =>
+      contests
+        .filter((contest) => contestPhase(contest, now) !== 'past')
+        .reduce((sum, contest) => sum + preparationOf(contest, now).alerts.length, 0),
+    [contests, now],
+  )
+
+  const selectedDay = pickedDay ?? toDateKey(now)
+
+  const openDetail = (id: string) => setScreen({ kind: 'detail', id })
+  const backToList = () => setScreen({ kind: 'list' })
+
+  const upsert = (contest: Contest) => {
+    setStored((prev) => {
+      const exists = prev.some((item) => item.id === contest.id)
+      return exists ? prev.map((item) => (item.id === contest.id ? contest : item)) : [...prev, contest]
+    })
+  }
+
+  const remove = (id: string) => {
+    setStored((prev) => prev.filter((item) => item.id !== id))
+    backToList()
+  }
+
+  // 共有された大会は、初回の案内より先に出す（リンクで来た人を案内で止めない）。
+  if (incoming) {
+    return (
+      <ShareImport
+        payload={incoming}
+        onImport={() => {
+          upsert(contestFromShare(incoming, now))
+          setOnboarded(true)
+          setIncoming(null)
+          setTab('home')
+        }}
+        onCancel={() => setIncoming(null)}
+      />
+    )
+  }
+
+  if (!onboarded) {
+    return (
+      <Welcome
+        onStart={() => {
+          setOnboarded(true)
+          setScreen({ kind: 'form', draft: createContest(now), isNew: true })
+        }}
+        onSample={() => {
+          setStored(buildSampleContests())
+          setOnboarded(true)
+        }}
+      />
+    )
+  }
+
+  if (screen.kind === 'privacy') return <PrivacyView onClose={backToList} />
+
+  if (screen.kind === 'form') {
+    return (
+      <ContestForm
+        initial={screen.draft}
+        isNew={screen.isNew}
+        onCancel={() => (screen.isNew ? backToList() : openDetail(screen.draft.id))}
+        onSave={(contest) => {
+          upsert(contest)
+          openDetail(contest.id)
+        }}
+      />
+    )
+  }
+
+  if (screen.kind === 'detail') {
+    const contest = contests.find((item) => item.id === screen.id)
+    if (!contest) return <ContestNotFound onBack={backToList} />
+    return (
+      <ContestDetail
+        contest={contest}
+        now={now}
+        onChange={upsert}
+        onEdit={() => setScreen({ kind: 'form', draft: contest, isNew: false })}
+        onDelete={() => {
+          if (window.confirm(`「${contest.name}」を削除します。よろしいですか？`)) remove(contest.id)
+        }}
+        onClose={backToList}
+      />
+    )
+  }
 
   return (
     <div className="app">
-      <header className="app__header">
-        <div>
-          <h1 className="app__title">メール対応ツリー管理</h1>
-          <p className="app__subtitle">
-            {OUR_COMPANY_NAME} ／ お客様ごとに「自社の誰かが最後に返せているか」を確認できます
-          </p>
-        </div>
-
-        <div className="stats">
-          <div className="stat stat--waiting">
-            <span className="stat__value">{waitingCount}</span>
-            <span className="stat__label">要対応</span>
-          </div>
-          <div className="stat stat--answered">
-            <span className="stat__value">{answeredCount}</span>
-            <span className="stat__label">対応済み</span>
-          </div>
-          <div className="stat">
-            <span className="stat__value">{answeredRate}%</span>
-            <span className="stat__label">対応率</span>
-          </div>
-        </div>
+      <header className="appbar">
+        <h1 className="appbar__title">{TAB_TITLES[tab]}</h1>
+        <span className="appbar__brand">Stage Note</span>
       </header>
 
-      <DomainSettings ourDomains={ourDomains} onChange={setOurDomains} />
+      <UpdateBar update={update} />
 
-      {ourDomains.length === 0 ? (
-        <p className="warning">
-          自社ドメインが未設定のため、すべてのスレッドが「要対応」と判定されています。
-        </p>
-      ) : null}
-
-      <div className="toolbar">
-        <input
-          type="search"
-          className="toolbar__search"
-          value={query}
-          placeholder="件名・本文・アドレス・氏名で検索"
-          onChange={(event) => setQuery(event.target.value)}
-          aria-label="検索"
-        />
-        <label className="toolbar__toggle">
-          <input
-            type="checkbox"
-            checked={onlyWaiting}
-            onChange={(event) => setOnlyWaiting(event.target.checked)}
+      <main className="app__main">
+        {tab === 'home' && <HomeView contests={contests} now={now} onOpen={openDetail} />}
+        {tab === 'calendar' && (
+          <CalendarView
+            contests={contests}
+            now={now}
+            selected={selectedDay}
+            onSelect={setPickedDay}
+            onOpen={openDetail}
           />
-          要対応のみ表示
-        </label>
-        <div className="toolbar__spacer" />
-        <button type="button" onClick={() => setManualExpanded(allKeysOf(tree))} disabled={searching}>
-          すべて展開
-        </button>
-        <button type="button" onClick={() => setManualExpanded(new Set())} disabled={searching}>
-          すべて閉じる
-        </button>
-      </div>
-
-      <main className="layout">
-        <section className="panel panel--tree" aria-label="お客様ツリー">
-          <div className="panel__head">
-            <span>
-              {filtered.summary.domainCount}ドメイン ／ {filtered.summary.contactCount}アドレス ／{' '}
-              {filtered.summary.threadCount}スレッド
-            </span>
-          </div>
-          <TreeView
-            tree={filtered}
-            expandedKeys={expandedKeys}
-            onToggle={toggle}
-            selectedThreadId={selectedThreadId}
-            onSelectThread={(thread) => setSelectedThreadId(thread.threadId)}
+        )}
+        {tab === 'reminder' && <ReminderView contests={contests} now={now} onOpen={openDetail} />}
+        {tab === 'settings' && (
+          <SettingsView
+            contests={contests}
+            now={now}
+            theme={theme}
+            lastBackupAt={lastBackupAt}
+            onThemeChange={setTheme}
+            onRestore={setStored}
+            onBackedUp={setLastBackupAt}
+            onLoadSample={() => setStored(buildSampleContests())}
+            onClear={() => setStored([])}
+            update={update}
+            onOpenPrivacy={() => setScreen({ kind: 'privacy' })}
           />
-        </section>
-
-        <section className="panel panel--detail" aria-label="スレッド詳細">
-          <ThreadDetail thread={selectedThread} ourDomains={ourDomains} />
-        </section>
+        )}
       </main>
+
+      {(tab === 'home' || tab === 'calendar') && (
+        <button
+          type="button"
+          className="fab"
+          aria-label={
+            tab === 'calendar' ? `${formatDateJa(selectedDay)} にコンテストを追加` : 'コンテストを追加'
+          }
+          onClick={() =>
+            setScreen({
+              // カレンダーから足すときは、選んでいる日をそのまま初期値にする。
+              draft: createContest(tab === 'calendar' ? parseDateKey(selectedDay) : now),
+              isNew: true,
+              kind: 'form',
+            })
+          }
+        >
+          ＋
+        </button>
+      )}
+
+      <BottomNav current={tab} badge={alertCount} onChange={setTab} />
+    </div>
+  )
+}
+
+function ContestNotFound({ onBack }: { onBack: () => void }) {
+  return (
+    <div className="view">
+      <p className="hint">このコンテストは見つかりませんでした。</p>
+      <button type="button" className="btn btn--primary" onClick={onBack}>
+        一覧に戻る
+      </button>
     </div>
   )
 }

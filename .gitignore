@@ -7,3 +7,13 @@ dist/
 coverage/
 *.tsbuildinfo
 
+
+# Cloudflare Worker
+worker/.wrangler/
+worker/.dev.vars
+.env
+.env.*
+!.env.example
+
+# 広告素材の書き出し先
+marketing/out/

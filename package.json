@@ -1,25 +1,35 @@
 {
-  "name": "mail-tree-manager",
+  "name": "dance-contest-manager",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.6.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "vapid": "node scripts/generate-vapid.mjs",
+    "worker:dev": "wrangler dev --config worker/wrangler.toml",
+    "worker:deploy": "wrangler deploy --config worker/wrangler.toml",
+    "worker:schema": "wrangler d1 execute stage-note --config worker/wrangler.toml --file=worker/schema.sql --remote",
+    "pages:deploy": "npm run build && wrangler pages deploy dist --project-name stage-note"
   },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@types/node": "^26.2.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
+    "http_ece": "^1.2.1",
+    "jsqr": "^1.4.0",
+    "qrcode": "^1.5.4",
     "typescript": "^5.6.3",
     "vite": "^6.0.7",
-    "vitest": "^3.2.7"
+    "vitest": "^3.2.7",
+    "wrangler": "^4.123.0"
   }
 }
